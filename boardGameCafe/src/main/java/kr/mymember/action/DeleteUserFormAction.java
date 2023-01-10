@@ -17,7 +17,7 @@ public class DeleteUserFormAction implements Action{
 		Integer user_num = 
 				(Integer)session.getAttribute("user_num");
 		if(user_num==null) {//로그인이 되지 않은 경우
-			return "redirect:/mymember/loginForm.jsp";
+			return "redirect:/member/loginForm.jsp";
 		}
 		
 		//로그인이 된 경우

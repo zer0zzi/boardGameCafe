@@ -21,7 +21,7 @@ public class MyPageAction implements Action{
 		Integer user_num = 
 				 (Integer)session.getAttribute("user_num");
 		if(user_num == null) {//로그인이 되지 않은 경우
-			return "redirect:/mymember/loginForm.do";//로그인 폼 경로로 후에 교체
+			return "redirect:/member/loginForm.do";//로그인 폼 경로로 후에 교체
 		}
 		
 		//로그인이 된 경우
