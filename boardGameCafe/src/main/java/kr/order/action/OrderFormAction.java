@@ -14,18 +14,18 @@ public class OrderFormAction implements Action{
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		/*
+		
 		HttpSession session = request.getSession();
 		Integer user_num = (Integer)session.getAttribute("user_num");
 		if(user_num == null) {//로그인 되지 않은 경우
 			return "redirect:/member/loginForm.do";
 		}
 		//로그인 된 경우
-		
+		/*
 		//장바구니를 통해서 정보를 가지고 와야하므로 get이 아닌 post 방식으로 연결해야 하므로 post방식 접근만 허용
 		if(request.getMethod().toUpperCase().equals("GET")) {
 			//아직 없는 영역
-			return "redirect:/item/itemList.do";
+			return "redirect:/game/gameList.do";
 		}
 		
 		CartDAO dao = CartDAO.getInstance();
@@ -35,11 +35,12 @@ public class OrderFormAction implements Action{
 			request.setAttribute("notice_url", request.getContextPath()+"/item/itemList.do");
 			return "/WEB-INF/views/common/alert_singleView.jsp";
 		}
+		
 		//장바구니에 담겨있는 상품 정보 출력
 		List<CartVO> cartList = dao.getListCart(user_num);
 		for(CartVO cart : cartList) {
-			ItemDAO itemDao = ItemDAO.getInstance();
-			ItemVO item = itemDao.getItem(cart.getItem_num());
+			ProductDAO itemDao = ProductDAO.getInstance();
+			ProductVO item = itemDao.getItem(cart.getItem_num());
 			
 			if(item.getStatus()==1) {//상품 미표시
 				request.setAttribute("notice_msg", "["+item.getName()+"]상품판매 중지");
@@ -55,7 +56,6 @@ public class OrderFormAction implements Action{
 		request.setAttribute("list", cartList);
 		request.setAttribute("all_total", all_total);
 		*/
-		
 		return "/WEB-INF/views/order/user_orderForm.jsp";
 	}
 
