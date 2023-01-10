@@ -64,7 +64,7 @@ li a:hover{
 			<ul id="content-text">
 				<li><a href="${pageContext.request.contextPath}/main/intro.do">CAFE</a></li>
 				<li><a href="${pageContext.request.contextPath}/game/gameList.do">BOARD GAME</a></li>
-				<li><a href="${pageContext.request.contextPath}/reserve/reserve.do">RESERVATION</a></li>
+				<li><a href="${pageContext.request.contextPath}/reserve/reserveMain.do">RESERVATION</a></li>
 				<li><a href="${pageContext.request.contextPath}/notice/noticeList.do">NOTICE</a></li>
 				<li><a href="${pageContext.request.contextPath}/inquiry/inquiryList.do">QUESTIONS</a></li>
 			</ul>
