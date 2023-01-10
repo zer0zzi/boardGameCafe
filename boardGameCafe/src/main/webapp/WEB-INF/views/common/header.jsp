@@ -148,7 +148,7 @@ body{
   <div class="overlay-content">
     <a href="${pageContext.request.contextPath}/main/intro.do">카페소개</a>
     <a href="${pageContext.request.contextPath}/game/gameList.do">게임소개</a>
-    <a href="${pageContext.request.contextPath}/reserve/reserve.do">예약</a>
+    <a href="${pageContext.request.contextPath}/reserve/reserveMain.do">예약</a>
     <a href="${pageContext.request.contextPath}/notice/noticeList.do">공지</a>
     <a href="${pageContext.request.contextPath}/inquiry/inquiryList.do">문의</a>
   </div>

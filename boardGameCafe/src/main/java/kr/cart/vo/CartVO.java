@@ -2,7 +2,7 @@ package kr.cart.vo;
 
 import java.util.Date;
 
-//import kr.product.vo.ProductVO;
+import kr.list.vo.ListVO;
 
 public class CartVO {
 	private int cart_num;
@@ -41,13 +41,14 @@ public class CartVO {
 		this.sub_total = sub_total;
 	}
 	
-	//private ProductVO productVo;
+	private ListVO listVo;
 
-	
-
-	/*
-	 * public ProductVO getProductVO() { return ProductVO; }
-	 * 
-	 * public void setItemVo(ProductVO productVo) { this.ProductVO = productVo; }
-	 */
+	 public ListVO getListVO() { 
+		 return listVo; 
+	}
+	 
+	 public void setListVo(ListVO listVo) { 
+		 this.listVo = listVo;
+	}
+	 
 }
