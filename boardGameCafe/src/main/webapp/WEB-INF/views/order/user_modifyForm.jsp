@@ -205,7 +205,7 @@ $(document).ready(function(){
 							let choice = confirm('주문을 취소하시겠습니까?');
 							if(choice){
 								/* replace로 하면 뒤로가기 불가? */
-								location.replace('orderCancel.do?order_num=${order.order_num}');
+								location.replace('orderCancel.do?order_main_num=${order.order_main_num}');
 							}
 						}
 				</script>

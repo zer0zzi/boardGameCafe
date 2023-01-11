@@ -21,18 +21,18 @@ public class ModifyFormAction implements Action{
 			return "redirect:/member/loginForm.do";
 		}
 		
-		int order_num = Integer.parseInt(request.getParameter("order_num"));
+		int order_main_num = Integer.parseInt(request.getParameter("order_main_num"));
 		
 		OrderDAO dao = OrderDAO.getInstance();
-		/*OrderVO order = dao.getOrder(order_main_num);
+		OrderVO order = dao.getOrder(order_main_num);
 		
-		List<OrderDetailVO> detailList = dao.getListOrderDetail(order_num); 
+		List<OrderDetailVO> detailList = dao.getListOrderDetail(order_main_num); 
 		
 		request.setAttribute("order", order);
-		 request.setAttribute("detailList", detailList); */
+		 request.setAttribute("detailList", detailList);
 		
 		
-		return null;
+		return "/WEB-INF/views/order/user_modifyForm.jsp";
 	}
 
 }

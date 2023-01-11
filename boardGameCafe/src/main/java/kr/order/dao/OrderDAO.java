@@ -3,6 +3,7 @@ package kr.order.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 
 import kr.order.vo.OrderDetailVO;
@@ -134,9 +135,49 @@ public class OrderDAO {
 	//사용자 - 전체 글 개수/검색글 개수
 	//사용자 - 목록/검색글 목록
 	//개별 상품 목록
+	public List<OrderDetailVO> getListOrderDetail(int order_main_num)throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<OrderDetailVO> list = null;
+		String sql = null;
+		
+		try {
+			//커넥션풀로부터 커넥션 할당
+			conn = DBUtil.getConnection();
+			//SQL문 작성
+			sql = "SELECT * FROM order_detail WHERE "
+				+ "order_main_num = ? ORDER BY pro_num DESC";
+			//PreparedStatement 객체 생성
+			pstmt = conn.prepareStatement(sql);
+			//?에 데이터 바인딩
+			pstmt.setInt(1, order_main_num);
+			//SQL문 실행
+			rs = pstmt.executeQuery();
+			list = new ArrayList<OrderDetailVO>();
+			while(rs.next()) {
+				OrderDetailVO detail = new OrderDetailVO();
+				detail.setPro_num(rs.getInt("pro_num"));
+				detail.setPro_name(rs.getString("pro_name"));
+				detail.setPro_price(rs.getInt("pro_price"));
+				detail.setPro_total(rs.getInt("pro_total"));
+				detail.setOrder_main_count(rs.getInt("order_main_count"));
+				detail.setOrder_main_num(rs.getInt("order_main_num"));
+			
+				list.add(detail);
+			}
+			
+		} catch (Exception e) {
+			throw new Exception(e);
+		}finally {
+			DBUtil.executeClose(rs, pstmt, conn);
+		}
+		return list;
+	}
+	
+	
 	//주문 삭제(삭제 시 재고를 원상 복귀시키지 않음, 주문 취소일 때 원상 복귀)
 	//관리자/주문자 주문 상세
-	/*
 	public OrderVO getOrder(int order_main_num)throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -160,7 +201,7 @@ public class OrderDAO {
 				order.setOrder_main_num(rs.getInt("order_main_num"));
 				order.setOrder_main_name(rs.getString("order_main_name"));
 				order.setOrder_main_total(rs.getInt("order_main_total"));
-				order.setPayment(rs.getInt("patment"));
+				order.setPayment(rs.getInt("payment"));
 				order.setStatus(rs.getInt("status"));
 				order.setReceive_name(rs.getString("receive_name"));
 				order.setReceive_zipcode(rs.getString("receive_zipcode"));
@@ -180,11 +221,43 @@ public class OrderDAO {
 		}
 		return order;
 	}
-	*/
 	
 	//주문 수정 
+	public void updateOrder(OrderVO order)throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = null;
+		
+		try {
+			//커넥션풀로부터 커넥션 할당
+			conn = DBUtil.getConnection();
+			//SQL문 작성
+			sql = "UPDATE order_main SET status=?,receive_name=?,"
+				+ "receive_zipcode=?,receive_address1=?,receive_address2=?,"
+				+ "receive_phone=?,notice=?,modify_date=SYSDATE WHERE "
+				+ "order_num=?";
+			//PreparedStatement 객체 생성
+			pstmt = conn.prepareStatement(sql);
+			//?에 데이터 바인딩
+			pstmt.setInt(1, order.getStatus());
+			pstmt.setString(2, order.getReceive_name());
+			pstmt.setString(3, order.getReceive_zipcode());
+			pstmt.setString(4, order.getReceive_address1());
+			pstmt.setString(5, order.getReceive_address2());
+			pstmt.setString(6, order.getReceive_phone());
+			pstmt.setString(7, order.getNotice());
+			pstmt.setInt(8, order.getOrder_main_num());
+			//SQL문 실행
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			throw new Exception(e);
+		}finally {
+			DBUtil.executeClose(null, pstmt, conn);
+		}
+	}
 	
-	
+	//사용자 주문 취소 
 	
 	
 	

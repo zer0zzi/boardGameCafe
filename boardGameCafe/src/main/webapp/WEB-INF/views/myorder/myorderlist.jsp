@@ -26,6 +26,7 @@
 			<th>구매목록</th>
 			<th>총가격</th>
 			<th class="ordertable-4">구매날짜</th>
+			<th>수정 및 취소</th>
 		</tr>
 		<c:forEach var="myorder" items="${list}">
 		<tr>
@@ -33,6 +34,7 @@
 			<td><a href="${pageContext.request.contextPath}/order/orderDetail.do?order_main_num=${myorder.order_main_num}">${myorder.order_main_name}</a></td>
 			<td>${myorder.order_main_total}</td>
 			<td>${myorder.order_main_date}</td>
+			<td><a href="${pageContext.request.contextPath}/order/orderModifyForm.do?order_main_num=${myorder.order_main_num}"><img src="${pageContext.request.contextPath}/images/soon/modify.png" width="10%"></a></td>
 		</tr>
 		</c:forEach>
 	</table>
