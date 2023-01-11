@@ -9,6 +9,8 @@ import javax.servlet.http.HttpSession;
 import kr.cart.dao.CartDAO;
 import kr.cart.vo.CartVO;
 import kr.controller.Action;
+import kr.list.dao.ListDAO;
+import kr.list.vo.ListVO;
 
 public class OrderFormAction implements Action{
 
@@ -27,7 +29,7 @@ public class OrderFormAction implements Action{
 			//아직 없는 영역
 			return "redirect:/game/gameList.do";
 		}
-		
+		*/
 		CartDAO dao = CartDAO.getInstance();
 		int all_total = dao.getTotalByMem_num(user_num);
 		if(all_total<=0) {
@@ -39,23 +41,23 @@ public class OrderFormAction implements Action{
 		//장바구니에 담겨있는 상품 정보 출력
 		List<CartVO> cartList = dao.getListCart(user_num);
 		for(CartVO cart : cartList) {
-			ProductDAO itemDao = ProductDAO.getInstance();
-			ProductVO item = itemDao.getItem(cart.getItem_num());
+			ListDAO listDao = ListDAO.getInstance();
+			ListVO list = listDao.getList(cart.getPro_num());
 			
-			if(item.getStatus()==1) {//상품 미표시
-				request.setAttribute("notice_msg", "["+item.getName()+"]상품판매 중지");
+			if(list.getPro_status() == 1) {//상품 미표시
+				request.setAttribute("notice_msg", "["+list.getPro_name()+"]상품판매 중지");
 				request.setAttribute("notice_url", request.getContextPath()+"/cart/list.do");
 				return "/WEB-INF/views/common/alert_singleView.jsp";
 			}
-			if(item.getQuantity() < cart.getOrder_quantity()) {//상품 재고 수량 부족
-				request.setAttribute("notice_msg", "["+item.getName()+"]재고수량 부족으로 주문 불가");
+			if(list.getPro_count() < cart.getCart_count()) {//상품 재고 수량 부족
+				request.setAttribute("notice_msg", "["+list.getPro_name()+"]재고수량 부족으로 주문 불가");
 				request.setAttribute("notice_url", request.getContextPath()+"/cart/list.do");
 				return "/WEB-INF/views/common/alert_singleView.jsp";
 			}
 		}
 		request.setAttribute("list", cartList);
 		request.setAttribute("all_total", all_total);
-		*/
+		
 		return "/WEB-INF/views/order/user_orderForm.jsp";
 	}
 

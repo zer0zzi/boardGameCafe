@@ -24,16 +24,13 @@ li a:hover{
 	text-decoration:none;
 	color:#a8a347;
 }
-
 .content-photo{
 	height:1070px;
 	align:center;
-	background-image: url('../images/soon/background.jpg');
 	background-repeat:no-repeat;;
 	background-size:100%; 
 	background-attachment:scroll;
 }
-
 .content ul{
 	list-style:none;
 }
@@ -47,7 +44,6 @@ li a:hover{
 	width:100%;
 	height:600px;
 }
-
 #content-text{
 	width:100%;
 	height:100%;

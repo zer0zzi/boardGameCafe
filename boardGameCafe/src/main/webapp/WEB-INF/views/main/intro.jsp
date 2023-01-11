@@ -4,11 +4,6 @@
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-@import
-	url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap')
-	;
-</style>
-<style>
 * {
 	box-sizing: border-box;
 }
@@ -18,24 +13,27 @@ body {
 	border: 1px solid;
 	font-family: Arial;
 	margin: 0 auto;
-	color: #c0293d
+	background-color: #c3f9f3;
 }
 .page-content {
-	width: 100%;
-	height: 1750px;
+	width:800px;
+	min-height: 1300px;
 	align: center;
-	background-image: url('../images/soon/background3.jpg');
 	background-position: center;
+	padding:10px 20px;
+	margin:0 auto;
+	border:1px solid #FFF;
+	border-radius:5px;
+	background-color: #FFF;
 }
 h2 {
 	text-align: center; 
-	font-family : 'Press Start 2P', cursive;
-	color: #ebeadf;
+	color: #000000;
 	margin-top: 0;
 }
 h3{
 	text-align: center;
-	color: #FFF;
+	color: #000000;
 }
 /* 지도 */
 #map {
@@ -49,16 +47,16 @@ h3{
 	margin: 0 auto;
 }
 
+/* -------------------------------------------------------- */
+
 /* Hide the images by default */
 .mySlides {
 	display: none;
 }
-
 /* Add a pointer when hovering over the thumbnail images */
 .cursor {
 	cursor: pointer;
 }
-
 /* Number text (1/3 etc) */
 .numbertext {
 	color: #f2f2f2;
@@ -67,7 +65,6 @@ h3{
 	position: absolute;
 	top: 0;
 }
-
 /* Container for image text */
 .caption-container {
 	text-align: center;
@@ -75,24 +72,20 @@ h3{
 	padding: 2px 16px;
 	color: white;
 }
-
 .row:after {
 	content: "";
 	display: table;
 	clear: both;
 }
-
 /* Six columns side by side */
 .column {
 	float: left;
 	width: 16.66%;
 }
-
 /* Add a transparency effect for thumnbail images */
 .demo {
 	opacity: 0.6;
 }
-
 .active, .demo:hover {
 	opacity: 1;
 }
@@ -190,36 +183,28 @@ h3{
 				level : 3
 			// 지도의 확대 레벨
 			};
-
 			var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-
 			// 마커가 표시될 위치입니다
 			var markerPosition = new kakao.maps.LatLng(37.499190489487255,
 					127.03332488938678);
-
 			// 마커를 생성합니다
 			var marker = new kakao.maps.Marker({
 				position : markerPosition
 			});
-
 			// 마커가 지도 위에 표시되도록 설정합니다
 			marker.setMap(map);
-
 			// 아래 코드는 지도 위의 마커를 제거하는 코드입니다
 			// marker.setMap(null);
 		</script>
 		<script>
 			let slideIndex = 1;
 			showSlides(slideIndex);
-
 			function plusSlides(n) {
 				showSlides(slideIndex += n);
 			}
-
 			function currentSlide(n) {
 				showSlides(slideIndex = n);
 			}
-
 			function showSlides(n) {
 				let i;
 				let slides = document.getElementsByClassName("mySlides");
@@ -250,5 +235,4 @@ h3{
 	</div>
 </body>
 </html>
-
 

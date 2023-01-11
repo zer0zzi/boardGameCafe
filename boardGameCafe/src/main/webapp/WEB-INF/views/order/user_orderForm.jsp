@@ -78,27 +78,26 @@ $(document).ready(function(){
 				</tr>
 				<c:forEach var="cart" items="${list}">
 				<tr>
-					<!-- 용혁 슬기 파트에서 수정 
 					<td>
-						<a href="${pageContext.request.contextPath}/product/detail.do?product_num=${cart.product_num}"> 
-						<img src="${pageContext.request.contextPath}/upload/${cart.itemVo.photo1}" width="80">
-						${cart.itemVo.name}
+						<a href="${pageContext.request.contextPath}/game/gameDetail.do?pro_num=${cart.pro_num}"> 
+						<img src="${pageContext.request.contextPath}/upload/${cart.listVo.picture}" width="80">
+						${cart.listVo.pro_name}
+						</a>
 					</td>
 					<td class="align-center">
-						<fmt:formatNumber value="${cart.order_quantity}"/>
+						<fmt:formatNumber value="${cart.cart_count}"/>
 					</td>
 					<td class="align-center">
-						<fmt:formatNumber value="${cart.itemVo.price}"/>원
+						<fmt:formatNumber value="${cart.listVo.pro_price}"/>원
 					</td>
 					<td class="align-center">
 						<fmt:formatNumber value="${cart.sub_total}"/>원
 					</td>
-					-->
 				</tr>
 				</c:forEach>
 				<tr>
 					<td colspan="3" class="align-right"><b>총구매금액</b></td>
-					<!-- 용혁 <td class="align-center"><fmt:formatNumber value="${all_total}"/>원</td> -->
+					<td class="align-center"><fmt:formatNumber value="${all_total}"/>원</td>
 				</tr>
 			</table>
 			
