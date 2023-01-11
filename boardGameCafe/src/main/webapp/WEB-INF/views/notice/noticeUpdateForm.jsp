@@ -28,6 +28,12 @@
 </script>
 </head>
 <body>
+<c:if test="${user_auth != 9}">
+	<script>
+		alert('관리자만 접근할 수 있습니다');
+		location.href = 'noticeList.do';
+	</script>
+</c:if>
 <div class="page-main">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<div class="content-main">
@@ -37,7 +43,7 @@
 			<ul>
 				<li>
 					<label for="noti_title">제목</label>
-					<input type="text" name="noti_title" id="noti_title" value="${notice.noti_title}" maxlength="20">
+					<input type="text" name="noti_title" id="noti_title" value="${notice.noti_title}" maxlength="50">
 				</li>
 				<li>
 					<label for="noti_content">내용</label>

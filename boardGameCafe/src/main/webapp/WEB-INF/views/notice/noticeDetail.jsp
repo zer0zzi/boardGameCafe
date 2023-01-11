@@ -26,8 +26,10 @@
 		<hr size="1" noshade="noshade" width="100%">
 	</div>
 	<div class="align-right">
-		<input type="button" value="수정" onclick="location.href='noticeUpdateForm.do?noti_num=${notice.noti_num}'">
-		<input type="button" value="삭제" onclick="location.href='noticeDelete.do?noti_num=${notice.noti_num}'">
+		<c:if test="${!empty user_num && user_auth == 9}">
+			<input type="button" value="수정" onclick="location.href='noticeUpdateForm.do?noti_num=${notice.noti_num}'">
+			<input type="button" value="삭제" onclick="location.href='noticeDelete.do?noti_num=${notice.noti_num}'">
+		</c:if>
 		<input type="button" value="목록" onclick="location.href='noticeList.do'">
 	</div>
 </div>

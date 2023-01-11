@@ -13,7 +13,8 @@
 body{
 	width: 1000px;
 	margin: 0 auto;
-	background: #9673cd;
+	/*background: #9673cd;*/
+	background: #fff;
 }
 
 a:link{
@@ -35,7 +36,7 @@ a:hover{
 .page-main{
 	background: #FFFFFF;
 	margin: 40px 0;
-	box-shadow: 10px 10px rgba(73, 73, 73, 1.0);
+	/*box-shadow: 10px 10px rgba(73, 73, 73, 1.0);*/
 	min-height: 650px;
 }
 

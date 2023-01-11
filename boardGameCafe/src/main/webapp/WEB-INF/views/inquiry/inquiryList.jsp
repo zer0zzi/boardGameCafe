@@ -4,22 +4,23 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>공지사항</title>
+<title>문의사항</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style_hyem.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 <div class="page-main">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
-	<h2>공지사항</h2>
-	<c:if test="${!empty user_num && user_auth == 9}">
+	<h2>문의사항</h2>
+	<c:if test="${!empty user_num && user_auth == 2}">
 		<div class="align-right">
-			<input type="button" value="글쓰기" onclick="location.href='noticeWriteForm.do'">
+			<input type="button" value="글쓰기" onclick="location.href='inquiryWriteForm.do'">
 		</div>
 	</c:if>
+	
 	<c:if test="${count == 0}">
 		<div class="result-display">
-			등록된 공지가 없습니다.
+			등록된 문의가 없습니다.
 		</div>
 	</c:if>
 	
@@ -27,16 +28,25 @@
 		<table>
 			<tr>
 				<th>글 번호</th>
+				<th></th>
 				<th>제목</th>
 				<th>작성일</th>
 				<th>조회수</th>
 			</tr>
-			<c:forEach var="notice" items="${list}">
+			<c:forEach var="inquiry" items="${list}">
 				<tr>
-					<td>${notice.noti_num}</td>
-					<td><a href="noticeDetail.do?noti_num=${notice.noti_num}">${notice.noti_title}</a></td>
-					<td>${notice.noti_reg_date}</td>
-					<td>${notice.noti_hit}</td>
+					<td>${inquiry.inqu_num}</td>
+					<td>${inquiry.inqu_cate}</td>
+					<td>
+						<a href="inquiryDetail.do?inqu_num=${inquiry.inqu_num}">
+							${inquiry.inqu_title}
+							<c:if test="${inquiry.inqu_check == 1}">
+								<img src="${pageContext.request.contextPath}/images/hyem/lock.png" width="10">
+							</c:if>
+						</a>
+					</td>
+					<td>${inquiry.inqu_reg_date}</td>
+					<td>${inquiry.inqu_hit}</td>
 				</tr>
 			</c:forEach>
 		</table>

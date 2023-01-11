@@ -13,6 +13,7 @@ create sequence notice_seq;
 create table inquiry(
 	inqu_num number,
 	mem_num number not null,
+	inqu_cate varchar2(20) not null,
 	inqu_title varchar2(20) not null,
 	inqu_content clob not null,
 	inqu_file varchar2(50),
@@ -31,8 +32,8 @@ create table inquiry_rpl(
 	inqu_num number not null,
 	inqu_rpl_content clob not null,
 	inqu_rpl_reg_date date default sysdate not null,
-	constraint inqu_rpl_pk primary key (inpu_rpl_num),
-	constraint inqu_rpl_fk foreign key (inpu_num) references inquiry(inqu_num)
+	constraint inqu_rpl_pk primary key (inqu_rpl_num),
+	constraint inqu_rpl_fk foreign key (inqu_num) references inquiry(inqu_num)
 );
 
 create sequence inqu_rpl_seq;
