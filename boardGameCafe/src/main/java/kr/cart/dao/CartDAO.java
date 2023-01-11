@@ -59,7 +59,7 @@ public class CartDAO {
 			//SQL巩 累己
 			sql = "SELECT SUM(sub_total) FROM "
 					+ "(SELECT c.mem_num, "
-					+ "c.cart_count * i.price as sub_total "
+					+ "c.cart_count * i.pro_price as sub_total "
 					+ "FROM cart c JOIN product i ON "
 					+ "c.pro_num = i.pro_num) WHERE mem_num = ?";
 			//PreparedStatement 按眉 积己
@@ -118,7 +118,7 @@ public class CartDAO {
 				Pro.setPro_price(rs.getInt("pro_price"));
 				Pro.setPro_picture(rs.getString("pro_picture"));
 				Pro.setPro_count(rs.getInt("pro_count"));
-				Pro.setPro_level(rs.getString("pro_level"));
+				Pro.setPro_status(rs.getInt("pro_status"));
 				
 				cart.setListVo(Pro);
 				

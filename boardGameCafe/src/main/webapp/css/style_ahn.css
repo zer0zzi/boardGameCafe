@@ -2,33 +2,33 @@
 
 body{
 	width:960px;
-	background:#E6E6E6;
+	height:1500px;
+	margin:0 auto;
+	background:#FFFFFF;
 }
+li a:link{
+	text-decoration:none;
+	color:#fff87a;
+}
+li a:visited{
+	text-decoration:none;
+	color:#fff87a;
+}
+li a:hover{
+	text-decoration:none;
+	color:#a8a347;
+}
+
+.align-center{
+	text-align:center;
+}
+.align-right{
+	text-align:right;
+}
+/*-----------------------------------------*/
+
 div.page-main{
-	margin-bottom:10px;
-	margin-top:10px;
-	border:1px solid #FF0000; 
-}
-div.cart-main{
-	float:left;
-	width:65%;
-	background:#FFFFFF;
-	border:1px solid #fff;
-}
-div.cart-side{
-	float:right;
-	width:30%;
-	border:1px solid #fff;
-}
-div.cart-sub{
-	float:none;
-	background:#FFFFFF;
-	border:1px solid #fff;
-}
-div.price-total{
-	float:none;
-	background:#FFFFFF;
-	border:1px solid #fff;
+	
 }
 div.content-photo{
 	height:1070px;
@@ -37,4 +37,45 @@ div.content-photo{
 	background-repeat:no-repeat;;
 	background-size:100%; 
 	background-attachment:scroll;
+}
+div.cart-main{
+	float:left;
+	width:65%;
+}
+div.cart-side{
+	float:right;
+	width:30%;
+}
+div.cart-sub{
+	float:none;
+}
+div.price-total{
+	float:none;
+}
+div.result-display{
+	background-color: rgba(255,255,255,0.7);
+	width:400px;
+	height:200px;
+	margin:0 auto;
+	border:1px solid #000;
+	display:flex;/*하위 요소를 수직으로 쌓을 수 있는 공간을 만듬*/
+	align-items:center;/*세로 정렬*/
+	justify-content:center;/*가로 정렬*/	
+}
+span.result-display{
+	background-color: rgba(255,255,255,0.7);
+	margin:0 auto;
+	border:1px solid #000;
+	display:flex;/*하위 요소를 수직으로 쌓을 수 있는 공간을 만듬*/
+	align-items:center;/*세로 정렬*/
+	justify-content:center;/*가로 정렬*/	
+}
+.result{
+	background-color: rgba(255,255,255,0.7);
+
+	margin:0 auto;
+	border:1px solid #000;
+	display:flex;/*하위 요소를 수직으로 쌓을 수 있는 공간을 만듬*/
+	align-items:center;/*세로 정렬*/
+	justify-content:center;/*가로 정렬*/	
 }

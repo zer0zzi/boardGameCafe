@@ -1,7 +1,5 @@
 package kr.cart.vo;
 
-import java.util.Date;
-
 import kr.list.vo.ListVO;
 
 public class CartVO {
@@ -10,6 +8,9 @@ public class CartVO {
 	private int cart_count;
 	private int mem_num;
 	private int sub_total;
+	private ListVO listVo;
+	
+	
 	public int getCart_num() {
 		return cart_num;
 	}
@@ -41,9 +42,7 @@ public class CartVO {
 		this.sub_total = sub_total;
 	}
 	
-	private ListVO listVo;
-
-	 public ListVO getListVO() { 
+	public ListVO getListVo() { 
 		 return listVo; 
 	}
 	 

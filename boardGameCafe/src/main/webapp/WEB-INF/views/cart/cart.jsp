@@ -23,7 +23,7 @@
 					if(param.result == 'logout'){
 						alert('로그인 후 사용하세요!');
 					}else if(param.result == 'success'){
-						alert('선택하신 상품을 사제했습니다.');
+						alert('선택하신 상품을 삭제했습니다.');
 						location.href='cart.do';
 					}else{
 						alert('장바구니 상품 삭제 오류!');
@@ -34,6 +34,7 @@
 				}
 			});
 		});//end of click - 장바구니 삭제
+	
 	});
 </script>
 </head>
@@ -41,75 +42,73 @@
 <div class="page-main">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<div class="content-photo">
-		<c:if test="${!empty mem_num}">
-			<h2><span>${mem_id}</span>님의 장바구니</h2>
-		</c:if>
 		<c:if test="${empty cart}">
 		<div class="result-display">
 			장바구니에 담은 상품이 없습니다.
 		</div>
 		</c:if>
-		
-		<!-- 고쳐야 할 부분 -->
-		
 		<c:if test="${!empty cart}">
-		<form id="cart_order" method="post"
-		action="${pageContext.request.contextPath}/order/orderForm.do">
-			<div class="cart-main">
-			<table>
-				<c:forEach var="cart" items="${cart}">
-				<tr>
-					<td width="160">
-						<a href="${pageContext.request.contextPath}/product/detail.do?pro_num=${cart.pro_num}">
-							<img src="${pageContext.request.contextPath}/upload/${cart.productVo.picture}" width="80">
-							${cart.productVo.name}
-						</a>
-					</td>
-					<td class="align-center">
-						${cart.productVo.name}
-						<br><hr width="100">
-						<fmt:formatNumber value="${cart.productVo.pro_price}"/>원
-					</td>
-					<td class="align-center">
-						<c:if test="${cart.productVo.status==1 or cart.productVo.quantity < cart.cart_count}">[판매중지]</c:if>
-						<c:if test="${cart.productVo.status!=1 and cart.productVo.quantity > cart.cart_count}">
-						<input type="number" name="cart_count" min="1" max="${cart.productVo.pro_count}" 
-								value="${cart.cart_count }" class="count_width"style=" width:40px;">
-						<br>
-						<input type="button" value="변경" class="cart-modify"
-										data-cartnum="${cart.cart_num}" 
-										data-pronum="${cart.pro_num}">
-						</c:if>
-					</td>
-					<td class="align-center">
-						<fmt:formatNumber value="${cart.sub_total}"/>원
-						<input type="button" value="삭제" class="cart-del"
-											data-cartnum="${cart.cart_num}">
-					</td>
-				</tr>	
-				</c:forEach>
-			</table>
-			</div><!--end of cart main-->
-		<div class="cart-side">
-			<div class="cart-sub">
+			<h2><span class="result-display">${mem_id}</span>님의 장바구니</h2>
+
+		<div class="result">
+			<form id="cart_order" method="post"
+			action="${pageContext.request.contextPath}/order/orderForm.do">
+				<div class="cart-main">
 				<table>
-				<c:forEach var="cart" items="${cart}">
-				<tr>
-					<td>
-						${cart.productVo.name}x${cart.cart_count}=${cart.sub_total}원
-					</td>
-				</tr>	
-				</c:forEach>
+					<c:forEach var="cart" items="${cart}">
+					<tr>
+						<td width="160">
+							<a href="${pageContext.request.contextPath}/list/detail.do?pro_num=${cart.pro_num}">
+								<img src="${pageContext.request.contextPath}/upload/${cart.listVo.pro_picture}" width="80">
+								${cart.listVo.pro_name}
+							</a>
+						</td>
+						<td class="align-center">
+							${cart.listVo.pro_name}
+							<br><hr width="100">
+							<fmt:formatNumber value="${cart.listVo.pro_price}"/>원
+						</td>
+						<td class="align-center">
+							<c:if test="${cart.listVo.pro_status==1 or cart.listVo.pro_count < cart.cart_count}">[판매중지]</c:if>
+							<c:if test="${cart.listVo.pro_status!=1 and cart.listVo.pro_count > cart.cart_count}">
+							<input type="number" name="cart_count" min="1" max="${cart.listVo.pro_count}" 
+									value="${cart.cart_count }" class="count_width"style=" width:40px;">
+							<br>
+							<input type="button" value="변경" class="cart-modify"
+											data-cartnum="${cart.cart_num}" 
+											data-pronum="${cart.pro_num}">
+							</c:if>
+						</td>
+						<td class="align-center">
+							<fmt:formatNumber value="${cart.sub_total}"/>원
+							<input type="button" value="삭제" class="cart-del"
+												data-cartnum="${cart.cart_num}">
+						</td>
+					</tr>	
+					</c:forEach>
 				</table>
-			</div><!--end of cart sub-->
-			<div>
-				<div class="price-total align-center"><b>총구매금액:</b>
-				<fmt:formatNumber value="${all_total}"/>원
-				</div>				
-				<input type="submit" value="구매하기">
-			</div><!--end of price total-->
-		</div><!--end of cart side-->
-		</form>
+				</div><!--end of cart main-->
+			<div class="cart-side">
+				<div class="cart-sub">
+					<table>
+					<c:forEach var="cart" items="${cart}">
+					<tr>
+						<td>
+							${cart.listVo.pro_name}x${cart.cart_count}=${cart.sub_total}원
+						</td>
+					</tr>	
+					</c:forEach>
+					</table>
+				</div><!--end of cart sub-->
+				<div>
+					<div class="price-total align-center"><b>총구매금액:</b>
+					<fmt:formatNumber value="${all_total}"/>원
+					</div>				
+					<input type="submit" value="구매하기">
+				</div><!--end of price total-->
+			</div><!--end of cart side-->
+			</form>
+			</div>
 		</c:if>
 	</div><!--end of content main-->
 </div><!--end of page main-->
