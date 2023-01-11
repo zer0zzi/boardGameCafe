@@ -45,7 +45,7 @@ public class OrderDAO {
 			}
 			
 			//주문 정보 삽입 시퀀스 위에 미리 구해놓아서 그냥 ?를 씀
-			sql = "INSERT INTO order_main(order__main_num,order_main_name,"
+			sql = "INSERT INTO order_main(order_main_num,order_main_name,"
 				+ "order_main_total,payment,receive_name,receive_zipcode,"
 				+ "receive_address1,receive_address2,receive_phone,notice,"
 				+ "mem_num) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
@@ -92,7 +92,7 @@ public class OrderDAO {
 			pstmt3.executeBatch();//쿼리를 전송
 			
 			//상품의 재고수 차감
-			sql = "UPDATE product SET order_main_count=order_main_count-? WHERE pro_num=?";
+			sql = "UPDATE product SET pro_count=pro_count-? WHERE pro_num=?";
 			pstmt4 = conn.prepareStatement(sql);
 			for(int i=0;i<orderDetailList.size();i++) {
 				OrderDetailVO orderDetail = orderDetailList.get(i);
@@ -136,6 +136,52 @@ public class OrderDAO {
 	//개별 상품 목록
 	//주문 삭제(삭제 시 재고를 원상 복귀시키지 않음, 주문 취소일 때 원상 복귀)
 	//관리자/주문자 주문 상세
+	/*
+	public OrderVO getOrder(int order_main_num)throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		OrderVO order = null;
+		String sql = null;
+		
+		try {
+			//커넥션풀로부터 커넥션 할당
+			conn = DBUtil.getConnection();
+			//SQL문 작성
+			sql = "SELECT * FROM order_main WHERE order_main_num=?";
+			//PreparedStatement 객체 생성
+			pstmt = conn.prepareStatement(sql);
+			//?에 데이터 바인딩
+			pstmt.setInt(1, order_main_num);
+			//SQL문 실행
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				order = new OrderVO();
+				order.setOrder_main_num(rs.getInt("order_main_num"));
+				order.setOrder_main_name(rs.getString("order_main_name"));
+				order.setOrder_main_total(rs.getInt("order_main_total"));
+				order.setPayment(rs.getInt("patment"));
+				order.setStatus(rs.getInt("status"));
+				order.setReceive_name(rs.getString("receive_name"));
+				order.setReceive_zipcode(rs.getString("receive_zipcode"));
+				order.setReceive_address1(rs.getString("receive_address1"));
+				order.setReceive_address2(rs.getString("receive_address2"));
+				order.setReceive_phone(rs.getString("receive_phone"));
+				order.setNotice(rs.getString("notice"));
+				order.setOrder_main_date(rs.getDate("order_main_date"));
+				order.setMem_num(rs.getInt("mem_num"));
+			}
+			
+			
+		} catch (Exception e) {
+			throw new Exception(e); 
+		}finally {
+			DBUtil.executeClose(rs, pstmt, conn);
+		}
+		return order;
+	}
+	*/
+	
 	//주문 수정 
 	
 	
