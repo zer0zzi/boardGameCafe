@@ -28,8 +28,8 @@
 		</tr>
 		<c:forEach var="myinqu" items="${list}">
 		<tr>
-			<td>${myinqu.inqu_title}</td>
-			<td><a href="${pageContext.request.contextPath}/board/detail.do?board_num=${myinqu.inqu_num}">${myinqu.inqu_content}</a></td>
+			<td><a href="${pageContext.request.contextPath}/inquiry/inquiryDetail.do?inqu_num=${myinqu.inqu_num}">${myinqu.inqu_title}</a></td>
+			<td>${myinqu.inqu_content}</td>
 			<td>${myinqu.inqu_reg_date}</td>
 		</tr>
 		</c:forEach>

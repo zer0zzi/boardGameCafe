@@ -254,7 +254,13 @@ ul{
 .revtable-3{
    width:150px;
 }
-
+/* 내 구매목록 */
+.ordertable-1{
+	width:200px;
+}
+.ordertable-4{
+	width:200px;
+}
 /* 회원탈퇴 */
 .redbtn-delete{
    width:400px;

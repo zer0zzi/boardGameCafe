@@ -73,7 +73,7 @@
 	                    <div class="mypage-line1-a bluefont"><b>${count2}</b></div>
 	                        
 	                </div>
-	                <div id="mypage02" onclick="location.href='deleteUserForm.do'" style="cursor:pointer">
+	                <div id="mypage02" onclick="location.href='${pageContext.request.contextPath}/cart/cart.do'" style="cursor:pointer">
 	                    <div class="mypage-line1-a">
 	                        <img src="${pageContext.request.contextPath}/images/face.png" width="50" height="50" class="">
 	                    </div>
@@ -90,7 +90,7 @@
 	                     <div class="mypage-line2"  onclick="location.href='deleteUserForm.do'" style="cursor:pointer">현재 배송중인 상품 조회 (내가 구매한 보드게임이랑 묶을 예정)</div>
 	                  </li>
 	                  <li>
-	                     <div class="mypage-line2"  onclick="location.href='deleteUserForm.do'" style="cursor:pointer">내가 구매한 보드게임</div>
+	                     <div class="mypage-line2"  onclick="location.href='myOrderList.do'" style="cursor:pointer">내가 구매한 보드게임</div>
 	                  </li>
 	               </ul>
 	            </div>
