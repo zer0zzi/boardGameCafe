@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>메인</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style_hoon.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
@@ -13,6 +15,8 @@
 </head>
 <body>
 	<div class="wrap" id="wrap">
+	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+	<input type="button" value="상품등록" onclick="location.href='${pageContext.request.contextPath}/room/roomWriteForm.do'">
 		<div class="container" id="container">
 			<div>
 				<div class="wrap_inn">
@@ -22,7 +26,7 @@
 								<div class="container_visual">
 									<ul class="visual_img">
 										<li class="item">
-										 	<img src="../images/hoon/studyroom1.jpg" class="img_thumb" width="490px;" height="490px;">
+										 	<img src="../images/hoon/roomlst1.jpg" class="img_thumb" width="490px;" height="490px;">
 										</li>
 									</ul>
 								</div><!-- end of container_visual -->
@@ -81,94 +85,26 @@
 							</li>
 						</div><!-- end of section_contents -->
 					</div><!-- end of wrap_main_info -->
-					<div class="wrap_item_lst">
-						<div class="section_item_lst">
+					
+					<div class="section_item_lst">
 							<h3 class="out_tit">
 								<span class="txt">전체</span>
 								<span class="count_num">3/3</span>
 							</h3>
 							<div class="wrap_lst_item_box">
-								<ul class="lst_item_box">
-									<li class="item" onclick="location.href='${pageContext.request.contextPath}/room/roomlst.do'">
-										<a href="#" class="lnk_item_book">
-											<div class="item_preview" >
-												<img src="../images/hoon/room1.jpg" class="img_thumb">
-											</div>
-										</a>
-										<a href="../room1.jsp" class="lnk_item_info">
-											<div class="item_txt">
-												<div class="txt_wrap">
-													<h4 class="tit">
-														<span class="item_txt_tit_inn">
-															<span class="item_txt_tit">4~8인실</span>
-														</span>
-													</h4>
-													<p class="dsc">
-														4~8인실 스터디 룸
-														<br>
-														(4인 이상 이용, 1~3명이어도
-														<br>
-														4인 비용지불시 이용 가능)
-														<br>
-													</p>
-												</div>
-											</div><!-- item_txt -->
-										</a>
-									</li><!-- end of item -->
-									<li class="item" onclick="location.href=''">
-										<a href="#" class="lnk_item_book">
-											<div class="item_preview" >
-												<img src="../images/hoon/room2.jpg" class="img_thumb">
-											</div>
-										</a>
-										<a href="#" class="lnk_item_info">
-											<div class="item_txt">
-												<div class="txt_wrap">
-													<h4 class="tit">
-														<span class="item_txt_tit_inn">
-															<span class="item_txt_tit">6~13인실</span>
-														</span>
-													</h4>
-													<p class="dsc">
-														6~13인실 스터디 룸
-														<br>
-														(6인 이상 이용)
-														<br>
-														-[시작시간]을 먼저 선택 후,..
-														<br>
-													</p>
-												</div>
-											</div><!-- item_txt -->
-										</a>
-									</li><!-- end of item -->
-									<li class="item" onclick="location.href=''">
-										<a href="#" class="lnk_item_book">
-											<div class="item_preview" >
-												<img src="../images/hoon/room3.jpg" class="img_thumb">
-											</div>
-										</a>
-										<a href="#" class="lnk_item_info">
-											<div class="item_txt">
-												<div class="txt_wrap">
-													<h4 class="tit">
-														<span class="item_txt_tit_inn">
-															<span class="item_txt_tit">5~10인실</span>
-														</span>
-													</h4>
-													<p class="dsc">
-														5~10인실 스터디 룸
-														<br>
-														(5인 이상 이용)룸은 랜덤배정됩니다.(회의형, 교실형 2가지 있...
-														<br>
-													</p>
-												</div>
-											</div><!-- item_txt -->
-										</a>
-									</li><!-- end of item -->
-								</ul><!-- end of 1st_item_box -->
-							</div><!-- end of wrap_1st_item_box -->
-						</div><!-- end of section_item_1st -->
-					</div><!-- end of wrap_item_1st -->
+								<div class="image-space">
+									<c:forEach var="room" items="${roomList}">
+										<div class="horizontal-area">
+											<a class="lnk_item_info" href="${pageContext.request.contextPath}/room/roomDetail.do?room_num=${room.room_num}"><!-- 에러나면 room->item으로 바꿔보기 -->	
+												<img src="${pageContext.request.contextPath}/upload/${room.photo1}">
+												<span class="name_title">${room.room_name}</span>
+												<p class="detail">${room.room_detail}</p>
+											</a>
+										</div>
+									</c:forEach>
+								</div>
+							</div>
+					</div>
 				</div><!-- end of wrap_inn -->
 			</div>
 		</div><!-- end of container -->

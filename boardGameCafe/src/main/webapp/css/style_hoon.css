@@ -17,10 +17,9 @@ body{
 	zoom:1;
 }
 #container{
-	width:940px;
+	width:990px;
 	margin:0 auto;
 	min-height:313px;
-	position:relative;
 }
 
 .wrap_inn{
@@ -225,16 +224,17 @@ i{
 	color:#fff;
 	background-color:#00c73c;
 	cursor:pointer;
+	font-size:17px;
 }
 .wrap_item_lst{
 	padding-top:10px;
 	padding-bottom:10px;
 }
-.out_tit{
+.section_item_lst .out_tit{
 	position:relative;
 	font-size:16px;
 	font-weight:600px;
-	margin-left:50;
+	margin-left:15px;
 }
 .txt{
 	float:left;
@@ -356,7 +356,7 @@ h4{
 	overflow:hidden;
 	position:relative;
 	display:block;
-	width:490px;
+	width:500px;
 	word-wrap:normal;
 	background-color:#ddd;
 	box-sizing:border-box;
@@ -375,51 +375,346 @@ h4{
 .next{
 	float:right;
 }
-/*
-.group_visual.group_visual_s .prev{
-	width:43px;
+
+.section_item_details{
+	position:relative;
+	background-color:#fff;
+	border-bottom:1px solid #e5e5e5;
 }
-.group_visual.group_visual_s .next{
-	width:43px;
-}
-.prev{
-	position:absolute;
+
+.box_service_info{
+	position:relative;
 	top:0;
+	height:100%;
 	left:0;
+	right:0;
+	bottom:0;
+}
+
+.box_service_info .service_info{
+	padding-top:20px;
+	padding-bottom:18px;
 	height:100%;
 }
-.next{
+.service_info{
+	text-align:center;
+	background-color:#fff;
+	box-sizing:border-box;
+}
+
+.sevice_info .service_info_tit{
+	padding:0 30px;
+	margin-bottom:2px;
+	font-size:24px;
+	line-height:32px;
+	font-weight:700;
+	letter-spacing:-1px;
+}
+
+.service_info .service_info_dsc{
+	display:block;
+	margin-top:4px;
+	margin-bottom:3px;
+	font-size:16px;
+	line-height:22px;
+	font-weight:600;
+	color:#00c73c;
+}
+
+.section_item_details .item_details .panel_inner{
+	margin-top:27px;
+	margin-bottom:0;
+}
+.top_line{
+	height:400px;
+	margin-left:20px;
+	margin-right:40px;
+	border-top:1px solid #ebeef0;
+}
+.dscc{
+	height:300px;
+}
+.wrap_inn .wrap_right{
+	display:inline-block;
+	position:relative;
+	float:right;
+	width:490px;
+}
+.section_booking{
+	margin-top:52px;
+	border-top:1px solid #e5e5e5;
+	border-bottom:1px solid #e5e5e5;
+	border-left:1px solid #e5e5e5;
+	border-right:1px solid #e5e5e5;
+}
+
+.group_visuals{
+	overflow:hidden;
+	position:relative;
+	display:block;
+	width:490px;
+	height:390px;
+	word-wrap:normal;
+	background-color:#ddd;
+}
+.group_visuals .visual_img{
+	position:relative;
+	min-height:490px;
+	font:0/0 a;
+	color:#fff;
+	white-space:nowrap;
+}
+.group_visuals .visual_img .item{
+	overflow:hidden;
 	position:absolute;
-	height:100%;
+	display:inline-block;
+	white-space:normal;
+	vertical-align:top;
+	left:0;
 }
-.group_visual.group_visual_s .prev {
-    width: 43px;
+.calendar{
+	position:relative;
+	border-collapse:collapse;
+	border-width:medium; /*테두리의 두께를 중간으로 설정*/
+	font-size:17px;
+	font-weight:700;
+	margin-left:0;
+	height:400px;
+	width:480px;
 }
-.group_visual.group_visual_s .next {
-    width: 43px;
+.calendar_title{
+	font-size:22px;
+	font-weight:1000;
 }
-	img#prev,img#next{
-		cursor:pointer;
-	}
-	.prev{
-		position:absolute;
-		margin-top:170px;
-		margin-left:20px;
-		width:100px;
-		height:100px;
-		left:0;
-	}
-	.next{
-		position:absolute;
-		margin-top:170px;
-		margin-left:50px;
-		width:100px;
-		height:100px;
-		right:0;
-	}
+.calendar_next{
+	cursor:pointer;
+}
+.calendar_prev{
+	cursor:pointer;
+}
+
+.ly_time_booking{
+	top:555px;
+	z-index:9000!important;
+	position:absolute;
+	display:block;
+	width:490px;
+	margin:0 10px;
+	background-color:#fff;
+	border-top:1px solid #0bd020;
+	border-bottom:2px solid rgba(0,0,0,.1);
+	margin-left:0;
+}
+.ly_time_booking .ly_header{
+	padding:32px 29px 0;
+}
+.ly_time_booking .ly_header{
+	border-right:1px solid #0bd020;
+	border-left:1px solid #0bd020;
+}
+.ly_time_booking .ly_header .sub_tit{
+	font-weight:600;
+}
+.sub_tit{
+	font-size:14px;
+}
+em{
+	font-style:normal;
+}
+.ly_time_booking .ly_body{
+	padding:16px 29px 0;
+}
+.ly_time_booking .ly_body{
+	border-right:1px solid #0bd020;
+	border-left:1px solid #0bd020;
+}
+
+.ly_time_booking .ly_body .am{
+	position:relative;
+}
+
+.ly_time_booking .ly_body .am .tit{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-top: 6px;
+    width: 54px;
+    vertical-align: top;
+    color: #666;
+}
+
+.tit{
+	font-size:16px;
+	font-weight:700;
+}
+
+.ly_time_booking .ly_body .am .lst_time{
+	padding-left:54px;
+}
+.ly_time_booking .ly_body .am .lst_time .item{
+	display:inline-block;
+	float:left;
+	margin-right:10px;
+	margin-bottom:5px;
+	margin-top:6px;
+}
+.ly_time_booking .ly_body .am .lst_time .item>.anchor{
+	display: block;
+    width: 58px;
+    height: 35px;
+    box-sizing: border-box
+}
+
+.ly_time_booking .ly_body .am .lst_time .item>.anchor.none .time_info_box{
+	background-color: #fcfcfc;
+    border: 1px solid #f4f4f4;
+    color: #ddd;
+}
+
+.ly_time_booking .ly_body .am .lst_time .item>.anchor .time_info_box{
+	position: relative;
+    display: block;
+    width: 58px;
+    height: 35px;
+    background-color: #e0fed3;
+    border: 1px solid #caf9c0;
+    font-size: 13px;
+    line-height: 33px;
+    text-align: center;
+    color: #00c73c;
+    box-sizing: border-box;
+}
+
+.ly_time_booking .ly_body .pm .lst_time .item>.anchor .time_info_box{
+	position: relative;
+    display: block;
+    width: 58px;
+    height: 35px;
+    background-color: #e0fed3;
+    border: 1px solid #caf9c0;
+    font-size: 13px;
+    line-height: 33px;
+    text-align: center;
+    color: #00c73c;
+    box-sizing: border-box;
+}
+
+.ly_time_booking .ly_body .pm {
+	position:relative;	
+}
+.ly_time_booking .ly_body .pm .tit{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-top: 6px;
+    width: 54px;
+    vertical-align: top;
+    color: #666;
+}
+.ly_time_booking .ly_body .pm .lst_time{
+	padding-left:54px;
+}
+.ly_time_booking .ly_body .pm .lst_time .item{
+	display:inline-block;
+	float:left;
+	margin-right:10px;
+	margin-bottom:5px;
+	margin-top:6px;
+}
+.ly_time_booking .ly_body .pm .lst_time .item>.anchor{
+	display: block;
+    width: 58px;
+    height: 35px;
+    box-sizing: border-box
+}
+
+.ly_time_booking .ly_body .pm .lst_time .item>.anchor.none .time_info_box{
+	background-color: #fcfcfc;
+    border: 1px solid #f4f4f4;
+    color: #ddd;
+}
+.image-space .horizontal-area{
+	margin:2px;
+	margin-left:10px;
+	padding:3px;
+	width:220px;
+	height:310px;
+	float:left;
+	overflow:hidden;/*넘치는데이터 안보이게*/
+	text-align:center;
+	margin-bottom:15px;
 	
-	.arrow{
-		position:absolute;
-		top:170px;
-	}
-*/
+}
+.wrap_item_lst .section_item_lst .wrap_lst_item_box{
+	padding-top:10px;
+}
+.section_item_lst .lst_item_box{
+	display:block;
+	margin-left:-6px;
+	margin-right:-6px;
+	margin-bottom:-12px;
+}
+.wrap_item_lst .section_item_lst .wrap_lst_item_box .item{
+	position:relative;
+	display:inline-block;
+	float:left;
+	margin-left:6px;
+	margin-right:6px;
+	margin-bottom:12px;
+	width:226px;
+}
+.image-space .horizontal-area img{
+	width:220px;
+	height:195px;
+	cursor:pointer;
+	overflow:hidden;
+}
+.image-space .float-clear{
+	clear:both;
+}
+.image-space .horizontal-area p{
+	margin-top:5px;
+	margin-left:25px;
+	margin-right:25px;
+	margin-bottom:5px;
+	white-space:pre-wrap;
+	max-height:190px;
+	border-top:1px solid #e5e5e5;
+}
+
+.image-space .horizontal-area .name_title{
+	font-size:16px;
+	font-weight:600;
+}
+
+.image-space .horizontal-area .name_title .title{
+	font-size:13px;
+	line-height:22px;
+	overflow:auto;
+	max-height:176px;
+}
+
+.image-space .horizontal-area .lnk_item_info{
+	display:block;
+	width:221px;
+	height:310px;
+	border-right:1px solid #e5e5e5;
+	border-bottom:1px solid #e5e5e5;
+	border-left:1px solid #e5e5e5;
+	background-color:#fff;
+	box-sizing:border-box;
+	color:#000000;
+}
+.room-image img{
+	width:490px;
+}
+.room-detail{
+	font-size:15px;
+}
+
+.tb_body{
+	width:100px;
+}
+
+
+
