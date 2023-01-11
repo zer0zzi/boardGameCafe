@@ -35,18 +35,33 @@
 			</tr>
 			<c:forEach var="inquiry" items="${list}">
 				<tr>
-					<td>${inquiry.inqu_num}</td>
-					<td>${inquiry.inqu_cate}</td>
+					<c:if test="${inquiry.inqu_rpl == 0}"><td>${inquiry.inqu_num}</td></c:if>
+					<c:if test="${inquiry.inqu_rpl != 0}"><td></td></c:if>
+					<c:if test="${inquiry.inqu_rpl == 0}"><td>${inquiry.inqu_cate}</td></c:if>
+					<c:if test="${inquiry.inqu_rpl != 0}"><td></td></c:if>
 					<td>
-						<a href="inquiryDetail.do?inqu_num=${inquiry.inqu_num}">
-							${inquiry.inqu_title}
-							<c:if test="${inquiry.inqu_check == 1}">
-								<img src="${pageContext.request.contextPath}/images/hyem/lock.png" width="10">
-							</c:if>
-						</a>
+						<c:if test="${inquiry.inqu_rpl == 0}">
+							<a href="inquiryDetail.do?inqu_num=${inquiry.inqu_num}">
+								${inquiry.inqu_title}
+								<c:if test="${inquiry.inqu_check == 1}">
+									<img src="${pageContext.request.contextPath}/images/hyem/lock.png" width="10">
+								</c:if>
+							</a>
+						</c:if>
+						<c:if test="${inquiry.inqu_rpl != 0}">
+							<a href="inquiryReplyDetail.do?inqu_num=${inquiry.inqu_num}">
+								<img src="${pageContext.request.contextPath}/images/hyem/reply.png" width="10">
+								<i>RE : </i>${inquiry.inqu_title}
+								<c:if test="${inquiry.inqu_check == 1}">
+									<img src="${pageContext.request.contextPath}/images/hyem/lock.png" width="10">
+								</c:if>
+							</a>
+						</c:if>
 					</td>
-					<td>${inquiry.inqu_reg_date}</td>
-					<td>${inquiry.inqu_hit}</td>
+					<c:if test="${inquiry.inqu_rpl == 0}"><td>${inquiry.inqu_reg_date}</td></c:if>
+					<c:if test="${inquiry.inqu_rpl != 0}"><td></td></c:if>
+					<c:if test="${inquiry.inqu_rpl == 0}"><td>${inquiry.inqu_hit}</td></c:if>
+					<c:if test="${inquiry.inqu_rpl != 0}"><td></td></c:if>
 				</tr>
 			</c:forEach>
 		</table>

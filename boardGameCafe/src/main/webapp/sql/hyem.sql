@@ -12,6 +12,7 @@ create sequence notice_seq;
 
 create table inquiry(
 	inqu_num number,
+	inqu_rpl number,
 	mem_num number not null,
 	inqu_cate varchar2(20) not null,
 	inqu_title varchar2(20) not null,

@@ -98,7 +98,8 @@ public class InquiryDAO {
 		try {
 			conn = DBUtil.getConnection();
 			
-			sql = "select * from (select a.*, rownum rnum from (select * from inquiry order by inqu_num desc) a) where rnum >= ? and rnum <= ?";
+			sql = "select * from (select a.*, rownum rnum from (select * from inquiry order by inqu_num desc) a) where rnum >= ? and rnum <= ?"
+				+ "start with inqu_rpl = 0 connect by prior inqu_num = inqu_rpl order siblings by inqu_num desc";
 			
 			pstmt = conn.prepareStatement(sql);
 			
@@ -111,6 +112,7 @@ public class InquiryDAO {
 				InquiryVO inquiry = new InquiryVO();
 				
 				inquiry.setInqu_num(rs.getInt("inqu_num"));
+				inquiry.setInqu_rpl(rs.getInt("inqu_rpl"));
 				inquiry.setInqu_cate(rs.getString("inqu_cate"));
 				inquiry.setInqu_title(rs.getString("inqu_title"));
 				inquiry.setInqu_hit(rs.getInt("inqu_hit"));
@@ -150,6 +152,7 @@ public class InquiryDAO {
 				inquiry = new InquiryVO();
 				
 				inquiry.setInqu_num(rs.getInt("inqu_num"));
+				inquiry.setInqu_rpl(rs.getInt("inqu_rpl"));
 				inquiry.setMem_num(rs.getInt("mem_num"));
 				inquiry.setInqu_cate(rs.getString("inqu_cate"));
 				inquiry.setInqu_title(rs.getString("inqu_title"));
@@ -297,4 +300,113 @@ public class InquiryDAO {
 			DBUtil.executeClose(null, pstmt, conn);
 		}
 	}
+	
+	//문의 답변 등록
+	public void insertInquiryReply(InquiryVO inquiry) throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = null;
+		String inqu_cate = null;
+		
+		try {
+			conn = DBUtil.getConnection();
+			
+			if((inquiry.getInqu_cate()).equals("1")) {
+				inqu_cate = "예약문의";
+			} else if((inquiry.getInqu_cate()).equals("2")){
+				inqu_cate = "상품문의";
+			} else if((inquiry.getInqu_cate()).equals("3")){
+				inqu_cate = "주문/배송문의";
+			} else {
+				inqu_cate = "기타문의";
+			}
+			
+			sql = "insert into inquiry (inqu_num, inqu_rpl, mem_num, inqu_cate, inqu_title, inqu_content, inqu_check)"
+				+ "values (inquiry_seq.nextval, ?, ?, ?, ?, ?, ?)";
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, inquiry.getInqu_rpl());
+			pstmt.setInt(2, inquiry.getMem_num());
+			pstmt.setString(3, inqu_cate);
+			pstmt.setString(4, inquiry.getInqu_title());
+			pstmt.setString(5, inquiry.getInqu_content());
+			pstmt.setInt(6, inquiry.getInqu_check());
+			
+			pstmt.executeUpdate();
+		} catch(Exception e) {
+			throw new Exception(e);
+		} finally {
+			DBUtil.executeClose(null, pstmt, conn);
+		}
+	}	
+	
+	//답변 부모 글의 mem_num 구하기
+	public int getMem_numReply(int inqu_num) throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = null;
+		int mem_num = 0;
+		
+		try {
+			conn = DBUtil.getConnection();
+			
+			sql = "select mem_num from inquiry where inqu_num = (select inqu_rpl from inquiry where inqu_num = ?)";
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, inqu_num);
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				mem_num = rs.getInt(1);
+			}
+		} catch(Exception e) {
+			throw new Exception(e);
+		} finally {
+			DBUtil.executeClose(null, pstmt, conn);
+		}
+		return mem_num;
+	}
+	
+	//답변 글 상세
+	public InquiryVO getInquiryReply(int inqu_num) throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		InquiryVO inquiry = null;
+		String sql = null;
+		
+		try {
+			conn = DBUtil.getConnection();
+			
+			sql = "select * from inquiry b join member m using(mem_num) join member_detail d using(mem_num) where b.inqu_num = ?";
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, inqu_num);
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				inquiry = new InquiryVO();
+				
+				inquiry.setInqu_num(rs.getInt("inqu_num"));
+				inquiry.setInqu_rpl(rs.getInt("inqu_rpl"));
+				inquiry.setMem_num(getMem_numReply(inqu_num));
+				inquiry.setInqu_cate(rs.getString("inqu_cate"));
+				inquiry.setInqu_title(rs.getString("inqu_title"));
+				inquiry.setInqu_content(rs.getString("inqu_content"));
+				inquiry.setInqu_file(rs.getString("inqu_file"));
+				inquiry.setInqu_hit(rs.getInt("inqu_hit"));
+				inquiry.setInqu_check(rs.getInt("inqu_check"));
+				inquiry.setInqu_reg_date(rs.getDate("inqu_reg_date"));
+			}
+		} catch(Exception e) {
+			throw new Exception(e);
+		} finally {
+			DBUtil.executeClose(rs, pstmt, conn);
+		}
+		return inquiry;
+	}	
 }

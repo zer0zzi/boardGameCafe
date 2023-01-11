@@ -8,7 +8,7 @@ import kr.inquiry.dao.InquiryDAO;
 import kr.inquiry.vo.InquiryVO;
 import kr.util.StringUtil;
 
-public class InquiryDetailAction implements Action {
+public class InquiryReplyDetailAction implements Action {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		//글번호 반환
@@ -19,8 +19,8 @@ public class InquiryDetailAction implements Action {
 		//조회수 증가
 		dao.updateReadcount(inqu_num);
 						
-		InquiryVO inquiry = dao.getInquiry(inqu_num);
-		
+		InquiryVO inquiry = dao.getInquiryReply(inqu_num);
+						
 		//HTML 태그를 허용하지 않음
 		inquiry.setInqu_title(StringUtil.useNoHtml(inquiry.getInqu_title()));
 						
@@ -29,6 +29,6 @@ public class InquiryDetailAction implements Action {
 					
 		request.setAttribute("inquiry", inquiry);
 					
-		return "/WEB-INF/views/inquiry/inquiryDetail.jsp";
+		return "/WEB-INF/views/inquiry/inquiryReplyDetail.jsp";
 	}
 }

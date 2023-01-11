@@ -4,6 +4,7 @@ import java.sql.Date;
 
 public class InquiryVO {
 	private int inqu_num;
+	private int inqu_rpl;
 	private int mem_num;
 	private String inqu_cate;
 	private String inqu_title;
@@ -19,6 +20,14 @@ public class InquiryVO {
 	
 	public void setInqu_num(int inqu_num) {
 		this.inqu_num = inqu_num;
+	}
+	
+	public int getInqu_rpl() {
+		return inqu_rpl;
+	}
+	
+	public void setInqu_rpl(int inqu_rpl) {
+		this.inqu_rpl = inqu_rpl;
 	}
 	
 	public int getMem_num() {
