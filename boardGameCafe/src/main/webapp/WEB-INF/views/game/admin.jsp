@@ -11,7 +11,7 @@
 </head>
 <body>
 <div class="page-main">
-	<!-- 헤더 인클루드 -->
+	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<div class="content-main">
 		<h2>???게임 목록???</h2>
 		<div class="list-space align-right">

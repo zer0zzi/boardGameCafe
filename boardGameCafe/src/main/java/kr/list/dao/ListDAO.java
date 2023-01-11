@@ -290,22 +290,84 @@ public class ListDAO {
 	   return list;
    }
    
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
+   //리뷰 상세
+   public GameReviewVO getReviewGame(int rev_num) throws Exception{
+	   Connection conn = null;
+	   PreparedStatement pstmt = null;
+	   ResultSet rs = null;
+	   GameReviewVO review = null;
+	   String sql = null;
+	   
+	   try {
+		   //커넥션풀로부터 커넥션을 할당
+		   conn = DBUtil.getConnection();
+		   //SQL문 작성
+		   sql = "SELECT * FROM review WHERE rev_num=?";
+		   //PreparedStatement 객체 생성
+		   pstmt = conn.prepareStatement(sql);
+		   //?에 데이터 바인딩
+		   pstmt.setInt(1, rev_num);
+		   //SQL문을 실행해서 결과행을 ResultSet에 담음
+		   rs = pstmt.executeQuery();
+		   if(rs.next()) {
+			   review = new GameReviewVO();
+			   review.setRev_num(rs.getInt(rev_num));
+			   review.setMem_num(rs.getInt("mem_num"));
+		   }
+	   }catch(Exception e) {
+		   throw new Exception(e);
+	   }finally {
+		   DBUtil.executeClose(rs, pstmt, conn);
+	   }
+	   return review;
+   }
+   //리뷰 수정
+   public void updateReviewGame(GameReviewVO review)throws Exception{
+	   Connection conn = null;
+	   PreparedStatement pstmt = null;
+	   String sql = null;
+	   
+	   try {
+		   //커넥션풀로부터 커넥션을 할당
+		   conn = DBUtil.getConnection();
+		   //SQL문 작성
+		   sql = "UPDATE review SET rev_content=?,"
+				   + "rev_modifydate=SYSDATE,re_ip=? WHERE re_num=?";
+		   //PreparedStatement 객체 생성
+		   pstmt = conn.prepareStatement(sql);
+		   //?에 데이터를 바인딩
+		   pstmt.setString(1, review.getRev_content());
+		   pstmt.setString(2, review.getRe_ip());
+		   pstmt.setInt(3, review.getRev_num());
+		   //SQL문 실행
+		   pstmt.executeUpdate();
+	   }catch(Exception e) {
+		   throw new Exception(e);
+	   }finally {
+		   DBUtil.executeClose(null, pstmt, conn);
+	   }
+   }
+   //리뷰 삭제
+   public void deleteReviewGame(int rev_num) throws Exception{
+	   Connection conn = null;
+	   PreparedStatement pstmt = null;
+	   String sql = null;
+	   
+	   try {
+		   //커넥션풀로부터 커넥션을 할당
+		   conn = DBUtil.getConnection();
+		   //SQL문 작성
+		   sql = "DELETE FROM review WHRER rev_num=?";
+		   //PreparedStatement 객체 생성
+		   pstmt = conn.prepareStatement(sql);
+		   //?에 데이터 바인딩
+		   pstmt.setInt(1, rev_num);
+		   //SQL문 실행
+		   pstmt.executeUpdate();
+	   }catch(Exception e) {
+		   throw new Exception(e);
+	   }finally{
+		   DBUtil.executeClose(null, pstmt, conn);
+	   }
+   }
 }

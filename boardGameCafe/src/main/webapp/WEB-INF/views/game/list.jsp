@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>게임 소개</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+<%-- <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css"> --%>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 $(function(){
@@ -51,11 +51,13 @@ $(function(){
 	      	</ul>
       </form>
       <!-- 검색 폼 끝 -->
+       <!-- 보드 게임 시작 -->
       <div class="image-space">
          <c:forEach var="list" items="${list}">
          <div> <!--  -->
            <a href="${pageContext.request.contextPath}/game/gameDetail.do?pro_num=${list.pro_num}"><span>${list.pro_num}</span>
-               <img src=""><span>${list.pro_name}</span>
+               <img src="${pageContext.request.contextPath}/upload/${list.pro_picture}">
+               <span>${list.pro_name}</span>
                <span>${list.pro_count}</span>
                <br>
                <b><fmt:formatNumber value="${list.pro_price}"/>원</b>
@@ -65,9 +67,7 @@ $(function(){
          <div class="float-clear">
             <hr width="100%" size="1" noshade="noshade">
          </div>
-      </div>
-      <!-- 보드 게임 시작 -->
-      
+      </div>  
       <!-- 보드 게임 끝 -->
       
       <!-- 페이지 표시 -->

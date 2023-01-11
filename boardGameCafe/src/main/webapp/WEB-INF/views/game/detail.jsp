@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>게임상세</title>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/game.review.js"></script>
 <script type="text/javascript">
 
 </script>
@@ -48,7 +50,7 @@
 				<span class="letter-count">500/500</span>
 			</div>
 			<div id="re_second" class="align-right">
-				<input type="submit" value="전송">
+				<input type="submit" value="전송">    <!-- 전송하면 어디로 담기는지...? -->
 			</div>
 			</c:if>
 		</form>
@@ -58,19 +60,11 @@
 		<div class="paging-button" style="display:none;">
 			<input type="button" value="다음글 보기">
 		</div>
+		<div id="loading" style="display:none;">
+			<img src="${pageContext.request.contextPath}/images/loading.gif" width="50" height="50">
+		</div>
 	<!-- 리뷰 목록 출력 끝 -->
 	<!-- 평가 및 리뷰 끝 -->
-         
-         
-         
-         
-         
-         
-         
-         <ul>
-         	<li>${detail.pro_num}</li>
-         	<li>${detail.pro_name}</li>
-         </ul>
 </div>
 </body>
 </html>
