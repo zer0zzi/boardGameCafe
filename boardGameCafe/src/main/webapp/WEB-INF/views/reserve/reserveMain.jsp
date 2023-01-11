@@ -26,7 +26,7 @@
 								<div class="container_visual">
 									<ul class="visual_img">
 										<li class="item">
-										 	<img src="../images/hoon/roomlst1.jpg" class="img_thumb" width="490px;" height="490px;">
+										 	<img src="../images/hoon/room1.jpg" class="img_thumb" width="490px;" height="490px;">
 										</li>
 									</ul>
 								</div><!-- end of container_visual -->
