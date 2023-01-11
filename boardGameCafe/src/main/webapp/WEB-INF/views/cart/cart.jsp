@@ -112,8 +112,8 @@
 						</td>
 						<td class="align-center">
 							${cart.listVo.pro_name}
-							<br><hr width="100">
 							<fmt:formatNumber value="${cart.listVo.pro_price}"/>원
+							<br><hr width="100">
 						</td>
 						<td class="align-center">
 							<c:if test="${cart.listVo.pro_status==1 or cart.listVo.pro_count < cart.cart_count}">[판매중지]</c:if>
@@ -128,6 +128,8 @@
 						</td>
 						<td class="align-center">
 							<fmt:formatNumber value="${cart.sub_total}"/>원
+						</td>
+						<td>						
 							<input type="button" value="삭제" class="cart-del"
 												data-cartnum="${cart.cart_num}">
 						</td>

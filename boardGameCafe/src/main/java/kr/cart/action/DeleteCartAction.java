@@ -18,7 +18,7 @@ public class DeleteCartAction implements Action{
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		Map<String, String> mapAjax = new HashMap<String, String>();
 		HttpSession session = request.getSession();
-		Integer mem_num = (Integer)session.getAttribute("mem_num");
+		Integer mem_num = (Integer)session.getAttribute("user_num");
 		if(mem_num == null) {//로그인이 되지 않은 경우
 			mapAjax.put("result", "logout");
 		}else {

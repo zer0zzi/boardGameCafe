@@ -21,6 +21,8 @@ li a:hover{
 
 .align-center{
 	text-align:center;
+	padding:0 0 0 20px;
+	
 }
 .align-right{
 	text-align:right;
@@ -42,16 +44,22 @@ div.content-photo{
 div.cart-main{
 	float:left;
 	width:65%;
+	
 }
 div.cart-side{
 	float:right;
 	width:30%;
+	margin:0 0 0 10px;
+	padding:0 0 0 10px;
 }
 div.cart-sub{
 	float:none;
+	border:1px solid #000;
 }
 div.price-total{
 	float:none;
+	margin:20px 0 0 0;
+	border:1px solid #000;
 }
 div.result-display{
 	background-color: rgba(255,255,255,0.7);
@@ -74,7 +82,8 @@ div.result-display{
 }
 .result{
 	background-color: rgba(255,255,255,0.7);
-
+	width:80%;
+	height:40%;
 	margin:0 auto;
 	border:1px solid #000;
 	display:flex;/*하위 요소를 수직으로 쌓을 수 있는 공간을 만듬*/

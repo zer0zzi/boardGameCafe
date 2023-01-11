@@ -21,7 +21,7 @@ public class ModifyCartAction implements Action{
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		Map<String, String> mapAjax = new HashMap<String, String>();
 		HttpSession session = request.getSession();
-		Integer mem_num = (Integer)session.getAttribute("mem_num");
+		Integer mem_num = (Integer)session.getAttribute("user_num");
 		if(mem_num == null) {//로그인이 되지 않은 경우
 			mapAjax.put("result", "logout");
 		}else {
@@ -33,10 +33,10 @@ public class ModifyCartAction implements Action{
 			
 			//현재 구매하고자 하는 상품의 재고수를 구함
 			ListDAO listDao = ListDAO.getInstance();
-			ListVO List = listDao.getList(pro_num);
-			if(List.getPro_status() == 1) {//상품 미표시
+			ListVO list = listDao.getList(pro_num);
+			if(list.getPro_status() == 1) {//상품 미표시
 				mapAjax.put("result", "noSale");
-			}else if(List.getPro_count() < pro_count) {//재고부족
+			}else if(list.getPro_count() < pro_count) {//재고부족
 				mapAjax.put("result", "noQuantity");
 			}else {//수량변경가능
 				CartVO cart = new CartVO();
@@ -44,8 +44,8 @@ public class ModifyCartAction implements Action{
 						request.getParameter("cart_num")));
 				cart.setCart_count(pro_count);
 
-				CartDAO dao = CartDAO.getInstance();
-				dao.updateCart(cart);
+				CartDAO cartDao = CartDAO.getInstance();
+				cartDao.updateCart(cart);
 				mapAjax.put("result", "success");
 			}
 		}

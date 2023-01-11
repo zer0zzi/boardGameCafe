@@ -58,10 +58,10 @@ public class CartDAO {
 			conn = DBUtil.getConnection();
 			//SQL문 작성
 			sql = "SELECT SUM(sub_total) FROM "
-					+ "(SELECT c.mem_num, "
-					+ "c.cart_count * i.pro_price as sub_total "
-					+ "FROM cart c JOIN product i ON "
-					+ "c.pro_num = i.pro_num) WHERE mem_num = ?";
+				+ "(SELECT c.mem_num, "
+				+ "c.cart_count * i.pro_price as sub_total "
+				+ "FROM cart c JOIN product i ON "
+				+ "c.pro_num = i.pro_num) WHERE mem_num = ?";
 			//PreparedStatement 객체 생성
 			pstmt = conn.prepareStatement(sql);
 			//?에 데이터 바인딩
@@ -142,7 +142,7 @@ public class CartDAO {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		CartVO cartsaved = null;
+		CartVO cartSaved = null;
 		String sql = null;
 		
 		try {
@@ -160,17 +160,17 @@ public class CartDAO {
 			//SQL문을 실행해서 결과행을 ResultSet에 담음
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				cartsaved = new CartVO();
-				cartsaved.setCart_num(rs.getInt("cart_num"));
-				cartsaved.setPro_num(rs.getInt("pro_num"));
-				cartsaved.setCart_count(rs.getInt("cart_count"));
+				cartSaved = new CartVO();
+				cartSaved.setCart_num(rs.getInt("cart_num"));
+				cartSaved.setPro_num(rs.getInt("pro_num"));
+				cartSaved.setCart_count(rs.getInt("cart_count"));
 			}
 		}catch(Exception e) {
 			throw new Exception(e);
 		}finally {
 			DBUtil.executeClose(rs, pstmt, conn);
 		}
-		return cartsaved;
+		return cartSaved;
 	}
 	
 	//장바구니 수정 (개별 상품 수량 수정)
