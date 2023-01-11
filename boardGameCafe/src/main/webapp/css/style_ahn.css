@@ -37,6 +37,7 @@ div.content-photo{
 	background-repeat:no-repeat;;
 	background-size:100%; 
 	background-attachment:scroll;
+	padding: 50px;
 }
 div.cart-main{
 	float:left;
@@ -62,13 +63,14 @@ div.result-display{
 	align-items:center;/*세로 정렬*/
 	justify-content:center;/*가로 정렬*/	
 }
-span.result-display{
+.result-name{
 	background-color: rgba(255,255,255,0.7);
-	margin:0 auto;
-	border:1px solid #000;
+	margin:0 0 0 10px;
+	width:30%;
 	display:flex;/*하위 요소를 수직으로 쌓을 수 있는 공간을 만듬*/
 	align-items:center;/*세로 정렬*/
-	justify-content:center;/*가로 정렬*/	
+	justify-content:center;/*가로 정렬*/
+	margin: 0 0 100px 0;
 }
 .result{
 	background-color: rgba(255,255,255,0.7);

@@ -34,7 +34,7 @@ public class ModifyCartAction implements Action{
 			//현재 구매하고자 하는 상품의 재고수를 구함
 			ListDAO listDao = ListDAO.getInstance();
 			ListVO List = listDao.getList(pro_num);
-			if(List.getPro_level() == "a") {//상품 미표시
+			if(List.getPro_status() == 1) {//상품 미표시
 				mapAjax.put("result", "noSale");
 			}else if(List.getPro_count() < pro_count) {//재고부족
 				mapAjax.put("result", "noQuantity");
