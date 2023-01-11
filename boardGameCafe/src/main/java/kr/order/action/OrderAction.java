@@ -50,9 +50,9 @@ public class OrderAction implements Action{
 		String item_name;
 		
 		if(cartList.size()==1) {
-			item_name = cartList.get(0).getListVO().getPro_name();
+			item_name = cartList.get(0).getListVo().getPro_name();
 		}else {
-			item_name = cartList.get(0).getListVO().getPro_name() + "외 " + (cartList.size()-1) + "건";
+			item_name = cartList.get(0).getListVo().getPro_name() + "외 " + (cartList.size()-1) + "건";
 		}
 		
 		
@@ -74,8 +74,8 @@ public class OrderAction implements Action{
 			}
 			OrderDetailVO orderDetail = new OrderDetailVO();
 			orderDetail.setPro_num(cart.getPro_num());
-			orderDetail.setPro_name(cart.getListVO().getPro_name());
-			orderDetail.setPro_price(cart.getListVO().getPro_price());
+			orderDetail.setPro_name(cart.getListVo().getPro_name());
+			orderDetail.setPro_price(cart.getListVo().getPro_price());
 			orderDetail.setOrder_main_count(cart.getCart_count());
 			orderDetail.setPro_total(cart.getSub_total());
 			
