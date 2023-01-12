@@ -55,7 +55,7 @@ $(function(){
       <div class="image-space">
          <c:forEach var="list" items="${list}">
          <div> <!--  -->
-           <a href="${pageContext.request.contextPath}/game/gameDetail.do?pro_num=${list.pro_num}">
+           <%-- <a href="${pageContext.request.contextPath}/game/gameDetail.do?pro_num=${list.pro_num}"> --%>
                <img src="${pageContext.request.contextPath}/images/seul/${list.pro_picture}">
                <span>${list.pro_name}</span>
                <span>${list.pro_count}</span>
@@ -76,7 +76,7 @@ $(function(){
 				</script>
 				</c:if>
 				
-            </a>
+            <!-- </a> -->
          </div>
          </c:forEach>
          <div class="float-clear">

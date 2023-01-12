@@ -264,8 +264,8 @@ public class ListDAO {
 		   conn.rollback();
 		   throw new Exception(e);
 	   }finally {
-		   DBUtil.executeClose(null, pstmt3, conn);
-		   DBUtil.executeClose(null, pstmt2, conn);
+		   DBUtil.executeClose(null, pstmt3, null);
+		   DBUtil.executeClose(null, pstmt2, null);
 		   DBUtil.executeClose(null, pstmt, conn);
 	   }
    }
