@@ -22,12 +22,13 @@ public class LoginAction implements Action{
 		boolean check = false;
 		
 		if(member!=null){
-			check=member.isCheckedPassword(mem_pw);
+			check = member.isCheckedPassword(mem_pw);
+			
 			request.setAttribute("mem_auth", member.getMem_auth());
 		}
 		if(check) {
 			HttpSession session = request.getSession();
-			session.setAttribute("user_num", member.getMem_num());
+			session.setAttribute("user_num", member.getMem_num());//user
 			session.setAttribute("user_id", member.getMem_id());
 			session.setAttribute("user_auth", member.getMem_auth());
 			session.setAttribute("user_photo", member.getMem_photo());
