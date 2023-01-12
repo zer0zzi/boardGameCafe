@@ -141,7 +141,7 @@ public class InquiryDAO {
 		try {
 			conn = DBUtil.getConnection();
 			
-			sql = "select * from inquiry b join member m using(mem_num) join member_detail d using(mem_num) where b.inqu_num = ?";
+			sql = "select * from inquiry where inqu_num = ?";
 			
 			pstmt = conn.prepareStatement(sql);
 			
