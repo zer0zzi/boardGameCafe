@@ -29,27 +29,13 @@
                <div id="div02">
 	               <ul>
 	                  <li>
-	                  	 <p id="myname">${member.mem_id}</p>
+	                  	 <p id="myname"><b>${member.mem_id}</b></p>
 	                  </li>
 	                  <li>
 	                     <button type="button" class="bluebtn" onclick="location.href='modifyUserForm.do'">회원정보수정</button>
 	                  </li>
 	               </ul>
                </div>
-         
-            <!-- 프로필 사진 끝 -->
-            <!-- 프로필 사진 옆 ID/버튼 시작 -->
-            <%-- <div class="photo-box-right">
-               <ul>
-                  <li><h1>${member.mem_id}</h1></li>
-                  <li>
-                     <div>
-                     <button type="button" class="bluebtn" onclick="location.href='modifyUserForm.do'">회원정보수정</button>
-                     </div>
-                  </li>
-               </ul>
-            </div> —--%>
-            
             <!-- 프로필 사진 옆 ID/버튼 끝 -->
             </div>
             <!-- allbox1 끝 -->
@@ -59,7 +45,7 @@
 	            <div class="mypageblock01">
 	            	<div id="mypage01" onclick="location.href='myInquiryList.do'" style="cursor:pointer">
 	            		<div class="mypage-line1-a">
-	                        <img src="${pageContext.request.contextPath}/images/face.png" width="50" height="50" class="">
+	                        <img src="${pageContext.request.contextPath}/images/dongk/문의.png" width="50" height="50" class="">
 	                    </div>
 	                    <div class="mypage-line1-a"><b>작성한 문의</b></div>
 	                    <div class="mypage-line1-a bluefont"><b>${count1}</b></div>
@@ -67,7 +53,7 @@
 	                </div>
 	                <div id="mypage01" onclick="location.href='myReviewList.do'" style="cursor:pointer">
 	                    <div class="mypage-line1-a">
-	                        <img src="${pageContext.request.contextPath}/images/face.png" width="50" height="50" class="">
+	                        <img src="${pageContext.request.contextPath}/images/dongk/댓글.png" width="50" height="50" class="">
 	                    </div>
 	                    <div class="mypage-line1-a"><b>작성한 댓글</b></div>
 	                    <div class="mypage-line1-a bluefont"><b>${count2}</b></div>
@@ -75,7 +61,7 @@
 	                </div>
 	                <div id="mypage02" onclick="location.href='${pageContext.request.contextPath}/cart/cart.do'" style="cursor:pointer">
 	                    <div class="mypage-line1-a">
-	                        <img src="${pageContext.request.contextPath}/images/face.png" width="50" height="50" class="">
+	                        <img src="${pageContext.request.contextPath}/images/dongk/장바구니.png" width="50" height="50" class="">
 	                    </div>
 	                    <div class="mypage-line1-a"><b>장바구니</b></div>
 	                    <div class="mypage-line1-a redfont"><b>${count3}</b></div>  
@@ -84,13 +70,10 @@
 	            <div class="mypageblock02">
 	            	<ul id="mypageul">
 	                  <li>
-	                     <div class="mypage-line2"  onclick="location.href='myReserve.do'" style="cursor:pointer">예약내역</div>
+	                     <div class="mypage-line2"  onclick="location.href='myReserve.do'" style="cursor:pointer"><b>예약내역</b></div>
 	                  </li>
 	                  <li>
-	                     <div class="mypage-line2"  onclick="location.href='deleteUserForm.do'" style="cursor:pointer">현재 배송중인 상품 조회 (내가 구매한 보드게임이랑 묶을 예정)</div>
-	                  </li>
-	                  <li>
-	                     <div class="mypage-line2"  onclick="location.href='myOrderList.do'" style="cursor:pointer">내가 구매한 보드게임</div>
+	                     <div class="mypage-line2"  onclick="location.href='myOrderList.do'" style="cursor:pointer"><b>내가 구매한 보드게임</b></div>
 	                  </li>
 	               </ul>
 	            </div>

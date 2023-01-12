@@ -103,9 +103,9 @@
 <div class="page-main">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<div class="content-main">
-		<h2>회원정보 수정</h2>
+		<div class="allbox1-modify">
 		<!-- 프로필 사진 시작 -->
-		<div class="photo-box-modify">
+		<div class="div01-modify">
 			<c:if test="${empty member.mem_photo}">
 				<img src="${pageContext.request.contextPath}/images/face.png"
 					width="200" height="200" class="my-photo">
@@ -118,38 +118,43 @@
 		</div>
 		<!--프로필 사진 끝  -->
 		<!-- 프로필 사진 옆 ID/버튼 시작 -->
-		<div class="photo-box-right-modify">
+		<div class="div02-modify">
 			<ul>
 				<li>
-					<div id="photo_choice">
-						<input type="file" id="photo"
-						accept="image/gif,image/png,image/jpeg"><br> 
-						<input type="button" value="전송" id="photo_submit" class="bluebtn"> 
-						<input type="button" value="취소" id="photo_reset" class="redbtn">
+					<div class="modify-profile">
+					<input type="file" id="photo"
+					accept="image/gif,image/png,image/jpeg">
 					</div>
+				</li>
+				<li>	 
+					<input type="button" value="전송" id="photo_submit" class="bluebtn"> 
+					<input type="button" value="취소" id="photo_reset" class="redbtn">
 				</li>
 			</ul>
 		</div>
 		<!-- 프로필 사진 옆 ID/버튼 끝 -->
+		</div>
+		<!--allbox1-modify끝-->
 		<div class="float-end"></div>		
 		<!--수정 폼 시작  -->		
 		<form id="modify_form" action="modifyUser.do"
 		                                   method="post">
+		<div class="modify_form-list">                                   
 			<ul>
 				<li>
-					<label for="phone">전화번호</label>
+					<label for="phone"><b>전화번호</b></label>
 					<input type="text" name="phone" 
 					            value="${member.mem_phone}"
 					            id="phone" maxlength="15">
 				</li>
 				<li>
-					<label for="email">이메일</label>
+					<label for="email"><b>이메일</b></label>
 					<input type="email" name="email" 
 					            value="${member.mem_email}"
 					            id="email" maxlength="50">
 				</li>
 				<li>
-					<label for="zipcode">우편번호</label>
+					<label for="zipcode"><b>우편번호</b></label>
 					<input type="text" name="zipcode" 
 					          value="${member.mem_zipcode}"
 					          id="zipcode" maxlength="5">
@@ -157,23 +162,24 @@
 					         onclick="execDaumPostcode()">          
 				</li>
 				<li>
-					<label for="address1">주소</label>
+					<label for="address1"><b>주소</b></label>
 					<input type="text" name="address1" 
 					          value="${member.mem_address1}"
 					          id="address1" maxlength="30">
 				</li>
 				<li>
-					<label for="address2">상세 주소</label>
+					<label for="address2"><b>상세 주소</b></label>
 					<input type="text" name="address2" 
 					            value="${member.mem_address2}"
 					            id="address2" maxlength="30">
 				</li>
 			</ul>
+		</div>
 			<div class="align-center">
 				<input class="bluebtn-modify" type="submit" value="수정하기">
 			</div>
 			<div class="passwd-change-btn">
-			<a href="${pageContext.request.contextPath}/mymember/modifyPasswordForm.do"><ins>비밀번호 변경하기</ins></a>
+				<a href="${pageContext.request.contextPath}/mymember/modifyPasswordForm.do"><ins>비밀번호 변경하기</ins></a>
 			</div>
 			<div class="float-end"></div>                                
 		</form>

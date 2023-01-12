@@ -15,7 +15,7 @@
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
 	<c:if test="${count == 0}">
-		<div class="result-display">
+		<div class="result-display-x">
 			예약내역이 없습니다.
 		</div>
 	</c:if>

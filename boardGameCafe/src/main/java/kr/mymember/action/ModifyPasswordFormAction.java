@@ -5,6 +5,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import kr.controller.Action;
+import kr.mymember.dao.MemberDAO;
+import kr.mymember.vo.MemberVO;
 
 public class ModifyPasswordFormAction implements Action{
 
@@ -17,7 +19,14 @@ public class ModifyPasswordFormAction implements Action{
 		if(user_num==null) {//로그인이 되지 않은 경우
 			return "redirect:/member/loginForm.jsp";
 		}
-		//로그인 된 경우	
+		
+		//로그인이 된 경우
+		MemberDAO dao = MemberDAO.getInstance();
+		MemberVO member = dao.getMember(user_num);
+		
+		
+		request.setAttribute("member", member);	
+				
 		return "/WEB-INF/views/mymember/modifyPasswordForm.jsp";
 	}
 
