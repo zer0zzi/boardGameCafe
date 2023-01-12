@@ -32,6 +32,7 @@ public class GameWriteAction implements Action{
 		game.setPro_picture(multi.getFilesystemName("pro_picture"));
 		game.setPro_level(multi.getParameter("pro_level"));
 		game.setPro_count(Integer.parseInt(multi.getParameter("pro_count")));
+		game.setPerson(Integer.parseInt(multi.getParameter("person")));
 		game.setExplanation(multi.getParameter("explanation"));
 		
 		ListDAO dao = ListDAO.getInstance();

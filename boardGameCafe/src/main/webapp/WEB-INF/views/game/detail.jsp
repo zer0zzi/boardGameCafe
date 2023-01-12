@@ -34,7 +34,7 @@
 	</div>
 	<div class="small-footer">
 	<span>난이도 : ${detail.pro_level}</span>
-	<span>게임 인원 : ${detail.pro_count}</span>
+	<span>게임 인원 : ${detail.person}</span>
 	</div>
 	<br>
 	<br>

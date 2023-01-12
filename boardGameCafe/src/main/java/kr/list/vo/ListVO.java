@@ -10,6 +10,7 @@ public class ListVO {
 	   private int pro_status;		//0이면 1이면
 	   private int mem_num;			//아이디 고유 번호
 	   private String explanation; 
+	   private int person;
 	   
 	public int getPro_num() {
 		return pro_num;
@@ -65,7 +66,12 @@ public class ListVO {
 	public void setExplanation(String explanation) {
 		this.explanation = explanation;
 	}
-	   
-	   
-	   
+	public int getPerson() {
+		return person;
+	}
+	public void setPerson(int person) {
+		this.person = person;
+	}
+	
+   
 }

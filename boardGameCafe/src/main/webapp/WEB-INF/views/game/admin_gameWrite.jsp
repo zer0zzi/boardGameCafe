@@ -41,8 +41,12 @@
 					<input type="text" name="pro_level" id="pro_level" maxlength="5">
 				</li>
 				<li>
-					<label for="pro_count">게임 인원</label>
-					<input type="number" name="pro_count" id="pro_count" min="1" max="20">
+					<label for="person">게임 인원</label>
+					<input type="number" name="person" id="person" min="1" max="20">
+				</li>
+				<li>
+					<label for="pro_count">게임 수량</label>
+					<input type="number" name="pro_count" id="pro_count" min="1" max="30">
 				</li>
 				<li><!-- text타입...? -> String으로 변경필요 -->
 					<label for="">게임 설명</label>

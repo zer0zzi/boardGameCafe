@@ -41,7 +41,7 @@ public class ListDAO {
             //검색글 개수  (박스 순서)
             if(keyfield.equals("1")) sub_sql += "WHERE p.pro_name LIKE ?";
             else if(keyfield.equals("2")) sub_sql += "WHERE p.pro_level LIKE ?";
-            else if(keyfield.equals("3")) sub_sql += "WHERE p.pro_count LIKE ?";
+            else if(keyfield.equals("3")) sub_sql += "WHERE p.person LIKE ?";
          }
          
          
@@ -87,7 +87,7 @@ public class ListDAO {
              //검색글 보기
              if(keyfield.equals("1")) sub_sql += "WHERE p.pro_name LIKE ?";
              else if(keyfield.equals("2")) sub_sql += "WHERE p.pro_level LIKE ?";
-             else if(keyfield.equals("3")) sub_sql += "WHERE p.pro_count LIKE ?";
+             else if(keyfield.equals("3")) sub_sql += "WHERE p.person LIKE ?";
           }
           
           //SQL문 작성
@@ -111,10 +111,11 @@ public class ListDAO {
              game.setPro_num(rs.getInt("pro_num"));//rs에 저장되어 있는 곳에 get가져오다.int자료형.pro_num:sql에 있는 컬럼명.
              game.setPro_name(StringUtil.useNoHtml(rs.getString("pro_name")));//getString일 때는 앞에 이상한거 넣는다. 고정. 
              game.setPro_level(StringUtil.useNoHtml(rs.getString("pro_level")));
-             game.setPro_count(rs.getInt("pro_count"));
+             game.setPerson(rs.getInt("person"));
              game.setPro_price(rs.getInt("pro_price"));
              game.setPro_picture(StringUtil.useNoHtml(rs.getString("pro_picture")));
              game.setExplanation(rs.getString("explanation"));
+             game.setPro_count(rs.getInt("pro_count"));
              //game.setPro_hit();   113
              //game.setPro_id();	114
              
@@ -142,8 +143,8 @@ public class ListDAO {
 		   conn = DBUtil.getConnection();
 		   //SQL문 작성
 		   sql = "INSERT INTO product (pro_num,pro_name,pro_price,pro_picture,"
-				   + "pro_level,pro_count,explanation) "
-				   + "VALUES (product_seq.nextval,?,?,?,?,?,?)";
+				   + "pro_level,person,explanation,pro_count) "
+				   + "VALUES (product_seq.nextval,?,?,?,?,?,?,?)";
 		   //PreparedStatement 객체 생성
 		   pstmt = conn.prepareStatement(sql);
 		   //?에 데이터 바인딩
@@ -151,8 +152,9 @@ public class ListDAO {
 		   pstmt.setInt(2, game.getPro_price());
 		   pstmt.setString(3, game.getPro_picture());
 		   pstmt.setString(4, game.getPro_level());
-		   pstmt.setInt(5, game.getPro_count());
+		   pstmt.setInt(5, game.getPerson());
 		   pstmt.setString(6, game.getExplanation());
+		   pstmt.setInt(7, game.getPro_count());
 		   //SQL문 실행
 		   pstmt.executeUpdate();
 	   }catch(Exception e) {
@@ -189,11 +191,12 @@ public class ListDAO {
 			   detail.setPro_name(rs.getString("pro_name"));
 			   detail.setPro_price(rs.getInt("pro_price"));
 			   detail.setPro_picture(rs.getString("pro_picture"));
-			   detail.setPro_count(rs.getInt("pro_count"));
+			   detail.setPerson(rs.getInt("person"));
 			   detail.setPro_level(rs.getString("pro_level"));
 			   detail.setPro_status(rs.getInt("pro_status"));
 			   detail.setMem_num(rs.getInt("mem_num"));
 			   detail.setExplanation(rs.getString("explanation"));
+			   detail.setPro_count(rs.getInt("pro_count"));
 		   }
 	   }catch(Exception e) {
 		   throw new Exception(e);
