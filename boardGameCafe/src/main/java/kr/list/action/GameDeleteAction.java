@@ -32,9 +32,9 @@ public class GameDeleteAction implements Action{
 		
 		FileUtil.removeFile(request, db_game.getPro_picture());
 		 
-		System.out.println("~~~~~~axasasa~~~~~~~");
+		System.out.println("~~~~~~axasasa~~~f~~~~");
 		  
-		return "redirect:/game/sdsdsdsgameList.do";	//¿Ö?????????
+		return "redirect:/game/List.do";	//¿Ö?????????
 	}
 
 }
