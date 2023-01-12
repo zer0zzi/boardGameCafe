@@ -71,4 +71,7 @@ table td,table th{
 	border:1px solid #000;
 	padding:5px;
 }
-
+/* 주문 상세 페이지 결제, 배송 상태 */
+.payment-status ul li{
+	text-align: center;
+}

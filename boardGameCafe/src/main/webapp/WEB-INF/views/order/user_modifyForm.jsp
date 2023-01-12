@@ -95,7 +95,7 @@ $(document).ready(function(){
 			</table>
 			
 			<form action="orderModify.do" method="post" id="order_form">
-				<input type="hidden" name="order_num" value="${order.order_main_num}">
+				<input type="hidden" name="order_main_num" value="${order.order_main_num}">
 				<input type="hidden" name="status" value="${order.status}">
 				<h2>배송 정보</h2>
 				<ul>
@@ -124,7 +124,7 @@ $(document).ready(function(){
 					</li>
 					<li>
 						<label for="receive_phone">배송 메모</label> 
-						<textarea rows="5" cols="70" name="notice" id="notice">${order.notice}</textarea>
+						<textarea rows="5" cols="76" name="notice" id="notice">${order.notice}</textarea>
 					</li>
 					</c:if>
 					<c:if test="${order.status >= 2}">
@@ -149,13 +149,20 @@ $(document).ready(function(){
 						${order.notice}
 					</li>
 					</c:if>
+				</ul>
+				<br><hr size="1" noshade>
+				<div class="payment-status">
+				<h3>결제 수단</h3>
+				<ul>	
 					<li>
-						<label>결제수단</label>
 						<c:if test="${order.payment == 1}">은행입금</c:if>
 						<c:if test="${order.payment == 2}">카드결제</c:if>
 					</li>
+				</ul>
+				<br><hr size="1" noshade>
+				<h3>배송 상태</h3>
+				<ul>	
 					<li>
-						<label>배송상태</label>
 						<c:if test="${order.status == 1}">배송대기</c:if>
 						<c:if test="${order.status == 2}">배송준비중</c:if>
 						<c:if test="${order.status == 3}">배송중</c:if>
@@ -163,38 +170,8 @@ $(document).ready(function(){
 						<c:if test="${order.status == 5}">주문취소</c:if>
 					</li>
 				</ul>
-				<br>
-				<hr size="1" noshade>
-				<br>
-				<h2>결제 정보</h2>
-				<ul>
-					<li>
-						<label for="payment">결제수단선택</label> 
-						<input type="radio" id="payment1" name="payment" value="1">무통장 입금
-						<input type="radio" id="payment2" name="payment" value="2">카드 결제
-					</li>
-				</ul>
-				<div id="selectPay_noBank">
-				<br>
-				<hr size="1" noshade="noshade">
-				<br>
-				<ul>
-					<li>계좌</li>
-				</ul>
 				</div>
-				<div id="selectPay_card">
-				<hr size="1" noshade="noshade">
-				api 넣을 수 있을가
-				</div>
-				<br>
-				<hr size="1" noshade>
-				<br>
-				<h2>배송 메모</h2>
-				<ul>
-					<li>
-						<textarea rows="5" cols="70" name="notice" id="notice"></textarea>
-					</li>
-				</ul>
+				<br><hr size="1" noshade>
 				<div class="align-center cart-submit">
 					<c:if test="${order.status < 2}">
 					<input type="submit" value="주문 수정">
@@ -211,7 +188,7 @@ $(document).ready(function(){
 				</script>
 				</c:if>
 				<input type="button" value="주문 목록" onclick="location.href='orderList.do'">
-				</div>
+				</div><br>
 			</form>
 			<!-- 우편번호 검색 시작 -->
 			<!-- iOS에서는 position:fixed 버그가 있음, 적용하는 사이트에 맞게 position:absolute 등을 이용하여 top,left값 조정 필요 -->

@@ -27,7 +27,7 @@ public class ModifyAction implements Action{
 		
 		//전송된 데이터 인코딩 처리
 		request.setCharacterEncoding("utf-8");
-		int order_main_num = Integer.parseInt(request.getParameter("order_main_num"));	
+		int order_main_num = Integer.parseInt(request.getParameter("order_main_num"));
 		
 		//주문 정보 수정전 배송 상태를 한번 더 체크함
 		OrderDAO dao = OrderDAO.getInstance();

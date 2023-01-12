@@ -29,7 +29,7 @@ public class ModifyFormAction implements Action{
 		List<OrderDetailVO> detailList = dao.getListOrderDetail(order_main_num); 
 		
 		request.setAttribute("order", order);
-		 request.setAttribute("detailList", detailList);
+		request.setAttribute("detailList", detailList);
 		
 		
 		return "/WEB-INF/views/order/user_modifyForm.jsp";

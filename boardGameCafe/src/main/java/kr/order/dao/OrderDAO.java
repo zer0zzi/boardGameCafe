@@ -235,7 +235,7 @@ public class OrderDAO {
 			sql = "UPDATE order_main SET status=?,receive_name=?,"
 				+ "receive_zipcode=?,receive_address1=?,receive_address2=?,"
 				+ "receive_phone=?,notice=?,modify_date=SYSDATE WHERE "
-				+ "order_num=?";
+				+ "order_main_num=?";
 			//PreparedStatement 객체 생성
 			pstmt = conn.prepareStatement(sql);
 			//?에 데이터 바인딩
@@ -256,9 +256,55 @@ public class OrderDAO {
 			DBUtil.executeClose(null, pstmt, conn);
 		}
 	}
-	
-	//사용자 주문 취소 
-	
-	
+	//사용자 주문 취소
+	public void updateOrderCancel(int order_main_num)throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		PreparedStatement pstmt2 = null;
+		String sql = null;
+		
+		try {
+			//커넥션풀로부터 커넥션 할당
+			conn = DBUtil.getConnection();
+			//오토 커밋 해제
+			conn.setAutoCommit(false);
+			
+			sql = "UPDATE order_main SET status=5,modify_date=SYSDATE WHERE "
+				+ "order_main_num=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, order_main_num);
+			pstmt.executeUpdate();
+			
+			//주문번호에 해당하는 상품 정보 구하기
+			List<OrderDetailVO> detailList = getListOrderDetail(order_main_num);
+			//주문 취소로 주문 상품의 재고 수 환원
+			sql = "UPDATE product SET pro_count=pro_count+? "
+				+ "WHERE pro_num=?";
+			pstmt2 = conn.prepareStatement(sql);
+			for(int i=0;i<detailList.size();i++) {
+				OrderDetailVO detail = detailList.get(i);
+				pstmt2.setInt(1, detail.getOrder_main_count());
+				pstmt2.setInt(2, detail.getPro_num());
+				pstmt2.addBatch();
+					
+				if(i % 1000 == 0) {
+					pstmt2.executeBatch();
+				}
+					
+			}
+			pstmt2.executeBatch();
+				
+			//모든 SQL문이 정상적으로 수행
+			conn.commit();
+				
+		} catch (Exception e) {
+			//SQL문이 하나라도 오류 발생
+			conn.rollback();
+			throw new Exception(e);
+		}finally {
+			DBUtil.executeClose(null, pstmt2, null);
+			DBUtil.executeClose(null, pstmt, null);
+		}
+	}
 	
 }
