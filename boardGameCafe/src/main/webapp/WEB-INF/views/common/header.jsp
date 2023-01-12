@@ -9,11 +9,11 @@
 <style>
 a:link{
 	text-decoration:none;
-	color:#FFF;
+	color:#000;
 }
 a:visited{
 	text-decoration:none;
-	color:#FFF;
+	color:#000;
 }
 a:hover{
 	text-decoration:none;
@@ -46,6 +46,7 @@ a:hover{
   display: block;
   transition: 0.3s;
 }
+
 .overlay a:hover, .overlay a:focus {
   color: #f1f1f1;
 }
@@ -66,23 +67,32 @@ a:hover{
 
 /* ------------------------------ */
 
+@font-face {
+      src: url("../fonts/DungGeunMo.ttf");
+      font-family: "DungGeunMo";
+}
+
+/* 전체 레이아웃 */
+*{
+	font-family: "DungGeunMo";
+	margin: 0;
+	padding: 0;
+}
+
 body{
-	font-family: 'Lato', sans-serif;
-	border:1px solid;
-	margin:0 auto;
-	width:100%;
-	height:100%;
+	width: 100%;
 }
+
 .page-title{
-	background-color:#0891bf;
-	margin:0 auto;
 	width:100%;
-	height:180px;
+	height:120px;
 }
-.title-photo{
+
+/* .title-photo{
 	width:100%;
 	margin:0 auto;
 }
+
 .login-part{
 	width:90%;
 	height:40px;
@@ -105,17 +115,44 @@ body{
 	vertical-align:top;
 	display: block;
 	hight:50px; 
+} */
+
+.menubar{
+	cursor: pointer;
+	width: 20%;
+	margin-top: 30px;
+	margin-left: 30px;
+	float: left;
 }
+
+.login-part{
+	float: right;
+	margin-right: 30px;
+	margin-top: 30px;
+}
+
+.main-logo{
+	width: 57%;
+	float: left;
+	text-align: center;	
+	margin-left: -10px;
+}
+
 </style>
 </head>
 <body>
 <div class="page-title">
-	<div>
-	<span style="font-size:30px;color:white;cursor:pointer" onclick="openNav()">&#9776;</span>
-		<div class="login-part">
+	<div class="menubar">
+		<img src="${pageContext.request.contextPath}/images/hyem/menubar.png" onclick="openNav()" width="50">
+	</div>
+	<div class="main-logo">
+		<a href="${pageContext.request.contextPath}/main/main.do"><img src="${pageContext.request.contextPath}/images/hyem/logo.png" width="120"></a>
+	</div>
+	<div class="login-part">
 		<c:if test="${!empty user_num && user_auth == 2}">
 			<a href="${pageContext.request.contextPath}/cart/cart.do">Cart</a>
 		</c:if>
+		
 		<c:if test="${!empty user_num && user_auth == 2}">
 			<a href="${pageContext.request.contextPath}/mymember/myPage.do">My Page</a>
 		</c:if>
@@ -123,23 +160,21 @@ body{
 		<c:if test="${!empty user_num && !empty user_photo}" >
 			<img src="${pageContext.request.contextPath}/upload/${user_photo}" width="25" height="25" class="my-photo">
 		</c:if>
+		
 		<c:if test="${!empty user_num && empty user_photo}" >
 			<img src="${pageContext.request.contextPath}/images/face.png" width="25" height="25" class="my-photo">
 		</c:if>
+		
 		<c:if test="${!empty user_num}">
 				[<span>${user_id}</span>]
 				<a href="${pageContext.request.contextPath}/member/logout.do">Logout</a>
 		</c:if>
+		
 		<c:if test="${empty user_num}">
 			<a href="${pageContext.request.contextPath}/member/registerUserForm.do">Sign in</a>
 			&nbsp;
 			<a href="${pageContext.request.contextPath}/member/loginForm.do">Login</a>
 		</c:if>
-		</div>
-	
-	</div>
-	<div class="title-name">
-		<a href="${pageContext.request.contextPath}/main/main.do">QICKBOARD</a>
 	</div>
 </div>
 <div id="myNav" class="overlay">

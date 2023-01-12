@@ -281,23 +281,38 @@ public class InquiryDAO {
 	//문의 글 삭제
 	public void deleteInquiry(int inqu_num) throws Exception{
 		Connection conn = null;
-		PreparedStatement pstmt = null;
+		PreparedStatement pstmt1 = null;
+		PreparedStatement pstmt2 = null;
 		String sql = null;
 		
 		try {
 			//커넥션풀로부터 커넥션을 할당
 			conn = DBUtil.getConnection();
 			
+			conn.setAutoCommit(false);
+			
+			//답변 글 삭제
+			sql = "delete from inquiry where inqu_rpl = ?";
+			
+			pstmt1 = conn.prepareStatement(sql);
+			pstmt1.setInt(1, inqu_num);
+		
+			pstmt1.executeUpdate();
+			
 			sql = "delete from inquiry where inqu_num = ?";
 			
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, inqu_num);
+			pstmt2 = conn.prepareStatement(sql);
+			pstmt2.setInt(1, inqu_num);
 			
-			pstmt.executeUpdate();
+			pstmt2.executeUpdate();
+			
+			conn.commit();
 		}catch(Exception e) {
+			conn.rollback();
 			throw new Exception(e);
 		}finally {
-			DBUtil.executeClose(null, pstmt, conn);
+			DBUtil.executeClose(null, pstmt2, null);
+			DBUtil.executeClose(null, pstmt1, conn);
 		}
 	}
 	
@@ -409,4 +424,84 @@ public class InquiryDAO {
 		}
 		return inquiry;
 	}	
+	
+	//답변의 원래 글 내용
+	public String getInqu_content(int inqu_num) throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = null;
+		String content = null;
+		
+		try {
+			conn = DBUtil.getConnection();
+			
+			sql = "select inqu_content from inquiry where inqu_num = (select inqu_rpl from inquiry where inqu_num = ?)";
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, inqu_num);
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				content = rs.getString(1);
+			}
+		} catch(Exception e) {
+			throw new Exception(e);
+		} finally {
+			DBUtil.executeClose(null, pstmt, conn);
+		}
+		return content;		
+	}
+	
+	//답변 수정
+	public void updateInquiryReply(InquiryVO inquiry) throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = null;
+		
+		try {			
+			//커넥션풀로부터 커넥션 할당
+			conn = DBUtil.getConnection();
+
+			sql = "update inquiry set inqu_content = ? where inqu_num = ?"; 
+			
+			//PreparedStatement 객체 생성
+			pstmt = conn.prepareStatement(sql);
+			
+			//?에 데이터 바인딩
+			pstmt.setString(1, inquiry.getInqu_content());
+			pstmt.setInt(2, inquiry.getInqu_num());
+			
+			//SQL문 실행
+			pstmt.executeUpdate();
+		}catch(Exception e) {
+			throw new Exception(e);
+		}finally {
+			DBUtil.executeClose(null, pstmt, conn);
+		}
+	}
+	
+	//답변 삭제
+	public void deleteInquiryReply(int inqu_num) throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = null;
+		
+		try {
+			//커넥션풀로부터 커넥션을 할당
+			conn = DBUtil.getConnection();
+
+			sql = "delete from inquiry where inqu_num = ?";
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, inqu_num);
+			
+			pstmt.executeUpdate();
+		}catch(Exception e) {
+			throw new Exception(e);
+		}finally {
+			DBUtil.executeClose(null, pstmt, conn);
+		}
+	}
 }

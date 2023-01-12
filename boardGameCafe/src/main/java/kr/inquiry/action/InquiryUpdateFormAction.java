@@ -37,7 +37,7 @@ public class InquiryUpdateFormAction implements Action {
 		inquiry.setInqu_title(StringUtil.parseQuot(inquiry.getInqu_title()));
 		
 		request.setAttribute("inquiry", inquiry);
-
+		
 		return "/WEB-INF/views/inquiry/inquiryUpdateForm.jsp";
 	}
 }

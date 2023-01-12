@@ -26,8 +26,11 @@ public class InquiryReplyDetailAction implements Action {
 						
 		//HTML 태그를 허용하지 않으면서 줄바꿈 처리
 		inquiry.setInqu_content(StringUtil.useBrNoHtml(inquiry.getInqu_content()));
-					
+				
+		String inquiryContent = StringUtil.useBrNoHtml(dao.getInqu_content(inqu_num));
+		
 		request.setAttribute("inquiry", inquiry);
+		request.setAttribute("inquiryContent", inquiryContent);
 					
 		return "/WEB-INF/views/inquiry/inquiryReplyDetail.jsp";
 	}

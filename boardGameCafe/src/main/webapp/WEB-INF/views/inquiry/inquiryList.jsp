@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>문의사항</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style_hyem.css">
+<%-- <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style_hyem.css"> --%>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 </head>
 <body>

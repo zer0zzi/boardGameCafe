@@ -29,7 +29,11 @@
 						<img src="${pageContext.request.contextPath}/upload/${inquiry.inqu_file}" class="detail-img">
 					</div>
 				</c:if>
-				<p>
+				<p>	
+					${inquiryContent}
+					<br><br>
+					-------------------------------------------
+					<br><br>
 					${inquiry.inqu_content}
 				</p>
 				<hr size="1" noshade="noshade" width="100%">
@@ -49,7 +53,7 @@
 		<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 		<div class="content-main">
 			<h5>${inquiry.inqu_cate}</h5>
-			<h2>${inquiry.inqu_title}</h2>
+			<h2><i>RE : </i>${inquiry.inqu_title}</h2>
 			<h4>조회 : ${inquiry.inqu_hit}</h4>
 			<hr size="1" noshade="noshade" width="100%">
 			<c:if test="${!empty inquiry.inqu_file}">
@@ -58,6 +62,10 @@
 				</div>
 			</c:if>
 			<p>
+				${inquiryContent}
+				<br><br>
+				-------------------------------------------
+				<br><br>
 				${inquiry.inqu_content}
 			</p>
 			<hr size="1" noshade="noshade" width="100%">

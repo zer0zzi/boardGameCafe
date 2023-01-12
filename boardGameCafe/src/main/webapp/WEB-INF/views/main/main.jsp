@@ -7,66 +7,90 @@
 <title>메인</title>
 <style> @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap'); </style>
 <style type="text/css">
-/*
-.page-main{
-	background-color:#1f093a;
+@font-face {
+      src: url("../fonts/DungGeunMo.ttf");
+      font-family: "DungGeunMo";
 }
-*/
-li a:link{
+
+/* 전체 레이아웃 */
+*{
+	font-family: "DungGeunMo";
+	font-size: 50px;
+	
+}
+a:link{
+	text-decoration:none;
+	color:#fff;
+}
+a:visited{
+	text-decoration:none;
+	color:#fff;
+}
+a:hover{
 	text-decoration:none;
 	color:#fff87a;
 }
-li a:visited{
-	text-decoration:none;
-	color:#fff87a;
+
+*{
+	margin: 0;
+	padding: 0;
+
 }
-li a:hover{
-	text-decoration:none;
-	color:#a8a347;
+
+.background{
+	background-image: url(../images/hyem/mainImg.png);
+	background-repeat: no-repeat;
+    background-position: center;
+    min-height: 760px;
+	position: relative;
+	background-color: #000;
 }
-.content-photo{
-	height:1070px;
-	align:center;
-	background-repeat:no-repeat;;
-	background-size:100%; 
-	background-attachment:scroll;
+
+.logo{
+	position: absolute;
+	left: 350px;
+	top: 80px;
+	width: 120px;
+	height: 120px;
+	border: 1px solid #c3c3c3;
+	border-radius: 10px;
 }
-.content ul{
-	list-style:none;
+
+.menu{
+	position: absolute;
+	right: 200px;
+	top: 100px;
 }
-.content li{
-	line-height:130px; 	
+
+.menu ul li{
+	margin-bottom: 20px;
 }
-.content{
-	font-family:'Press Start 2P', cursive;
-	font-size:40px;
-	text-align:center;
-	width:100%;
-	height:600px;
-}
-#content-text{
-	width:100%;
-	height:100%;
-	margin:0 auto;
-	padding:0;
+
+.login{
+/* 	position: absolute;
+	top: 100px; */
+	display: flex;/*하위 요소를 수직으로 쌓을 수 있는 공간을 만듬*/
+	align-items: center;/*세로 정렬*/
+	justify-content: center;/*가로 정렬*/	
+	height: 600px;
 }
 </style>
 </head>
 <body>
-<div class="page-main">
-	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
-	<div class="content-photo">
-		<div class="content">
-			<ul id="content-text">
-				<li><a href="${pageContext.request.contextPath}/main/intro.do">CAFE</a></li>
-				<li><a href="${pageContext.request.contextPath}/game/gameList.do">BOARD GAME</a></li>
-				<li><a href="${pageContext.request.contextPath}/reserve/reserveMain.do">RESERVATION</a></li>
-				<li><a href="${pageContext.request.contextPath}/notice/noticeList.do">NOTICE</a></li>
-				<li><a href="${pageContext.request.contextPath}/inquiry/inquiryList.do">QUESTIONS</a></li>
-			</ul>
-		</div>
+<div class="background">
+	<div class="logo">
+		<img src="${pageContext.request.contextPath}/images/hyem/logo.png" width="120">
 	</div>
-	<div class="content-main">
+	<div class="login">
+		<a href="${pageContext.request.contextPath}/main/intro.do">START</a>
+	</div>
+	<div class="menu">
+		<ul>
+			<li><a href="${pageContext.request.contextPath}/game/gameList.do">BOARD GAME</a></li>
+			<li><a href="${pageContext.request.contextPath}/reserve/reserveMain.do">RESERVATION</a></li>
+			<li><a href="${pageContext.request.contextPath}/notice/noticeList.do">NOTICE</a></li>
+			<li><a href="${pageContext.request.contextPath}/inquiry/inquiryList.do">QUESTIONS</a></li>
+		</ul>
 	</div>
 </div>
 </body>
