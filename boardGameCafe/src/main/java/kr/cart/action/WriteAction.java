@@ -24,7 +24,7 @@ public class WriteAction implements Action{
 		
 		HttpSession session = request.getSession();
 		Integer mem_num = 
-				(Integer)session.getAttribute("mem_num");
+				(Integer)session.getAttribute("user_num");
 		if(mem_num == null) {//로그인 되지 않은 경우
 			mapAjax.put("result", "logout");
 		}else {//로그인 된 경우
@@ -33,9 +33,8 @@ public class WriteAction implements Action{
 			
 			CartVO cart = new CartVO();
 			cart.setPro_num(Integer.parseInt(
-					   request.getParameter("Pro_num")));
-			cart.setCart_count(Integer.parseInt(
-				 request.getParameter("Cart_count")));
+					   request.getParameter("pro_num")));
+			cart.setCart_count(Integer.parseInt("1"));
 			cart.setMem_num(mem_num);
 			
 			CartDAO dao = CartDAO.getInstance();

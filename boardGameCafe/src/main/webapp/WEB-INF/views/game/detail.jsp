@@ -10,7 +10,45 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/game.review.js"></script>
 <script type="text/javascript">
-
+$(function(){
+	//장바구니 상품 담기 이벤트 처리
+	$('#item_cart').submit(function(event){
+		//기본 이벤트 제거
+		event.preventDefault();
+		
+		if($('#cart_count').val()==''){
+			alert('수량을 입력하세요');
+			$('#cart_count').focus();
+			return false;
+		}
+		
+		let form_data = $(this).serialize();
+		
+		//서버와 통신
+		$.ajax({
+			url:'../cart/write.do',
+			type:'post',
+			data:form_data,
+			dataType:'json',
+			success:function(param){
+				if(param.result == 'logout'){
+					alert('로그인 후 사용하세요!');
+				}else if(param.result == 'success'){
+					alert('장바구니에 담았습니다.');
+					location.href='../cart/cart.do';
+				}else if(param.result == 'overquantity'){
+					alert('기존에 주문한 상품입니다. 개수를 추가하면 재고가 부족합니다.');
+				}else{
+					alert('장바구니 담기 오류');
+				}
+			},
+			error:function(){
+				alert('네트워크 오류 발생');
+			}
+		});
+	});
+	
+});
 </script>
 
 </head>
@@ -25,7 +63,15 @@
 		<b class="game-name">${detail.pro_name}</b>
 		<span>${detail.pro_price}</span>
 		<!-- <input type="button" value="구매하기"> -->
-		<input type="button" value="장바구니" onclick="${pageContext.request.contextPath}/cart/cart.do'">
+		<form id="item_cart" method="post">
+			<input type="hidden" name="pro_num" 
+				       	value="${detail.pro_num}" id="pro_num">
+				<input type="hidden" name="item_price"
+				       	value="${detail.pro_price}" id="pro_price">
+				<input type="hidden" name="pro_count"
+						value="${detail.pro_count}" id="pro_count">
+			<input type="submit" value="장바구니">
+		</form>
 		<hr size="1" noshade="noshade" width="250px">
 	</div>
 	<div class="game-explanation">
