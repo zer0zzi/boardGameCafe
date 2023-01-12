@@ -9,6 +9,7 @@ import java.util.List;
 import kr.list.vo.ListVO;
 import kr.review.vo.GameReviewVO;
 import kr.util.DBUtil;
+import kr.util.DurationFromNow;
 import kr.util.StringUtil;
 
 public class ListDAO {
@@ -112,6 +113,7 @@ public class ListDAO {
              game.setPro_level(StringUtil.useNoHtml(rs.getString("pro_level")));
              game.setPro_count(rs.getInt("pro_count"));
              game.setPro_price(rs.getInt("pro_price"));
+             game.setPro_picture(StringUtil.useNoHtml(rs.getString("pro_picture")));
              game.setExplanation(rs.getString("explanation"));
              //game.setPro_hit();   113
              //game.setPro_id();	114
@@ -129,7 +131,7 @@ public class ListDAO {
    }
 
    
-   //관리자 - 상품등록
+   //관리자 - 게임등록
    public void insertGame(ListVO game)throws Exception{
 	   Connection conn = null;
 	   PreparedStatement pstmt = null;
@@ -161,7 +163,7 @@ public class ListDAO {
    }
    
    
- //관리자/사용자 - 상품상세
+ //관리자/사용자 - 게임상세
    public ListVO getList(int pro_num)throws Exception{
 	   Connection conn = null;
 	   PreparedStatement pstmt = null;
@@ -200,6 +202,74 @@ public class ListDAO {
 	   }
 	   return detail;
    }   
+   //파일 삭제
+   public void deleteFile(int pro_num)throws Exception{
+	   Connection conn = null;
+	   PreparedStatement pstmt = null;
+	   String sql = null;
+	   
+	   try {
+		   //커넥션풀로부터 커넥션 할당
+		   conn = DBUtil.getConnection();
+		   //SQL문 작성
+		   sql = "UPDATE product SET pro_picture='' WHERE pro_num=?";
+		   //PreparedStatement 객체 생성
+		   pstmt = conn.prepareStatement(sql);
+		   //?에 데이터 바인딩
+		   pstmt.setInt(1, pro_num);
+		   //SQL문 실행
+		   pstmt.executeUpdate();
+	   }catch(Exception e) {
+		   throw new Exception(e);
+	   }finally {
+		   DBUtil.executeClose(null, pstmt, conn);
+	   }
+   }
+   //게임 삭제
+   public void deleteGame(int pro_num)throws Exception{
+	   Connection conn = null;
+	   PreparedStatement pstmt = null;
+	   PreparedStatement pstmt2 = null;
+	   PreparedStatement pstmt3 = null;
+	   String sql = null;
+	   
+	   try {
+		   //커넥션풀로부터 커넥션을 할당
+		   conn = DBUtil.getConnection();
+		   //오토커밋 해제
+		   conn.setAutoCommit(false);
+		   
+		   //리뷰 삭제
+		   sql = "DELETE FROM review WHERE pro_num=?";
+		   pstmt = conn.prepareStatement(sql);
+		   pstmt.setInt(1, pro_num);
+		   pstmt.executeUpdate();
+		   
+		   //cart 삭제
+		   sql = "DELETE FROM cart WHERE pro_num=?";
+		   pstmt2 = conn.prepareStatement(sql);
+		   pstmt2.setInt(1, pro_num);
+		   pstmt2.executeUpdate();
+		   
+		   //게임 삭제
+		   sql = "DELETE FROM product WHERE pro_num=?";
+		   pstmt3 = conn.prepareStatement(sql);
+		   pstmt3.setInt(1, pro_num);
+		   pstmt3.executeUpdate();
+		   
+		   //예외 발생 없이 정상적으로 SQL문이 실행
+		   conn.commit();
+	   }catch(Exception e) {
+		   //예외 발생
+		   conn.rollback();
+		   throw new Exception(e);
+	   }finally {
+		   DBUtil.executeClose(null, pstmt3, conn);
+		   DBUtil.executeClose(null, pstmt2, conn);
+		   DBUtil.executeClose(null, pstmt, conn);
+	   }
+   }
+   
    //리뷰 등록
    public void insertReview(GameReviewVO gameReview)throws Exception{
 	   Connection conn = null;
@@ -210,7 +280,7 @@ public class ListDAO {
 		   //커넥션풀로부터 커넥션 할당
 		   conn = DBUtil.getConnection();
 		   //SQL문 작성
-		   sql = "INSERT INTO review (rev_num,rev_content,rev_ip,mem_num,pro_num) "
+		   sql = "INSERT INTO review (rev_num,rev_content,re_ip,mem_num,pro_num) "
 				   + "VALUES (review_seq.nextval,?,?,?,?)";
 		   //PreparedStatement 객체 생성
 		   pstmt = conn.prepareStatement(sql);
@@ -282,6 +352,24 @@ public class ListDAO {
 		   pstmt.setInt(1, pro_num);
 		   pstmt.setInt(2, start);
 		   pstmt.setInt(3, end);
+		   //SQL문을 실행해서 결과행들을 ResultSet에 담음
+		   rs = pstmt.executeQuery();
+		   list = new ArrayList<GameReviewVO>();
+		   while(rs.next()) {
+			   GameReviewVO review = new GameReviewVO();
+			   review.setRev_num(rs.getInt("rev_num"));
+			   review.setRev_date(DurationFromNow.getTimeDiffLabel(rs.getString("rev_date")));
+			   if(rs.getString("rev_modifydate")!=null) {
+				   review.setRev_modifydate(
+						   DurationFromNow.getTimeDiffLabel(rs.getString("rev_modifydate")));
+			   }
+			   review.setRev_content(StringUtil.useBrNoHtml(rs.getString("rev_content")));
+			   review.setPro_num(rs.getInt("pro_num"));
+			   review.setMem_num(rs.getInt("mem_num"));
+			   review.setMem_id(rs.getString("mem_id"));  //user_id...?
+			   
+			   list.add(review);
+		   }
 	   }catch(Exception e) {
 		   throw new Exception(e);
 	   }finally {

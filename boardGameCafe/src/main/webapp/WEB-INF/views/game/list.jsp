@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>게임 소개</title>
-<%-- <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css"> --%>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style_seul.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 $(function(){
@@ -55,12 +55,27 @@ $(function(){
       <div class="image-space">
          <c:forEach var="list" items="${list}">
          <div> <!--  -->
-           <a href="${pageContext.request.contextPath}/game/gameDetail.do?pro_num=${list.pro_num}"><span>${list.pro_num}</span>
-               <img src="${pageContext.request.contextPath}/upload/${list.pro_picture}">
+           <a href="${pageContext.request.contextPath}/game/gameDetail.do?pro_num=${list.pro_num}">
+               <img src="${pageContext.request.contextPath}/images/seul/${list.pro_picture}">
                <span>${list.pro_name}</span>
                <span>${list.pro_count}</span>
                <br>
                <b><fmt:formatNumber value="${list.pro_price}"/>원</b>
+               <!-- 관리자가 로그인하면 삭제 가능 -->
+				<c:if test="${!empty user_num && user_auth == 9}">
+				<input type="button" value="삭제" id="delete_btn">
+				<script type="text/javascript">
+					let delete_btn = document.getElementById('delete_btn');
+					//이벤트 연결
+					delete_btn.onclick=function(){
+						let choice = confirm('삭제하시겠습니까?');
+						if(choice){
+							location.replace('gameDelete.do?pro_num=${list.pro_num}');
+						}
+					};
+				</script>
+				</c:if>
+				
             </a>
          </div>
          </c:forEach>

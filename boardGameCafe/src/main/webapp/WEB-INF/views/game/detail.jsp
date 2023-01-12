@@ -15,16 +15,17 @@
 
 </head>
 <body>
-<h1>게임상세</h1>
 <div class="page-main">
+<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+<h1>게임상세</h1>
 	<div class="image-detail">
-		<%-- <img src="${detail.picture}}"> --%>
+		<img src="${pageContext.request.contextPath}/images/seul/${detail.pro_picture}">
 	</div>
 	<div class="small-header">
 		<b class="game-name">${detail.pro_name}</b>
 		<span>${detail.pro_price}</span>
-		<input type="button" value="구매하기">
-		<input type="button" value="장바구니">
+		<!-- <input type="button" value="구매하기"> -->
+		<input type="button" value="장바구니" onclick="${pageContext.request.contextPath}/cart/cart.do'">
 		<hr size="1" noshade="noshade" width="250px">
 	</div>
 	<div class="game-explanation">
@@ -42,10 +43,10 @@
 		<span class="re-title">리뷰 쓰기</span>
 		<form id="re_form">
 			<input type="hidden" name="pro_num" value="${detail.pro_num}" id="pro_num">
-			<textarea rows="3" cols="50" name="re_content" id="re_content" class="rev-content"
-			<c:if test="${empty  mem_num}">disabled="disabled"</c:if>
-			><c:if test="${empty mem_num}">로그인 후 리뷰를 남겨주세요!.</c:if></textarea>
-			<c:if test="${!empty mem_num}">
+			<textarea rows="3" cols="50" name="rev_content" id="rev_content" class="rev1-content"
+			<c:if test="${empty  user_num}">disabled="disabled"</c:if>
+			><c:if test="${empty user_num}">로그인 후 리뷰를 남겨주세요!.</c:if></textarea>
+			<c:if test="${!empty user_num}">
 			<div id="re_first">
 				<span class="letter-count">500/500</span>
 			</div>

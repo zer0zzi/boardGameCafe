@@ -27,7 +27,7 @@ public class ListAction implements Action{
 	     
 	      //페이지 처리
 	      //keyfield,keyword,currentPage,count,rowCount,
-	      //pageCount,url  (34~~36 강사님이 만들은거 그대로 받아옴)
+	      //pageCount,url  (34~~36 강사님께서 만드신거 그대로 받아옴)
 	      PagingUtil page = 
 	            new PagingUtil(keyfield,keyword,
 	                        Integer.parseInt(pageNum),
