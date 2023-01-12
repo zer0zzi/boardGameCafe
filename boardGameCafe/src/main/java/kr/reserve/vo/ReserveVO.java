@@ -1,7 +1,5 @@
 package kr.reserve.vo;
 
-import java.sql.Date;
- 
 public class ReserveVO {
 	private int res_num;
 	private int mem_num;
@@ -9,7 +7,14 @@ public class ReserveVO {
 	private String res_time;
 	private int res_count;
 	private int room_num;
+	private String mem_name;
 	
+	public String getMem_name() {
+		return mem_name;
+	}
+	public void setMem_name(String mem_name) {
+		this.mem_name = mem_name;
+	}
 	public int getRes_num() {
 		return res_num;
 	}

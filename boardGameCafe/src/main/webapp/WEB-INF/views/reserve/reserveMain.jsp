@@ -16,7 +16,12 @@
 <body>
 	<div class="wrap" id="wrap">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
-	<input type="button" value="상품등록" onclick="location.href='${pageContext.request.contextPath}/room/roomWriteForm.do'">
+	<c:if test="${!empty user_num && user_auth == 9}">
+		<li>
+			<input type="button" value="상품등록" onclick="location.href='${pageContext.request.contextPath}/room/roomWriteForm.do'">
+		</li>
+		</c:if>
+	
 		<div class="container" id="container">
 			<div>
 				<div class="wrap_inn">
@@ -81,7 +86,7 @@
 								</div><!-- end of store_details view_more -->
 							</div><!-- end of contents_store_details _site_desc_con -->
 							<li>
-								<input class="btn_srch on" type="submit" value="예약날짜로 검색하기" onclick="location.href='${pageContext.request.contextPath}/room/roomlst.do'">
+								<input class="btn_srch on" type="submit" value="예약날짜로 검색하기" onclick="location.href='${pageContext.request.contextPath}/room/roomDetail.do?room_num=41'">
 							</li>
 						</div><!-- end of section_contents -->
 					</div><!-- end of wrap_main_info -->

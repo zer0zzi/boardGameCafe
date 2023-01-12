@@ -34,16 +34,6 @@
 				$('#photo1').focus();
 				return false;
 			}
-			if($('#photo2').val()==''){ //공백을 인정하지 않기 때문에 trim 안씀
-				alert('방사진2을 입력하세요');
-				$('#photo2').focus();
-				return false;
-			}
-			if($('#photo3').val()==''){ //공백을 인정하지 않기 때문에 trim 안씀
-				alert('방사진3을 입력하세요');
-				$('#photo3').focus();
-				return false;
-			}
 		});
 	});
 </script>
