@@ -34,7 +34,7 @@ public class GameDeleteAction2 implements Action{
 		 
 		System.out.println("~~~~new file~~~~~");
 		  
-		return "/WEB-INF/views/common/notice.jsp";	
+		return "redirect:/game/gameList.do";	
 	}
 
 }
