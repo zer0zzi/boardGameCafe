@@ -11,8 +11,8 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-	<div class="page-main">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+	<div class="page-main">
 	<h1>구매내역</h1>
 	<c:if test="${count == 0}">
 		<div class="result-display-x">

@@ -14,10 +14,32 @@
 ul {
 	list-style: none;
 }
+.page-main h2{
+	font-size: 30px;
+	margin-left: 20px;
+	margin-bottom: 50px;
+}
+.align-right{
+	text-align: right;
+	margin-right: 10px;
+	margin-top: 10px;
+}
+.btn{
+	width: 100px;
+	height: 25px;
+	border-radius: 0;
+	background: #fff;
+	border: 1px solid #000;
+	box-shadow: 3px 3px rgb(73, 73, 73);
+	font-size: 15px;
+	cursor: pointer;
+}
 /* MY페이지
 ------------------- */
-.page-main {
-	width: 100%;
+.page-main{
+	width: 1000px;
+	margin: 0 auto;
+	margin-top: 50px;
 }
 
 .mypage-div {
@@ -257,38 +279,7 @@ ul {
 	margin-right: 267px;
 	margin-bottom: 40px;
 }
-/* 테이블 공통 */
-.tablestyle {
-	width: 900px;
-	border-collapse: collapse;
-	border-top: 1px solid #000;
-	border-bottom: 1px solid #000;
-	margin-top: 30px;
-	margin-left: 28px;
-	text-align: center;
-}
 
-.tablestyle th {
-	border-top: 1px solid #000;
-	border-bottom: 1px solid #000;
-	padding: 5px;
-	background-color: lightgrey;
-}
-
-.tablestyle td {
-	border-top: 1px solid #000;
-	border-bottom: 1px solid #000;
-	padding: 5px;
-	height: 50px;
-}
-
-.pageup {
-	height: 50px;
-}
-
-.pagebottom {
-	height: 150px;
-}
 /* 내가 쓴 문의 */
 .inqutable-1 {
 	width: 200px;
@@ -410,4 +401,79 @@ ul {
 }
 #passwd{
 	margin-left:37px;
+}
+
+
+/* 테이블 */
+table{
+	width: 100%;
+	border-collapse: collapse;
+}
+
+table td{
+	padding: 10px 0;
+	text-align: center;
+	font-size: 15px;
+}
+
+table a:link{
+	text-decoration: none;
+	color: #000;
+}
+
+table a:visited{
+	text-decoration: none;
+	color: #000;
+}
+
+table a:hover{
+	text-decoration: none;
+	color: #c6c6c6;
+	transition: 0.5s;
+}
+
+.border-bot{
+	border-bottom: 1px solid #000;
+}
+
+.border-bot th{
+	font-size: 16px;
+	padding: 15px 0;
+}
+
+.table-content-bot{
+	border-bottom: 1px solid #c7c7c7;
+}
+
+.table-content-bot:last-child{
+	border-bottom: 0px;
+}
+.align-center{
+	text-align: center;
+}
+/* 페이지 */
+.paging{
+	margin-top: 10px;
+}
+
+.paging a:link{
+	text-decoration: none;
+	color: #000;
+}
+
+.paging a:visited{
+	text-decoration: none;
+	color: #000;
+}
+
+.paging a:hover{
+	text-decoration: none;
+	transition: 0.5s;
+}
+.pageup {
+	height: 50px;
+}
+
+.pagebottom {
+	height: 150px;
 }

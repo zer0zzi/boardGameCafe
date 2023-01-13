@@ -11,8 +11,8 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
+   <jsp:include page="/WEB-INF/views/common/header.jsp" />
    <div class="page-main">
-      <jsp:include page="/WEB-INF/views/common/header.jsp" />
          <div class="mypage-div">
          <div class="allbox1">
             <!--프로필 사진 시작 -->

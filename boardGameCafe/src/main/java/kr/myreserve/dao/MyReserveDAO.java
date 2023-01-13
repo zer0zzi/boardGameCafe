@@ -70,7 +70,7 @@ public class MyReserveDAO {
 			conn = DBUtil.getConnection();
 			
 			//SQL문 작성
-			sql = "SELECT * FROM (SELECT r.*,m.room_name,m.room_size,m.room_detail, rownum rnum FROM (SELECT * FROM reserve WHERE mem_num=?)r JOIN room m ON m.room_num=r.room_num) WHERE rnum>=? AND rnum<=? ORDER BY res_date DESC";
+			sql = "SELECT * FROM (SELECT r.*,m.room_name,m.room_size,m.room_detail, rownum rnum FROM (SELECT * FROM reserve WHERE mem_num=? ORDER BY res_num)r JOIN room m ON m.room_num=r.room_num) WHERE rnum>=? AND rnum<=? ORDER BY res_date DESC";
 			//PreparedStatement 객체 생성
 			pstmt = conn.prepareStatement(sql);
 			//?에 데이터 바인딩
@@ -83,6 +83,7 @@ public class MyReserveDAO {
 			list = new ArrayList<MyReserveVO>();
 			while(rs.next()) {
 				MyReserveVO MyRe = new MyReserveVO();
+				MyRe.setRes_num(rs.getInt("res_num"));
 				MyRe.setRes_date(StringUtil.useNoHtml(rs.getString("res_date")));
 				MyRe.setRes_time(StringUtil.useNoHtml(rs.getString("res_time")));				
 				MyRe.setRoom_name(StringUtil.useNoHtml(rs.getString("room_name")));

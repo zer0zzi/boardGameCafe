@@ -11,33 +11,40 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-	<div class="page-main">
-	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
-	<h1>내가 작성한 문의</h1>
+<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+<div class="page-main">
+	<h2>내가 작성한 문의</h2>
+	<hr size="1" noshade="noshade" width="100%">
 	<c:if test="${count == 0}">
 		<div class="result-display-x">
 			문의한 글이 없습니다.
 		</div>
 	</c:if>
 	<c:if test="${count > 0}">
-	<table class="tablestyle">
-		<tr>
-			<th class="inqutable-1">문의 제목</th>
+	<table>
+		<tr class="border-bot">
+			<th>번호</th>
+			<th>문의 제목</th>
 			<th>문의 내용</th>
-			<th class="inqutable-3">작성일</th>
+			<th>작성일</th>
 		</tr>
 		<c:forEach var="myinqu" items="${list}">
-		<tr>
+		<tr class="table-content-bot">
+			<td>${myinqu.inqu_num}</td>
 			<td><a href="${pageContext.request.contextPath}/inquiry/inquiryDetail.do?inqu_num=${myinqu.inqu_num}">${myinqu.inqu_title}</a></td>
 			<td>${myinqu.inqu_content}</td>
 			<td>${myinqu.inqu_reg_date}</td>
 		</tr>
 		</c:forEach>
 	</table>
-	<div class="pageup"></div>
-	<div class="align-center">${page}</div>
-	<div class="pagebottom"></div>
+	<hr size="1" noshade="noshade" width="100%">
+	<div class="align-center paging">${page}</div>
+	
 	</c:if>
+	<div class="align-right">
+		<input type="button" class="btn" value="글쓰기" onclick="location.href='${pageContext.request.contextPath}/inquiry/inquiryWriteForm.do'">
 	</div>
+	<div class="pagebottom"></div>
+</div>
 </body>
 </html>
