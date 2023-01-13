@@ -104,7 +104,7 @@
 					<c:forEach var="cart" items="${cart}">
 					<tr>
 						<td width="160">
-							<a href="${pageContext.request.contextPath}/list/detail.do?pro_num=${cart.pro_num}">
+							<a href="${pageContext.request.contextPath}/game/gameDetail.do?pro_num=${cart.pro_num}">
 								<img src="${pageContext.request.contextPath}/upload/${cart.listVo.pro_picture}" width="80">
 								${cart.listVo.pro_name}
 							</a>
