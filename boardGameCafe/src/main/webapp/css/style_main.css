@@ -183,7 +183,7 @@
 }
 
 .menubar img{
-	margin-top: 35px;
+	margin-top: 25px;
 	margin-left: 35px;
 	cursor: pointer;
 }
@@ -194,7 +194,7 @@
 }
 
 .login-part{
- 	flex-basis: 300px;
+	flex-basis: 300px;
  	font-size: 20px;
  	display: flex;
     justify-content: right;
@@ -203,7 +203,7 @@
 }
 
 .login-part a:last-child{
-	margin-right: 30px;
+	margin-right: 20px;
 }
 
 .login-part a:link{

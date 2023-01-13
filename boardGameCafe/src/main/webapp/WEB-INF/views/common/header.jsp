@@ -10,7 +10,7 @@
 <body>
 <div class="header">
 	<div class="menubar">
-		<img src="${pageContext.request.contextPath}/images/hyem/menubar.png" onclick="openNav()" width="50">
+		<img src="${pageContext.request.contextPath}/images/hyem/menubar.png" onclick="openNav()" width="70">
 	</div>
 	<div class="header-logo">
 		<a href="${pageContext.request.contextPath}/main/main.do"><img src="${pageContext.request.contextPath}/images/hyem/logo_white.png" width="120"></a>
@@ -26,11 +26,16 @@
 			<a href="${pageContext.request.contextPath}/mymember/myPage.do">My Page</a>&nbsp;&nbsp;
 		</c:if>
 		
+		<c:if test="${!empty user_num && user_auth == 9}">
+			<a href="${pageContext.request.contextPath}/myadmin/mymyPage.do">Admin</a>&nbsp;&nbsp;
+		</c:if>
+		
 		<c:if test="${!empty user_num}">
 			<a href="${pageContext.request.contextPath}/member/logout.do">Logout</a>
 		</c:if>
 	</div>
 </div>
+<hr size="1" noshade="noshade" width="100%">
 <div id="myNav" class="overlay">
 	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 	<div class="overlay-content">

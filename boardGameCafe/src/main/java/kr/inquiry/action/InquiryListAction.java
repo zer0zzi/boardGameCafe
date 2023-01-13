@@ -19,7 +19,7 @@ public class InquiryListAction implements Action {
 		InquiryDAO dao = InquiryDAO.getInstance();
 		int count = dao.getCount();
 		
-		PagingUtil page = new PagingUtil(Integer.parseInt(pageNum), count, 10, 10, "inquiryList.do");
+		PagingUtil page = new PagingUtil(Integer.parseInt(pageNum), count, 15, 5, "inquiryList.do");
 		
 		List<InquiryVO> list = null;
 		if(count > 0) {
