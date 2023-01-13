@@ -65,23 +65,24 @@ a:hover{
 	flex: 1;
 }
 
-.main-background a:nth-child(1){
+.start{
 	position: absolute;
-    left: 34%;
-    top: 22%;
-    font-size: 80px;
+	width: 100%;
+	top: 25%;
+	display: flex;
+	justify-content: center;
 }
 
-.main-background a:nth-child(2){
+.start-a{
+	width: 30%;
 	position: absolute;
-    left: 39%;
-    top: 34%;
+	text-align: center;
 }
 
-.main-background a:nth-child(3){
+.start-a a:nth-child(1){
 	position: absolute;
-    left: 35%;
-    top: 40%;
+	left: 0;
+	font-size: 80px;
 }
 
 .main-background img{

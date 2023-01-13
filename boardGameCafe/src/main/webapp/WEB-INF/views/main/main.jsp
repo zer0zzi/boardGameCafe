@@ -17,9 +17,15 @@
 		</div>
 	</div>
 	<div class="main-background">
-		<a href="${pageContext.request.contextPath}/main/intro.do">START</a>
-		<a href="${pageContext.request.contextPath}/member/loginForm.do">LOGIN</a>
-		<a href="${pageContext.request.contextPath}/member/registerUserForm.do">SIGN IN</a>
+		<div class="start">
+			<div class="start-a">
+				<a href="${pageContext.request.contextPath}/main/intro.do">START</a>
+				<br><br>
+				<a href="${pageContext.request.contextPath}/member/loginForm.do">LOGIN</a>
+				<a href="${pageContext.request.contextPath}/member/registerUserForm.do">SIGN IN</a>
+			</div>
+		</div>
+
 		<img src="${pageContext.request.contextPath}/images/hyem/mainImg.png">
 	</div>
 	<div class="main-menu">
