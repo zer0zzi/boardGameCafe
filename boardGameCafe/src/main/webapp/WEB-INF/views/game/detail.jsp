@@ -58,7 +58,6 @@ $(function(){
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
 <div class="detailpage-main">
-	<div class="content-main">
 	<h1>게임상세</h1>
 		<div class="image-detail">
 			<img src="${pageContext.request.contextPath}/images/seul/${detail.pro_picture}">
@@ -85,6 +84,7 @@ $(function(){
 		<div class="small-footer">
 		<span>난이도 : ${detail.pro_level}</span>
 		<span>게임 인원 : ${detail.person}</span>
+		<span>게임 재고: ${detail.pro_count}</span>
 		</div>
 		<br>
 		<br>
@@ -116,7 +116,6 @@ $(function(){
 			</div>
 		<!-- 리뷰 목록 출력 끝 -->
 		<!-- 평가 및 리뷰 끝 -->
-	</div>
 </div>
 </body>
 </html>

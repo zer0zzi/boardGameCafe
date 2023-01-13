@@ -36,7 +36,7 @@ public class DeleteReviewAction implements Action{
 			//로그인 ok, 로그인 한 회원번호 == 작성자 회원번호
 			dao.deleteReviewGame(rev_num);
 			
-			mapAjax.put("result", "seccess");
+			mapAjax.put("result", "success");
 		}else {
 			//로그인 ok, 회원번호 != 작성자 회원번호
 			mapAjax.put("result", "wrongAccess");

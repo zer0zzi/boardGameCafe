@@ -73,17 +73,17 @@ ul.search li{
 /* 게임상세
 -------------------- */
 .detailpage-main{
-	margin:0 auto;
 	width: 1000px;
+	margin: 0 auto;
 }
 .detailpage-main h1{
  text-align:center;
 }
 .image-detail{
 	text-align:center;	
-
 }
 .image-detail img{
 	width:215px;
 	height:195px;
+	
 }

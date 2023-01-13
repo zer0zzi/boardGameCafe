@@ -14,7 +14,7 @@
 $(function(){
    $('#search_form').submit(function(){
       if($('#keyword').val().trim()==''){
-         alert('검색어를 입력하세요');
+    	  goReload();
          $('#keyword').val('').focus();
          return false;
       }
@@ -48,7 +48,7 @@ $(function(){
       <!-- 관리자 -> 게임관리 버튼 시작 -->
       <c:if test="${!empty user_num && user_auth == 9}">
 	      <div class="gameadmin">
-	         <a href="${pageContext.request.contextPath}/game/gameAdmin.do">게임관리</a>
+	         <a href="${pageContext.request.contextPath}/game/gameWriteForm.do">게임등록</a>
 	      </div>
       </c:if>
       <!-- 관리자 -> 게임관리 버튼 끝 -->

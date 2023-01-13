@@ -42,7 +42,7 @@ $(function(){
 					if(param.user_num == detail.mem_num){
 						//로그인한 회원번호와 작성자 회원번호 일치
 						output += ' <input type="button" data-renum="'+detail.rev_num+'" value="수정" class="modify-btn">';
-						output += ' <input type="button" data-renum="'+detail.rev_num+'" value="삭제" class="delete-bnt">';
+						output += ' <input type="button" data-renum="'+detail.rev_num+'" value="삭제" class="delete-btn">';
 					}
 					
 					output += '<hr size="1" noshade width="100%">';
@@ -147,7 +147,7 @@ $(function(){
 		//댓글 수정 폼 UI
 		let modifyUI = '<form id="mre_form">';
 			modifyUI += '<input type="hidden" name="rev_num" id="rev_num" value="'+rev_num+'">';
-			modifyUI += '<textarea rows="3" cols="50" name="rev_content" id="mre_coutent" class="rep-content">'+rev_content+'</textarea>';
+			modifyUI += '<textarea rows="3" cols="50" name="rev_content" id="mre_content" class="rep-content">'+rev_content+'</textarea>';
 			modifyUI += '<div id="mre_sceond" class="align-right">';
 			modifyUI += ' <input type="submit" value="수정">';
 			modifyUI += ' <input type="button" value="취소" class="rev-reset">';
@@ -164,7 +164,7 @@ $(function(){
 			$(this).parent().hide();
 			
 			//수정폼을 수정하고자 하는 데이터가 있는 div에 노출
-			$(this).parents('.item').append(modifyUI);
+			$(this).parents('.detail').append(modifyUI);
 			
 			//입력한 글자수 셋팅
 			let inputLength = $('#mre_content').val().length;
@@ -228,7 +228,7 @@ $(function(){
 		});
 	});
 	//리뷰 삭제 
-	$(document).on('click','delete-btn',function(){
+	$(document).on('click','.delete-btn',function(){
 		//리뷰 번호
 		let rev_num = $(this).attr('data-renum');
 		
