@@ -65,12 +65,32 @@ a:hover{
 	flex: 1;
 }
 
-.start{
-	position: absolute;
-	width: 100%;
-	top: 25%;
-	display: flex;
-	justify-content: center;
+@media (max-height:686px){
+	.main-background img{
+		min-height: 600px;
+	}
+	
+	.start{
+		position: absolute;
+		width: 100%;
+		top: 25%;
+		display: flex;
+		justify-content: center;
+	}
+}
+
+@media (min-height:687px){
+	.main-background img{
+		height: 100vh;
+	}
+	
+	.start{
+		position: absolute;
+		width: 100%;
+		top: 25%;
+		display: flex;
+		justify-content: center;
+	}
 }
 
 .start-a{
@@ -79,11 +99,7 @@ a:hover{
 }
 
 .start-a a:nth-child(1){
-	font-size: 85px;
-}
-
-.main-background img{
-	height: 100vh;
+	font-size: 80px;
 }
 
 .main-menu{
