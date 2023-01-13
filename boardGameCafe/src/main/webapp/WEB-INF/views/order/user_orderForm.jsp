@@ -44,7 +44,8 @@
 			}
 		});	
 	});
-//결제 방식 선택	
+	
+/* //결제 방식 선택	
 $(document).ready(function(){
     $('#selectPay_noBank').hide();	// 초깃값 설정
     $('#selectPay_card').hide();	// 초깃값 설정
@@ -60,7 +61,7 @@ $(document).ready(function(){
 			$('#selectPay_card').show();
 		}
 	});	
-});    
+});    */ 
 </script>
 </head>
 <body>
@@ -138,7 +139,7 @@ $(document).ready(function(){
 						<input type="radio" id="payment2" name="payment" value="2">카드 결제
 					</li>
 				</ul>
-				<div id="selectPay_noBank">
+				<!-- <div id="selectPay_noBank">
 				<br>
 				<hr size="1" noshade="noshade">
 				<br>
@@ -149,7 +150,7 @@ $(document).ready(function(){
 				<div id="selectPay_card">
 				<hr size="1" noshade="noshade">
 				api 넣을 수 있을가
-				</div>
+				</div> -->
 				<br>
 				<hr size="1" noshade>
 				<br>

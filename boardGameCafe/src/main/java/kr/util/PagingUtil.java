@@ -55,7 +55,7 @@ public class PagingUtil {
 		page = new StringBuffer();
 		if (currentPage > pageCount) {
 			page.append("<a href="+pageUrl+"?pageNum="+ (startPage - 1) + sub_url +">");
-			page.append("[이전]");
+			page.append("<- prev");
 			page.append("</a>");
 		}
 		//페이지 번호.현재 페이지는 빨간색으로 강조하고 링크를 제거.
@@ -64,7 +64,7 @@ public class PagingUtil {
 				break;
 			}
 			if (i == currentPage) {
-				page.append("&nbsp;<b><span style='color:red;'>");
+				page.append("&nbsp;<b><span style='color:#000; text-decoration:underline;'>");
 				page.append(i);
 				page.append("</span></b>");
 			} else {
@@ -79,7 +79,7 @@ public class PagingUtil {
 		// 다음 block 페이지
 		if (totalPage - startPage >= pageCount) {
 			page.append("<a href="+pageUrl+"?pageNum="+ (endPage + 1) + sub_url +">");
-			page.append("[다음]");
+			page.append("next ->");
 			page.append("</a>");
 		}
 	}

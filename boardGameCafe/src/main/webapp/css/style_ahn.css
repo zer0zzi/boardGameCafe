@@ -1,10 +1,26 @@
 @charset "UTF-8";
 
+@font-face {
+	src: url("../fonts/DungGeunMo.ttf");
+	font-family: "DungGeunMo";
+}
+
+.btn{
+	width: 100px;
+	height: 25px; 
+	border-radius: 0;
+	background: #fff;
+	border: 1px solid #000;
+	font-size: 15px;
+	cursor: pointer;
+}
+
 body{
 	width:960px;
 	height:1500px;
 	margin:0 auto;
 	background:#FFFFFF;
+	font-family: "DungGeunMo";
 }
 li a:link{
 	text-decoration:none;
@@ -44,7 +60,6 @@ div.content-photo{
 div.cart-main{
 	float:left;
 	width:65%;
-	
 }
 div.cart-side{
 	float:right;
@@ -89,4 +104,14 @@ div.result-display{
 	display:flex;/*하위 요소를 수직으로 쌓을 수 있는 공간을 만듬*/
 	align-items:center;/*세로 정렬*/
 	justify-content:center;/*가로 정렬*/	
+}
+.cart-del{
+	border-radius: 3px;
+	background: red;
+	color: white;
+	border: 1px solid #fff;
+}
+.cart-del:hover{
+	text-decoration:none;
+	border: 2px solid #000;
 }

@@ -41,7 +41,8 @@
 			}
 		});	
 	});
-//결제 방식 선택	
+	
+/* //결제 방식 선택	
 $(document).ready(function(){
     $('#selectPay_noBank').hide();	// 초깃값 설정
     $('#selectPay_card').hide();	// 초깃값 설정
@@ -57,7 +58,7 @@ $(document).ready(function(){
 			$('#selectPay_card').show();
 		}
 	});	
-});    
+});    */ 
 </script>
 </c:if>
 </head>
@@ -187,7 +188,7 @@ $(document).ready(function(){
 						}
 				</script>
 				</c:if>
-				<input type="button" value="주문 목록" onclick="location.href='orderList.do'">
+				<input type="button" value="주문 목록" onclick="location.href='${pageContext.request.contextPath}/mymember/myOrderList.do'">
 				</div><br>
 			</form>
 			<!-- 우편번호 검색 시작 -->

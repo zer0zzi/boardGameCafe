@@ -9,7 +9,6 @@
 <title>장바구니</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style_ahn.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/cart.js"></script>
 <script type="text/javascript">
 	$(function() {
 		//장바구니 상품 삭제
@@ -117,7 +116,7 @@
 						</td>
 						<td class="align-center">
 							<c:if test="${cart.listVo.pro_status==1 or cart.listVo.pro_count < cart.cart_count}">[판매중지]</c:if>
-							<c:if test="${cart.listVo.pro_status!=1 and cart.listVo.pro_count > cart.cart_count}">
+							<c:if test="${cart.listVo.pro_status!=1 and cart.listVo.pro_count >= cart.cart_count}">
 							<input type="number" name="cart_count" min="1" max="${cart.listVo.pro_count}" 
 									value="${cart.cart_count }" class="count_width"style=" width:40px;">
 							<br>
@@ -126,11 +125,11 @@
 											data-pronum="${cart.pro_num}">
 							</c:if>
 						</td>
-						<td class="align-center">
+						<td class="align-center" width="80">
 							<fmt:formatNumber value="${cart.sub_total}"/>원
 						</td>
 						<td>						
-							<input type="button" value="삭제" class="cart-del"
+							<input type="button" value=" Ｘ " class="cart-del"
 												data-cartnum="${cart.cart_num}">
 						</td>
 					</tr>	
@@ -139,7 +138,7 @@
 				</div><!--end of cart main-->
 			<div class="cart-side">
 				<div class="cart-sub">
-					<table>
+					<table class="align-center">
 					<c:forEach var="cart" items="${cart}">
 					<tr>
 						<td>

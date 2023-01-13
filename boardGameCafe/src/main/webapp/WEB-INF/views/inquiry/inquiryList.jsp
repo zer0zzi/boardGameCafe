@@ -5,18 +5,15 @@
 <head>
 <meta charset="UTF-8">
 <title>문의사항</title>
-<%-- <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style_hyem.css"> --%>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style_hyem.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 <div class="page-main">
-	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<h2>문의사항</h2>
-	<c:if test="${!empty user_num && user_auth == 2}">
-		<div class="align-right">
-			<input type="button" value="글쓰기" onclick="location.href='inquiryWriteForm.do'">
-		</div>
-	</c:if>
+	<hr size="1" noshade="noshade" width="100%">
+
 	
 	<c:if test="${count == 0}">
 		<div class="result-display">
@@ -26,20 +23,20 @@
 	
 	<c:if test="${count > 0}">	
 		<table>
-			<tr>
-				<th>글 번호</th>
+			<tr class="border-bot">
+				<th>번호</th>
 				<th></th>
 				<th>제목</th>
 				<th>작성일</th>
 				<th>조회수</th>
 			</tr>
 			<c:forEach var="inquiry" items="${list}">
-				<tr>
+				<tr class="table-content-bot">
 					<c:if test="${inquiry.inqu_rpl == 0}"><td>${inquiry.inqu_num}</td></c:if>
 					<c:if test="${inquiry.inqu_rpl != 0}"><td></td></c:if>
 					<c:if test="${inquiry.inqu_rpl == 0}"><td>${inquiry.inqu_cate}</td></c:if>
 					<c:if test="${inquiry.inqu_rpl != 0}"><td></td></c:if>
-					<td>
+					<td style="text-align: left;">
 						<c:if test="${inquiry.inqu_rpl == 0}">
 							<a href="inquiryDetail.do?inqu_num=${inquiry.inqu_num}">
 								${inquiry.inqu_title}
@@ -65,8 +62,18 @@
 				</tr>
 			</c:forEach>
 		</table>
-		<div class="align-center">
-			${pagingHtml}
+
+	</c:if>
+	
+	<hr size="1" noshade="noshade" width="100%">
+	
+	<div class="align-center paging">
+		${pagingHtml}
+	</div>
+	
+	<c:if test="${!empty user_num && user_auth == 2}">
+		<div class="align-right">
+			<input type="button" class="btn" value="글쓰기" onclick="location.href='inquiryWriteForm.do'">
 		</div>
 	</c:if>
 </div>
