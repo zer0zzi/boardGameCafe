@@ -5,152 +5,155 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style_hapalpal.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
-	$(function(){
-		let idChecked = 0;//0 중복,중복체크X
-		
-		$('#id_check').click(function(){
-			if($('#mem_id').val().trim()==''){
-				alert('아이디를 입력하세요');
-				$('#mem_id').val('').focus();
-				return;
-			}
-			
-			$.ajax({
-				url:'checkDuplicatedId.do',
-				type:'post',
-				data:{mem_id:$('#mem_id').val()},
-				dataType:'json',
-				success:function(param){
-					if(param.result == 'idNotFound'){
-						idChecked = 1;
-						$('#message_id').css('color','#000000').text('등록 가능한 ID입니다');
-					}else if(param.result =='idDuplicated'){
-						idChecked = 0;
-						$('#message_id').css('color','red').text('이미 등록된 ID입니다.');
-					}else {
-						idChecked = 0;
-						alert('아이디 중복 체크 오류 발생');
-					}			 		
-				},
-				error:function(){
-					idChecked=0;
-					alert('네트워크 오류 발생');
-				}
-			});
-			
-		});//end of click 
-		
-		$('#register_form #mem_id').keydown(function(){
-			idChecked =0;
-			$('#message_id').text('');
-		});//end of keydown
-		
-		//회원정보 등록 유효성 체크
-		
-		$('#register_form').submit(function(){
-			if($('#mem_id').val().trim()==''){
-				alert('아이디를 입력하세요');
-				$('#mem_id').val('').focus();
-				return false;
-			}
-			if(idChecked==0){
-				alert('아이디 중복 체크 필수');
-				return false;
-			}
-			if($('#mem_name').val().trim()==''){
-				alert('이름을 입력하세요');
-				$('#mem_name').val('').focus();
-				return false;
-			}
-			if($('#mem_pw').val().trim()==''){
-				alert('비밀번호를 입력하세요');
-				$('#mem_pw').val('').focus();
-				return false;
-			}
-			if($('#mem_phone').val().trim()==''){
-				alert('전화번호을 입력하세요');
-				$('#mem_phone').val('').focus();
-				return false;
-			}
-			if($('#mem_email').val().trim()==''){
-				alert('이메일을 입력하세요');
-				$('#mem_email').val('').focus();
-				return false;
-			}
-			if($('#mem_zipcode').val().trim()==''){
-				alert('우편번호를 입력하세요');
-				$('#mem_zipcode').val('').focus();
-				return false;
-			}
-			if($('#mem_address1').val().trim()==''){
-				alert('주소를 입력하세요');
-				$('#mem_address1').val('').focus();
-				return false;
-			}
-			if($('#mem_address2').val().trim()==''){
-				alert('나머지 주소를 입력하세요');
-				$('#mem_address2').val('').focus();
-				return false;
-			}
-			
-		});//end of submit
-		
-	});
+   $(function(){
+      let idChecked = 0;//0 중복,중복체크X
+      
+      $('#id_check').click(function(){
+         if($('#mem_id').val().trim()==''){
+            alert('아이디를 입력하세요');
+            $('#mem_id').val('').focus();
+            return;
+         }
+         
+         $.ajax({
+            url:'checkDuplicatedId.do',
+            type:'post',
+            data:{mem_id:$('#mem_id').val()},
+            dataType:'json',
+            success:function(param){
+               if(param.result == 'idNotFound'){
+                  idChecked = 1;
+                  $('#message_id').css('color','#000000').text('등록 가능한 ID입니다');
+               }else if(param.result =='idDuplicated'){
+                  idChecked = 0;
+                  $('#message_id').css('color','red').text('이미 등록된 ID입니다.');
+               }else {
+                  idChecked = 0;
+                  alert('아이디 중복 체크 오류 발생');
+               }                
+            },
+            error:function(){
+               idChecked=0;
+               alert('네트워크 오류 발생');
+            }
+         });
+         
+      });//end of click 
+      
+      $('#register_form #mem_id').keydown(function(){
+         idChecked =0;
+         $('#message_id').text('');
+      });//end of keydown
+      
+      //회원정보 등록 유효성 체크
+      
+      $('#register_form').submit(function(){
+         if($('#mem_id').val().trim()==''){
+            alert('아이디를 입력하세요');
+            $('#mem_id').val('').focus();
+            return false;
+         }
+         if(idChecked==0){
+            alert('아이디 중복 체크 필수');
+            return false;
+         }
+         if($('#mem_name').val().trim()==''){
+            alert('이름을 입력하세요');
+            $('#mem_name').val('').focus();
+            return false;
+         }
+         if($('#mem_pw').val().trim()==''){
+            alert('비밀번호를 입력하세요');
+            $('#mem_pw').val('').focus();
+            return false;
+         }
+         if($('#mem_phone').val().trim()==''){
+            alert('전화번호을 입력하세요');
+            $('#mem_phone').val('').focus();
+            return false;
+         }
+         if($('#mem_email').val().trim()==''){
+            alert('이메일을 입력하세요');
+            $('#mem_email').val('').focus();
+            return false;
+         }
+         if($('#mem_zipcode').val().trim()==''){
+            alert('우편번호를 입력하세요');
+            $('#mem_zipcode').val('').focus();
+            return false;
+         }
+         if($('#mem_address1').val().trim()==''){
+            alert('주소를 입력하세요');
+            $('#mem_address1').val('').focus();
+            return false;
+         }
+         if($('#mem_address2').val().trim()==''){
+            alert('나머지 주소를 입력하세요');
+            $('#mem_address2').val('').focus();
+            return false;
+         }
+         
+      });//end of submit
+      
+   });
 </script>
 </head>
 <body>
 <div class="page-main">
-	<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
-	<div class="content-main">
-		<h2>회원가입</h2>
-		<form id="register_form" action="registerUser.do" method="post">
-			<ul>
-				<li>
-					<label for="id">id</label>
-					<input type="text" name="mem_id" id="mem_id" maxlength="12" autocomplete="off">
-					<input type="button" value="ID중복체크" id="id_check">
-					<span id="message_id"></span>
-				</li>
-				<li>
-					<label for="name">이름</label>
-					<input type="text" name="mem_name" id="mem_name" maxlength="10">
-				</li>
-				<li>
-					<label for="passwd">비밀번호</label>
-					<input type="password" name="mem_pw" id="mem_pw" maxlength="20">
-				</li>
-				<li>
-					<label for="phone">전화번호</label>
-					<input type="text" name="mem_phone" id="mem_phone" maxlength="15">
-				</li>
-				<li>
-					<label for="email">이메일</label>
-					<input type="email" name="mem_email" id="mem_email" maxlength="50">
-				</li>
-				<li>
-					<label for="zipcode">우편번호</label>
-					<input type="text" name="mem_zipcode" id="mem_zipcode" maxlength="5">
-					<input type="button" value="우편번호 검색" onclick="execDaumPostcode()">
-				</li>
-				<li>
-					<label for="address1">주소</label>
-					<input type="text" name="mem_address1" id="mem_address1" maxlength="50">
-				</li>
-				<li>
-					<label for="address2">상세주소</label>
-					<input type="text" name="mem_address2" id="mem_address2" maxlength="50">
-				</li>
-			</ul>
-			<div class="align-center">
-			<input type="submit" value="등록">
-			<input type="button" value="메인화면으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
-			</div>
-		</form>
-		<!--우편번호 검색 시작  -->
-		<!-- iOS에서는 position:fixed 버그가 있음, 적용하는 사이트에 맞게 position:absolute 등을 이용하여 top,left값 조정 필요 -->
+   <jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
+   <div class="content-main">
+      <h2>SIGN IN</h2>
+      <form id="register_form" action="registerUser.do" method="post">
+            <div class="input-box" id="input-box1">
+               <label for="id">ID</label>
+               <input type="text" name="mem_id" id="mem_id" maxlength="12" autocomplete="off">
+            <div id="label1" >
+               <input type="button" value="ID중복체크" id="id_check">
+               <span id="message_id"></span>
+            </div>
+            
+            </div>
+            <div class="input-box">
+               <label for="name">이름</label>
+               <input type="text" name="mem_name" id="mem_name" maxlength="10">
+            </div>
+            <div class="input-box">
+               <label for="passwd">비밀번호</label>
+               <input type="password" name="mem_pw" id="mem_pw" maxlength="20">
+            </div>
+            <div class="input-box">
+               <label for="phone">전화번호</label>
+               <input type="text" name="mem_phone" id="mem_phone" maxlength="15">
+            </div>
+            <div class="input-box">
+               <label for="email">이메일</label>
+               <input type="email" name="mem_email" id="mem_email" maxlength="50">
+            </div>   
+            
+            <div class="input-box">
+               <label for="zipcode">우편번호</label>
+               <input type="text" name="mem_zipcode" id="mem_zipcode" maxlength="5">
+               <div id="label2">
+               <input type="button" value="우편번호 검색" onclick="execDaumPostcode()">
+           	   </div>
+            </div>
+            <div class="input-box">
+               <label for="address1">주소</label>
+               <input type="text" name="mem_address1" id="mem_address1" maxlength="50">
+            </div>
+            <div class="input-box">
+               <label for="address2">상세주소</label>
+               <input type="text" name="mem_address2" id="mem_address2" maxlength="50">
+            </div>
+         <div class="align-center1">
+         <input id="pointer" type="submit" value="등록">
+         </div>
+      </form>
+      <!--우편번호 검색 시작  -->
+      <!-- iOS에서는 position:fixed 버그가 있음, 적용하는 사이트에 맞게 position:absolute 등을 이용하여 top,left값 조정 필요 -->
 <div id="layer" style="display:none;position:fixed;overflow:hidden;z-index:1;-webkit-overflow-scrolling:touch;">
 <img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnCloseLayer" style="cursor:pointer;position:absolute;right:-3px;top:-3px;z-index:1" onclick="closeDaumPostcode()" alt="닫기 버튼">
 </div>
@@ -246,8 +249,8 @@
         element_layer.style.top = (((window.innerHeight || document.documentElement.clientHeight) - height)/2 - borderWidth) + 'px';
     }
 </script>
-		<!--우편번호 검색 끝  -->
-	</div>
+      <!--우편번호 검색 끝  -->
+   </div>
 </div>
 </body>
 </html>

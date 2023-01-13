@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>로그인</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style_hapalpal.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 	$(function(){
@@ -26,27 +26,24 @@
 </head>
 <body>
 <div class="page-main">
-	<jsp:include page="/WEB-INF/views/common/header.jsp"/>;
+	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<div class="content-main">
-		<h2>로그인</h2>
-		<form id="login_form" action="login.do" method="post">
-		 	<ul>
-		 		<li>
+		<h2>LOGIN</h2>
+		<form id="login-form" action="login.do" method="post">
+			<div class="input-box">
 		 			<label for="id">아이디</label>
-		 			<input type="text" name="mem_id" id="mem_id" maxlength="12" autocomplete="off">
-		 		</li>
-		 		<li>
+		 			<input type="text" name="mem_id" id="mem_id" maxlength="12" placeholder="아이디" autocomplete="off">
+		 	</div>
+		 	<div class="input-box">	
 		 			<label for="passwd">비밀번호</label>
-		 			<input type="password" name="mem_pw" id="mem_pw" maxlength="12">
-		 		</li>
-		 	</ul>
+		 			<input type="password" name="mem_pw" id="mem_pw" placeholder="비밀번호" maxlength="12">
+		 	</div>
 		 	<div class="align-center">
-		 		<input type="submit" value="로그인">
-		 		<input type="button" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
-		 		
+		 		<input id="pointer" type="submit" value="로그인">
+		 		<input id="pointer1" type="button" onclick="location='/boardGameCafe/member/registerUserForm.do'" value="회원가입">
 		 	</div>
 		</form>
-	</div> 
+	</div>
 </div>
 </body>
 </html>
