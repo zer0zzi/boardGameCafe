@@ -12,7 +12,7 @@
 	<div class="main-logo">
 		<div class="main-logoBox">
 			<a href="${pageContext.request.contextPath}/main/intro.do">
-				<img src="${pageContext.request.contextPath}/images/hyem/logo.png" width="120">
+				<img src="${pageContext.request.contextPath}/images/hyem/logo_black.png" width="120">
 			</a>
 		</div>
 	</div>

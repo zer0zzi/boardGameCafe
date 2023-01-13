@@ -5,33 +5,35 @@
 	font-family: "DungGeunMo";
 }
 
-*{	
+*{
 	font-family: "DungGeunMo";
-	font-size: 50px;	
 	margin: 0;
 	padding: 0;
-	text-shadow: 4px 3px 0px #adac72;
 }
 
-a:link{
-	text-decoration: none;
-	color: #fff;
-}
-
-a:visited{
-	text-decoration: none;
-	color: #fff;
-}
-
-a:hover{
-	text-decoration: none;
-	color: #b3b007;
-	text-shadow: 4px 3px 0px #78772f;
-}
-
+/* main */
 .main-body{
 	-ms-overflow-style: none;
 	background: #000;
+	font-size: 50px;	
+	text-shadow: 4px 3px 0px #adac72;
+}
+
+.main-body a:link{
+	text-decoration: none;
+	color: #fff;
+}
+
+.main-body a:visited{
+	text-decoration: none;
+	color: #fff;
+}
+
+.main-body a:hover{
+	text-decoration: none;
+	color: #b3b007;
+	text-shadow: 4px 3px 0px #78772f;
+	transition: 0.5s;
 }
 
 /*스크롤바 없애기*/
@@ -65,7 +67,7 @@ a:hover{
 	flex: 1;
 }
 
-@media (max-height:686px){
+@media (max-height:686.0px){
 	.main-background img{
 		min-height: 600px;
 	}
@@ -79,7 +81,7 @@ a:hover{
 	}
 }
 
-@media (min-height:687px){
+@media (min-height:686.1px){
 	.main-background img{
 		height: 100vh;
 	}
@@ -115,4 +117,107 @@ a:hover{
 
 .main-menu ul li{
 	margin-bottom: 50px;
+}
+
+/* header */
+.overlay {
+	height: 100%;
+	width: 0;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	background-color: rgba(80, 80, 80, 0.5);
+	overflow-x: hidden;
+	transition: 0.5s;
+}
+
+.overlay-content {
+	position: relative;
+	top: 25%;
+	width: 100%;
+	text-align: center;
+	margin-top: 30px;
+}
+
+.overlay a {
+	padding: 8px;
+	text-decoration: none;
+	font-size: 36px;
+	color: #FFF;
+	display: block;
+	transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+	color: #f1f1f1;
+}
+
+.overlay .closebtn {
+	position: absolute;
+	top: 20px;
+	right: 45px;
+	font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+	.overlay a {
+		font-size: 18px;
+	}
+		
+	.overlay .closebtn {
+		font-size: 40px;
+		top: 15px;
+		right: 35px;
+	}
+}
+
+.header{
+	display: flex;
+	height: 120px;
+	width: 100%;
+}
+
+.menubar{
+	flex-basis: 300px;
+}
+
+.menubar img{
+	margin-top: 35px;
+	margin-left: 35px;
+	cursor: pointer;
+}
+
+.header-logo{
+	flex: 1;
+	text-align: center;
+}
+
+.login-part{
+ 	flex-basis: 300px;
+ 	font-size: 20px;
+ 	display: flex;
+    justify-content: right;
+    align-items: center;
+    color: #000;
+}
+
+.login-part a:last-child{
+	margin-right: 30px;
+}
+
+.login-part a:link{
+	text-decoration: none;
+	color: #000;
+}
+
+.login-part a:visited{
+	text-decoration: none;
+	color: #000;
+}
+
+.login-part a:hover{
+	text-decoration: none;
+	color: #6C6C6C;	
+	transition: 0.5s;
 }
