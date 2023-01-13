@@ -58,6 +58,7 @@ form ul li label{
 	width:200px;
 	float:left; /* 태그를 왼쪽으로 정렬 */
 }
+
 ul{
 	list-style:none;
 }

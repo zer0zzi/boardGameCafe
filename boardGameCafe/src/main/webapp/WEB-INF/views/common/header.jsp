@@ -44,7 +44,7 @@
    	 	<a href="${pageContext.request.contextPath}/reserve/reserveMain.do">RESERVATION</a>
     	<a href="${pageContext.request.contextPath}/notice/noticeList.do">NOTICE</a>
     	<a href="${pageContext.request.contextPath}/inquiry/inquiryList.do">QUESTIONS</a>
-  	</div>
+  	</div> 
 </div>
 <script>
 function openNav() {
