@@ -39,7 +39,6 @@
 	</table>
 	<hr size="1" noshade="noshade" width="100%">
 	<div class="align-center paging">${page}</div>
-	
 	</c:if>
 	<div class="align-right">
 		<input type="button" class="btn" value="글쓰기" onclick="location.href='${pageContext.request.contextPath}/inquiry/inquiryWriteForm.do'">

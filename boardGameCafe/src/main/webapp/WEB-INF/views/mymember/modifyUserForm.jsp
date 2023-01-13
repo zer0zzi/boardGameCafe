@@ -100,8 +100,8 @@
 </script>
 </head>
 <body>
-<div class="page-main">
-	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+
 	<div class="content-main">
 		<div class="allbox1-modify">
 		<!-- 프로필 사진 시작 -->
@@ -135,7 +135,8 @@
 		<!-- 프로필 사진 옆 ID/버튼 끝 -->
 		</div>
 		<!--allbox1-modify끝-->
-		<div class="float-end"></div>		
+		<div class="float-end"></div>	
+<div class="page-main">	
 		<!--수정 폼 시작  -->		
 		<form id="modify_form" action="modifyUser.do"
 		                                   method="post">
@@ -183,6 +184,7 @@
 			</div>
 			<div class="float-end"></div>                                
 		</form>
+			<div class="pagebottom"></div>
 		
 		<!-- 우편번호 검색 시작 -->
 		<!-- iOS에서는 position:fixed 버그가 있음, 적용하는 사이트에 맞게 position:absolute 등을 이용하여 top,left값 조정 필요 -->

@@ -209,7 +209,7 @@ ul {
 
 .passwd-change-btn {
 	float: right;
-	margin-right:150px;
+	margin-right:75px;
 	margin-bottom:40px;
 }
 
@@ -217,13 +217,12 @@ ul {
 	width: 600px;
 	margin: 0 auto;
 	padding-top: 70px;
-    padding-left: 190px;
 }
 #modify_form ul li {
 	margin-bottom: 10px;
 }
 .modify_form-list{
-	padding-left:75px;
+	padding-left:105px;
 }
 #phone{
 	margin-left:64px;
@@ -252,8 +251,10 @@ ul {
 #password_form {
 	width: 600px;
 	margin: 0 auto;
-	padding: 10px 10px 10px 350px;
 }		
+.modifypw_form-list{
+	padding-left:140px;
+}
 .redbtn-modify {
 	width: 400px;
 	height: 40px;
@@ -261,14 +262,13 @@ ul {
 	color: white;
 	border-style: none;
 	cursor: pointer;
-	margin-left:-11%;
 	margin-top:20px;
 }
 #origin_passwd{
 	margin-left:20px;
 }
 #passwd2{
-  	margin-left: 42px;
+  	margin-left: 44px;
 }
 #cpasswd2{
 	margin-left: 4px;
@@ -276,7 +276,7 @@ ul {
 .helpbox-pw {
 	float: right;
 	margin-top: 10px;
-	margin-right: 267px;
+	margin-right: 100px;
 	margin-bottom: 40px;
 }
 
@@ -400,7 +400,7 @@ ul {
 	margin-left:30%;
 }
 #passwd{
-	margin-left:37px;
+	margin-left:39px;
 }
 
 

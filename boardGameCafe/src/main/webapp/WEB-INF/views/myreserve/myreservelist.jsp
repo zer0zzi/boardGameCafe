@@ -11,9 +11,8 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-	<div class="page-main">
-	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
-
+<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+<div class="page-main">
 	<c:if test="${count == 0}">
 		<div class="result-display-x">
 			예약내역이 없습니다.
@@ -31,7 +30,11 @@
 		<c:if test="${todaycount > 0}">
 		<div class="todayreserve">
 				<div class="todayreserve-imgbox">
-				<%-- 		
+				
+				
+				
+				
+				<%-- 		바꿔야함 이거로!
 					<img src="${pageContext.request.contextPath}/upload/${MyRe.photo1}"
 							width="280" height="280" class="">
 					<img src="${pageContext.request.contextPath}/upload/${MyRe.photo2}"
@@ -56,19 +59,19 @@
 				</div>
 		</div>		
 		</c:if>
-	
-	
-	<div class="text-align-center"><h2>전체 예약 목록</h2></div>
-	<table class="tablestyle">
-		<tr>
-			<th class="restable-1">방 이름</th>
-			<th class="restable-2">방 사이즈</th>
+	<br><br>	
+	<h2>전체 예약 목록</h2>
+	<hr size="1" noshade="noshade" width="100%">
+	<table>
+		<tr class="border-bot">
+			<th>방 이름</th>
+			<th>방 사이즈</th>
 			<th>방 소개</th>
-			<th class="restable-4">예약 날짜</th>
-			<th class="restable-5">예약 시간</th>
+			<th>예약 날짜</th>
+			<th>예약 시간</th>
 		</tr>
 		<c:forEach var="myreserve" items="${list}">
-		<tr>
+		<tr class="table-content-bot">
 			<td>${myreserve.room_name}</td>
 			<td>${myreserve.room_size}</td>
 			<td>${myreserve.room_detail}</td>
@@ -77,8 +80,8 @@
 		</tr>
 		</c:forEach>
 	</table>
-	<div class="pageup"></div>
-	<div class="align-center">${page}</div>
+	<hr size="1" noshade="noshade" width="100%">
+	<div class="align-center paging">${page}</div>
 	<div class="pagebottom"></div>
 	</c:if>
 	</div>

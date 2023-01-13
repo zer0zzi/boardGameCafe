@@ -13,23 +13,24 @@
 <body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<div class="page-main">
-	<h1>구매내역</h1>
+	<h2>구매내역</h2>
+	<hr size="1" noshade="noshade" width="100%">
 	<c:if test="${count == 0}">
 		<div class="result-display-x">
 			구매내역 없음.
 		</div>
 	</c:if>
 	<c:if test="${count > 0}">
-	<table class="tablestyle">
-		<tr>
-			<th class="ordertable-1">배송상태</th>
+	<table>
+		<tr class="border-bot">
+			<th>배송상태</th>
 			<th>구매목록</th>
 			<th>총가격</th>
-			<th class="ordertable-4">구매날짜</th>
+			<th>구매날짜</th>
 			<th>수정 및 취소</th>
 		</tr>
 		<c:forEach var="myorder" items="${list}">
-		<tr>
+		<tr class="table-content-bot">
 			<c:if test="${myorder.status==1}"><td>배송대기(결제완료)</td></c:if>
 			<c:if test="${myorder.status==2}"><td>배송준비중</td></c:if>
 			<c:if test="${myorder.status==3}"><td>배송중</td></c:if>
@@ -42,8 +43,8 @@
 		</tr>
 		</c:forEach>
 	</table>
-	<div class="pageup"></div>
-	<div class="align-center">${page}</div>
+	<hr size="1" noshade="noshade" width="100%">
+	<div class="align-center paging">${page}</div>
 	<div class="pagebottom"></div>
 	</c:if>
 	</div>

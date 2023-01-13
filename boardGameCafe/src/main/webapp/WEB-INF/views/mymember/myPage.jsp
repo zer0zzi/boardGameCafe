@@ -12,7 +12,7 @@
 </head>
 <body>
    <jsp:include page="/WEB-INF/views/common/header.jsp" />
-   <div class="page-main">
+   
          <div class="mypage-div">
          <div class="allbox1">
             <!--프로필 사진 시작 -->
@@ -40,6 +40,7 @@
             </div>
             <!-- allbox1 끝 -->
             <div class="float-end"></div>
+<div class="page-main">    
             <!-- allbox2 시작 -->
             <div class="allbox2">
 	            <div class="mypageblock01">

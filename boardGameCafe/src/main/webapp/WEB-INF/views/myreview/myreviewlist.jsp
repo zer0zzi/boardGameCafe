@@ -11,31 +11,30 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<div class="page-main">
-	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
-
 	<c:if test="${count == 0}">
 		<div class="result-display-x">
 			댓글이 없습니다.
 		</div>
 	</c:if>
 	<c:if test="${count > 0}">
-	<table class="tablestyle">
-		<tr>
-			<th class="revtable-1">게임이름</th>
+	<table>
+		<tr class="border-bot">
+			<th>게임이름</th>
 			<th>리뷰내용</th>
-			<th class="revtable-3">작성일</th>
+			<th>작성일</th>
 		</tr>
 		<c:forEach var="myreview" items="${list}">
-		<tr>
+		<tr class="table-content-bot">
 			<td>${myreview.pro_name}</td>
 			<td><a href="${pageContext.request.contextPath}//game/gameDetail.do?pro_num=${myreview.pro_num}">${myreview.rev_content}</a></td>
 			<td>${myreview.rev_date}</td>
 		</tr>
 		</c:forEach>
 	</table>
-	<div class="pageup"></div>
-	<div class="align-center">${page}</div>
+	<hr size="1" noshade="noshade" width="100%">
+	<div class="align-center paging">${page}</div>
 	<div class="pagebottom"></div>
 	</c:if>
 	</div>

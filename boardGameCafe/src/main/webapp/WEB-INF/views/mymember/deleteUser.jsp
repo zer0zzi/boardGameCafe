@@ -12,13 +12,13 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style_ddk.css">
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 <div class="page-main">
-	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<div class="content-main">
 		<h2>회원탈퇴 완료</h2>
 		<div class="result-display">
 			<div class="align-center">
-				회원탈퇴가 완료되었습니다.<p>
+				회원탈퇴가 완료되었습니다.<p><br><br>
 				<input type="button" value="홈으로"
 				  onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
 			</div>

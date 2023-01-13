@@ -33,8 +33,7 @@
 </script>
 </head>
 <body>
-<div class="page-main">
-	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+<jsp:include page="/WEB-INF/views/common/header.jsp"/>	
 	<div class="content-main">
 		<!-- 프로필 사진 시작 -->
 		<div class="photo-box-delete">
@@ -51,6 +50,7 @@
 		</div>	
 		</div>
 		<!--프로필 사진 끝  -->
+<div class="page-main">		
 		<!-- 탈퇴 폼 시작 -->
 		<form id="delete_form" action="deleteUser.do" method="post">
 			<ul>
@@ -73,7 +73,9 @@
 			</div>
 			<div class="float-end"></div>                                  
 		</form>
-		<!-- 탈퇴 폼 시작 -->
+		<!-- 탈퇴 폼 끝 -->
+		<div class="pagebottom"></div>
+		
 	</div>
 </div>
 </body>

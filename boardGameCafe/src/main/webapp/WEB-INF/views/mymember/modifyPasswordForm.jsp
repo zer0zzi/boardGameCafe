@@ -38,8 +38,7 @@
 </script>
 </head>
 <body>
-<div class="page-main">
-	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<div class="content-main">
 		<!-- 프로필 사진 시작 -->
 		<div class="photo-box-delete">
@@ -56,8 +55,10 @@
 		</div>	
 		</div>
 		<!--프로필 사진 끝  -->
+	<div class="page-main">	
   		<!--비번변경 폼 시작 -->
 		<form id="password_form" action="modifyPassword.do" method="post">
+			<div class="modifypw_form-list">
 			<ul>
 				<li>
 					<label for="origin_passwd"><b>현재 비밀번호</b></label>
@@ -75,6 +76,7 @@
 					            id="cpasswd2" maxlength="12">
 				</li>
 			</ul>
+			</div>
 			<div class="align-center">
 				<input class="redbtn-modify" type="submit" value="비밀번호 수정">
 			</div>                                   
@@ -83,6 +85,8 @@
 			</div>
 			<div class="float-end"></div>
 		</form>
+			<div class="pagebottom"></div>
+		
 	</div>
 </div>
 </body>
