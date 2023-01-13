@@ -10,8 +10,9 @@
 
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 <div class="page-main">
-	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+	
 	<div class="content-main">
 		<h2>???게임 목록???</h2>
 		<div class="list-space align-right">

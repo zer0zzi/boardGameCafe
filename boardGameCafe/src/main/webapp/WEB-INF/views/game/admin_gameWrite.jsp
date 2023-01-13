@@ -12,17 +12,12 @@
 </script>
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 <div class="page-main">
-	<!-- header include -->
 	<div class="content-main">
 		<h2>게임 등록</h2>
 		<form action="write.do" method="post" id="write_form" enctype="multipart/form-data">
 			<ul>
-				<li>
-					<label>게임표시여부</label>
-					<input type="radio" name="pro_status" value="1" id="status1">미표시
-					<input type="radio" name="pro_status" value="2" id="status2">표시
-				</li>
 				<li>
 					<label for="name">게임이름</label>
 					<input type="text" name="pro_name" id="pro_name" maxlength="20">

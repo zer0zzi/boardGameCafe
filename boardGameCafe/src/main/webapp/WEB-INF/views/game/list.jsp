@@ -23,8 +23,8 @@ $(function(){
 </script>
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 <div class="page-main">
-   <jsp:include page="/WEB-INF/views/common/header.jsp"/>
    <div class="content-main">
       <!-- 검색 폼 시작 -->
       <form id="search_form" action="gameList.do" method="get">
@@ -33,7 +33,7 @@ $(function(){
                   <select name="keyfield">
                      <option value="1" <c:if test="${param.keyfield==1}">selected</c:if>>제목</option>
                      <option value="2" <c:if test="${param.keyfield==2}">selected</c:if>>난이도</option>
-                     <option value="3" <c:if test="${param.keyfield==3}">selected</c:if>>최대 인원수</option>
+                     <option value="3" <c:if test="${param.keyfield==3}">selected</c:if>>추천 인원수</option>
                   </select>
                </li>
                <li>
