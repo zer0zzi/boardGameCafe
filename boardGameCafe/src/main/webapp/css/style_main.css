@@ -74,15 +74,12 @@ a:hover{
 }
 
 .start-a{
-	width: 30%;
-	position: absolute;
+	width: 40%;
 	text-align: center;
 }
 
 .start-a a:nth-child(1){
-	position: absolute;
-	left: 0;
-	font-size: 80px;
+	font-size: 85px;
 }
 
 .main-background img{

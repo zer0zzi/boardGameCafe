@@ -20,8 +20,8 @@
 		<div class="start">
 			<div class="start-a">
 				<a href="${pageContext.request.contextPath}/main/intro.do">START</a>
-				<br><br>
 				<a href="${pageContext.request.contextPath}/member/loginForm.do">LOGIN</a>
+				<br>
 				<a href="${pageContext.request.contextPath}/member/registerUserForm.do">SIGN IN</a>
 			</div>
 		</div>
