@@ -456,7 +456,7 @@ public class ListDAO {
 		   //커넥션풀로부터 커넥션을 할당
 		   conn = DBUtil.getConnection();
 		   //SQL문 작성
-		   sql = "DELETE FROM review WHRER rev_num=?";
+		   sql = "DELETE FROM review WHERE rev_num=?";
 		   //PreparedStatement 객체 생성
 		   pstmt = conn.prepareStatement(sql);
 		   //?에 데이터 바인딩
