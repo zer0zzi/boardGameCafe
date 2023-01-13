@@ -116,7 +116,7 @@
 						</td>
 						<td class="align-center">
 							<c:if test="${cart.listVo.pro_status==1 or cart.listVo.pro_count < cart.cart_count}">[판매중지]</c:if>
-							<c:if test="${cart.listVo.pro_status!=1 and cart.listVo.pro_count > cart.cart_count}">
+							<c:if test="${cart.listVo.pro_status!=1 and cart.listVo.pro_count >= cart.cart_count}">
 							<input type="number" name="cart_count" min="1" max="${cart.listVo.pro_count}" 
 									value="${cart.cart_count }" class="count_width"style=" width:40px;">
 							<br>
