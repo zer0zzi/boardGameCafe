@@ -12,25 +12,20 @@
 		<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 		<div class="content-main">
 			<h2>예약하기</h2>
-			<form action="reserve.do">
+			<form action="reserve.do" method="post">
 				<input type="hidden" name="mem_num" id="mem_num" value="${detail.mem_num}">
 				<ul>
 					<li>
 						<label>예약자 이름</label>
-						<input type="text" name="name" id="name" maxlength="10" value="${detail.mem_name}" readonly>
+						<input type="text" name="name" id="name" maxlength="50" value="${detail.mem_name}" readonly>
 					</li>
-					<!-- <li>
-				         date: 날짜 필드
-				         <label for="start_date">시작 날짜</label>
-				         <input type="date" name="start_date" id="start_date" value="">
-				    </li> -->
 					<li>
 						<label>예약날짜</label>
-						<input type="text" name="res_date" id="reg_date" maxlength="10">
+						<input type="text" name="res_date" id="res_date" maxlength="10">
 					</li>
 					<li>
 						<label>예약시간</label>
-						<input type="text" name="res_time" id="reg_time" maxlength="10">
+						<input type="text" name="res_time" id="res_time" maxlength="10">
 					</li>
 					<li>
 						<label>인원수</label>
@@ -38,7 +33,7 @@
 					</li>
 					<li>
 						<label>방 번호</label>
-						<input type="text" name="room_num" id="room_num" value="${detail.room_num}">
+						<input type="text" name="room_num" id="room_num" value="${detail.room_num}" readonly>
 					</li>
 				</ul>
 				<input type="submit" id="submit_reserve" value="예약"/>

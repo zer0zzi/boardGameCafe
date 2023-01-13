@@ -81,6 +81,7 @@ public class ReserveDAO {
 					detail.setMem_num(rs.getInt("mem_num"));
 					detail.setMem_name(rs.getString("mem_name"));
 					detail.setRoom_num(rs.getInt("room_num"));
+					
 				}
 			}catch(Exception e) {
 				throw new Exception(e);

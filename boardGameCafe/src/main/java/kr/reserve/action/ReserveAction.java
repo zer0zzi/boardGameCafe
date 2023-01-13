@@ -25,8 +25,9 @@ public class ReserveAction implements Action{
 			
 			Integer room_num = Integer.parseInt(request.getParameter("room_num"));
 			
+			
 			ReserveVO res = new ReserveVO();
-			res.setMem_num(user_num);
+			res.setMem_num(Integer.parseInt(request.getParameter("user_num")));
 			res.setRes_date(request.getParameter("res_date"));
 			res.setRes_time(request.getParameter("res_time"));
 			res.setRes_count(Integer.parseInt(request.getParameter("res_count")));
