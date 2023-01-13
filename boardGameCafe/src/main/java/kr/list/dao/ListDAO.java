@@ -410,7 +410,7 @@ public class ListDAO {
 		   rs = pstmt.executeQuery();
 		   if(rs.next()) {
 			   review = new GameReviewVO();
-			   review.setRev_num(rs.getInt(rev_num));
+			   review.setRev_num(rs.getInt("rev_num"));
 			   review.setMem_num(rs.getInt("mem_num"));
 		   }
 	   }catch(Exception e) {
@@ -431,7 +431,7 @@ public class ListDAO {
 		   conn = DBUtil.getConnection();
 		   //SQL문 작성
 		   sql = "UPDATE review SET rev_content=?,"
-				   + "rev_modifydate=SYSDATE,re_ip=? WHERE re_num=?";
+				   + "rev_modifydate=SYSDATE,re_ip=? WHERE rev_num=?";
 		   //PreparedStatement 객체 생성
 		   pstmt = conn.prepareStatement(sql);
 		   //?에 데이터를 바인딩

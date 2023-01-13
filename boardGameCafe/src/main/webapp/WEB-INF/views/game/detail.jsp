@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>게임상세</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/game.review.js"></script>
 <script type="text/javascript">
@@ -57,6 +58,7 @@ $(function(){
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
 <div class="detailpage-main">
+	<div class="content-main">
 	<h1>게임상세</h1>
 		<div class="image-detail">
 			<img src="${pageContext.request.contextPath}/images/seul/${detail.pro_picture}">
@@ -114,6 +116,7 @@ $(function(){
 			</div>
 		<!-- 리뷰 목록 출력 끝 -->
 		<!-- 평가 및 리뷰 끝 -->
+	</div>
 </div>
 </body>
 </html>

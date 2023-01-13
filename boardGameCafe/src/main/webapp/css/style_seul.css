@@ -74,8 +74,16 @@ ul.search li{
 -------------------- */
 .detailpage-main{
 	margin:0 auto;
-	color:red;
+	width: 1000px;
+}
+.detailpage-main h1{
+ text-align:center;
 }
 .image-detail{
-	text-align:center;
+	text-align:center;	
+
+}
+.image-detail img{
+	width:215px;
+	height:195px;
 }
