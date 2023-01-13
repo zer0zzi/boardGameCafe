@@ -6,9 +6,6 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style_main.css">
-<style>
-
-</style>
 </head>
 <body>
 <div class="header">
@@ -33,38 +30,6 @@
 			<a href="${pageContext.request.contextPath}/member/logout.do">Logout</a>
 		</c:if>
 	</div>
-	<%--
-	<div class="main-logo">
-		<a href="${pageContext.request.contextPath}/main/main.do"><img src="${pageContext.request.contextPath}/images/hyem/logo.png" width="120"></a>
-	</div>
-	<div class="login-part">
-		<c:if test="${!empty user_num && user_auth == 2}">
-			<a href="${pageContext.request.contextPath}/cart/cart.do">Cart</a>
-		</c:if>
-		
-		<c:if test="${!empty user_num && user_auth == 2}">
-			<a href="${pageContext.request.contextPath}/mymember/myPage.do">My Page</a>
-		</c:if>
-		
-		<c:if test="${!empty user_num && !empty user_photo}" >
-			<img src="${pageContext.request.contextPath}/upload/${user_photo}" width="25" height="25" class="my-photo">
-		</c:if>
-		
-		<c:if test="${!empty user_num && empty user_photo}" >
-			<img src="${pageContext.request.contextPath}/images/face.png" width="25" height="25" class="my-photo">
-		</c:if>
-		
-		<c:if test="${!empty user_num}">
-				[<span>${user_id}</span>]
-				<a href="${pageContext.request.contextPath}/member/logout.do">Logout</a>
-		</c:if>
-		
-		<c:if test="${empty user_num}">
-			<a href="${pageContext.request.contextPath}/member/registerUserForm.do">Sign in</a>
-			&nbsp;
-			<a href="${pageContext.request.contextPath}/member/loginForm.do">Login</a>
-		</c:if>
-	</div> --%>
 </div>
 <div id="myNav" class="overlay">
 	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
