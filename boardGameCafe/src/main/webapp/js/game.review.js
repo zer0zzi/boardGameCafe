@@ -26,23 +26,23 @@ $(function(){
 					$('#output').empty();
 				}
 				
-				$(param.list).each(function(index,game){
-					let output = '<div class="game">';
-					output += '<h4>' + game.mem_id + '</h4>';
-					output += '<div class="sub-game">';
-					output += '<p>' + game.rev_content + '</p>';
+				$(param.list).each(function(index,detail){
+					let output = '<div class="detail">';
+					output += '<h4>' + detail.mem_id + '</h4>';
+					output += '<div class="sub-detail">';
+					output += '<p>' + detail.rev_content + '</p>';
 					
-					if(game.rev_modifydate){
-						output += '<span class="modify-date"> 최근 수정일 : ' + game.rev_modifydate + '</span>';
+					if(detail.rev_modifydate){
+						output += '<span class="modify-date"> 최근 수정일 : ' + detail.rev_modifydate + '</span>';
 					}else{
-						output += '<span class="modify-date"> 등록일 : ' + game.rev_date + '</span>';
+						output += '<span class="modify-date"> 등록일 : ' + detail.rev_date + '</span>';
 					}
 					
 					//로그인한 회원번호와 작성자의 회원번호 일치 여부 체크
-					if(param.user_num == game.mem_num){
+					if(param.user_num == detail.mem_num){
 						//로그인한 회원번호와 작성자 회원번호 일치
-						output += ' <input type="button" data-renum="'+game.rev_num+'" value="수정" class="modify-btn">';
-						output += ' <input type="button" data-renum="'+game.rev_num+'" value="삭제" class="delete-bnt">';
+						output += ' <input type="button" data-renum="'+detail.rev_num+'" value="수정" class="modify-btn">';
+						output += ' <input type="button" data-renum="'+detail.rev_num+'" value="삭제" class="delete-bnt">';
 					}
 					
 					output += '<hr size="1" noshade width="100%">';
@@ -156,7 +156,7 @@ $(function(){
 			modifyUI += '</form>';
 			
 			//이전에 이미 수정하는 리뷰가 있을 경우 수정버튼을 
-			//클릭하면 숨김 sub-game을 환원시키고 수정폼을 초기화시킴
+			//클릭하면 숨김 sub-detail을 환원시키고 수정폼을 초기화시킴
 			initModifyForm();
 			
 			//지금 클릭해서 수정하고자 하는 데이터는 감추기.
@@ -180,7 +180,7 @@ $(function(){
 	});
 	//리뷰 수정폼 초기화
 	function initModifyForm(){
-		$('.sub-game').show();
+		$('.sub-detail').show();
 		$('#mre_form').remove();
 	}
 	//리뷰 수정
