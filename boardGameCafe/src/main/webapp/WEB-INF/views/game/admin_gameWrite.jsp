@@ -34,7 +34,7 @@
 				<li>
 					<label for="picture">게임 이미지</label>
 					<input type="file" name="pro_picture" id="pro_picture" 
-													accept="image/gif,image/pnp,image/jpeg">
+													accept="image/gif,image/pnp,image/jpeg,image/jfif">
 				</li>
 				<li><!-- 라디오 박스..? -> int로 변경 필요-->
 					<label for="pro_level">게임 난이도</label>

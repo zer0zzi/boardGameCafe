@@ -28,7 +28,7 @@ $(function(){
 				
 				$(param.list).each(function(index,game){
 					let output = '<div class="game">';
-					output += '<h4>' + game.id + '</h4>';
+					output += '<h4>' + game.mem_id + '</h4>';
 					output += '<div class="sub-game">';
 					output += '<p>' + game.rev_content + '</p>';
 					
@@ -103,7 +103,7 @@ $(function(){
 					//리뷰 작성 성공 시, 성공 리뷰 포함하여 첫번째 페이지 리뷰글 다시 호출
 					selectList(1);
 				}else{
-					alert('댓글 등록 오류 발생');
+					alert('리뷰 등록 오류 발생');
 				}
 			},
 			error:function(){
@@ -112,9 +112,75 @@ $(function(){
 		});
 		
 	});
-	//리뷰 작성 폼 초기화
+	//댓글 작성 폼 초기화
 	function initForm(){
-		$('sub-game').show();
+		$('textarea').val('');
+		$('re_first .letter-count').text('500/500');
+	}
+	//textarea에 내용 입력시 글자수 체크
+	$(document).on('keyup','textarea',function(){
+		//입력한 글자수 구함
+		let inputLength = $(this).val().length;
+		
+		if(inputLength > 500){//500자를 넘어선 경우
+			$(this).val($(this).val().substring(0,500));
+		}else{//500자 이하인 경우
+			let remain = 500 - inputLength;
+			remain += '/500';
+			if($(this).attr('mem_id') == 'rev_content'){
+				//등록폼 글자수
+				$('#re-first .letter-count').text(remain);
+			}else{
+				//수정폼 글자수
+				$('#mre_first .letter-count').text(remain);
+			}
+		}
+	});
+	
+	//리뷰 수정 버튼 클릭시 수정폼 노출
+	$(document).on('click','.modify-btn',function(){
+		//리뷰 번호
+		let rev_num = $(this).attr('data-renum');
+		//댓글 내용
+		let rev_content = $(this).parent().find('p')
+									  .html().replace(/<br>/gi,'\n');
+		//댓글 수정 폼 UI
+		let modifyUI = '<form id="mre_form">';
+			modifyUI += '<input type="hidden" name="rev_num" id="rev_num" value="'+rev_num+'">';
+			modifyUI += '<textarea rows="3" cols="50" name="rev_content" id="mre_coutent" class="rep-content">'+rev_content+'</textarea>';
+			modifyUI += '<div id="mre_sceond" class="align-right">';
+			modifyUI += ' <input type="submit" value="수정">';
+			modifyUI += ' <input type="button" value="취소" class="rev-reset">';
+			modifyUI += '</div>';
+			modifyUI += '<hr size="1" noshade width="96%">';
+			modifyUI += '</form>';
+			
+			//이전에 이미 수정하는 리뷰가 있을 경우 수정버튼을 
+			//클릭하면 숨김 sub-game을 환원시키고 수정폼을 초기화시킴
+			initModifyForm();
+			
+			//지금 클릭해서 수정하고자 하는 데이터는 감추기.
+			//수정버튼을 감싸고 있는 div
+			$(this).parent().hide();
+			
+			//수정폼을 수정하고자 하는 데이터가 있는 div에 노출
+			$(this).parents('.item').append(modifyUI);
+			
+			//입력한 글자수 셋팅
+			let inputLength = $('#mre_content').val().length;
+			let remain = 500 - inputLength;
+			remain += '/500';
+			
+			//문서 객체에 반영
+			$('#mre_first .letter-count').text(remain);
+	});
+	//수정폼에서 취소 버튼 클릭시 수정폼 초기화
+	$(document).on('click','.rev-reset',function(){
+		initModifyForm();
+	});
+	//리뷰 수정폼 초기화
+	function initModifyForm(){
+		$('.sub-game').show();
 		$('#mre_form').remove();
 	}
 	//리뷰 수정

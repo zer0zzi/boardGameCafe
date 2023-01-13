@@ -234,6 +234,7 @@ public class ListDAO {
 	   PreparedStatement pstmt = null;
 	   PreparedStatement pstmt2 = null;
 	   PreparedStatement pstmt3 = null;
+	   PreparedStatement pstmt4 = null;
 	   String sql = null;
 	   
 	   try {
@@ -254,11 +255,17 @@ public class ListDAO {
 		   pstmt2.setInt(1, pro_num);
 		   pstmt2.executeUpdate();
 		   
-		   //게임 삭제
-		   sql = "DELETE FROM product WHERE pro_num=?";
+		   //order_detail 삭제
+		   sql = "DELETE FROM order_detail WHERE pro_num=?";
 		   pstmt3 = conn.prepareStatement(sql);
 		   pstmt3.setInt(1, pro_num);
 		   pstmt3.executeUpdate();
+		   
+		   //게임 삭제
+		   sql = "DELETE FROM product WHERE pro_num=?";
+		   pstmt4 = conn.prepareStatement(sql);
+		   pstmt4.setInt(1, pro_num);
+		   pstmt4.executeUpdate();
 		   
 		   //예외 발생 없이 정상적으로 SQL문이 실행
 		   conn.commit();
@@ -267,6 +274,7 @@ public class ListDAO {
 		   conn.rollback();
 		   throw new Exception(e);
 	   }finally {
+		   DBUtil.executeClose(null, pstmt4, null);
 		   DBUtil.executeClose(null, pstmt3, null);
 		   DBUtil.executeClose(null, pstmt2, null);
 		   DBUtil.executeClose(null, pstmt, conn);

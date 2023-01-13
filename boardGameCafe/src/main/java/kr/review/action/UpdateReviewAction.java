@@ -19,7 +19,7 @@ public class UpdateReviewAction implements Action{
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// 전송된 데이터 인코딩 처리
 		request.setCharacterEncoding("utf-8");
-		//댓글 번호
+		//리뷰 번호
 		int rev_num = Integer.parseInt(request.getParameter("rev_num"));
 		
 		ListDAO dao = ListDAO.getInstance();
