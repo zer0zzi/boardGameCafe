@@ -126,9 +126,11 @@
 					accept="image/gif,image/png,image/jpeg">
 					</div>
 				</li>
-				<li>	 
+				<li>
+					<div class="submit-reset-btn">	 
 					<input type="button" value="전송" id="photo_submit" class="bluebtn"> 
 					<input type="button" value="취소" id="photo_reset" class="redbtn">
+					</div>
 				</li>
 			</ul>
 		</div>
@@ -180,6 +182,7 @@
 				<input class="bluebtn-modify" type="submit" value="수정하기">
 			</div>
 			<div class="passwd-change-btn">
+				<br>
 				<a href="${pageContext.request.contextPath}/mymember/modifyPasswordForm.do"><ins>비밀번호 변경하기</ins></a>
 			</div>
 			<div class="float-end"></div>                                

@@ -32,7 +32,7 @@
 	                  	 <p id="myname"><b>${member.mem_id}</b></p>
 	                  </li>
 	                  <li>
-	                     <button type="button" class="bluebtn" onclick="location.href='modifyUserForm.do'">회원정보수정</button>
+	                     <button type="button" class="bluebtn-mypage" onclick="location.href='modifyUserForm.do'">회원정보수정</button>
 	                  </li>
 	               </ul>
                </div>

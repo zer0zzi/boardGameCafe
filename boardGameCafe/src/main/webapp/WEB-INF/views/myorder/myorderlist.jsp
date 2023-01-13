@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,6 +24,7 @@
 	<c:if test="${count > 0}">
 	<table>
 		<tr class="border-bot">
+			<th>번호</th>
 			<th>배송상태</th>
 			<th>구매목록</th>
 			<th>총가격</th>
@@ -31,13 +33,14 @@
 		</tr>
 		<c:forEach var="myorder" items="${list}">
 		<tr class="table-content-bot">
+			<td>${myorder.order_main_num}</td>
 			<c:if test="${myorder.status==1}"><td>배송대기(결제완료)</td></c:if>
 			<c:if test="${myorder.status==2}"><td>배송준비중</td></c:if>
 			<c:if test="${myorder.status==3}"><td>배송중</td></c:if>
 			<c:if test="${myorder.status==4}"><td>배송완료</td></c:if>
 			<c:if test="${myorder.status==5}"><td>배송완료</td></c:if>
 			<td>${myorder.order_main_name}</td>
-			<td>${myorder.order_main_total}</td>
+			<td><fmt:formatNumber value="${myorder.order_main_total}"/>원</td>
 			<td>${myorder.order_main_date}</td>
 			<td><a href="${pageContext.request.contextPath}/order/orderModifyForm.do?order_main_num=${myorder.order_main_num}"><img src="${pageContext.request.contextPath}/images/soon/modify.png" width="10%"></a></td>
 		</tr>

@@ -30,24 +30,12 @@
 		<c:if test="${todaycount > 0}">
 		<div class="todayreserve">
 				<div class="todayreserve-imgbox">
-				
-				
-				
-				
-				<%-- 		바꿔야함 이거로!
 					<img src="${pageContext.request.contextPath}/upload/${MyRe.photo1}"
 							width="280" height="280" class="">
 					<img src="${pageContext.request.contextPath}/upload/${MyRe.photo2}"
 							width="280" height="280" class="-">
 					<img src="${pageContext.request.contextPath}/upload/${MyRe.photo3}"
-							width="280" height="280" class="-">				
-						 --%>	
-					<img src="${pageContext.request.contextPath}/images/dog.png"
-							width="280" height="280" class="">
-					<img src="${pageContext.request.contextPath}/images/dog.png"
-							width="280" height="280" class="">
-					<img src="${pageContext.request.contextPath}/images/dog.png"
-							width="280" height="280" class="">				
+							width="280" height="280" class="-">						
 				</div>			
 				<div class="todayreserve-detailbox">
 				<b>
@@ -65,7 +53,6 @@
 	<table>
 		<tr class="border-bot">
 			<th>방 이름</th>
-			<th>방 사이즈</th>
 			<th>방 소개</th>
 			<th>예약 날짜</th>
 			<th>예약 시간</th>
@@ -73,7 +60,6 @@
 		<c:forEach var="myreserve" items="${list}">
 		<tr class="table-content-bot">
 			<td>${myreserve.room_name}</td>
-			<td>${myreserve.room_size}</td>
 			<td>${myreserve.room_detail}</td>
 			<td>${myreserve.res_date}</td>
 			<td>${myreserve.res_time}</td>

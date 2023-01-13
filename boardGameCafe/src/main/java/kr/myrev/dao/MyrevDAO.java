@@ -86,6 +86,7 @@ public class MyrevDAO {
 		while(rs.next()) {
 		MyrevVO Myrev = new MyrevVO();
 		Myrev.setRev_num(rs.getInt("rev_num"));
+		Myrev.setPro_num(rs.getInt("pro_num"));
 		Myrev.setRev_content(StringUtil.useNoHtml(rs.getString("rev_content")));
 		Myrev.setRev_date(rs.getDate("rev_date"));
 		Myrev.setPro_name(StringUtil.useNoHtml(rs.getString("pro_name")));

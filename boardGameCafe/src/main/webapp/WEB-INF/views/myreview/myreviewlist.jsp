@@ -21,14 +21,16 @@
 	<c:if test="${count > 0}">
 	<table>
 		<tr class="border-bot">
+			<th>번호</th>
 			<th>게임이름</th>
 			<th>리뷰내용</th>
 			<th>작성일</th>
 		</tr>
 		<c:forEach var="myreview" items="${list}">
 		<tr class="table-content-bot">
-			<td>${myreview.pro_name}</td>
-			<td><a href="${pageContext.request.contextPath}//game/gameDetail.do?pro_num=${myreview.pro_num}">${myreview.rev_content}</a></td>
+			<td>${myreview.rev_num}</td>
+			<td><a href="${pageContext.request.contextPath}/game/gameDetail.do?pro_num=${myreview.pro_num}">${myreview.pro_name}</a></td>
+			<td>${myreview.rev_content}</td>
 			<td>${myreview.rev_date}</td>
 		</tr>
 		</c:forEach>

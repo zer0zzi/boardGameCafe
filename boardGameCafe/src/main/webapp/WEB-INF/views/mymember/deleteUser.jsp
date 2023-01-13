@@ -16,7 +16,7 @@
 <div class="page-main">
 	<div class="content-main">
 		<h2>회원탈퇴 완료</h2>
-		<div class="result-display">
+		<div class="result-display-x">
 			<div class="align-center">
 				회원탈퇴가 완료되었습니다.<p><br><br>
 				<input type="button" value="홈으로"

@@ -17,20 +17,20 @@
 				$('#origin_passwd').val('').focus();
 				return false;
 			}
-			if($('#passwd').val().trim()==''){
+			if($('#passwd2').val().trim()==''){
 				alert('새비밀번호를 입력하세요!');
-				$('#passwd').val('').focus();
+				$('#passwd2').val('').focus();
 				return false;
 			}
-			if($('#cpasswd').val().trim()==''){
+			if($('#cpasswd2').val().trim()==''){
 				alert('새비밀번호 확인을 입력하세요!');
-				$('#cpasswd').val('').focus();
+				$('#cpasswd2').val('').focus();
 				return false;
 			}
-			if($('#passwd').val()!=$('#cpasswd').val()){
+			if($('#passwd2').val()!=$('#cpasswd2').val()){
 				alert('새비밀번호와 새비밀번호 확인이 불일치합니다.');
-				$('#passwd').val('').focus();
-				$('#cpasswd').val('');
+				$('#passwd2').val('').focus();
+				$('#cpasswd2').val('');
 				return false;
 			}
 		});//end of submit
