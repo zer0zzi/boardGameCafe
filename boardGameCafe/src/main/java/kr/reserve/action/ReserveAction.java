@@ -31,7 +31,7 @@ public class ReserveAction implements Action{
 			res.setRes_date(request.getParameter("res_date"));
 			res.setRes_time(request.getParameter("res_time"));
 			res.setRes_count(Integer.parseInt(request.getParameter("res_count")));
-			res.setRoom_num(room_num);
+			res.setRoom_num(Integer.parseInt(request.getParameter("room_num")));
 		
 			ReserveDAO dao = ReserveDAO.getInstance();
 			dao.insertReservation(res, room_num);

@@ -13,76 +13,14 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.number.min.js"></script>
 <script type="text/javascript">
-var today = new Date();
-function buildCalendar(){
-  var row = null
-  var cnt = 0;
-  var calendarTable = document.getElementById("calendar");
-  var calendarTableTitle = document.getElementById("calendarTitle");
-  calendarTableTitle.innerHTML = today.getFullYear()+"년"+(today.getMonth()+1)+"월";
-  
-  var firstDate = new Date(today.getFullYear(), today.getMonth(), 1);
-  var lastDate = new Date(today.getFullYear(), today.getMonth()+1, 0);
-  
-  while(calendarTable.rows.length > 2){
-  	calendarTable.deleteRow(calendarTable.rows.length -1);
-  }
-
-  row = calendarTable.insertRow();
-  for(i = 0; i < firstDate.getDay(); i++){
-  	cell = row.insertCell();
-  	cnt += 1;
-  }
-
-
-  for(i = 1; i <= lastDate.getDate(); i++){
-  	cell = row.insertCell();
-  	cnt += 1;
-
-    cell.setAttribute('id', i);
-  	cell.innerHTML = i;
-  	cell.align = "center";
-
-    cell.onclick = function(){
-    	clickedYear = today.getFullYear();
-    	clickedMonth = ( 1 + today.getMonth() );
-    	clickedDate = this.getAttribute('id');
-
-    	clickedDate = clickedDate >= 10 ? clickedDate : '0' + clickedDate;
-    	clickedMonth = clickedMonth >= 10 ? clickedMonth : '0' + clickedMonth;
-    	clickedYMD = clickedYear + "-" + clickedMonth + "-" + clickedDate;
-
-    	opener.document.getElementById("date").value = clickedYMD;
-    	self.close();
-    }
-
-    if (cnt % 7 == 1) {
-    	cell.innerHTML = "<font color=red>" + i + "</font>";
-    }
-
-    if (cnt % 7 == 0){
-    	cell.innerHTML = "<font color=blue>" + i + "</font>";
-    	row = calendar.insertRow();
-    }
-  }
-  
-  if(cnt % 7 != 0){
-  	for(i = 0; i < 7 - (cnt % 7); i++){
-  		cell = row.insertCell();
-  	}
-  }
+$(function(){ //이거 쓸거면 위에 jquery링크 걸어야함 꼭
+	$('#room_size').submit(function(){
+		if($('#room_size')> 4){ //공백을 인정하지 않기 때문에 trim 안씀
+			alert('4인을 초과했습니다.');
+			return false;
+		}
+	}
 }
-
-function prevCalendar(){
-	today = new Date(today.getFullYear(), today.getMonth()-1, today.getDate());
-	buildCalendar();
-}
-
-function nextCalendar(){
-	today = new Date(today.getFullYear(), today.getMonth()+1, today.getDate());
-	buildCalendar();
-}
-
 </script>
 
 
@@ -173,7 +111,68 @@ function nextCalendar(){
 			</div><!-- end of section_booking -->
 		<input type="button" value="예약하기" onclick="location.href='${pageContext.request.contextPath}/reserve/reserveForm.do'">
 		
-	 				
+		<div class="wrap">
+				<a href="#pop_info_1" class="btn_open">예약하기</a>
+					<div id="pop_info_1" class="pop_wrap" style="display:none;">
+						<div class="pop_inner">
+						<div class="page-main">
+						<div class="content-main">
+							<h2>예약하기</h2>
+							<form action="reserve.do" method="post">
+								<input type="hidden" name="mem_num" id="mem_num" value="${detail.mem_num}">
+								<ul>
+									<li>
+										<label>예약자 이름</label>
+										<input type="text" name="name" id="name" maxlength="50" value="${detail.mem_name}" readonly>
+									</li>
+									<li>
+										<label>예약날짜</label>
+										<input type="text" name="res_date" id="res_date" maxlength="10">
+										<span>입력 예)23/01/13</span>
+									</li>
+									<li>
+										<label>예약시간</label>
+										<input type="text" name="res_time" id="res_time" maxlength="10">
+										<span>입력 예)2-3</span>
+									</li>
+									<li>
+										<label>인원수</label>
+										<input type="number" name="res_count" id="res_count" min="1" max="30">
+									</li>
+									<li>
+										<label>방 번호</label>
+										<input type="text" name="room" id="room" value="${room.room_num}" readonly>
+									</li>
+								</ul>
+								<input type="submit" id="reserve" value="예약완료"/>
+							</form>
+						</div>
+					</div>
+	 				<button type="button" class="btn_close">닫기</button>
+						</div><!-- end of inner -->
+					</div>
+		</div>
+		<script>
+							var target = document.querySelectorAll('.btn_open');
+							var btnPopClose = document.querySelectorAll('.pop_wrap .btn_close');
+							var targetID;
+						
+						  // 팝업 열기
+						  for(var i = 0; i < target.length; i++){
+						    target[i].addEventListener('click', function(){
+						      targetID = this.getAttribute('href');
+						      document.querySelector(targetID).style.display = 'block';
+						    });
+						  }
+						  
+						  // 팝업 닫기
+						  for(var j = 0; j < target.length; j++){
+						    btnPopClose[j].addEventListener('click', function(){
+						      this.parentNode.parentNode.style.display = 'none';
+						    });
+						  }
+						</script>
+						
 		</div><!-- end of wrap_right -->
 	</div><!-- end of wrap_inn -->
 </div><!-- end of container -->

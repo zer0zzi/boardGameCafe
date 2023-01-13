@@ -63,8 +63,7 @@ public class ReserveDAO {
 				//커넥션풀로부터 커넥션을 할당
 				conn = DBUtil.getConnection();
 				//SQL문 작성
-				sql = "SELECT m.mem_name, m.mem_num, r.room_num FROM reserve r, member_detail m "
-						+ "WHERE r.mem_num = m.mem_num AND m.mem_num = ?";
+				sql = "SELECT mem_name, mem_num FROM member_detail WHERE mem_num = ?";
 				
 				//PreparedStatement 객체 생성
 				pstmt = conn.prepareStatement(sql);
@@ -80,8 +79,6 @@ public class ReserveDAO {
 					
 					detail.setMem_num(rs.getInt("mem_num"));
 					detail.setMem_name(rs.getString("mem_name"));
-					detail.setRoom_num(rs.getInt("room_num"));
-					
 				}
 			}catch(Exception e) {
 				throw new Exception(e);
@@ -90,6 +87,42 @@ public class ReserveDAO {
 			}
 			return detail;
 		}
+		
+		//방 번호 불러오기
+				public ReserveVO getRoom(int room_num)throws Exception{
+					Connection conn = null;
+					PreparedStatement pstmt = null;
+					ResultSet rs = null;
+					ReserveVO room = null;
+					String sql = null;
+					
+					try {
+						//커넥션풀로부터 커넥션을 할당
+						conn = DBUtil.getConnection();
+						//SQL문 작성
+						sql = "SELECT room_num FROM room WHERE room_num = ?";
+						
+						//PreparedStatement 객체 생성
+						pstmt = conn.prepareStatement(sql);
+						
+						//?에 데이터 바인딩
+						pstmt.setInt(1, room_num);
+						
+						//SQL문을 실행해서 결과행을 ResultSet에 담음
+						rs = pstmt.executeQuery();
+						
+						if(rs.next()) {
+							room = new ReserveVO();
+							
+							room.setRoom_num(rs.getInt("room_num"));
+						}
+					}catch(Exception e) {
+						throw new Exception(e);
+					}finally {
+						DBUtil.executeClose(rs, pstmt, conn);
+					}
+					return room;
+				}
 		
 	   //예약 입력하기
 	   public void insertReservation(ReserveVO res, int room_num) throws Exception{
@@ -113,7 +146,7 @@ public class ReserveDAO {
 				pstmt.setString(2, res.getRes_date());
 				pstmt.setString(3, res.getRes_time());
 				pstmt.setInt(4, res.getRes_count());
-				pstmt.setInt(5, room_num);
+				pstmt.setInt(5, res.getRoom_num());
 				
 				
 				//SQL문 실행

@@ -1,6 +1,7 @@
 package kr.reserve.action;
 
 import javax.servlet.http.HttpServletRequest;
+
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -19,8 +20,10 @@ public class ReserveFormAction implements Action{
 		}
 		ReserveDAO dao = ReserveDAO.getInstance();
 		ReserveVO detail = dao.getMemDetail(user_num);
+		ReserveVO room = dao.getRoom(user_num);
 		
 		request.setAttribute("detail", detail);
+		request.setAttribute("room", room);
 		
 		return "/WEB-INF/views/reserve/reserveForm.jsp";
 	}
