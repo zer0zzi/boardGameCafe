@@ -1,6 +1,16 @@
 @charset "UTF-8";
 /* 전체 레이아웃
 ---------------------------------*/
+@font-face {
+      src: url("../fonts/DungGeunMo.ttf");
+      font-family: "DungGeunMo";
+}
+*{
+	font-family: "DungGeunMo";
+	margin: 0px;
+	padding: 0px;
+}
+
 body{
 	width:960px;
 	height:1500px;

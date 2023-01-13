@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
+
 <html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/style_hyem.css">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 
 /* -------지도---------- */
@@ -14,6 +14,7 @@
 	margin: 0 auto;
 	position: relative;
 	width: 50%;
+	left: 50px;
 }
 
 .slide-container {
@@ -66,61 +67,28 @@
 .active, .demo:hover {
 	opacity: 1;
 }
+
+.location {
+	position: relative;
+	float: left;
+	left: 80px;
+	top: 100px;
+}
+
+.page-content {
+	margin: 0 0 40px 0;
+}
 </style>
 <body>
+	<jsp:include page="/WEB-INF/views/common/header.jsp" />
 	<div class="page-main">
-		<jsp:include page="/WEB-INF/views/common/header.jsp" />
 		<div class="content-main"></div>
-
 		<div class="page-content">
 			<div class="container-label">
 				<div class="content-label">
 					<h2>ROOM</h2>
 					<br>
 				</div>
-				<div class="slide-container">
-					<div class="mySlides">
-						<div class="numbertext">1 / 6</div>
-						<img src="../images/hoon/room1.jpg"
-							style="display: block; margin: 0 auto; width: 50%">
-					</div>
-
-					<div class="mySlides">
-						<div class="numbertext">2 / 6</div>
-						<img src="../images/hoon/room2.jpg"
-							style="display: block; margin: 0 auto; width: 50%">
-					</div>
-
-					<div class="mySlides">
-						<div class="numbertext">3 / 6</div>
-						<img src="../images/hoon/room3.jpg"
-							style="display: block; margin: 0 auto; width: 50%">
-					</div>
-
-					<div class="mySlides">
-						<div class="numbertext">4 / 6</div>
-						<img src="../images/hoon/studyroom1.jpg"
-							style="display: block; margin: 0 auto; width: 50%">
-					</div>
-
-					<div class="mySlides">
-						<div class="numbertext">5 / 6</div>
-						<img src="../images/hoon/studyroom2.jpg"
-							style="display: block; margin: 0 auto; width: 50%">
-					</div>
-
-					<div class="mySlides">
-						<div class="numbertext">6 / 6</div>
-						<img src="../images/hoon/studyroom4.jpg"
-							style="display: block; margin: 0 auto; width: 50%">
-					</div>
-				</div>
-
-
-				<div class="caption-container">
-					<p id="caption"></p>
-				</div>
-
 				<div class="row">
 					<div class="column">
 						<img class="demo cursor" src="../images/hoon/room1.jpg"
@@ -147,16 +115,65 @@
 							style="width: 100%" onclick="currentSlide(6)" alt="12인 이상">
 					</div>
 				</div>
+				<div class="caption-container">
+					<p id="caption"></p>
+				</div>
+				<div class="slide-container">
+					<div class="mySlides">
+						<div class="numbertext">1 / 6</div>
+						<img src="../images/hoon/room1.jpg"
+							style="display: block; margin: 0 auto; width: 100%; height: 500px;">
+					</div>
+
+					<div class="mySlides">
+						<div class="numbertext">2 / 6</div>
+						<img src="../images/hoon/room2.jpg"
+							style="display: block; margin: 0 auto; width: 100%; height: 500px;">
+					</div>
+
+					<div class="mySlides">
+						<div class="numbertext">3 / 6</div>
+						<img src="../images/hoon/room3.jpg"
+							style="display: block; margin: 0 auto; width: 100%; height: 500px;">
+					</div>
+
+					<div class="mySlides">
+						<div class="numbertext">4 / 6</div>
+						<img src="../images/hoon/studyroom1.jpg"
+							style="display: block; margin: 0 auto; width: 100%; height: 500px;">
+					</div>
+
+					<div class="mySlides">
+						<div class="numbertext">5 / 6</div>
+						<img src="../images/hoon/studyroom2.jpg"
+							style="display: block; margin: 0 auto; width: 100%; height: 500px;">
+					</div>
+
+					<div class="mySlides">
+						<div class="numbertext">6 / 6</div>
+						<img src="../images/hoon/studyroom4.jpg"
+							style="display: block; margin: 0 auto; width: 100%; height: 500px;">
+					</div>
+				</div>
 			</div>
 
-			<br>
-			<br>
+			<br> <br>
+			<hr size="1" noshade="noshade" width="100%">
+			<br> <br>
 
 			<h2>NOTICE</h2>
 			<br>
+			<hr size="1" noshade="noshade" width="100%">
 			<table>
+				<tr class="border-bot">
+					<th>글 번호</th>
+					<th>제목</th>
+					<th>작성일</th>
+					<th>조회수</th>
+				</tr>
 				<c:forEach var="notice" items="${noticeList}">
-					<tr>
+					<tr class="table-content-bot">
+						<td>${notice.noti_num}</td>
 						<td><a
 							href="${pageContext.request.contextPath}/notice/noticeDetail.do?noti_num=${notice.noti_num}">${notice.noti_title}</a></td>
 						<td>${notice.noti_reg_date}</td>
@@ -164,12 +181,16 @@
 					</tr>
 				</c:forEach>
 			</table>
-
-			<br>
-			<br>
+			<hr size="1" noshade="noshade" width="100%">
+			<br><br>
 
 			<h2>LOCATION</h2>
 			<br>
+			<div class="location">
+				<br>
+				<h3 style="text-align: center;">서울 강남구 테헤란로 132 한독약품빌딩 8층</h3>
+				<h3 style="text-align: center;">(우) 06235 (지번) 역삼동 735-1</h3>
+			</div>
 			<div id="map" style="width: 300px; height: 300px;"></div>
 			<script type="text/javascript"
 				src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e8262126fa9b69618f5829c9fcf52dc7">
@@ -228,11 +249,7 @@
 					captionText.innerHTML = dots[slideIndex - 1].alt;
 				}
 			</script>
-			<div>
-				<br>
-				<h3 style="text-align: center;">서울 강남구 테헤란로 132 한독약품빌딩 8층</h3>
-				<h3 style="text-align: center;">(우) 06235 (지번) 역삼동 735-1</h3>
-			</div>
+
 		</div>
 	</div>
 </body>

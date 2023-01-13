@@ -39,16 +39,16 @@
 <div id="myNav" class="overlay">
 	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 	<div class="overlay-content">
-		<a href="${pageContext.request.contextPath}/main/intro.do">카페소개</a>
-		<a href="${pageContext.request.contextPath}/game/gameList.do">게임소개</a>
-   	 	<a href="${pageContext.request.contextPath}/reserve/reserveMain.do">예약</a>
-    	<a href="${pageContext.request.contextPath}/notice/noticeList.do">공지</a>
-    	<a href="${pageContext.request.contextPath}/inquiry/inquiryList.do">문의</a>
+		<a href="${pageContext.request.contextPath}/main/intro.do">INTRO</a>
+		<a href="${pageContext.request.contextPath}/game/gameList.do">BOARDGAME</a>
+   	 	<a href="${pageContext.request.contextPath}/reserve/reserveMain.do">RESERVATION</a>
+    	<a href="${pageContext.request.contextPath}/notice/noticeList.do">NOTICE</a>
+    	<a href="${pageContext.request.contextPath}/inquiry/inquiryList.do">QUESTIONS</a>
   	</div>
 </div>
 <script>
 function openNav() {
-  document.getElementById("myNav").style.width = "30%";
+  document.getElementById("myNav").style.width = "17%";
 }
 
 function closeNav() {
