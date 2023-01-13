@@ -125,11 +125,11 @@
 											data-pronum="${cart.pro_num}">
 							</c:if>
 						</td>
-						<td class="align-center">
+						<td class="align-center" width="80">
 							<fmt:formatNumber value="${cart.sub_total}"/>원
 						</td>
 						<td>						
-							<input type="button" value="삭제" class="cart-del"
+							<input type="button" value=" Ｘ " class="cart-del"
 												data-cartnum="${cart.cart_num}">
 						</td>
 					</tr>	
@@ -138,7 +138,7 @@
 				</div><!--end of cart main-->
 			<div class="cart-side">
 				<div class="cart-sub">
-					<table>
+					<table class="align-center">
 					<c:forEach var="cart" items="${cart}">
 					<tr>
 						<td>
