@@ -24,7 +24,7 @@
 	<c:if test="${count > 0}">	
 		<table>
 			<tr class="border-bot">
-				<th>글 번호</th>
+				<th>번호</th>
 				<th></th>
 				<th>제목</th>
 				<th>작성일</th>
