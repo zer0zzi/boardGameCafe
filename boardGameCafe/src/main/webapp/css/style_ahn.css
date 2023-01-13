@@ -1,10 +1,16 @@
 @charset "UTF-8";
 
+@font-face {
+	src: url("../fonts/DungGeunMo.ttf");
+	font-family: "DungGeunMo";
+}
+
 body{
 	width:960px;
 	height:1500px;
 	margin:0 auto;
 	background:#FFFFFF;
+	font-family: "DungGeunMo";
 }
 li a:link{
 	text-decoration:none;

@@ -9,7 +9,6 @@
 <title>장바구니</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style_ahn.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/cart.js"></script>
 <script type="text/javascript">
 	$(function() {
 		//장바구니 상품 삭제
