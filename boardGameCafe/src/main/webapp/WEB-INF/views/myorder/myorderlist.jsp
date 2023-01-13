@@ -13,7 +13,7 @@
 <body>
 	<div class="page-main">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
-	<h1>내가 작성한 문의</h1>
+	<h1>구매내역</h1>
 	<c:if test="${count == 0}">
 		<div class="result-display-x">
 			구매내역 없음.
@@ -30,8 +30,12 @@
 		</tr>
 		<c:forEach var="myorder" items="${list}">
 		<tr>
-			<td>${myorder.status}</td>
-			<td><a href="${pageContext.request.contextPath}/order/orderDetail.do?order_main_num=${myorder.order_main_num}">${myorder.order_main_name}</a></td>
+			<c:if test="${myorder.status==1}"><td>배송대기(결제완료)</td></c:if>
+			<c:if test="${myorder.status==2}"><td>배송준비중</td></c:if>
+			<c:if test="${myorder.status==3}"><td>배송중</td></c:if>
+			<c:if test="${myorder.status==4}"><td>배송완료</td></c:if>
+			<c:if test="${myorder.status==5}"><td>배송완료</td></c:if>
+			<td>${myorder.order_main_name}</td>
 			<td>${myorder.order_main_total}</td>
 			<td>${myorder.order_main_date}</td>
 			<td><a href="${pageContext.request.contextPath}/order/orderModifyForm.do?order_main_num=${myorder.order_main_num}"><img src="${pageContext.request.contextPath}/images/soon/modify.png" width="10%"></a></td>

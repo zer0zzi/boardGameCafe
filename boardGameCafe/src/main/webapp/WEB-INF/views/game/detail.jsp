@@ -37,7 +37,7 @@ $(function(){
 					alert('장바구니에 담았습니다.');
 					location.href='../cart/cart.do';
 				}else if(param.result == 'overquantity'){
-					alert('기존에 주문한 상품입니다. 개수를 추가하면 재고가 부족합니다.');
+					alert('이미 장바구니에 담겨있는 상품입니다.');
 				}else{
 					alert('장바구니 담기 오류');
 				}

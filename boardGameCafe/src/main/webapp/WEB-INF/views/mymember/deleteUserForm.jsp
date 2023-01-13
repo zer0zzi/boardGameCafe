@@ -36,9 +36,9 @@
 <div class="page-main">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<div class="content-main">
-		<h2>회원탈퇴</h2>
 		<!-- 프로필 사진 시작 -->
 		<div class="photo-box-delete">
+		<div class="photo-box-delete-a">
 			<c:if test="${empty member.mem_photo}">
 				<img src="${pageContext.request.contextPath}/images/face.png"
 					width="200" height="200" class="my-photo">
@@ -48,28 +48,28 @@
 					src="${pageContext.request.contextPath}/upload/${member.mem_photo}"
 					width="200" height="200" class="my-photo">
 			</c:if>
+		</div>	
 		</div>
 		<!--프로필 사진 끝  -->
 		<!-- 탈퇴 폼 시작 -->
-		<form id="delete_form" action="deleteUser.do"
-		                                   method="post">
+		<form id="delete_form" action="deleteUser.do" method="post">
 			<ul>
 				<li>
-					<label for="passwd">비밀번호</label>
+					<label for="passwd"><b>비밀번호</b></label>
 					<input type="password" name="passwd" 
 					            id="passwd" maxlength="12">
 				</li>
 				<li>
-					<label for="cpasswd">비밀번호 확인</label>
+					<label for="cpasswd"><b>비밀번호 확인</b></label>
 					<input type="password" name="cpasswd" 
 					            id="cpasswd" maxlength="12">
 				</li>
 			</ul>
-			<div class="align-center">
+			<div>
 				<input class="redbtn-delete" type="submit" value="탈퇴하기">
 			</div> 
 			<div class="helpbox">
-			<a href="${pageContext.request.contextPath}/mymember/modifyPasswordForm.do"><ins>도움말(경로설정아직X)</ins></a>
+			<a href="${pageContext.request.contextPath}/mymember/myPage.do"><ins>My페이지로 가기</ins></a>
 			</div>
 			<div class="float-end"></div>                                  
 		</form>

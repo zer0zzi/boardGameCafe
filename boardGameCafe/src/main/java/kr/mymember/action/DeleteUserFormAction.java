@@ -26,8 +26,7 @@ public class DeleteUserFormAction implements Action{
 		
 		
 		request.setAttribute("member", member);
-		
-		//로그인 된 경우		
+				
 		return "/WEB-INF/views/mymember/deleteUserForm.jsp";
 	}
 
