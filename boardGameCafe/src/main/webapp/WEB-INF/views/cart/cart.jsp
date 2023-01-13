@@ -99,9 +99,12 @@
 		<div class="result">
 			<form id="cart_order" method="post"
 			action="${pageContext.request.contextPath}/order/orderForm.do">
-				<div class="cart-main">
+				<div class="cart-main"  style="height:300px; overflow:auto;">
 				<table>
 					<c:forEach var="cart" items="${cart}">
+					<tr>
+						<td colspan="5"><br></td>
+					</tr>
 					<tr>
 						<td width="160">
 							<a href="${pageContext.request.contextPath}/game/gameDetail.do?pro_num=${cart.pro_num}">
@@ -109,10 +112,10 @@
 								${cart.listVo.pro_name}
 							</a>
 						</td>
-						<td class="align-center">
+						<td class="align-center" width="80">
 							${cart.listVo.pro_name}
+							<br>
 							<fmt:formatNumber value="${cart.listVo.pro_price}"/>원
-							<br><hr width="100">
 						</td>
 						<td class="align-center">
 							<c:if test="${cart.listVo.pro_status==1 or cart.listVo.pro_count < cart.cart_count}">[판매중지]</c:if>
@@ -132,24 +135,27 @@
 							<input type="button" value=" Ｘ " class="cart-del"
 												data-cartnum="${cart.cart_num}">
 						</td>
-					</tr>	
+					</tr>
+					<tr>
+						<td colspan="5"><br><hr size="1px" width="90%"></td>
+					</tr>
 					</c:forEach>
 				</table>
 				</div><!--end of cart main-->
 			<div class="cart-side">
-				<div class="cart-sub">
+				<div class="cart-sub" style="height:100px; overflow:auto">
 					<table class="align-center">
 					<c:forEach var="cart" items="${cart}">
-					<tr>
-						<td>
-							${cart.listVo.pro_name}x${cart.cart_count}=${cart.sub_total}원
-						</td>
-					</tr>	
+						<tr>
+							<td>
+								${cart.listVo.pro_name}x${cart.cart_count}=<fmt:formatNumber value="${cart.sub_total}"/>원
+							</td>
+						</tr>	
 					</c:forEach>
 					</table>
 				</div><!--end of cart sub-->
 				<div>
-					<div class="price-total align-center"><b>총구매금액:</b>
+					<div class="price-total align-center"  style="height:50px;"><br><b>총구매금액:</b>
 					<fmt:formatNumber value="${all_total}"/>원
 					</div>				
 					<input type="submit" value="구매하기">
@@ -157,6 +163,8 @@
 			</div><!--end of cart side-->
 			</form>
 			</div>
+			<input class="shopping"  type="button" value="쇼핑계속하기" onclick=
+						"location.href='${pageContext.request.contextPath}/game/gameList.do'" style="height:25px;">
 		</c:if>
 	</div><!--end of content main-->
 </div><!--end of page main-->
