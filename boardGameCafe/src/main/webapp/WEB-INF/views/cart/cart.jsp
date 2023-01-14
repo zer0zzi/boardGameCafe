@@ -83,9 +83,9 @@
 	});
 </script>
 </head>
+<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 <body>
 <div class="page-main">
-	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<div class="content-photo">
 		<c:if test="${empty cart}">
 		<div class="result-display">
@@ -100,7 +100,7 @@
 			<form id="cart_order" method="post"
 			action="${pageContext.request.contextPath}/order/orderForm.do">
 				<div class="cart-main"  style="height:300px; overflow:auto;">
-				<table>
+				<table style="width:95%;">
 					<c:forEach var="cart" items="${cart}">
 					<tr>
 						<td colspan="6"><br></td>
@@ -116,7 +116,7 @@
 								${cart.listVo.pro_name}
 							</a>
 						</td>
-						<td class="align-center" width="80">
+						<td class="align-center">
 							${cart.listVo.pro_name}
 							<br>
 							<fmt:formatNumber value="${cart.listVo.pro_price}"/>원
@@ -132,7 +132,7 @@
 											data-pronum="${cart.pro_num}">
 							</c:if>
 						</td>
-						<td class="align-center" width="80">
+						<td class="align-center">
 							<fmt:formatNumber value="${cart.sub_total}"/>원
 						</td>
 						<td>						
@@ -146,31 +146,17 @@
 					</c:forEach>
 				</table>
 				</div><!--end of cart main-->
-			<div class="cart-side">
-				<div class="cart-sub" style="height:100px; overflow:auto">
-					<table class="align-center">
-					<c:forEach var="cart" items="${cart}">
-						<tr>
-							<td>
-								${cart.listVo.pro_name}x${cart.cart_count}=<fmt:formatNumber value="${cart.sub_total}"/>원
-							</td>
-						</tr>	
-					</c:forEach>
-					</table>
-				</div><!--end of cart sub-->
-				<div>
-					<div class="price-total align-center"  style="height:50px;"><br><b>총구매금액:</b>
-					<fmt:formatNumber value="${all_total}"/>원
-					</div>				
-					<input type="submit" value="구매하기">
-				</div><!--end of price total-->
-			</div><!--end of cart side-->
 			</form>
 			</div>
-			<input class="shopping"  type="button" value="쇼핑계속하기" onclick=
+			<div class="price-total align-center"  style="height:50px;"><br><b>총구매금액:</b>
+					<fmt:formatNumber value="${all_total}"/>원
+					</div>				
+					<input type="submit" value="구매하기" style="height:25px;">
+					<input class="shopping"  type="button" value="쇼핑계속하기" onclick=
 						"location.href='${pageContext.request.contextPath}/game/gameList.do'" style="height:25px;">
 		</c:if>
 	</div><!--end of content main-->
 </div><!--end of page main-->
 </body>
+<jsp:include page="/WEB-INF/views/common/footerEX.jsp"/>
 </html>
