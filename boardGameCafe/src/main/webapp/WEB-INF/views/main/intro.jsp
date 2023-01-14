@@ -124,7 +124,6 @@
 					</div>
 				</div>
 				<div class="caption-container">
-					<p id="caption"></p>
 				</div>
 				<div class="slide-container">
 					<div class="mySlides">
