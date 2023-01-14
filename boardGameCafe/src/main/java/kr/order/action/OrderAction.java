@@ -99,7 +99,7 @@ public class OrderAction implements Action{
 		orderDao.insertOrder(order, orderDetailList);
 		
 		request.setAttribute("notice_msg", "주문이 완료되었습니다.");
-		request.setAttribute("notice_url", request.getContextPath()+"/main/intro.do");
+		request.setAttribute("notice_url", request.getContextPath()+"/mymember/myOrderList.do");
 
 		return "/WEB-INF/views/common/alert_singleView.jsp";
 		

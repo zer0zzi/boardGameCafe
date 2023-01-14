@@ -65,24 +65,23 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
-	<div class="order-page-main">
-		<jsp:include page="/WEB-INF/views/common/header.jsp"/>
-		<div class="order-content-main">
-			<h1>ORDER/PAYMENT</h1>
-			<hr size="1" noshade>
+<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+	<div class="page-main">
+			<h2>ORDER/PAYMENT</h2>
+			<hr size="1" noshade="noshade" width="100%">
 			<table>
-				<tr>
+				<tr class="border-bot">
 					<th>상품명</th>
 					<th>수량</th>
 					<th>상품가격</th>
 					<th>합계</th>
 				</tr>
 				<c:forEach var="cart" items="${list}">
-				<tr>
+				<tr class="table-content-bot">
 					<td>
 						<a href="${pageContext.request.contextPath}/game/gameDetail.do?pro_num=${cart.pro_num}"> 
-						<img src="${pageContext.request.contextPath}/upload/${cart.listVo.pro_picture}" width="80">
-						${cart.listVo.pro_name}
+						<img src="${pageContext.request.contextPath}/upload/${cart.listVo.pro_picture}" width="80" height="80">
+						<br>${cart.listVo.pro_name}
 						</a>
 					</td>
 					<td class="align-center">
@@ -102,6 +101,8 @@ $(document).ready(function(){
 				</tr>
 			</table>
 			
+			<hr size="1" noshade="noshade" width="100%">
+			
 			<form action="order.do" method="post" id="order_form">
 				<h2>배송 정보</h2>
 				<ul>
@@ -113,7 +114,7 @@ $(document).ready(function(){
 					<li>
 						<label for="zipcode">우편번호</label> 
 						<input type="text" name="receive_zipcode" id="zipcode" maxlength="5"> 
-						<input type="button" value="우편번호 찾기" onclick="execDaumPostcode()">
+						<input type="button" class="btn" value="우편번호 찾기" onclick="execDaumPostcode()">
 					</li>
 					<li>
 						<label for="address1">주소</label> 
@@ -128,9 +129,8 @@ $(document).ready(function(){
 						<input type="text" name="receive_phone" id="receive_phone" maxlength="15">
 					</li>
 				</ul>
-				<br>
-				<hr size="1" noshade>
-				<br>
+				
+				<hr size="1" noshade="noshade" width="100%">
 				<h2>결제 정보</h2>
 				<ul>
 					<li>
@@ -140,9 +140,9 @@ $(document).ready(function(){
 					</li>
 				</ul>
 				<!-- <div id="selectPay_noBank">
-				<br>
+				
 				<hr size="1" noshade="noshade">
-				<br>
+				
 				<ul>
 					<li>계좌</li>
 				</ul>
@@ -151,9 +151,8 @@ $(document).ready(function(){
 				<hr size="1" noshade="noshade">
 				api 넣을 수 있을가
 				</div> -->
-				<br>
+				
 				<hr size="1" noshade>
-				<br>
 				<h2>배송 메모</h2>
 				<ul>
 					<li>
@@ -161,9 +160,9 @@ $(document).ready(function(){
 					</li>
 				</ul>
 				<div class="align-center cart-submit">
-					<input type="button" value="장바구니" onclick="location.href='${pageContext.request.contextPath}/cart/cart.do'">
-					<input type="submit" value="주문하기">
-					<input type="button" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
+					<input type="button" class="btn" value="장바구니" onclick="location.href='${pageContext.request.contextPath}/cart/cart.do'">
+					<input type="button" class="btn" value="주문하기" onclick="location.href='orderRe.do'">
+					<input type="button" class="btn" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
 				</div>
 			</form>
 			<!-- 우편번호 검색 시작 -->
@@ -276,8 +275,8 @@ $(document).ready(function(){
 				}
 			</script>
 			<!-- 우편번호 검색 끝 -->
-		</div>
 	</div>
+<jsp:include page="/WEB-INF/views/common/footerEX.jsp"/>
 </body>
 </html>
 

@@ -63,20 +63,19 @@ $(document).ready(function(){
 </c:if>
 </head>
 <body>
-	<div class="order-page-main">
-		<jsp:include page="/WEB-INF/views/common/header.jsp"/>
-		<div class="order-content-main">
-			<h1>ORDER/PAYMENT</h1>
-			<hr size="1" noshade>
+<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+	<div class="page-main">
+			<h2>ORDER/PAYMENT</h2>
+			<hr size="1" noshade="noshade" width="100%">
 			<table>
-				<tr>
+				<tr class="border-bot">
 					<th>상품명</th>
 					<th>수량</th>
 					<th>상품가격</th>
 					<th>합계</th>
 				</tr>
 				<c:forEach var="detail" items="${detailList}">
-				<tr>
+				<tr class="table-content-bot">
 					<td>${detail.pro_name}</td>
 					<td class="align-center">
 						<fmt:formatNumber value="${detail.order_main_count}"/>
@@ -89,7 +88,7 @@ $(document).ready(function(){
 					</td>
 				</tr>
 				</c:forEach>
-				<tr>
+				<tr class="table-content-bot">
 					<td colspan="3" class="align-right"><b>총구매금액</b></td>
 					<td class="align-center"><fmt:formatNumber value="${order.order_main_total}"/>원</td>
 				</tr>
@@ -109,7 +108,7 @@ $(document).ready(function(){
 					<li>
 						<label for="zipcode">우편번호</label> 
 						<input type="text" name="receive_zipcode" id="zipcode" maxlength="5" value="${order.receive_zipcode}"> 
-						<input type="button" value="우편번호 찾기" onclick="execDaumPostcode()">
+						<input type="button" class="btn" value="우편번호 찾기" onclick="execDaumPostcode()">
 					</li>
 					<li>
 						<label for="address1">주소</label> 
@@ -124,8 +123,8 @@ $(document).ready(function(){
 						<input type="text" name="receive_phone" id="receive_phone" maxlength="15" value="${order.receive_phone}">
 					</li>
 					<li>
-						<label for="receive_phone">배송 메모</label> 
-						<textarea rows="5" cols="76" name="notice" id="notice">${order.notice}</textarea>
+						<label for="receive_phone">배송 메모</label>
+						<textarea rows="5" cols="71" name="notice" id="notice">${order.notice}</textarea>
 					</li>
 					</c:if>
 					<c:if test="${order.status >= 2}">
@@ -151,17 +150,17 @@ $(document).ready(function(){
 					</li>
 					</c:if>
 				</ul>
-				<br><hr size="1" noshade>
+				<hr size="1" noshade="noshade" width="100%">
 				<div class="payment-status">
-				<h3>결제 수단</h3>
+				<h2>결제 수단</h2>
 				<ul>	
 					<li>
 						<c:if test="${order.payment == 1}">은행입금</c:if>
 						<c:if test="${order.payment == 2}">카드결제</c:if>
 					</li>
 				</ul>
-				<br><hr size="1" noshade>
-				<h3>배송 상태</h3>
+				<hr size="1" noshade="noshade" width="100%">
+				<h2>배송 상태</h2>
 				<ul>	
 					<li>
 						<c:if test="${order.status == 1}">배송대기</c:if>
@@ -172,11 +171,11 @@ $(document).ready(function(){
 					</li>
 				</ul>
 				</div>
-				<br><hr size="1" noshade>
+				<hr size="1" noshade="noshade" width="100%">
 				<div class="align-center cart-submit">
 					<c:if test="${order.status < 2}">
-					<input type="submit" value="주문 수정">
-					<input type="button" value="주문 취소" id="order_cancel">
+					<input type="submit" class="btn" value="주문 수정">
+					<input type="button" class="btn" value="주문 취소" id="order_cancel">
 					<script>
 						let order_cancel = document.getElementById('order_cancel');
 						order_cancel.onclick=function(){
@@ -188,8 +187,8 @@ $(document).ready(function(){
 						}
 				</script>
 				</c:if>
-				<input type="button" value="주문 목록" onclick="location.href='${pageContext.request.contextPath}/mymember/myOrderList.do'">
-				</div><br>
+				<input type="button" class="btn" value="주문 목록" onclick="location.href='${pageContext.request.contextPath}/mymember/myOrderList.do'">
+				</div>
 			</form>
 			<!-- 우편번호 검색 시작 -->
 			<!-- iOS에서는 position:fixed 버그가 있음, 적용하는 사이트에 맞게 position:absolute 등을 이용하여 top,left값 조정 필요 -->
@@ -301,7 +300,6 @@ $(document).ready(function(){
 				}
 			</script>
 			<!-- 우편번호 검색 끝 -->
-		</div>
 	</div>
 </body>
 </html>
