@@ -3,9 +3,8 @@
 /* 전체 레이아웃
 ------------------------*/
 body{
-	width:960px;
-	margin:0 auto;
-	background:rgb(255, 255, 255);
+	margin: 0 auto;
+    background: rgb(255, 255, 255);
 }
 a:link{
 	text-decoration:none;
@@ -213,7 +212,6 @@ input[type="number"]{
 .form-notice{
 	margin-left:130px;
 }
-
 
 /* 로그인
 ------------------- */

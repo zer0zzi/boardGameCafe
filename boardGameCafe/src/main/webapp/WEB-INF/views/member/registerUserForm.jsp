@@ -102,8 +102,8 @@
 </script>
 </head>
 <body>
-<div class="page-main">
    <jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
+<div class="page-main">
    <div class="content-main">
       <h2>SIGN IN</h2>
       <form id="register_form" action="registerUser.do" method="post">
