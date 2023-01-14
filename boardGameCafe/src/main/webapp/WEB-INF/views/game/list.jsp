@@ -14,7 +14,7 @@
 $(function(){
    $('#search_form').submit(function(){
       if($('#keyword').val().trim()==''){
-    	  goReload();
+         goReload();
          $('#keyword').val('').focus();
          return false;
       }
@@ -47,37 +47,38 @@ $(function(){
       <!-- 검색 폼 끝 -->
       <!-- 관리자 -> 게임관리 버튼 시작 -->
       <c:if test="${!empty user_num && user_auth == 9}">
-	      <div class="gameadmin">
-	         <a href="${pageContext.request.contextPath}/game/gameWriteForm.do">게임등록</a>
-	      </div>
+         
+            <input type="button" class="adminbtn" value="게임등록" onclick="location.href='gameWriteForm.do'">
+            <%-- <a href="${pageContext.request.contextPath}/game/gameWriteForm.do">게임등록</a> --%>
+         
       </c:if>
       <!-- 관리자 -> 게임관리 버튼 끝 -->
        <!-- 보드 게임 시작 -->
       <div class="image-space">
          <c:forEach var="list" items="${list}">
          <div class="horizontal-area">
-	           <a href="${pageContext.request.contextPath}/game/gameDetail.do?pro_num=${list.pro_num}"> 
-	               <img src="${pageContext.request.contextPath}/images/seul/${list.pro_picture}">
-	               <span id="gname">${list.pro_name}</span>
-	               <br>
-	               <span>최대 인원 : ${list.person}</span>
-	               <br>
-	               <b><fmt:formatNumber value="${list.pro_price}"/>원</b>
-	               <!-- 관리자가 로그인하면 삭제 가능 -->
-			            <c:if test="${!empty user_num && user_auth == 9}">
-			            <input type="button" value="삭제" id="delete_btn">
-			            <script type="text/javascript">
-			               let delete_btn = document.getElementById('delete_btn');
-			               //이벤트 연결
-			               delete_btn.onclick=function(){
-			                  let choice = confirm('삭제하시겠습니까?');
-			                  if(choice){
-			                     location.replace('gameDelete.do?pro_num=${list.pro_num}');
-			                  }
-			               };
-			            </script>
-			            </c:if>
-	            </a>
+              <a href="${pageContext.request.contextPath}/game/gameDetail.do?pro_num=${list.pro_num}"> 
+                  <img src="${pageContext.request.contextPath}/upload/${list.pro_picture}">
+                  <span id="gname">${list.pro_name}</span>
+                  <br>
+                  <span>최대 인원 : ${list.person}</span>
+                  <br>
+                  <b><fmt:formatNumber value="${list.pro_price}"/>원</b>
+                  <!-- 관리자가 로그인하면 삭제 가능 -->
+                     <c:if test="${!empty user_num && user_auth == 9}">
+                     <input type="button" value="삭제" id="delete_btn">
+                     <script type="text/javascript">
+                        let delete_btn = document.getElementById('delete_btn');
+                        //이벤트 연결
+                        delete_btn.onclick=function(){
+                           let choice = confirm('삭제하시겠습니까?');
+                           if(choice){
+                              location.replace('gameDelete.do?pro_num=${list.pro_num}');
+                           }
+                        };
+                     </script>
+                     </c:if>
+               </a>
            </div>
          </c:forEach>
          <div class="float-clear">

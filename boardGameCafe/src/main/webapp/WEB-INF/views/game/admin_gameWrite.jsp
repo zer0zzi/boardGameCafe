@@ -64,7 +64,7 @@ $(function(){
 			</ul>
 			<div class="align-center">
 				<input type="submit" value="등록">
-				<input type="button" value="목록으로" onclick="location.href='gameAdmin.do'">
+				<input type="button" value="목록으로" onclick="location.href='gameList.do'">
 			</div>
 		</form>
 	</div>
