@@ -11,10 +11,8 @@
 <body>
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 <div class="page-main">
-	<h2>문의사항</h2>
+	<h2>Q & A</h2>
 	<hr size="1" noshade="noshade" width="100%">
-
-	
 	<c:if test="${count == 0}">
 		<div class="result-display">
 			등록된 문의가 없습니다.
@@ -24,17 +22,17 @@
 	<c:if test="${count > 0}">	
 		<table>
 			<tr class="border-bot">
-				<th>번호</th>
-				<th></th>
+				<th style="width: 70px;">번호</th>
+				<th style="width: 180px;"></th>
 				<th>제목</th>
-				<th>작성일</th>
-				<th>조회수</th>
+				<th style="width: 150px;">작성자</th>
+				<th style="width: 150px;">작성일</th>
+				<th style="width: 100px;">조회수</th>
 			</tr>
-			<c:forEach var="inquiry" items="${list}">
+			<c:forEach var="inquiry" items="${list}" varStatus="status">
 				<tr class="table-content-bot">
-					<c:if test="${inquiry.inqu_rpl == 0}"><td>${inquiry.inqu_num}</td></c:if>
-					<c:if test="${inquiry.inqu_rpl != 0}"><td></td></c:if>
-					<c:if test="${inquiry.inqu_rpl == 0}"><td>${inquiry.inqu_cate}</td></c:if>
+					<td>${inquiry.rownum}</td>
+					<c:if test="${inquiry.inqu_rpl == 0}"><td style="color: #b1b1b1">${inquiry.inqu_cate}</td></c:if>
 					<c:if test="${inquiry.inqu_rpl != 0}"><td></td></c:if>
 					<td style="text-align: left;">
 						<c:if test="${inquiry.inqu_rpl == 0}">
@@ -48,25 +46,26 @@
 						<c:if test="${inquiry.inqu_rpl != 0}">
 							<a href="inquiryReplyDetail.do?inqu_num=${inquiry.inqu_num}">
 								<img src="${pageContext.request.contextPath}/images/hyem/reply.png" width="10">
-								<i>RE : </i>${inquiry.inqu_title}
+								<i>Re : </i>${inquiry.inqu_title}
 								<c:if test="${inquiry.inqu_check == 1}">
 									<img src="${pageContext.request.contextPath}/images/hyem/lock.png" width="10">
 								</c:if>
 							</a>
 						</c:if>
 					</td>
-					<c:if test="${inquiry.inqu_rpl == 0}"><td>${inquiry.inqu_reg_date}</td></c:if>
-					<c:if test="${inquiry.inqu_rpl != 0}"><td></td></c:if>
-					<c:if test="${inquiry.inqu_rpl == 0}"><td>${inquiry.inqu_hit}</td></c:if>
-					<c:if test="${inquiry.inqu_rpl != 0}"><td></td></c:if>
+					<c:if test="${inquiry.mem_auth == 9}">
+						<td>관리자</td>
+					</c:if>
+					<c:if test="${inquiry.mem_auth != 9}">
+						<td>${inquiry.mem_id}</td>			
+					</c:if>
+					<td>${inquiry.inqu_reg_date}</td>
+					<td>${inquiry.inqu_hit}</td>
 				</tr>
 			</c:forEach>
 		</table>
-
 	</c:if>
-	
 	<hr size="1" noshade="noshade" width="100%">
-	
 	<div class="align-center paging">
 		${pagingHtml}
 	</div>

@@ -26,15 +26,20 @@
 			var check = $('#inqu_checkbox').prop('checked')? 1 : 0;
 			$('#inqu_check').val(check);
 		});
+		
+		$("#inqu_file").on('change', function(){
+			var inqu_fileName = $("#inqu_file").val();
+			$(".inqu-filename").val(inqu_fileName);
+		});
 	});
 </script>
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 <div class="page-main">
-	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<div class="content-main">
-		<h2>문의 글쓰기</h2>
 		<form action="inquiryWrite.do" method="post" id="write_form" enctype="multipart/form-data">
+			<h2 style="margin-left: 0;">WRITE</h2>
 			<ul>
 				<li>
 					<label for="inqu_cate">카테고리</label>
@@ -59,8 +64,12 @@
 					<textarea rows="5" cols="30" name="inqu_content" id="inqu_content"></textarea>
 				</li>
 				<li>
-					<label for="inqu_file">파일</label>
-					<input type="file" name="inqu_file" id="inqu_file" accept="image/gif, image/png, image/jpeg">
+					<label>파일</label>
+					<div class="filebox">
+						<label for="inqu_file">파일선택</label>
+						<input type="file" name="inqu_file" id="inqu_file" accept="image/gif, image/png, image/jpeg">
+						<input class="inqu-filename" value="선택된 파일 없음">
+					</div>					
 				</li>
 			</ul>
 			<div class="align-center">

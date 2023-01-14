@@ -29,7 +29,6 @@ public class InquiryReplyAction implements Action {
 		
 		inquiryVO.setInqu_rpl(inqu_num);
 		inquiryVO.setMem_num(user_num);
-		inquiryVO.setInqu_cate(multi.getParameter("inqu_cate"));
 		inquiryVO.setInqu_title(multi.getParameter("inqu_title"));
 		inquiryVO.setInqu_content(multi.getParameter("inqu_content"));
 		inquiryVO.setInqu_check(Integer.parseInt(multi.getParameter("inqu_check")));

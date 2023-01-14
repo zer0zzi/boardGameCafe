@@ -3,7 +3,10 @@ package kr.inquiry.vo;
 import java.sql.Date;
 
 public class InquiryVO {
+	private int rownum;
+	private int mem_auth;
 	private int inqu_num;
+	private String mem_id;
 	private int inqu_rpl;
 	private int mem_num;
 	private String inqu_cate;
@@ -13,6 +16,30 @@ public class InquiryVO {
 	private int inqu_hit;
 	private int inqu_check;
 	private Date inqu_reg_date;
+
+	public int getRownum() {
+		return rownum;
+	}
+	
+	public void setRownum(int rownum) {
+		this.rownum = rownum;
+	}
+	
+	public int getMem_auth() {
+		return mem_auth;
+	}
+	
+	public void setMem_auth(int mem_auth) {
+		this.mem_auth = mem_auth;
+	}
+	
+	public String getMem_id() {
+		return mem_id;
+	}
+	
+	public void setMem_id(String mem_id) {
+		this.mem_id = mem_id;
+	}
 	
 	public int getInqu_num() {
 		return inqu_num;

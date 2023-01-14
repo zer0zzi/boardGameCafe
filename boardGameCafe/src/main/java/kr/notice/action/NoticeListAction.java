@@ -19,7 +19,7 @@ public class NoticeListAction implements Action {
 		NoticeDAO dao = NoticeDAO.getInstance();
 		int count = dao.getCount();
 		
-		PagingUtil page = new PagingUtil(Integer.parseInt(pageNum), count, 10, 10, "noticeList.do");
+		PagingUtil page = new PagingUtil(Integer.parseInt(pageNum), count, 15, 5, "noticeList.do");
 		
 		List<NoticeVO> list = null;
 		if(count > 0) {

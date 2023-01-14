@@ -35,7 +35,6 @@
 		</c:if>
 	</div>
 </div>
-<hr size="1" noshade="noshade" width="100%">
 <div id="myNav" class="overlay">
 	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 	<div class="overlay-content">

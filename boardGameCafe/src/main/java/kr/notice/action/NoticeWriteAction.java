@@ -32,6 +32,6 @@ public class NoticeWriteAction implements Action {
 		NoticeDAO dao = NoticeDAO.getInstance();
 		dao.insertNotice(notice);
 		
-		return "/WEB-INF/views/notice/noticeList.jsp";
+		return "redirect:/notice/noticeList.do";
 	}
 }

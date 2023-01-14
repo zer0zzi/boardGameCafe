@@ -24,6 +24,11 @@
 				return false;
 			}
 		});
+		
+		$("#noti_file").on('change', function(){
+			var noti_fileName = $("#noti_file").val();
+			$(".inqu-filename").val(noti_fileName);
+		});
 	});
 </script>
 </head>
@@ -34,11 +39,11 @@
 		location.href = 'noticeList.do';
 	</script>
 </c:if>
+<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 <div class="page-main">
-	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<div class="content-main">
-		<h2>공지 글쓰기</h2>
 		<form action="noticeWrite.do" method="post" id="write_form" enctype="multipart/form-data">
+			<h2 style="margin-left: 0;">WRITE</h2>
 			<ul>
 				<li>
 					<label for="noti_title">제목</label>
@@ -49,13 +54,17 @@
 					<textarea rows="5" cols="30" name="noti_content" id="noti_content"></textarea>
 				</li>
 				<li>
-					<label for="noti_file">파일</label>
-					<input type="file" name="noti_file" id="noti_file" accept="image/gif, image/png, image/jpeg">
+					<label>파일</label>
+					<div class="filebox">
+						<label for="noti_file">파일선택</label>
+						<input type="file" name="noti_file" id="noti_file" accept="image/gif, image/png, image/jpeg">
+						<input class="inqu-filename" value="선택된 파일 없음">
+					</div>		
 				</li>
 			</ul>
 			<div class="align-center">
-				<input type="submit" value="등록">
-				<input type="button" value="목록" onclick="location.href='noticeList.do'">
+				<input type="submit" class="btn" value="등록">
+				<input type="button" class="btn" value="목록" onclick="location.href='noticeList.do'">
 			</div>
 		</form>
 	</div>

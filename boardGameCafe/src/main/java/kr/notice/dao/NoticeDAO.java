@@ -96,6 +96,7 @@ public class NoticeDAO {
 			while(rs.next()) {
 				NoticeVO notice = new NoticeVO();
 				
+				notice.setRownum(rs.getInt("rnum"));
 				notice.setNoti_num(rs.getInt("noti_num"));
 				notice.setNoti_title(rs.getString("noti_title"));
 				notice.setNoti_content(rs.getString("noti_content"));

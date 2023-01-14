@@ -3,12 +3,21 @@ package kr.notice.vo;
 import java.sql.Date;
 
 public class NoticeVO {
+	private int rownum;
 	private int noti_num;
 	private String noti_title;
 	private String noti_content;
 	private String noti_file;
 	private int noti_hit;
 	private Date noti_reg_date;
+	
+	public int getRownum() {
+		return rownum;
+	}
+	
+	public void setRownum(int rownum) {
+		this.rownum = rownum;
+	}
 	
 	public int getNoti_num() {
 		return noti_num;

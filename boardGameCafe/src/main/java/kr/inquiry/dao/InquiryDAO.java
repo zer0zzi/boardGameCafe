@@ -87,6 +87,36 @@ public class InquiryDAO {
 		return count;
 	}
 	
+	//아이디 구하기
+	public String getMem_id(int mem_num) throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = null;
+		String mem_id = "";
+		
+		try {
+			conn = DBUtil.getConnection();
+			
+			sql = "select mem_id from member where mem_num = ?";
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, mem_num);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				mem_id = rs.getString("mem_id");
+			}
+		} catch(Exception e) {
+			throw new Exception(e);
+		} finally {
+			DBUtil.executeClose(rs, pstmt, conn);
+		}
+		return mem_id;
+	}
+	
 	//문의 글 목록
 	public List<InquiryVO> getInquiryList(int startRow, int endRow) throws Exception{
 		Connection conn = null;
@@ -98,8 +128,8 @@ public class InquiryDAO {
 		try {
 			conn = DBUtil.getConnection();
 			
-			sql = "select * from (select a.*, rownum rnum from (select * from inquiry order by inqu_num desc) a) where rnum >= ? and rnum <= ?"
-				+ "start with inqu_rpl = 0 connect by prior inqu_num = inqu_rpl order siblings by inqu_num desc";
+			sql = "select * from (select a.*, rownum rnum from (select * from inquiry start with inqu_rpl = 0"
+				+ "connect by prior inqu_num = inqu_rpl order siblings by inqu_num desc) a) where rnum >= ? and rnum <= ?";
 			
 			pstmt = conn.prepareStatement(sql);
 			
@@ -109,8 +139,11 @@ public class InquiryDAO {
 			rs = pstmt.executeQuery();
 			list = new ArrayList<InquiryVO>();
 			while(rs.next()) {
-				InquiryVO inquiry = new InquiryVO();
+				InquiryVO inquiry = new InquiryVO(); 
 				
+				inquiry.setRownum(rs.getInt("rnum"));
+				inquiry.setMem_id(getMem_id(rs.getInt("mem_num")));
+				inquiry.setMem_auth(getMem_auth(rs.getInt("mem_num")));
 				inquiry.setInqu_num(rs.getInt("inqu_num"));
 				inquiry.setInqu_rpl(rs.getInt("inqu_rpl"));
 				inquiry.setInqu_cate(rs.getString("inqu_cate"));
@@ -128,6 +161,35 @@ public class InquiryDAO {
 		}
 		
 		return list;
+	}
+	
+	//글 쓴 사람의 auth 구하기
+	public int getMem_auth(int mem_num) throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = null;
+		int mem_auth = 0;
+		
+		try {
+			conn = DBUtil.getConnection();
+			
+			sql = "select mem_auth from member where mem_num = ?";
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, mem_num);
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				mem_auth = rs.getInt(1);
+			}
+		} catch(Exception e) {
+			throw new Exception(e);
+		} finally {
+			DBUtil.executeClose(rs, pstmt, conn);
+		}
+		return mem_auth;
 	}
 	
 	//문의 글 상세
@@ -151,6 +213,7 @@ public class InquiryDAO {
 			if(rs.next()) {
 				inquiry = new InquiryVO();
 				
+				inquiry.setMem_id(getMem_id(rs.getInt("mem_num")));
 				inquiry.setInqu_num(rs.getInt("inqu_num"));
 				inquiry.setInqu_rpl(rs.getInt("inqu_rpl"));
 				inquiry.setMem_num(rs.getInt("mem_num"));
@@ -321,32 +384,20 @@ public class InquiryDAO {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		String sql = null;
-		String inqu_cate = null;
 		
 		try {
 			conn = DBUtil.getConnection();
 			
-			if((inquiry.getInqu_cate()).equals("1")) {
-				inqu_cate = "예약문의";
-			} else if((inquiry.getInqu_cate()).equals("2")){
-				inqu_cate = "상품문의";
-			} else if((inquiry.getInqu_cate()).equals("3")){
-				inqu_cate = "주문/배송문의";
-			} else {
-				inqu_cate = "기타문의";
-			}
-			
-			sql = "insert into inquiry (inqu_num, inqu_rpl, mem_num, inqu_cate, inqu_title, inqu_content, inqu_check)"
-				+ "values (inquiry_seq.nextval, ?, ?, ?, ?, ?, ?)";
+			sql = "insert into inquiry (inqu_num, inqu_rpl, mem_num, inqu_title, inqu_content, inqu_check)"
+				+ "values (inquiry_seq.nextval, ?, ?, ?, ?, ?)";
 			
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setInt(1, inquiry.getInqu_rpl());
 			pstmt.setInt(2, inquiry.getMem_num());
-			pstmt.setString(3, inqu_cate);
-			pstmt.setString(4, inquiry.getInqu_title());
-			pstmt.setString(5, inquiry.getInqu_content());
-			pstmt.setInt(6, inquiry.getInqu_check());
+			pstmt.setString(3, inquiry.getInqu_title());
+			pstmt.setString(4, inquiry.getInqu_content());
+			pstmt.setInt(5, inquiry.getInqu_check());
 			
 			pstmt.executeUpdate();
 		} catch(Exception e) {

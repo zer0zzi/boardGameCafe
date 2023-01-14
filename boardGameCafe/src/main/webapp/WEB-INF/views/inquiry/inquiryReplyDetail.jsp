@@ -7,6 +7,28 @@
 <title>문의 답변 상세</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style_hyem.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		let modal = document.getElementById("modal");
+		
+		let delete_btn = document.getElementById("delete_btn");
+		delete_btn.addEventListener("click", e => {
+		    modal.style.display = "flex";
+		});
+		
+		let del = document.getElementById("delete");
+		let inqu_num = document.getElementById("inqu_num").value;
+		del.addEventListener("click", e => {
+			location.href="inquiryReplyDelete.do?inqu_num=" + inqu_num;
+		});
+		
+		let cancel = document.getElementById("cancel");
+		cancel.addEventListener("click", e => {
+		    modal.style.display = "none";
+		});
+	});
+</script>
 </head>
 <body>
 <c:if test="${inquiry.inqu_check == 1}">
@@ -16,66 +38,106 @@
 			location.href = 'inquiryList.do';
 		</script>
 	</c:if>
+	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<c:if test="${inquiry.mem_num == user_num || user_auth == 9}">
-		<div class="page-main">
-			<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+		<div class="page-main">			
+			<h2>Q & A</h2>
+			<hr size="1" noshade="noshade" width="100%">
 			<div class="content-main">
-				<h5>${inquiry.inqu_cate}</h5>
-				<h2><i>RE : </i>${inquiry.inqu_title}</h2>
-				<h4>조회 : ${inquiry.inqu_hit}</h4>
-				<hr size="1" noshade="noshade" width="100%">
-				<c:if test="${!empty inquiry.inqu_file}">
-					<div class="align-center">
-						<img src="${pageContext.request.contextPath}/upload/${inquiry.inqu_file}" class="detail-img">
+				<div class="inqu-content-title">
+					<div class="mem-id">
+						관리자
 					</div>
-				</c:if>
-				<p>	
-					${inquiryContent}
-					<br><br>
-					-------------------------------------------
-					<br><br>
-					${inquiry.inqu_content}
-				</p>
+					<div class="inqu-title">
+						${inquiry.inqu_title}
+					</div>
+					<div class="inqu-reg-date">
+						${inquiry.inqu_reg_date} 
+					</div>
+				</div>
+				<hr size="1" noshade="noshade" width="100%">
+				<div class="inqu-content">
+						<i>문의하신 내용</i>
+						<div class="origin-inquiry">
+							${inquiryContent}
+						</div>
+						<i>Reply</i>
+						<div class="reply-inquiry">
+							${inquiry.inqu_content}
+						</div>
+				</div>
 				<hr size="1" noshade="noshade" width="100%">
 			</div>
 			<div class="align-right">
 				<c:if test="${user_auth == 9}">
-					<input type="button" value="수정" onclick="location.href='inquiryReplyUpdateForm.do?inqu_num=${inquiry.inqu_num}'">
-					<input type="button" value="삭제" onclick="location.href='inquiryReplyDelete.do?inqu_num=${inquiry.inqu_num}'">
+					<input type="button" value="수정" class="btn" onclick="location.href='inquiryReplyUpdateForm.do?inqu_num=${inquiry.inqu_num}'">
+					<input type="button" value="삭제" class="btn" id="delete_btn">
+					<div id="modal" class="modal-overlay">
+						<div class="modal-window">
+							<div class="modal-content">
+								<p>삭제하시겠습니까?</p>
+					            <input type="hidden" id="inqu_num" value="${inquiry.inqu_num}">
+					            <div class="confirm-btn">
+					                <input type="button" value="확인" class="btn" id="delete">
+					                <input type="button" value="취소" class="btn" id="cancel">
+					            </div>
+					        </div>
+					    </div>
+					</div>
 				</c:if>
-				<input type="button" value="목록" onclick="location.href='inquiryList.do'">
+				<input type="button" value="목록" class="btn" onclick="location.href='inquiryList.do'">
 			</div>
 		</div>
 	</c:if>
 </c:if>
 <c:if test="${inquiry.inqu_check == 0}">
-	<div class="page-main">
-		<jsp:include page="/WEB-INF/views/common/header.jsp"/>
-		<div class="content-main">
-			<h5>${inquiry.inqu_cate}</h5>
-			<h2><i>RE : </i>${inquiry.inqu_title}</h2>
-			<h4>조회 : ${inquiry.inqu_hit}</h4>
+	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+	<div class="page-main">			
+		<h2>문의사항</h2>
 			<hr size="1" noshade="noshade" width="100%">
-			<c:if test="${!empty inquiry.inqu_file}">
-				<div class="align-center">
-					<img src="${pageContext.request.contextPath}/upload/${inquiry.inqu_file}" class="detail-img">
+			<div class="content-main">
+				<div class="inqu-content-title">
+					<div class="mem-id">
+						관리자
+					</div>
+					<div class="inqu-title">
+						${inquiry.inqu_title}
+					</div>
+					<div class="inqu-reg-date">
+						${inquiry.inqu_reg_date} 
+					</div>
 				</div>
-			</c:if>
-			<p>
-				${inquiryContent}
-				<br><br>
-				-------------------------------------------
-				<br><br>
-				${inquiry.inqu_content}
-			</p>
+			<hr size="1" noshade="noshade" width="100%">
+			<div class="inqu-content">
+					<i>문의하신 내용</i>
+					<div class="origin-inquiry">
+						${inquiryContent}
+					</div>
+					<i>Reply</i>
+					<div class="reply-inquiry">
+						${inquiry.inqu_content}
+					</div>
+			</div>
 			<hr size="1" noshade="noshade" width="100%">
 		</div>
 		<div class="align-right">
 			<c:if test="${user_auth == 9}">
-				<input type="button" value="수정" onclick="location.href='inquiryReplyUpdateForm.do?inqu_num=${inquiry.inqu_num}'">
-				<input type="button" value="삭제" onclick="location.href='inquiryReplyDelete.do?inqu_num=${inquiry.inqu_num}'">
+				<input type="button" value="수정" class="btn" onclick="location.href='inquiryReplyUpdateForm.do?inqu_num=${inquiry.inqu_num}'">
+				<input type="button" value="삭제" class="btn" id="delete_btn">
+				<div id="modal" class="modal-overlay">
+					<div class="modal-window">
+						<div class="modal-content">
+							<p>삭제하시겠습니까?</p>
+							<input type="hidden" id="inqu_num" value="${inquiry.inqu_num}">
+							<div class="confirm-btn">
+								<input type="button" value="확인" class="btn" id="delete">
+								<input type="button" value="취소" class="btn" id="cancel">
+							</div>
+				        </div>
+				    </div>
+				</div>
 			</c:if>
-			<input type="button" value="목록" onclick="location.href='inquiryList.do'">
+			<input type="button" value="목록" class="btn" onclick="location.href='inquiryList.do'">
 		</div>
 	</div>
 </c:if>

@@ -9,14 +9,10 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 <div class="page-main">
-	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
-	<h2>공지사항</h2>
-	<c:if test="${!empty user_num && user_auth == 9}">
-		<div class="align-right">
-			<input type="button" value="글쓰기" onclick="location.href='noticeWriteForm.do'">
-		</div>
-	</c:if>
+	<h2>NOTICE</h2>
+	<hr size="1" noshade="noshade" width="100%">
 	<c:if test="${count == 0}">
 		<div class="result-display">
 			등록된 공지가 없습니다.
@@ -25,24 +21,30 @@
 	
 	<c:if test="${count > 0}">	
 		<table>
-			<tr>
-				<th>글 번호</th>
+			<tr class="border-bot">
+				<th style="width: 70px;">번호</th>
 				<th>제목</th>
-				<th>작성일</th>
-				<th>조회수</th>
+				<th style="width: 150px;">작성일</th>
+				<th style="width: 100px;">조회수</th>
 			</tr>
 			<c:forEach var="notice" items="${list}">
-				<tr>
-					<td>${notice.noti_num}</td>
-					<td><a href="noticeDetail.do?noti_num=${notice.noti_num}">${notice.noti_title}</a></td>
+				<tr class="table-content-bot">
+					<td>${notice.rownum}</td>
+					<td style="padding-left: 50px;text-align: left;"><a href="noticeDetail.do?noti_num=${notice.noti_num}">${notice.noti_title}</a></td>
 					<td>${notice.noti_reg_date}</td>
 					<td>${notice.noti_hit}</td>
 				</tr>
 			</c:forEach>
 		</table>
-		<div class="align-center">
+		<hr size="1" noshade="noshade" width="100%">
+		<div class="align-center paging">
 			${pagingHtml}
 		</div>
+		<c:if test="${!empty user_num && user_auth == 9}">
+		<div class="align-right">
+			<input type="button" class="btn" value="글쓰기" onclick="location.href='noticeWriteForm.do'">
+		</div>
+	</c:if>
 	</c:if>
 </div>
 </body>
