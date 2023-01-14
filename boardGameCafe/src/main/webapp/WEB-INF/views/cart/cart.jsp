@@ -103,12 +103,16 @@
 				<table>
 					<c:forEach var="cart" items="${cart}">
 					<tr>
-						<td colspan="5"><br></td>
+						<td colspan="6"><br></td>
 					</tr>
 					<tr>
-						<td width="160">
+						<td class="align-center" width="82">
 							<a href="${pageContext.request.contextPath}/game/gameDetail.do?pro_num=${cart.pro_num}">
 								<img src="${pageContext.request.contextPath}/upload/${cart.listVo.pro_picture}" width="80">
+							</a>
+						</td>
+						<td class="align-center">
+							<a href="${pageContext.request.contextPath}/game/gameDetail.do?pro_num=${cart.pro_num}">
 								${cart.listVo.pro_name}
 							</a>
 						</td>
@@ -137,7 +141,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td colspan="5"><br><hr size="1px" width="90%"></td>
+						<td colspan="6"><br><hr size="1px" width="90%"></td>
 					</tr>
 					</c:forEach>
 				</table>
