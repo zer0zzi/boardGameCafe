@@ -117,8 +117,6 @@
 							</a>
 						</td>
 						<td class="align-center">
-							${cart.listVo.pro_name}
-							<br>
 							<fmt:formatNumber value="${cart.listVo.pro_price}"/>원
 						</td>
 						<td class="align-center">
@@ -133,7 +131,7 @@
 							</c:if>
 						</td>
 						<td class="align-center">
-							<fmt:formatNumber value="${cart.sub_total}"/>원
+							합계: <fmt:formatNumber value="${cart.sub_total}"/>원
 						</td>
 						<td>						
 							<input type="button" value=" Ｘ " class="cart-del"

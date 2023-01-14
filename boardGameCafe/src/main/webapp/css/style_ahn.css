@@ -63,14 +63,16 @@ div.content-photo{
 
 div.cart-main{
 	background-color: rgba(138,161,161,0.3);
-	min-height:300px;
+	min-height:400px;
 }
 div.price-total{
-	background-color: rgba(138,161,161,0.3);
+	background-color: rgb(138,161,161);
+	border-radius: 5px;
 	float:none;
-	margin:20px 0 0 0;
-	border:1px solid #000;
+	margin:50px 0 0 0;
+	padding: 0 0 10px 0;
 	font-size: 20px;
+	color: #fff;
 }
 div.result-display{
 	background-color: rgba(138,161,161,0.3);
@@ -105,7 +107,7 @@ div.result-display{
 }
 .cart-del:hover{
 	text-decoration:none;
-	border: 2px solid #000;
+	border: 1px solid #000;
 }
 #cart_order{
 	width: 98%;
