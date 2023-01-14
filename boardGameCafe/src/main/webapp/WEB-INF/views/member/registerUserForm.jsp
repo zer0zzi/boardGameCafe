@@ -114,7 +114,6 @@
                <input type="button" value="ID중복체크" id="id_check">
                <span id="message_id"></span>
             </div>
-            
             </div>
             <div class="input-box">
                <label for="name">이름</label>

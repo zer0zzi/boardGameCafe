@@ -28,7 +28,7 @@
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 <div class="page-main">
 	<div class="content-main">
-		<h2>LOGIN223</h2>
+		<h2>LOGIN</h2>
 		<form id="login-form" action="login.do" method="post">
 			<div class="input-box">
 		 			<label for="id">아이디</label>
