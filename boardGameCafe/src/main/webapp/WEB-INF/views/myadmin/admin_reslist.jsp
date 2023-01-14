@@ -23,37 +23,60 @@ $(function(){
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
-	<div class="main-title">
-		마이페이지
-	</div>
-	<div class="main-content">
-		<button id="btn01" value="주문조회" onclick="location.href='orderList.do'">주문조회</button>
-		<button id="btn01" value="예약조회" onclick="location.href='resList.do'">예약조회</button>
-		<button id="btn01" value="회원정보" onclick="location.href='memList.do'">회원정보</button>
-	</div>
-	<div>
-		<h3>예약목록</h3>
-		<c:if test="${count == 0}">
-	   		<div>
-	    	  등록된 예약이 없습니다.
-	   		</div>
-   		</c:if>
-  		<c:if test="${count > 0}">
-  			전체 예약수 : ${count}
-  			<c:forEach var="reserve" items="${list}">
-	   			<ul class="main_ul">
-	   				<li>No. ${reserve.res_num}</li>
-	   				<li>ROOM. ${reserve.room_name}</li>
-					<li class="hide">예약일정 ${reserve.res_date} ${reserve.res_time}</li>
-					<li class="hide">예약자 ${reserve.mem_name}</li>
-					<li class="hide">예약인원 ${reserve.res_count} 명</li>
-					<li class="hide">예약된 방 ${reserve.room_name} ${reserve.room_detail}</li>
-   				</ul>
-   			</c:forEach>
-		   <div>
-		      ${pagingHtml}
-		   </div>
-   		</c:if>
+	<div class="page-main">
+		<div class="main-title">
+			<h2>관리자 마이페이지</h2>
+		</div>
+		<div class="main-menu01">
+			<button id="btn01" value="주문조회" onclick="location.href='orderList.do'">주문조회</button>
+			<button id="btn02" value="예약조회" onclick="location.href='resList.do'">예약조회</button>
+			<button id="btn01" value="회원정보" onclick="location.href='memList.do'">회원정보</button>
+		</div>
+		<div class="main-content">
+			<c:if test="${count == 0}">
+				<h3>예약목록</h3>
+		   		<div>
+		    	  등록된 예약이 없습니다.
+		   		</div>
+	   		</c:if>
+	  		<c:if test="${count > 0}">
+	  			<div id="title-count">
+		  			<p id="title">예약목록</p>
+		  			<p id="count">전체 예약수 : ${count}건</p>
+	  			</div>
+	  			<hr size="1" noshade="noshade" width="100%">
+	  			<c:forEach var="reserve" items="${list}">
+		   			<ul class="main_ul">
+		   				<li>No. ${reserve.res_num}</li>
+		   				<li>ROOM. ${reserve.room_name}</li>
+		   				<li class="hide"><br></li>
+						<li class="hide" style="color:#375e83">
+							<label>예약날짜</label>
+							: ${reserve.res_date} 
+						</li>
+						<li class="hide">
+							<label>예약시간</label>
+							: ${reserve.res_time}시
+						</li>
+						<li class="hide">
+							<label>예약자</label>
+							: ${reserve.mem_name}
+						</li>
+						<li class="hide">
+							<label>예약인원</label>
+							: ${reserve.res_count}명
+						</li>
+						<li class="hide">
+							<label>예약된 방</label>
+							: ${reserve.room_name} (${reserve.room_detail})
+						</li>
+	   				</ul>
+	   			</c:forEach>
+			   <div id="paging">
+			      ${pagingHtml}
+			   </div>
+	   		</c:if>
+		</div>
 	</div>
 </body>
 </html>

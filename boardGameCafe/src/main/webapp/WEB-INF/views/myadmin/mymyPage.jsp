@@ -13,13 +13,15 @@
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
-	<div class="main-title">
-		마이페이지
-	</div>
-	<div class="main-content">
-		<button id="btn01" value="주문조회" onclick="location.href='orderList.do'">주문조회</button>
-		<button id="btn01" value="예약조회" onclick="location.href='resList.do'">예약조회</button>
-		<button id="btn01" value="회원정보" onclick="location.href='memList.do'">회원정보</button>
+	<div class="page-main">
+		<div class="main-title">
+			<h2>관리자 마이페이지</h2>
+		</div>
+		<div class="main-menu00">
+			<button id="btn00" value="주문조회" onclick="location.href='orderList.do'">주문조회</button>
+			<button id="btn00" value="예약조회" onclick="location.href='resList.do'">예약조회</button>
+			<button id="btn00" value="회원정보" onclick="location.href='memList.do'">회원정보</button>
+		</div>
 	</div>
 </body>
 </html>
