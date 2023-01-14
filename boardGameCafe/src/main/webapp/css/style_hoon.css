@@ -804,14 +804,14 @@ ul li label{
 	width:90px;
 }
 .form-room{
-	padding-left:350px;
+	padding-left:550px;
 	padding-top:30px;
 }
 .name{
 	width:215px;
 }
 .align-centerr{
-	padding-left:450px;
+	padding-left:650px;
 }
 .btn-b{
 	background:#8aa1a1;
@@ -823,7 +823,9 @@ ul li label{
 }
 
 .content-mainn h2{
-	padding-left:350px;
+	padding-left:550px;
+	margin-top:30px;
+	margin-bottom:-20px;
 }
 
 .roomroom{
