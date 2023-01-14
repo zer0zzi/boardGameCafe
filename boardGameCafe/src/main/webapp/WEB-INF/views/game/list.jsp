@@ -47,9 +47,10 @@ $(function(){
       <!-- 검색 폼 끝 -->
       <!-- 관리자 -> 게임관리 버튼 시작 -->
       <c:if test="${!empty user_num && user_auth == 9}">
-	      <div class="gameadmin">
-	         <a href="${pageContext.request.contextPath}/game/gameWriteForm.do">게임등록</a>
-	      </div>
+	      
+	      	<input type="button" class="adminbtn" value="게임등록" onclick="location.href='gameWriteForm.do'">
+	         <%-- <a href="${pageContext.request.contextPath}/game/gameWriteForm.do">게임등록</a> --%>
+	      
       </c:if>
       <!-- 관리자 -> 게임관리 버튼 끝 -->
        <!-- 보드 게임 시작 -->
@@ -57,7 +58,7 @@ $(function(){
          <c:forEach var="list" items="${list}">
          <div class="horizontal-area">
 	           <a href="${pageContext.request.contextPath}/game/gameDetail.do?pro_num=${list.pro_num}"> 
-	               <img src="${pageContext.request.contextPath}/images/seul/${list.pro_picture}">
+	               <img src="${pageContext.request.contextPath}/upload/${list.pro_picture}">
 	               <span id="gname">${list.pro_name}</span>
 	               <br>
 	               <span>최대 인원 : ${list.person}</span>
@@ -80,6 +81,7 @@ $(function(){
 	            </a>
            </div>
          </c:forEach>
+         
          <div class="float-clear">
             <hr width="100%" size="1" noshade="noshade">
          </div>

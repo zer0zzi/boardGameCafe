@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>게임상세</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style_seul.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/game.review.js"></script>
 <script type="text/javascript">
@@ -62,9 +62,10 @@ $(function(){
 		<div class="image-detail">
 			<img src="${pageContext.request.contextPath}/images/seul/${detail.pro_picture}">
 		</div>
-		<div class="small-header">
+		<div class="game-detail">
+			<div id="A">
 			<b class="game-name">${detail.pro_name}</b>
-			<span>${detail.pro_price}</span>
+			<fmt:formatNumber value="${detail.pro_price}"/>원
 			<!-- <input type="button" value="구매하기"> -->
 			<form id="item_cart" method="post">
 				<input type="hidden" name="pro_num" 
@@ -73,18 +74,20 @@ $(function(){
 					       	value="${detail.pro_price}" id="pro_price">
 					<input type="hidden" name="pro_count"
 							value="${detail.pro_count}" id="pro_count">
-				<input type="submit" value="장바구니">
+				<input type="submit" value="장바구니" id="cartbtn">
 			</form>
-			<hr size="1" noshade="noshade" width="250px">
-		</div>
+			</div>
+			<hr size="1" noshade="noshade">
+		
 		<div class="game-explanation">
 			게임 설명 : ${detail.explanation} 
-			<hr size="1" noshade="noshade" width="250px">
+			<hr size="1" noshade="noshade">
 		</div>
 		<div class="small-footer">
 		<span>난이도 : ${detail.pro_level}</span>
-		<span>게임 인원 : ${detail.person}</span>
-		<span>게임 재고: ${detail.pro_count}</span>
+		<span>추천 인원 : ${detail.person}</span>
+		<span>재고 수량: ${detail.pro_count}</span>
+		</div>
 		</div>
 		<br>
 		<br>

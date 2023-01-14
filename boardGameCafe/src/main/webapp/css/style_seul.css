@@ -1,5 +1,18 @@
 /* 전체 레이아웃
 ------------------------*/
+@charset "UTF-8";
+
+@font-face {
+      src: url("../fonts/DungGeunMo.ttf");
+      font-family: "DungGeunMo";
+}
+
+*{
+	font-family: "DungGeunMo";
+	margin: 0px;
+	padding: 0px;
+}
+
 body{
 	width: 1000px;
 	margin: 0 auto;
@@ -13,8 +26,8 @@ body{
 /* 검색 폼 */
 form#search_form{
 	border:none;
-	padding-top:10;
-	padding-bottom: 5;
+	margin-top: 10px;
+	margin-bottom: 5px;
 }
 ul.search{
 	width:440px;
@@ -27,11 +40,17 @@ ul.search li{
 	padding:0;
 	display:inline;
 }
-
-/* 관리자 게임등록 */
-.gameadmin a{
-	text-decoration:none;
-	color: gray;
+.adminbtn{
+	background: #bb2d3b;
+	color: white;
+	border-style: none;
+	cursor: pointer;
+	margin-top:5px;
+	padding:5px; 
+	box-shadow: 3px 3px 3px rgb(73 73 73);
+	position: relative;
+    top: 5px;
+    left: 100px;
 }
 /* 게임목록 */
 .page-main{
@@ -64,20 +83,21 @@ ul.search li{
 .gname{
 	font-size: 15;
 }
-/* 페이지 번호 */
+/* 페이지 */
 .align-center{
 	text-align:center;
+	margin: 10px auto;
 }
-/* 강사님 */
 
 /* 게임상세
 -------------------- */
 .detailpage-main{
-	width: 1000px;
+ 	width: 1000px; 
 	margin: 0 auto;
 }
 .detailpage-main h1{
- text-align:center;
+ 	text-align:center;
+ 	margin: 10px auto;
 }
 .image-detail{
 	text-align:center;	
@@ -85,5 +105,30 @@ ul.search li{
 .image-detail img{
 	width:215px;
 	height:195px;
-	
 }
+.game-detail{
+ 	width: 60%; 
+	margin: 0 auto;
+	background:#E6E6E6;	
+}
+
+.game-detail hr{
+ 	width: 50%; 
+	margin: 0 auto;	
+}
+#game-detail A{
+	width: 1000px;
+	margin: 0 auto;
+}
+#cartbtn{
+	background: #bb2d3b;
+	color: white;
+	border-style: none;
+	cursor: pointer;
+	margin-top:5px;
+	padding:5px; 
+	box-shadow: 3px 3px 3px rgb(73 73 73);
+}
+/* 리뷰 쓰기, 목록 */
+
+

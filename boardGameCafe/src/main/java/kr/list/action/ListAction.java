@@ -31,7 +31,7 @@ public class ListAction implements Action{
 	      PagingUtil page = 
 	            new PagingUtil(keyfield,keyword,
 	                        Integer.parseInt(pageNum),
-	                            count,20,10,"gameList.do"); //28 count->dao(게임갯수)에서 만든 총 갯수. 20->게시글 수
+	                            count,12,10,"gameList.do"); //28 count->dao(게임갯수)에서 만든 총 갯수. 20->게시글 수
 	      List<ListVO> list = null;
 	      if(count > 0) {//데이터가 하나라도 있나? 게임 무조건 등록 돼 있으니까 무조건 되는 것. count:게임갯수니까 무조건 안으로 들어감.
 	         list = dao.getListGame(page.getStartRow(),

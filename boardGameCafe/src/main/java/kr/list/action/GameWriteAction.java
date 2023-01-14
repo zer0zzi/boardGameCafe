@@ -39,10 +39,10 @@ public class GameWriteAction implements Action{
 		dao.insertGame(game);
 		
 		//refresh 정보를 응답 헤더에 추가	???????????
-		response.addHeader("Refresh", "2;url=gameAdmin.do");
+		response.addHeader("Refresh", "2;url=gameList.do");
 		
 		request.setAttribute("accessMsg", "성공적으로 등록되었습니다.");
-		request.setAttribute("accessUrl", "gameAdmin.do");
+		request.setAttribute("accessUrl", "gameList.do");
 		
 		return "/WEB-INF/views/common/notice.jsp";		//?????
 	}
