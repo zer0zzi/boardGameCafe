@@ -11,7 +11,10 @@ body{
 	font-size:13px;
 	font-weight:400;
 }
-
+.li{
+	list-style: none;
+	margin-left:10px;
+}
 #wrap{
 	text-align:left;
 	zoom:1;
@@ -115,7 +118,7 @@ li{
 	padding-top:26px;
 	padding-bottom:23px;
 	margin-bottom:21px;
-	height:179px;
+	height:140px;
 	border-bottom:3px solid #e8e8e8;
 	text-align:center;
 	box-sizing:border-box;
@@ -219,7 +222,7 @@ i{
 .btn_open{
 	position:absolute;
 	right:50px;
-	bottom:16px;
+	bottom:35px;
 	height:56px;
 	width:360px;
 	display:block;
@@ -677,18 +680,21 @@ em{
 	clear:both;
 }
 .image-space .horizontal-area p{
-	margin-top:5px;
+	margin-top:8px;
 	margin-left:25px;
 	margin-right:25px;
 	margin-bottom:5px;
 	white-space:pre-wrap;
 	max-height:190px;
-	border-top:1px solid #e5e5e5;
+	border-top:2px solid #e5e5e5;
+	font-size:20px;
+	line-height:50px;
 }
 
 .image-space .horizontal-area .name_title{
-	font-size:16px;
+	font-size:22px;
 	font-weight:600;
+	line-height:40px;
 }
 
 .image-space .horizontal-area .name_title .title{
@@ -708,6 +714,7 @@ em{
 	background-color:#fff;
 	box-sizing:border-box;
 	color:#000000;
+	margin-bottom:-35px;
 }
 .room-image img{
 	width:490px;
@@ -800,10 +807,36 @@ ul li label{
 	padding-left:350px;
 	padding-top:30px;
 }
+.name{
+	width:215px;
+}
 .align-centerr{
-	padding-left:490px;
+	padding-left:450px;
+}
+.btn-b{
+	background:#8aa1a1;
+	color:white;
+	border-style:none;
+	box-shadow:3px 3px 3px rgb(73,73,73);
+	width:80px;
+	height:20px;
 }
 
 .content-mainn h2{
 	padding-left:350px;
+}
+
+.roomroom{
+	background:#8aa1a1;
+	color:white;
+	border-style:none;
+	box-shadow:3px 3px 3px rgb(73,73,73);
+	width:80px;
+	height:20px;
+	margin-top:10px;
+	cursor:pointer;
+}
+
+.detail{
+	font-size:30px;
 }

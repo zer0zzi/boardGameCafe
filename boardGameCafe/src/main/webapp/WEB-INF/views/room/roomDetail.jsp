@@ -33,13 +33,14 @@
 		});
 	});
 </script>
+
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 <div class="container" id="container">
 	<div class="wrap_inn">
 		<div class="wrap_left">
-			<h3 class="align-center">${room.room_name}</h3>
+			<h2 class="align-center">${room.room_name}</h2>
 			<div class="room-image">
 				<img src="${pageContext.request.contextPath}/upload/${room.photo1}" width="400">
 			</div>
@@ -135,9 +136,8 @@
  					</div><!-- end of inner -->
 				</div>
 			</div>
-		
-						
 		</div><!-- end of wrap_right -->
+		
 	</div><!-- end of wrap_inn -->
 </div><!-- end of container -->
 </body>

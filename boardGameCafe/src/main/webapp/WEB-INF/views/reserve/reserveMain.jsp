@@ -9,16 +9,13 @@
 <title>메인</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style_hoon.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
-<script type="text/javascript">
-
-</script>
 </head>
 <body>
 	<div class="wrap" id="wrap">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<c:if test="${!empty user_num && user_auth == 9}">
-		<li>
-			<input type="button" value="상품등록" onclick="location.href='${pageContext.request.contextPath}/room/roomWriteForm.do'">
+		<li class="li">
+			<input type="button" value="방 등록"  class="roomroom" onclick="location.href='${pageContext.request.contextPath}/room/roomWriteForm.do'">
 		</li>
 		</c:if>
 	
@@ -40,7 +37,7 @@
 						<div class="section_contents">
 						 	<div class="contents_txt">
 						 		<h2 class="contents_txt_tit">
-						 			<span>스터디역삼</span>
+						 			<span>퀵보드</span>
 						 		</h2>
 						 		<p>예약신청 후 확정/취소여부를 반드시 확인해주세요.</p>
 						 	</div><!-- end of contents_txt -->
@@ -49,11 +46,9 @@
 							 		<p class="dsc">
 								 	*전화예약불가합니다. 네이버예약 부탁드립니다.(당일예약만 전화 혹은 현장에서 가능합니다)
 								 	<br>
-								 	*1인실은 전액선입금받고있으며 일주일전18시까지 환불가능합니다.
-								 	<br>
 								 	*1월은 1일, 21~24일 휴무입니다.
 								 	<br>
-								 	*예약은 최소 2시간 이상, 정시단위로 가능합니다.
+								 	*예약은 최소 1시간 이상, 정시단위로 가능합니다.
 								 	<br> 
 								 	(30분씩 예약은 불가합니다.)
 								 	<br>
@@ -104,6 +99,7 @@
 														<p class="detail">${room.room_detail}</p>
 													</a>
 												</div>
+												
 											</c:forEach>
 										</div>
 									</div>

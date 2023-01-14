@@ -48,7 +48,7 @@
 				<ul class="form-room">
 					<li>
 						<label>방 이름</label>
-						<input type="text" name="name" id="name" maxlength="10">
+						<input type="text" class="name" name="name" id="name" maxlength="10">
 					</li>
 					<li>
 						<label>최대 인원 수</label>
@@ -77,8 +77,8 @@
 					
 				</ul>
 				<div class="align-centerr">
-					<input type="submit" value="등록">
-					<input type="button" value="목록으로" onclick="location.href='${pageContext.request.contextPath}/reserve/reserveMain.do'">
+					<input type="submit" value="등록" class="btn-b">
+					<input type="button" value="목록으로" class="btn-b" onclick="location.href='${pageContext.request.contextPath}/reserve/reserveMain.do'">
 				</div>
 			</form>
 		</div>
