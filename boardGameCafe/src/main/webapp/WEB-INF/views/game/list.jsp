@@ -61,7 +61,7 @@ $(function(){
                   <img src="${pageContext.request.contextPath}/upload/${list.pro_picture}">
                   <span id="gname">${list.pro_name}</span>
                   <br>
-                  <span>최대 인원 : ${list.person}</span>
+                  <span>추천 인원 : ${list.person}</span>
                   <br>
                   <b><fmt:formatNumber value="${list.pro_price}"/>원</b>
                   <!-- 관리자가 로그인하면 삭제 가능 -->

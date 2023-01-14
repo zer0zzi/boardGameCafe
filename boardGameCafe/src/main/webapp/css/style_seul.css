@@ -48,7 +48,7 @@ ul.search li{
 	margin-top:5px;
 	padding:5px; 
 	box-shadow: 3px 3px 3px rgb(73 73 73);
-	position: relative;
+	position: fixed;
     top: 5px;
     left: 100px;
 }
@@ -59,7 +59,7 @@ ul.search li{
 .image-space .horizontal-area{
 	margin:2px;
 	padding:3px;
-	padding-bottom:10px;
+	padding-bottom:23px;
 	width:220px;
 	height:240px;
 	float:left;
@@ -79,6 +79,15 @@ ul.search li{
 .image-space .horizontal-area a{
 	text-decoration:none;
 	color:black;
+}
+.image-space #delete_btn{
+	background: #bb2d3b;
+	color: white;
+	border-style: none;
+	cursor: pointer;
+	margin-top:5px;
+	padding:5px; 
+	box-shadow: 3px 3px 3px rgb(73 73 73);
 }
 .gname{
 	font-size: 15;
@@ -101,8 +110,8 @@ ul.search li{
 }
 .image-detail{
 	text-align:center;	
-}
-.image-detail img{
+} 
+.image-detail img{/* 사진크기 */
 	width:215px;
 	height:195px;
 }
@@ -111,15 +120,18 @@ ul.search li{
 	margin: 0 auto;
 	background:#E6E6E6;	
 }
+.game-detail .namenprice{
+	text-align: center;
+}
+.game-detail .namenprice b{
+	font-size: 25px;
+}
 
 .game-detail hr{
- 	width: 50%; 
+ 	width: 70%; 
 	margin: 0 auto;	
 }
-#game-detail A{
-	width: 1000px;
-	margin: 0 auto;
-}
+
 #cartbtn{
 	background: #bb2d3b;
 	color: white;
@@ -128,7 +140,12 @@ ul.search li{
 	margin-top:5px;
 	padding:5px; 
 	box-shadow: 3px 3px 3px rgb(73 73 73);
+	float: rigth;
 }
+.game-detail .C{
+	margin: 0 auto;
+}
+
 /* 리뷰 쓰기, 목록 */
 
 
