@@ -34,6 +34,7 @@ public class GameWriteAction implements Action{
 		game.setPro_count(Integer.parseInt(multi.getParameter("pro_count")));
 		game.setPerson(Integer.parseInt(multi.getParameter("person")));
 		game.setExplanation(multi.getParameter("explanation"));
+		game.setPro_status(Integer.parseInt(multi.getParameter("pro_status")));
 		
 		ListDAO dao = ListDAO.getInstance();
 		dao.insertGame(game);

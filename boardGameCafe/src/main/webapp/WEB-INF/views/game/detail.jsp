@@ -39,6 +39,7 @@ $(function(){
 					location.href='../cart/cart.do';
 				}else if(param.result == 'overquantity'){
 					alert('이미 장바구니에 담겨있는 상품입니다.');
+					location.href='../cart/cart.do';
 				}else{
 					alert('장바구니 담기 오류');
 				}

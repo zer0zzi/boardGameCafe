@@ -143,8 +143,8 @@ public class ListDAO {
 		   conn = DBUtil.getConnection();
 		   //SQL문 작성
 		   sql = "INSERT INTO product (pro_num,pro_name,pro_price,pro_picture,"
-				   + "pro_level,person,explanation,pro_count) "
-				   + "VALUES (product_seq.nextval,?,?,?,?,?,?,?)";
+				   + "pro_level,person,explanation,pro_count,pro_status) "
+				   + "VALUES (product_seq.nextval,?,?,?,?,?,?,?,?)";
 		   //PreparedStatement 객체 생성
 		   pstmt = conn.prepareStatement(sql);
 		   //?에 데이터 바인딩
@@ -155,6 +155,7 @@ public class ListDAO {
 		   pstmt.setInt(5, game.getPerson());
 		   pstmt.setString(6, game.getExplanation());
 		   pstmt.setInt(7, game.getPro_count());
+		   pstmt.setInt(8, game.getPro_status());
 		   //SQL문 실행
 		   pstmt.executeUpdate();
 	   }catch(Exception e) {
