@@ -5,6 +5,7 @@
 
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>카페소개</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/style_hyem.css">
 <style>
@@ -255,9 +256,9 @@
 					captionText.innerHTML = dots[slideIndex - 1].alt;
 				}
 			</script>
-
 		</div>
 	</div>
 </body>
+<jsp:include page="/WEB-INF/views/common/footerEX.jsp"/>
 </html>
 

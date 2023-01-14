@@ -161,7 +161,7 @@ $(document).ready(function(){
 				</ul>
 				<div class="align-center cart-submit">
 					<input type="button" class="btn" value="장바구니" onclick="location.href='${pageContext.request.contextPath}/cart/cart.do'">
-					<input type="submit" class="btn" value="주문하기" onclick="location.href='${pageContext.request.contextPath}/mymember/myOrderList.do'">
+					<input type="submit" class="btn" value="주문하기">
 					<input type="button" class="btn" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
 				</div>
 			</form>
@@ -276,7 +276,7 @@ $(document).ready(function(){
 			</script>
 			<!-- 우편번호 검색 끝 -->
 	</div>
-<jsp:include page="/WEB-INF/views/common/footerEX.jsp"/>
 </body>
+<jsp:include page="/WEB-INF/views/common/footerEX.jsp"/>
 </html>
 

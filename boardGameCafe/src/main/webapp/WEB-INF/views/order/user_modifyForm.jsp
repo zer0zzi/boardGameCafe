@@ -307,5 +307,6 @@ $(document).ready(function(){
 			<!-- 우편번호 검색 끝 -->
 	</div>
 </body>
+<jsp:include page="/WEB-INF/views/common/footerEX.jsp"/>
 </html>
 
