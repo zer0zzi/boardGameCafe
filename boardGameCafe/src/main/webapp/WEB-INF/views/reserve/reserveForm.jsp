@@ -33,7 +33,7 @@
 					</li>
 					<li>
 						<label>방 번호</label>
-						<input type="text" name="room" id="room" value="${room.room_num}" readonly>
+						<input type="text" name="room" id="room" value="${room.room_num}">
 					</li>
 				</ul>
 				<input type="submit" id="submit_reserve" value="예약"/>

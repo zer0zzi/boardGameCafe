@@ -17,9 +17,9 @@ public class ReserveRoomAction implements Action {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
 		
-		 HttpSession session = request.getSession(); Integer user_num =
-		 (Integer)session.getAttribute("user_num"); if(user_num == null) { //로그인 되지 않은경우 
-		 
+		 HttpSession session = request.getSession(); 
+		 Integer user_num = (Integer)session.getAttribute("user_num"); 
+		 if(user_num == null) { //로그인 되지 않은경우 
 			 return "redirect:/member/loginForm.do"; }
 		 
 		 Integer user_auth = (Integer)session.getAttribute("user_auth");
@@ -33,6 +33,7 @@ public class ReserveRoomAction implements Action {
 		room.setRoom_name(multi.getParameter("name"));
 		room.setRoom_size(Integer.parseInt(multi.getParameter("size")));
 		room.setRoom_detail(multi.getParameter("detail"));
+		room.setRoom_detail2(multi.getParameter("detail2"));
 		room.setPhoto1(multi.getFilesystemName("photo1"));
 		room.setPhoto2(multi.getFilesystemName("photo2"));
 		room.setPhoto3(multi.getFilesystemName("photo3"));

@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 body{
-	background-color:#f5f5f5;
+	background-color: white;
 	color:#000;
 	word-wrap:break-word;
 	word-break:break-all;
@@ -16,7 +16,7 @@ body{
 	text-align:left;
 	zoom:1;
 }
-#container{
+.container{
 	width:990px;
 	margin:0 auto;
 	min-height:313px;
@@ -25,27 +25,8 @@ body{
 .wrap_inn{
 	position:relative;
 }
-.wrap_inn:before{
-	content:" ";
-	display:table;
-}
-.wrap_inn:after{
-	content:" ";
-	display:table;
-	clear:both;
-}
 .wrap_main_info{
 	position:relative;
-	border-bottom:4px solid #FF0000;
-}
-.wrap_main_info:before{
-	display:table;
-	content:" ";
-}
-.wrap_main_info:after{
-	display:table;
-	content:" ";
-	clear:both;
 }
 .wrap_main_info .section_visual.section_visual_main{
 	margin-top:20px;
@@ -66,6 +47,10 @@ body{
 	height:490px;
 	word-wrap:normal;
 	background-color:#ddd;
+	border-top:2px solid black;
+	border-left:2px solid black;
+	border-right:2px solid black;
+	border-bottom:2px solid black;
 }
 .container_visual{
 	position:relative;
@@ -117,8 +102,11 @@ li{
 	margin-top:20px;
 	padding:34px 40px 16px;
 	width:450px;
-	height:490px;
-	border-top:1px solid #eee;
+	height:494px;
+	border-top:2px solid black;
+	border-left:2px solid black;
+	border-right:2px solid black;
+	border-bottom:2px solid black;
 	background-color:#fff;
 	box-sizing:border-box;
 }
@@ -128,7 +116,7 @@ li{
 	padding-bottom:23px;
 	margin-bottom:21px;
 	height:179px;
-	border-bottom:1px solid #e8e8e8;
+	border-bottom:3px solid #e8e8e8;
 	text-align:center;
 	box-sizing:border-box;
 }
@@ -140,6 +128,7 @@ li{
 	line-height:34px;
 	font-weight:700;
 	box-sizing:border-box;
+	text-shadow: 1px 2px 6px #ea6f85;
 }
 .contents_txt .dsc{
 	overflow:hidden;
@@ -147,6 +136,7 @@ li{
 }
 .contents_store_details{
 	position:relative;
+	bottom:10px;
 }
 .contents_store_details .store_details.view_more{
 	margin-right:10px;
@@ -154,6 +144,7 @@ li{
 .contents_store_details .store_details .dsc{
 	margin-bottom:18px;
 	color:#666;
+	border-bottom:3px solid #e8e8e8;
 }
 .dsc{
 	font-size:13px;
@@ -215,35 +206,36 @@ i{
 	height:56px;
 	width:360px;
 	display:block;
-	font-size:16px;
-	line-height:26px;
 	box-sizing:border-box;
-}
-.btn_srch.on{
-	border:1px solid #00b637;
+	text-align:center;
+	border:1px solid #8aa1a1;
 	color:#fff;
-	background-color:#00c73c;
+	background-color: #8aa1a1;
 	cursor:pointer;
-	font-size:17px;
+	font-size:18px;
+	box-shadow: 3px 3px rgb(73, 73, 73);
+	line-height:50px;
+}
+.btn_open{
+	position:absolute;
+	right:50px;
+	bottom:16px;
+	height:56px;
+	width:360px;
+	display:block;
+	box-sizing:border-box;
+	text-align:center;
+	border:1px solid #8aa1a1;
+	color:#fff;
+	background-color: #8aa1a1;
+	cursor:pointer;
+	font-size:18px;
+	box-shadow: 3px 3px rgb(73, 73, 73);
+	line-height:50px;
 }
 .wrap_item_lst{
 	padding-top:10px;
 	padding-bottom:10px;
-}
-.section_item_lst .out_tit{
-	position:relative;
-	font-size:16px;
-	font-weight:600px;
-	margin-left:15px;
-}
-.txt{
-	float:left;
-}
-.count_num{
-	margin-top:2px;
-	font-size:16px;
-	font-weight:600;
-	color:#00c73c;
 }
 .wrap_item_lst .section_item_lst .wrap_lst_item_box{
 	padding-top:10px;
@@ -351,6 +343,8 @@ h4{
 	float:left;
 	width:490px;
 	background-color:white;
+	border:3px solid #e5e5e5;
+	margin-top:30px;
 }
 .group_visual .group_visual_s{
 	height:322px;
@@ -363,6 +357,10 @@ h4{
 	box-sizing:border-box;
 }
 
+.room-image{
+	border-bottom:3px solid #e5e5e5;
+	height:490px;
+}
 .arrow{
 	position: absolute;
 	width:490px;
@@ -447,7 +445,7 @@ h4{
 	background-color:white;
 }
 .section_booking{
-	margin-top:52px;
+	margin-top:30px;
 	border-top:3px solid #e5e5e5;
 	border-bottom:3px solid #e5e5e5;
 	border-left:3px solid #e5e5e5;
@@ -641,14 +639,14 @@ em{
 }
 .image-space .horizontal-area{
 	margin:2px;
-	margin-left:10px;
+	margin-left:5px;
+	margin-bottom:15px;
 	padding:3px;
 	width:220px;
 	height:310px;
 	float:left;
 	overflow:hidden;/*넘치는데이터 안보이게*/
 	text-align:center;
-	margin-bottom:15px;
 	
 }
 .wrap_item_lst .section_item_lst .wrap_lst_item_box{
@@ -716,6 +714,7 @@ em{
 }
 .room-detail{
 	font-size:15px;
+	color:#666;
 }
 
 .tb_body{
@@ -726,6 +725,7 @@ em{
 }
 .dsccc{
 	background-color:white;
+	margin-right:30px;
 }
 .date_prev{
 	cursor:pointer;
@@ -769,4 +769,41 @@ em{
 	color:#666;
 	line-height:18px;
 	word-break:break-word;
+}
+
+.btn_btn .btn_close{
+	float:right;
+}
+
+.content-main{
+	border-top:3px solid #e5e5e5;
+	border-left:3px solid #e5e5e5;
+	border-right:3px solid #e5e5e5;
+	border-bottom:3px solid #e5e5e5;
+	height:180px;
+}
+
+.res-title{
+	margin-top:10px;
+	margin-left:35px;
+}
+
+.confirm{
+	margin-left:140px;
+}
+
+ul li label{
+	float:left;
+	width:90px;
+}
+.form-room{
+	padding-left:350px;
+	padding-top:30px;
+}
+.align-centerr{
+	padding-left:490px;
+}
+
+.content-mainn h2{
+	padding-left:350px;
 }

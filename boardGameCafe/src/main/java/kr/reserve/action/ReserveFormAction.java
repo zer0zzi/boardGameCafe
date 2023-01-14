@@ -18,9 +18,12 @@ public class ReserveFormAction implements Action{
 		if(user_num==null) {//로그인이 되지 않은 경우
 			return "redirect:/member/loginForm.do";
 		}
+		
+		int room_num = Integer.parseInt(request.getParameter("room_num"));
+		
 		ReserveDAO dao = ReserveDAO.getInstance();
 		ReserveVO detail = dao.getMemDetail(user_num);
-		ReserveVO room = dao.getRoom(user_num);
+		ReserveVO room = dao.getRoom(room_num);
 		
 		request.setAttribute("detail", detail);
 		request.setAttribute("room", room);

@@ -23,7 +23,7 @@
 		</c:if>
 	
 		<div class="container" id="container">
-			<div>
+			<div class="container-lst">
 				<div class="wrap_inn">
 					<div class="wrap_main_info">
 						<div class="section_visual section_visual_main">
@@ -85,32 +85,45 @@
 								 	</ul>
 								</div><!-- end of store_details view_more -->
 							</div><!-- end of contents_store_details _site_desc_con -->
-							<li>
-								<input class="btn_srch on" type="submit" value="예약날짜로 검색하기" onclick="location.href='${pageContext.request.contextPath}/room/roomDetail.do?room_num=41'">
-							</li>
+								<span>
+								<a href="#pop_info_1" class="btn_open">방 검색하기</a>
+								</span>
 						</div><!-- end of section_contents -->
 					</div><!-- end of wrap_main_info -->
 					
-					<div class="section_item_lst">
-							<h3 class="out_tit">
-								<span class="txt">전체</span>
-								<span class="count_num">3/3</span>
-							</h3>
-							<div class="wrap_lst_item_box">
-								<div class="image-space">
-									<c:forEach var="room" items="${roomList}">
-										<div class="horizontal-area">
-											<a class="lnk_item_info" href="${pageContext.request.contextPath}/room/roomDetail.do?room_num=${room.room_num}"><!-- 에러나면 room->item으로 바꿔보기 -->	
-												<img src="${pageContext.request.contextPath}/upload/${room.photo1}">
-												<span class="name_title">${room.room_name}</span>
-												<p class="detail">${room.room_detail}</p>
-											</a>
-										</div>
-									</c:forEach>
-								</div>
-							</div>
-					</div>
 				</div><!-- end of wrap_inn -->
+					<div id="pop_info_1" class="pop_wrap" style="display:none;">
+							<div class="section_item_lst">
+									<div class="wrap_lst_item_box">
+										<div class="image-space">
+											<c:forEach var="room" items="${roomList}">
+												<div class="horizontal-area">
+													<a class="lnk_item_info" href="${pageContext.request.contextPath}/room/roomDetail.do?room_num=${room.room_num}">
+														<img src="${pageContext.request.contextPath}/upload/${room.photo1}">
+														<span class="name_title">${room.room_name}</span>
+														<p class="detail">${room.room_detail}</p>
+													</a>
+												</div>
+											</c:forEach>
+										</div>
+									</div>
+							</div>
+	 					
+	 					</div>
+					<script>
+					var target = document.querySelectorAll('.btn_open');
+					var btnPopClose = document.querySelectorAll('.pop_wrap .btn_close');
+					var targetID;
+			
+					// 팝업 열기
+					for(var i = 0; i < target.length; i++){
+					  target[i].addEventListener('click', function(){
+					    targetID = this.getAttribute('href');
+					    document.querySelector(targetID).style.display = 'block';
+					  });
+					}
+			
+					</script>
 			</div>
 		</div><!-- end of container -->
 	</div><!-- end of wrap -->
