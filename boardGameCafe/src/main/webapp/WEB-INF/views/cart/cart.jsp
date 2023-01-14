@@ -144,14 +144,14 @@
 					</c:forEach>
 				</table>
 				</div><!--end of cart main-->
-			</form>
-			</div>
 			<div class="price-total align-center"  style="height:50px;"><br><b>총구매금액:</b>
 					<fmt:formatNumber value="${all_total}"/>원
 					</div>				
 					<input type="submit" value="구매하기" style="height:25px;">
 					<input class="shopping"  type="button" value="쇼핑계속하기" onclick=
 						"location.href='${pageContext.request.contextPath}/game/gameList.do'" style="height:25px;">
+			</form>
+			</div>
 		</c:if>
 	</div><!--end of content main-->
 </div><!--end of page main-->

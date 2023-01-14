@@ -89,7 +89,7 @@ div.result-display{
 	display:flex;/*하위 요소를 수직으로 쌓을 수 있는 공간을 만듬*/
 	align-items:center;/*세로 정렬*/
 	justify-content:left;/*가로 정렬*/
-	margin: 0 0 50px 0;
+	margin: 0 0 150px 0;
 }
 .result{
 	width:100%;
@@ -97,7 +97,7 @@ div.result-display{
 	margin:0 auto;
 	display:flex;/*하위 요소를 수직으로 쌓을 수 있는 공간을 만듬*/
 	align-items:center;/*세로 정렬*/
-	justify-content:center;/*가로 정렬*/	
+	justify-content:center;/*가로 정렬*/
 }
 .cart-del{
 	border-radius: 3px;
