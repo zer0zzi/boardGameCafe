@@ -93,7 +93,7 @@
 <c:if test="${inquiry.inqu_check == 0}">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<div class="page-main">			
-		<h2>문의사항</h2>
+		<h2>Q & A</h2>
 			<hr size="1" noshade="noshade" width="100%">
 			<div class="content-main">
 				<div class="inqu-content-title">
