@@ -40,7 +40,7 @@
 		 	</div>
 		 	<div class="align-center">
 		 		<input id="pointer" type="submit" value="로그인">
-		 		<input id="pointer1" type="button" onclick="location='/boardGameCafe/member/registerUserForm.do'" value="회원가입">
+		 		<input id="pointer1" type="button" onclick="location='/boardGameCafe/main/intro.do'" value="회원가입">
 		 	</div>
 		</form>
 	</div>
