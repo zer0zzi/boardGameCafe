@@ -25,26 +25,24 @@ $(function(){
 <body>
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 <div class="page-main">
-   <div class="search1">
       <!-- 검색 폼 시작 -->
       <form id="search_form" action="gameList.do" method="get">
             <ul class="search">
                <li>
-                  <select name="keyfield">
+                  <select name="keyfield" class="keyfield">
                      <option value="1" <c:if test="${param.keyfield==1}">selected</c:if>>제목</option>
                      <option value="2" <c:if test="${param.keyfield==2}">selected</c:if>>난이도</option>
                      <option value="3" <c:if test="${param.keyfield==3}">selected</c:if>>추천 인원수</option>
                   </select>
                </li>
                <li>
-                  <input type="search" size="20" name="keyword" id="keyword" value="${param.keyword}">
+                  <input type="search" size="40" name="keyword" id="keyword" value="${param.keyword}">
                </li>
                <li>
                   <input type="submit" value="검색">
                </li>
             </ul>
       </form>
-   </div>
       <!-- 검색 폼 끝 -->
       <!-- 관리자 -> 게임관리 버튼 시작 -->
       <c:if test="${!empty user_num && user_auth == 9}">
