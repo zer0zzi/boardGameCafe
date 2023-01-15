@@ -115,7 +115,7 @@ $(function(){
 	//댓글 작성 폼 초기화
 	function initForm(){
 		$('textarea').val('');
-		$('re_first .letter-count').text('500/500');
+		$('#re_first .letter-count').text('500/500');
 	}
 	//textarea에 내용 입력시 글자수 체크
 	$(document).on('keyup','textarea',function(){
@@ -127,9 +127,9 @@ $(function(){
 		}else{//500자 이하인 경우
 			let remain = 500 - inputLength;
 			remain += '/500';
-			if($(this).attr('mem_id') == 'rev_content'){
+			if($(this).attr('mem_num') == 'rev_content'){
 				//등록폼 글자수
-				$('#re-first .letter-count').text(remain);
+				$('#re_first .letter-count').text(remain);
 			}else{
 				//수정폼 글자수
 				$('#mre_first .letter-count').text(remain);
@@ -147,8 +147,9 @@ $(function(){
 		//댓글 수정 폼 UI
 		let modifyUI = '<form id="mre_form">';
 			modifyUI += '<input type="hidden" name="rev_num" id="rev_num" value="'+rev_num+'">';
-			modifyUI += '<textarea rows="3" cols="50" name="rev_content" id="mre_content" class="rep-content">'+rev_content+'</textarea>';
-			modifyUI += '<div id="mre_sceond" class="align-right">';
+			modifyUI += '<textarea rows="8" cols="100" name="rev_content" id="mre_content" class="rep-content">'+rev_content+'</textarea>';
+			modifyUI += '<div id="mre_first"><span class="letter-count">500/500</span></div>';
+			modifyUI += '<div id="mre_second" class="align-right">';
 			modifyUI += ' <input type="submit" value="수정">';
 			modifyUI += ' <input type="button" value="취소" class="rev-reset">';
 			modifyUI += '</div>';

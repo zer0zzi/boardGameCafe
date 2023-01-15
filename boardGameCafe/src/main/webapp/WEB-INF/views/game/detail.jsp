@@ -100,7 +100,7 @@ $(function(){
 		<span class="re-title">리뷰 쓰기</span>
 		<form id="re_form">
 			<input type="hidden" name="pro_num" value="${detail.pro_num}" id="pro_num">
-			<textarea rows="8" cols="100" name="rev_content" id="rev_content" class="rev-content"
+			<textarea rows="8" cols="100" name="rev_content" id="rev_content" class="rep-content"
 			<c:if test="${empty  user_num}">disabled="disabled"</c:if>
 			><c:if test="${empty user_num}">로그인 후 리뷰를 남겨주세요!.</c:if></textarea>
 			<c:if test="${!empty user_num}">
