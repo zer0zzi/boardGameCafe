@@ -37,7 +37,7 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
-<div class="container" id="container">
+<div class="containerrr" id="container">
 	<div class="wrap_inn">
 		<div class="wrap_left">
 			<h2 class="align-center">${room.room_name}</h2>
