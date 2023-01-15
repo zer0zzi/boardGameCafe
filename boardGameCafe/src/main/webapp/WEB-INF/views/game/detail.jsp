@@ -87,9 +87,9 @@ $(function(){
 		</div>
 		<hr size="1" noshade="noshade">
 		<div class="small-footer">
-		<span id="1">난이도 : ${detail.pro_level}</span>
-		<span id="2">추천 인원 : ${detail.person}</span>
-		<span id="3">재고 수량: ${detail.pro_count}</span>
+		<span id="1">난이도 : ${detail.pro_level} &nbsp; &nbsp;| &nbsp; &nbsp;</span> 
+		<span id="2">추천 인원 : ${detail.person}  &nbsp; &nbsp;| &nbsp; &nbsp;</span>  
+		<span id="3">재고 수량 : ${detail.pro_count}  &nbsp; &nbsp;</span>  
 		</div>
 	</div>
 </div>
@@ -99,10 +99,10 @@ $(function(){
 		<!-- 평가 및 리뷰 시작 -->
 	<div class="review_div">
 		<div class="test">
-		<span class="re-title">리뷰 쓰기</span>
+		<span class="re-title">&nbsp;리뷰 쓰기</span>
 		<form id="re_form">
 			<input type="hidden" name="pro_num" value="${detail.pro_num}" id="pro_num">
-			<textarea rows="8" cols="100" name="rev_content" id="rev_content" class="rep-content"
+			&nbsp;<textarea rows="8" cols="130" name="rev_content" id="rev_content" class="rep-content"
 			<c:if test="${empty  user_num}">disabled="disabled"</c:if>
 			><c:if test="${empty user_num}">로그인 후 리뷰를 남겨주세요!.</c:if></textarea>
 			<c:if test="${!empty user_num}">

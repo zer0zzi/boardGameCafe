@@ -458,7 +458,16 @@ ins:hover{
 #passwd{
 	margin-left:39px;
 }
-
+.bluebtn-realdelete {
+    width: 450px;
+    height: 35px;
+    border: 1px solid #000;
+    box-shadow: 3px 3px grey;
+    background: black;
+    color: white;
+    border-style: none;
+    cursor: pointer;
+}
 
 /* 테이블 */
 table{
@@ -535,6 +544,9 @@ table a:hover{
 }
 
 /* 파일 선택 버튼 */
+.filebox{
+	margin-left:50px;
+}
 .filebox input[type="file"]{
 	position: absolute;
 	width: 0;

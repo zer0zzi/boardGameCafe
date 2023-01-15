@@ -55,10 +55,11 @@ $(function(){
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
+<div class="page-main">
 <div class="page-main1">
 	<h2>게임 등록</h2>
 	<form action="write.do" method="post" id="write_form" enctype="multipart/form-data">
-		<ul>
+		<ul class="form-admin">
 			<li>
 				<label>상품표시여부</label>
 				<input type="radio" name="pro_status" value="1"
@@ -77,7 +78,7 @@ $(function(){
 			<li>
 				<label for="picture">게임 이미지</label>
 				<input type="file" name="pro_picture" id="pro_picture" 
-												accept="image/gif,image/pnp,image/jpeg,image/jfif">
+												accept="image/gif,image/pnp,image/jpeg,image/jfif,image/png">
 			</li>
 			<li><!-- 라디오 박스..? -> int로 변경 필요-->
 				<label for="pro_level">게임 난이도</label>
@@ -101,8 +102,9 @@ $(function(){
 			<input type="button" value="목록으로" onclick="location.href='gameList.do'">
 		</div>
 	</form>
-
 </div>
+</div>
+<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>
 

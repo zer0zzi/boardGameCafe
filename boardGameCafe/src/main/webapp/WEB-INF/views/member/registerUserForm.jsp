@@ -26,10 +26,10 @@
             success:function(param){
                if(param.result == 'idNotFound'){
                   idChecked = 1;
-                  $('#message_id').css('color','#000000').text('등록 가능한 ID입니다');
+                  $('#message_id').css('color','#000000').text('✔');
                }else if(param.result =='idDuplicated'){
                   idChecked = 0;
-                  $('#message_id').css('color','red').text('이미 등록된 ID입니다.');
+                  $('#message_id').css('color','red').text('X');
                }else {
                   idChecked = 0;
                   alert('아이디 중복 체크 오류 발생');
@@ -110,11 +110,10 @@
             <div class="input-box" id="input-box1">
                <label for="id">ID</label>
                <input type="text" name="mem_id" id="mem_id" maxlength="12" autocomplete="off">
-            <div id="label1" >
+            <div id="label3" >
                <input type="button" value="ID중복체크" id="id_check">
                <span id="message_id"></span>
             </div>
-            
             </div>
             <div class="input-box">
                <label for="name">이름</label>
@@ -252,5 +251,6 @@
       <!--우편번호 검색 끝  -->
    </div>
 </div>
+<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>

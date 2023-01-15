@@ -13,6 +13,8 @@
 <body>
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 <div class="page-main">
+<h2>예약내역</h2>
+	<hr size="1" noshade="noshade" width="100%">
 	<c:if test="${count == 0}">
 		<div class="result-display-x">
 			예약내역이 없습니다.

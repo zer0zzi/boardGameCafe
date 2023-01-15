@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>내가 쓴 문의</title>
+<title>내가 작성한 문의</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style_ddk.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 </head>
