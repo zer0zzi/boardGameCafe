@@ -10,10 +10,10 @@
 <script type="text/javascript">
 $(function(){	
 	$('#write_form').submit(function(){
-		if($('input[type=radio]:checked').length<1){
+		/* if($('input[type=radio]:checked').length<1){
 			alert('상품표시여부를 지정하세요!');
 			return false;
-		}
+		} */
 		if($('#pro_name').val().trim()==''){
 			alert('상품명을 입력하세요');
 			$('#pro_name').val('').focus();
@@ -60,13 +60,13 @@ $(function(){
 	<h2>게임 등록</h2>
 	<form action="write.do" method="post" id="write_form" enctype="multipart/form-data">
 		<ul class="form-admin">
-			<li>
+			<!-- <li>
 				<label>상품표시여부</label>
 				<input type="radio" name="pro_status" value="1"
 				    id="status1">미표시
 				<input type="radio" name="pro_status" value="2"
 				    id="status2">표시    
-			</li>
+			</li> -->
 			<li>
 				<label for="name">게임이름</label>
 				<input type="text" name="pro_name" id="pro_name" maxlength="20">

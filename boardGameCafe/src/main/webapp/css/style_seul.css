@@ -18,6 +18,9 @@
 .page-main{
 	min-height: 50vh;
 }
+.image-space{
+	margin-top: 28px;
+}
 /* 검색 폼 */
 
 form#search_form{
@@ -45,7 +48,7 @@ ul.search li{
 	box-shadow: 3px 3px 3px rgb(73 73 73);
 	position: relative;
     top: 2px;
-    left: 825px;
+    left: 852px;
 
     
 }
@@ -81,7 +84,8 @@ ul.search li{
 	color:black;
 }
 .image-space #delete_btn{
-	background:#8aa1a1;
+	/* background:#8aa1a1; */
+	background: #bb2d3b;
 	color: white;
 	border-style: none;
 	cursor: pointer;
@@ -96,12 +100,6 @@ ul.search li{
 	text-align:center;
 	margin: 10px auto;
 }
-/* .pl #search_form{
-	float: left;
-} */
-/* .p1 .adminbtn{
-	float: left;
-} */
 
 /* 게임상세
 -------------------- */

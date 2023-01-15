@@ -107,7 +107,7 @@ $(function(){
 			><c:if test="${empty user_num}">로그인 후 리뷰를 남겨주세요!.</c:if></textarea>
 			<c:if test="${!empty user_num}">
 			<div id="re_first">
-				<span class="letter-count">500/500</span>
+				<!-- <span class="letter-count">500/500</span> -->
 			</div>
 			<div id="re_second" class="align-right">
 				<input type="submit" value="전송">    <!-- 전송하면 어디로 담기는지...? -->

@@ -156,7 +156,7 @@ public class ListDAO {
 		   pstmt.setInt(5, game.getPerson());
 		   pstmt.setString(6, game.getExplanation());
 		   pstmt.setInt(7, game.getPro_count());
-		   pstmt.setInt(8, game.getPro_status());
+		   pstmt.setInt(8,2);
 		   //SQL¹® ½ÇÇà
 		   pstmt.executeUpdate();
 	   }catch(Exception e) {
