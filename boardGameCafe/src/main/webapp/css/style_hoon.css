@@ -24,6 +24,11 @@ body{
 	margin:0 auto;
 	height: 200vh;
 }
+.containerrr{
+	width:990px;
+	margin:0 auto;
+	height: 130vh;
+}
 
 .wrap_inn{
 	position:relative;
