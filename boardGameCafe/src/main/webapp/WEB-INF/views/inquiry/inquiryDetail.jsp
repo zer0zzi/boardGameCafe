@@ -42,7 +42,7 @@
 	<c:if test="${inquiry.mem_num != user_num && user_auth != 9}">
 		<script>
 			alert('비밀글입니다');
-			location.href = 'inquiryList.do';
+			history.go(-1);
 		</script>
 	</c:if>
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
@@ -105,6 +105,9 @@
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<div class="page-main">
 		<h2>Q & A</h2>
+		<div class="inqu-cate">
+			${inquiry.inqu_cate}
+		</div>
 		<hr size="1" noshade="noshade" width="100%">
 		<div class="content-main">
 			<div class="inqu-content-title">
@@ -153,5 +156,6 @@
 		</div>
 	</div>
 </c:if>
+<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>

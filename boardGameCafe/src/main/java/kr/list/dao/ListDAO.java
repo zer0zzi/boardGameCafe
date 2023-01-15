@@ -116,6 +116,7 @@ public class ListDAO {
              game.setPro_picture(StringUtil.useNoHtml(rs.getString("pro_picture")));
              game.setExplanation(rs.getString("explanation"));
              game.setPro_count(rs.getInt("pro_count"));
+             game.setPro_status(rs.getInt("pro_status"));
              //game.setPro_hit();   113
              //game.setPro_id();	114
              

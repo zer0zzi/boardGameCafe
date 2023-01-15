@@ -108,29 +108,29 @@ $(document).ready(function(){
 				<ul>
 					<li>
 						<label for="receive_name">받는 사람</label> 
-						<input type="text" name="receive_name" id="receive_name" maxlength="10">
+						<input type="text" name="receive_name" id="receive_name" maxlength="10" style="width:312px; height:22px;">
 					</li>
 					
 					<li>
 						<label for="zipcode">우편번호</label> 
-						<input type="text" name="receive_zipcode" id="zipcode" maxlength="5"> 
+						<input type="text" name="receive_zipcode" id="zipcode" maxlength="5" style="width:203px; height:22px;"> 
 						<input type="button" class="btn" value="우편번호 찾기" onclick="execDaumPostcode()">
 					</li>
 					<li>
 						<label for="address1">주소</label> 
-						<input type="text" name="receive_address1" id="address1" maxlength="30">
+						<input type="text" name="receive_address1" id="address1" maxlength="30" style="width:312px; height:22px;">
 					</li>
 					<li>
 						<label for="address2">상세 주소</label> 
-						<input type="text" name="receive_address2" id="address2" maxlength="30">
+						<input type="text" name="receive_address2" id="address2" maxlength="30" style="width:312px; height:22px;">
 					</li>
 					<li>
 						<label for="receive_phone">전화번호</label> 
-						<input type="text" name="receive_phone" id="receive_phone" maxlength="15">
+						<input type="text" name="receive_phone" id="receive_phone" maxlength="15" style="width:312px; height:22px;">
 					</li>
 				</ul>
 				
-				<hr size="1" noshade="noshade" width="100%">
+				<hr class="hr-bottom" size="1" noshade="noshade" width="100%">
 				<h2>결제 정보</h2>
 				<ul>
 					<li>
@@ -152,16 +152,16 @@ $(document).ready(function(){
 				api 넣을 수 있을가
 				</div> -->
 				
-				<hr size="1" noshade>
+				<hr class="hr-bottom" size="1" noshade="noshade" width="100%">
 				<h2>배송 메모</h2>
 				<ul>
 					<li>
-						<textarea rows="5" cols="70" name="notice" id="notice"></textarea>
+						<textarea rows="5" cols="70" name="notice" id="notice" style="width:514px;"></textarea>
 					</li>
 				</ul>
 				<div class="align-center cart-submit">
 					<input type="button" class="btn" value="장바구니" onclick="location.href='${pageContext.request.contextPath}/cart/cart.do'">
-					<input type="button" class="btn" value="주문하기" onclick="location.href='orderRe.do'">
+					<input type="submit" class="btn" value="주문하기">
 					<input type="button" class="btn" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
 				</div>
 			</form>
@@ -276,7 +276,7 @@ $(document).ready(function(){
 			</script>
 			<!-- 우편번호 검색 끝 -->
 	</div>
-<jsp:include page="/WEB-INF/views/common/footerEX.jsp"/>
+<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>
 

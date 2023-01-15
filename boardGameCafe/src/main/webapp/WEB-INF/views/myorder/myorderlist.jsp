@@ -29,7 +29,7 @@
 			<th>구매목록</th>
 			<th>총가격</th>
 			<th>구매날짜</th>
-			<th>수정 및 취소</th>
+			<th class="myorder-6-size">수정 및 취소</th>
 		</tr>
 		<c:forEach var="myorder" items="${list}">
 		<tr class="table-content-bot">
@@ -51,5 +51,6 @@
 	<div class="pagebottom"></div>
 	</c:if>
 	</div>
+<jsp:include page="/WEB-INF/views/common/footer.jsp"/>		
 </body>
 </html>

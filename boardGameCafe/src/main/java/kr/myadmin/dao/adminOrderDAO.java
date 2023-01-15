@@ -58,8 +58,8 @@ public class adminOrderDAO {
 		 try {
 			conn = DBUtil.getConnection();
 				       
-			sql = "SELECT * FROM (SELECT o.*, m.mem_name, rownum FROM order_main o, member_detail m WHERE o.mem_num = m.mem_num "
-					+ "ORDER BY o.order_main_num DESC) WHERE rownum>=? AND rownum<=?";
+			sql = "SELECT * FROM (SELECT a.*, rownum FROM (SELECT o.*, m.mem_name FROM order_main o, member_detail m WHERE o.mem_num = m.mem_num "
+					+ "ORDER BY o.order_main_num DESC)a) WHERE rownum>=? AND rownum<=?";
 				  
 			pstmt = conn.prepareStatement(sql);
 			      
@@ -111,7 +111,7 @@ public class adminOrderDAO {
 			
 			list = new ArrayList<adminOrderDetailVO>();
 					
-			if(rs.next()) {
+			while(rs.next()) {
 				adminOrderDetailVO detail = new adminOrderDetailVO();
 				
 				detail.setPro_num(rs.getInt("pro_num"));

@@ -25,7 +25,7 @@ $(function(){
 <body>
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 <div class="page-main">
-   <div class="content-main">
+   <div class="search1">
       <!-- 검색 폼 시작 -->
       <form id="search_form" action="gameList.do" method="get">
             <ul class="search">
@@ -44,13 +44,12 @@ $(function(){
                </li>
             </ul>
       </form>
+   </div>
       <!-- 검색 폼 끝 -->
       <!-- 관리자 -> 게임관리 버튼 시작 -->
       <c:if test="${!empty user_num && user_auth == 9}">
-         
             <input type="button" class="adminbtn" value="게임등록" onclick="location.href='gameWriteForm.do'">
             <%-- <a href="${pageContext.request.contextPath}/game/gameWriteForm.do">게임등록</a> --%>
-         
       </c:if>
       <!-- 관리자 -> 게임관리 버튼 끝 -->
        <!-- 보드 게임 시작 -->
@@ -81,15 +80,17 @@ $(function(){
                </a>
            </div>
          </c:forEach>
+         </div>
          <div class="float-clear">
             <hr width="100%" size="1" noshade="noshade">
          </div>
-      </div>  
+        
       <!-- 보드 게임 끝 -->
       
       <!-- 페이지 표시 -->
       <div class="align-center">${page}</div>
-   </div>
+   
 </div>
+<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html> 

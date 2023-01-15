@@ -34,6 +34,23 @@ ul {
 	font-size: 15px;
 	cursor: pointer;
 }
+ins{
+	color:black;
+}
+ins:link{
+	text-decoration: none;
+	color: #000;
+}
+ins:visited{
+	text-decoration: none;
+	color: #000;
+}
+
+ins:hover{
+	text-decoration: none;
+	color: #000;
+	transition: 0.5s;
+}
 /* MY페이지
 ------------------- */
 .page-main{
@@ -54,27 +71,23 @@ ul {
 }
 
 .bluebtn {
-	background: #2bac5f;
-	color: white;
-	border-style: none;
+	background: #fff;
 	cursor: pointer;
-	
+	border: 1px solid #000;
 	padding:5px;
 	box-shadow: 3px 3px 3px rgb(73 73 73);
 }
 .bluebtn-mypage {
-	background: #2bac5f;
-	color: white;
-	border-style: none;
 	cursor: pointer;
 	margin-left:25px;
 	padding:5px;
-	box-shadow: 3px 3px 3px rgb(73 73 73);
+	background: #fff;
+  	border: 1px solid #000;
+  	box-shadow: 3px 3px rgb(73, 73, 73);
 }
 .redbtn {
-	background: #bb2d3b;
-	color: white;
-	border-style: none;
+	background: #fff;
+	border: 1px solid #000;
 	cursor: pointer;
 	margin:30px;
 	padding:5px;
@@ -131,7 +144,7 @@ ul {
 }
 
 #mypage01 {
-	border: 4px solid black;
+	border: 2px solid black;
 	width: 150px;
 	height: 150px;
 	margin-right: 20px;
@@ -140,7 +153,7 @@ ul {
 }
 
 #mypage02 {
-	border: 4px solid black;
+	border: 2px solid black;
 	width: 150px;
 	height: 150px;
 	border-radius: 15px;
@@ -174,7 +187,7 @@ ul {
 }
 
 .mypage-line2 {
-	border: 4px solid black;
+	border: 2px solid black;
 	width: 500px;
 	height: 50px;
 	margin-bottom: 20px;
@@ -197,7 +210,6 @@ ul {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	border-bottom:2px solid lightgrey;
 }
 #div01-modify {
 	float: left;
@@ -216,6 +228,20 @@ ul {
 .modify-profile{
 	width:300px;
 }
+
+/* .modify-profile label{
+	width: 100px;
+	height: 25px;
+	margin-top: 10px;
+	border-radius: 0;
+	background: #fff;
+	border: 1px solid #000;
+	box-shadow: 3px 3px rgb(73, 73, 73);
+	font-size: 15px;
+	cursor: pointer;
+	vertical-align: middle;
+	float:left;
+} */
 .float-end {
 	clear: both;
 }
@@ -229,13 +255,13 @@ ul {
 #modify_form {
 	width: 600px;
 	margin: 0 auto;
-	padding-top: 70px;
+	padding-top: 20px;
 }
 #modify_form ul li {
 	margin-bottom: 10px;
 }
 .modify_form-list{
-	padding-left:105px;
+	padding-left:135px;
 }
 #phone{
 	margin-left:64px;
@@ -245,6 +271,7 @@ ul {
 }
 #zipcode{
 	margin-left:63px;
+	width:80px;
 }
 #address1{
 	margin-left:96px;
@@ -261,6 +288,17 @@ ul {
     color: white;
     border-style: none;
     cursor: pointer;
+    margin-top:20px;
+}
+.btn-zipcode{
+	width: 100px;
+	height: 16px;
+	border-radius: 0;
+	background: #fff;
+	border: 1px solid #000;
+	box-shadow: 3px 3px rgb(73, 73, 73);
+	font-size: 12px;
+	cursor: pointer;
 }
 /* 비밀번호 수정  */ /* 사진, 백그라운드-칼라 -> 회원삭제 거 가져옴  */
 #password_form {
@@ -276,10 +314,10 @@ ul {
 .redbtn-modify {
 	width: 400px;
 	height: 40px;
-	background: #bb2d3b;
+	background: black;
 	box-shadow: 3px 3px 3px black;
 	color: white;
-	border-style: none;
+	box-shadow: 3px 3px grey;
 	cursor: pointer;
 	margin-top:20px;
 }
@@ -301,12 +339,18 @@ ul {
 
 /* 내가 쓴 문의 */
 .inqutable-1 {
-	width: 200px;
+	width: 100px;
+}
+.inqutable-2 {
+	width: 150px;
+}
+.inqutable-3 {
+	width: 400px;
+}
+.inqutable-4 {
+	width: 150px;
 }
 
-.inqutable-3 {
-	width: 200px;
-}
 /* 예약 내역 */
 .restable-1 {
 	width: 150px;
@@ -357,20 +401,18 @@ ul {
 	font-size: 30px;
 }
 /* 내가 쓴 리뷰 */
-.revtable-1 {
-	width: 200px;
+.myreview-1-size{
+	width:50px;
 }
-
-.revtable-3 {
-	width: 150px;
+.myreview-2-size{
+	width:200px;
+}
+.myreview-3-size{
+	width:500px;
 }
 /* 내 구매목록 */
-.ordertable-1 {
-	width: 200px;
-}
-
-.ordertable-4 {
-	width: 200px;
+.myorder-6-size{
+	width:200px;
 }
 /* 회원탈퇴 */
 .redbtn-delete {
@@ -411,12 +453,21 @@ ul {
 
 #delete_form ul li {
 	margin-bottom: 10px;
-	margin-left:30%;
+	margin-left:26%;
 }
 #passwd{
 	margin-left:39px;
 }
-
+.bluebtn-realdelete {
+    width: 450px;
+    height: 35px;
+    border: 1px solid #000;
+    box-shadow: 3px 3px grey;
+    background: black;
+    color: white;
+    border-style: none;
+    cursor: pointer;
+}
 
 /* 테이블 */
 table{
@@ -490,4 +541,46 @@ table a:hover{
 
 .pagebottom {
 	height: 150px;
+}
+
+/* 파일 선택 버튼 */
+.filebox{
+	margin-left:50px;
+}
+.filebox input[type="file"]{
+	position: absolute;
+	width: 0;
+	height: 0;
+	padding: 0;
+	overflow: hidden;
+	border: 0;
+}
+
+.filebox label{
+	width: 100px;
+	height: 25px;
+	margin-top: 10px;
+	border-radius: 0;
+	background: #fff;
+	border: 1px solid #000;
+	box-shadow: 3px 3px rgb(73, 73, 73);
+	font-size: 15px;
+	cursor: pointer;
+	float: left;
+    padding-top: 8px;
+    margin-left: 20px;
+}
+
+.filebox .filename{
+	display: inline-block;
+	height: 40px;
+	padding-top: 5px;
+	vertical-align: middle;
+	border: none;
+	margin-left: 10px;
+	background: rgba(0, 0, 0, 0);
+}
+
+.filename:focus{
+	outline: none;
 }

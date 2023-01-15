@@ -36,16 +36,19 @@
 				</tr>
 			</c:forEach>
 		</table>
-		<hr size="1" noshade="noshade" width="100%">
+	</c:if>
+	<hr size="1" noshade="noshade" width="100%">
+	<c:if test="${count > 0}">
 		<div class="align-center paging">
 			${pagingHtml}
 		</div>
-		<c:if test="${!empty user_num && user_auth == 9}">
+	</c:if>
+	<c:if test="${!empty user_num && user_auth == 9}">
 		<div class="align-right">
 			<input type="button" class="btn" value="글쓰기" onclick="location.href='noticeWriteForm.do'">
 		</div>
 	</c:if>
-	</c:if>
 </div>
+<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>

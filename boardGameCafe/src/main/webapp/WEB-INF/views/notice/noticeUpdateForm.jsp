@@ -116,7 +116,7 @@
 							<div class="filebox">
 								<label for="noti_file">파일선택</label>
 								<input type="file" name="noti_file" id="noti_file" accept="image/gif, image/png, image/jpeg">
-								<input class="inqu-filename" value="선택된 파일 없음">
+								<input class="inqu-filename" value="선택된 파일 없음" readonly>
 							</div>					
 							<div id="file_detail">
 								<input type="button" class="btn" value="파일삭제" id="delete_btn" style="margin-left: 0;">
@@ -145,5 +145,6 @@
 		</form>
 	</div>
 </div>
+<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>

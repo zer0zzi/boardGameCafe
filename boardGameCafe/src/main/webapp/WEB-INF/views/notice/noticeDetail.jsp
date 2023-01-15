@@ -84,5 +84,6 @@
 		<input type="button" class="btn" value="목록" onclick="location.href='noticeList.do'">
 	</div>
 </div>
+<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>

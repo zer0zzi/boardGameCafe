@@ -93,7 +93,7 @@ $(document).ready(function(){
 					<td class="align-center"><fmt:formatNumber value="${order.order_main_total}"/>원</td>
 				</tr>
 			</table>
-			
+			<hr size="1" noshade="noshade" width="100%">
 			<form action="orderModify.do" method="post" id="order_form">
 				<input type="hidden" name="order_main_num" value="${order.order_main_num}">
 				<input type="hidden" name="status" value="${order.status}">
@@ -102,29 +102,34 @@ $(document).ready(function(){
 				<c:if test="${order.status < 2}">
 					<li>
 						<label for="receive_name">받는 사람</label> 
-						<input type="text" name="receive_name" id="receive_name" maxlength="10" value="${order.receive_name}">
+						<input type="text" name="receive_name" id="receive_name" maxlength="10" 
+						value="${order.receive_name}" style="width:312px; height:22px;">
 					</li>
 					
 					<li>
 						<label for="zipcode">우편번호</label> 
-						<input type="text" name="receive_zipcode" id="zipcode" maxlength="5" value="${order.receive_zipcode}"> 
+						<input type="text" name="receive_zipcode" id="zipcode" maxlength="5" 
+						value="${order.receive_zipcode}" style="width:203px; height:22px;"> 
 						<input type="button" class="btn" value="우편번호 찾기" onclick="execDaumPostcode()">
 					</li>
 					<li>
 						<label for="address1">주소</label> 
-						<input type="text" name="receive_address1" id="address1" maxlength="30" value="${order.receive_address1}">
+						<input type="text" name="receive_address1" id="address1" maxlength="30" 
+						value="${order.receive_address1}" style="width:312px; height:22px;">
 					</li>
 					<li>
 						<label for="address2">상세 주소</label> 
-						<input type="text" name="receive_address2" id="address2" maxlength="30" value="${order.receive_address2}">
+						<input type="text" name="receive_address2" id="address2" maxlength="30" 
+						value="${order.receive_address2}" style="width:312px; height:22px;">
 					</li>
 					<li>
 						<label for="receive_phone">전화번호</label> 
-						<input type="text" name="receive_phone" id="receive_phone" maxlength="15" value="${order.receive_phone}">
+						<input type="text" name="receive_phone" id="receive_phone" maxlength="15" 
+						value="${order.receive_phone}" style="width:312px; height:22px;">
 					</li>
 					<li>
 						<label for="receive_phone">배송 메모</label>
-						<textarea rows="5" cols="71" name="notice" id="notice">${order.notice}</textarea>
+						<textarea rows="5" cols="75" name="notice" id="notice" style="width:312px;">${order.notice}</textarea>
 					</li>
 					</c:if>
 					<c:if test="${order.status >= 2}">
@@ -150,19 +155,19 @@ $(document).ready(function(){
 					</li>
 					</c:if>
 				</ul>
-				<hr size="1" noshade="noshade" width="100%">
+				<hr class="hr-bottom" size="1" noshade="noshade" width="100%">
 				<div class="payment-status">
 				<h2>결제 수단</h2>
 				<ul>	
-					<li>
+					<li style="font-size:20px;">
 						<c:if test="${order.payment == 1}">은행입금</c:if>
 						<c:if test="${order.payment == 2}">카드결제</c:if>
 					</li>
 				</ul>
-				<hr size="1" noshade="noshade" width="100%">
+				<hr class="hr-bottom" size="1" noshade="noshade" width="100%">
 				<h2>배송 상태</h2>
 				<ul>	
-					<li>
+					<li style="font-size:20px;">
 						<c:if test="${order.status == 1}">배송대기</c:if>
 						<c:if test="${order.status == 2}">배송준비중</c:if>
 						<c:if test="${order.status == 3}">배송중</c:if>
@@ -171,7 +176,7 @@ $(document).ready(function(){
 					</li>
 				</ul>
 				</div>
-				<hr size="1" noshade="noshade" width="100%">
+				<hr class="hr-bottom" size="1" noshade="noshade" width="100%">
 				<div class="align-center cart-submit">
 					<c:if test="${order.status < 2}">
 					<input type="submit" class="btn" value="주문 수정">
@@ -301,6 +306,7 @@ $(document).ready(function(){
 			</script>
 			<!-- 우편번호 검색 끝 -->
 	</div>
+	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>
 

@@ -19,12 +19,13 @@
 		<div class="result-display-x">
 			<div class="align-center">
 				회원탈퇴가 완료되었습니다.<p><br><br>
-				<input type="button" value="홈으로"
+				<input type="button" value="홈으로" class="bluebtn-realdelete"
 				  onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
 			</div>
 		</div>
 	</div>
 </div>
+<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>
 </c:if>

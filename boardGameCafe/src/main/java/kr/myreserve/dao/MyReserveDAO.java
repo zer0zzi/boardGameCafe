@@ -162,9 +162,9 @@ public class MyReserveDAO {
 				MyRe.setRoom_size(rs.getInt("room_size"));
 				MyRe.setRoom_detail(StringUtil.useNoHtml(rs.getString("room_detail")));
 				
-				MyRe.setPhoto1(StringUtil.useNoHtml(rs.getString("photo1")));
-				MyRe.setPhoto2(StringUtil.useNoHtml(rs.getString("photo2")));
-				MyRe.setPhoto3(StringUtil.useNoHtml(rs.getString("photo3")));
+				MyRe.setPhoto1(rs.getString("photo1"));
+				//MyRe.setPhoto2(StringUtil.useNoHtml(rs.getString("photo2")));
+				//MyRe.setPhoto3(StringUtil.useNoHtml(rs.getString("photo3")));
 				MyRe.setRes_num(rs.getInt("res_num"));//나중에 쓸 수도 있으니 일단 추가
 				
 			}

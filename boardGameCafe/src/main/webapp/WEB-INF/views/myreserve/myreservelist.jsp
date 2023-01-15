@@ -13,6 +13,8 @@
 <body>
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 <div class="page-main">
+<h2>예약내역</h2>
+	<hr size="1" noshade="noshade" width="100%">
 	<c:if test="${count == 0}">
 		<div class="result-display-x">
 			예약내역이 없습니다.
@@ -31,11 +33,7 @@
 		<div class="todayreserve">
 				<div class="todayreserve-imgbox">
 					<img src="${pageContext.request.contextPath}/upload/${MyRe.photo1}"
-							width="280" height="280" class="">
-					<img src="${pageContext.request.contextPath}/upload/${MyRe.photo2}"
-							width="280" height="280" class="-">
-					<img src="${pageContext.request.contextPath}/upload/${MyRe.photo3}"
-							width="280" height="280" class="-">						
+							width="400" height="300">					
 				</div>			
 				<div class="todayreserve-detailbox">
 				<b>
@@ -71,5 +69,6 @@
 	<div class="pagebottom"></div>
 	</c:if>
 	</div>
+<jsp:include page="/WEB-INF/views/common/footer.jsp"/>	
 </body>
 </html>

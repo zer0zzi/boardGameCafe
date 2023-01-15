@@ -123,6 +123,8 @@ public class ReserveDAO {
 					}
 					return room;
 				}
+				
+				
 		
 	   //예약 입력하기
 	   public void insertReservation(ReserveVO res, int room_num) throws Exception{

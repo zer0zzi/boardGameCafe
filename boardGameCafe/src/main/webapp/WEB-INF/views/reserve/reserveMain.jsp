@@ -9,21 +9,18 @@
 <title>메인</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style_hoon.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
-<script type="text/javascript">
-
-</script>
 </head>
 <body>
 	<div class="wrap" id="wrap">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<c:if test="${!empty user_num && user_auth == 9}">
-		<li>
-			<input type="button" value="상품등록" onclick="location.href='${pageContext.request.contextPath}/room/roomWriteForm.do'">
+		<li class="li">
+			<input type="button" value="방 등록"  class="roomroom" onclick="location.href='${pageContext.request.contextPath}/room/roomWriteForm.do'">
 		</li>
 		</c:if>
 	
 		<div class="container" id="container">
-			<div>
+			<div class="container-lst">
 				<div class="wrap_inn">
 					<div class="wrap_main_info">
 						<div class="section_visual section_visual_main">
@@ -40,7 +37,7 @@
 						<div class="section_contents">
 						 	<div class="contents_txt">
 						 		<h2 class="contents_txt_tit">
-						 			<span>스터디역삼</span>
+						 			<span>퀵보드</span>
 						 		</h2>
 						 		<p>예약신청 후 확정/취소여부를 반드시 확인해주세요.</p>
 						 	</div><!-- end of contents_txt -->
@@ -49,11 +46,9 @@
 							 		<p class="dsc">
 								 	*전화예약불가합니다. 네이버예약 부탁드립니다.(당일예약만 전화 혹은 현장에서 가능합니다)
 								 	<br>
-								 	*1인실은 전액선입금받고있으며 일주일전18시까지 환불가능합니다.
-								 	<br>
 								 	*1월은 1일, 21~24일 휴무입니다.
 								 	<br>
-								 	*예약은 최소 2시간 이상, 정시단위로 가능합니다.
+								 	*예약은 최소 1시간 이상, 정시단위로 가능합니다.
 								 	<br> 
 								 	(30분씩 예약은 불가합니다.)
 								 	<br>
@@ -85,32 +80,46 @@
 								 	</ul>
 								</div><!-- end of store_details view_more -->
 							</div><!-- end of contents_store_details _site_desc_con -->
-							<li>
-								<input class="btn_srch on" type="submit" value="예약날짜로 검색하기" onclick="location.href='${pageContext.request.contextPath}/room/roomDetail.do?room_num=41'">
-							</li>
+								<span>
+								<a href="#pop_info_1" class="btn_open">방 검색하기</a>
+								</span>
 						</div><!-- end of section_contents -->
 					</div><!-- end of wrap_main_info -->
 					
-					<div class="section_item_lst">
-							<h3 class="out_tit">
-								<span class="txt">전체</span>
-								<span class="count_num">3/3</span>
-							</h3>
-							<div class="wrap_lst_item_box">
-								<div class="image-space">
-									<c:forEach var="room" items="${roomList}">
-										<div class="horizontal-area">
-											<a class="lnk_item_info" href="${pageContext.request.contextPath}/room/roomDetail.do?room_num=${room.room_num}"><!-- 에러나면 room->item으로 바꿔보기 -->	
-												<img src="${pageContext.request.contextPath}/upload/${room.photo1}">
-												<span class="name_title">${room.room_name}</span>
-												<p class="detail">${room.room_detail}</p>
-											</a>
-										</div>
-									</c:forEach>
-								</div>
-							</div>
-					</div>
 				</div><!-- end of wrap_inn -->
+					<div id="pop_info_1" class="pop_wrap" style="display:none;">
+							<div class="section_item_lst">
+									<div class="wrap_lst_item_box">
+										<div class="image-space">
+											<c:forEach var="room" items="${roomList}">
+												<div class="horizontal-area">
+													<a class="lnk_item_info" href="${pageContext.request.contextPath}/room/roomDetail.do?room_num=${room.room_num}">
+														<img src="${pageContext.request.contextPath}/upload/${room.photo1}">
+														<span class="name_title">${room.room_name}</span>
+														<p class="detail">${room.room_detail}</p>
+													</a>
+												</div>
+												
+											</c:forEach>
+										</div>
+									</div>
+							</div>
+	 					
+	 					</div>
+					<script>
+					var target = document.querySelectorAll('.btn_open');
+					var btnPopClose = document.querySelectorAll('.pop_wrap .btn_close');
+					var targetID;
+			
+					// 팝업 열기
+					for(var i = 0; i < target.length; i++){
+					  target[i].addEventListener('click', function(){
+					    targetID = this.getAttribute('href');
+					    document.querySelector(targetID).style.display = 'block';
+					  });
+					}
+			
+					</script>
 			</div>
 		</div><!-- end of container -->
 	</div><!-- end of wrap -->

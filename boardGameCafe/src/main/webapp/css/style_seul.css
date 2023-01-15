@@ -13,16 +13,18 @@
 	padding: 0px;
 }
 
-body{
+/* body{
 	width: 1000px;
 	margin: 0 auto;
-	/*background: #9673cd;*/
+	background: #9673cd;
 	background: #fff;
-}
+} */
 
 /* 게임 소개
 --------------------- */
-
+.page-main{
+	min-height: 50vh;
+}
 /* 검색 폼 */
 form#search_form{
 	border:none;
@@ -40,8 +42,16 @@ ul.search li{
 	padding:0;
 	display:inline;
 }
+/* .search1 li input .keyword{
+	margin-left:22px;
+    border: solid 1.5px #000;
+    padding-left: 5px;
+    font-size:20px;
+    height:22px;
+}  */
+
 .adminbtn{
-	background: #bb2d3b;
+	background:#8aa1a1;
 	color: white;
 	border-style: none;
 	cursor: pointer;
@@ -49,12 +59,13 @@ ul.search li{
 	padding:5px; 
 	box-shadow: 3px 3px 3px rgb(73 73 73);
 	position: fixed;
-    top: 5px;
-    left: 100px;
+    top: 120px;
+    left: 25px;;
 }
 /* 게임목록 */
 .page-main{
 	margin: 0 auto;
+	width: 1000px;
 }
 .image-space .horizontal-area{
 	margin:2px;
@@ -67,11 +78,9 @@ ul.search li{
 	text-align:center;
 }
 .image-space .horizontal-area img{
-	width:215px;
-	height:195px;
-}
-.image-space .float-clear{
-	clear:both;
+    width:215px;
+    height:195px;
+
 }
 .image-space .float-clear{
 	clear:both;
@@ -81,7 +90,7 @@ ul.search li{
 	color:black;
 }
 .image-space #delete_btn{
-	background: #bb2d3b;
+	background:#8aa1a1;
 	color: white;
 	border-style: none;
 	cursor: pointer;
@@ -100,44 +109,59 @@ ul.search li{
 
 /* 게임상세
 -------------------- */
+.a{
+	margin-top: 5px;
+    margin-bottom: 10px;
+    margin-left: 15px;
+    
+}
 .detailpage-main{
  	width: 1000px; 
+	/* margin-left: 230px;  */
 	margin: 0 auto;
 }
 .detailpage-main h1{
- 	text-align:center;
  	margin: 10px auto;
 }
 .image-detail{
-	text-align:center;	
+	text-align:center;
+	margin: 0 auto;
 } 
 .image-detail img{/* 사진크기 */
-	width:215px;
-	height:195px;
+	width:310px;
+	height:270px;
+	float:left;
+	box-shadow: 0 5px 5px grey;; /* ????? */
+	
 }
-.game-detail{
- 	width: 60%; 
+.detailpage-main .game-detail{
+	float:right;
+	width: 65%;
+	height:270px;
 	margin: 0 auto;
-	background:#E6E6E6;	
+	background:#E6E6E6;
 }
-.game-detail .namenprice{
-	text-align: center;
+
+.game-detail #A{
+	margin: 5px 17px;	
 }
-.game-detail .namenprice b{
+.game-detail #A .game-name{
 	font-size: 25px;
+
 }
 
 .game-detail hr{
- 	width: 70%; 
-	margin: 0 auto;	
+ 	width: 95%; 
+	margin: 0 auto;
+	border : 0px;
+	border-top : 2px solid  rgb(73 73 73);	
 }
 
 #cartbtn{
-	background: #bb2d3b;
+	background:#8aa1a1;
 	color: white;
 	border-style: none;
 	cursor: pointer;
-	margin-top:5px;
 	padding:5px; 
 	box-shadow: 3px 3px 3px rgb(73 73 73);
 	float: rigth;
@@ -145,7 +169,88 @@ ul.search li{
 .game-detail .C{
 	margin: 0 auto;
 }
+#item_cart{
+	float: right;
+    margin-right: 15px;
+}
+.game-detail .game-explanation{
+	margin: 5px 17px;
+}
+
+.game-detail .game-explanation .ex{
+	font-size: 13px;
+    line-height: 22px;
+    overflow: auto;
+    max-height: 176px;
+    margin: 5px 10px;
+}
+.game-detail .small-footer{
+	margin: 5px 19px 17px 10px;
+	font-size: 15px;
+}
+.game-detail #1{
+	float: right;
+}
+.game-detail #2{
+	float: center;
+}
+.game-detail #3{
+	float: right;
+}
 
 /* 리뷰 쓰기, 목록 */
+.review_div{
+	clear:both;
+    margin: 0 auto;
+    padding-top: 35px;
+    padding-bottom: 30px;
+    
+/*     text-align:center;
+	margin: 0 auto; */
+}
+.test{
+	background-color:#E6E6E6;	
+}
+#re_form{
+	margin-top: 8px;
+}
+.review_div .re-title{
+	padding-bottom: 5px;
+}
+#output{
+	
+}
 
 
+/* 게임등록
+-------------------- */
+
+.page-main1{
+    margin-top: 15px;
+    margin-left: 720px;
+}
+/* .page-main1 h2{
+	padding-left:550px;
+	margin-top:30px;
+	margin-bottom:-20px;	
+} */
+
+ul{
+	list-style:none;
+	margin:0;
+	padding:0;
+	display:block;
+	margin-block-start:1em;
+	margin-block-end:1em;
+	margin-inline-start:0px;
+	margin-inline-end:0px;
+	padding-inline-start:40px;
+}
+li{
+	margin:0;
+	padding:0;
+}  
+.page-main1 ul li label{
+	float:left;
+	width:110px;	
+}

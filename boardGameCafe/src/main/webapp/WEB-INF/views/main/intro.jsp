@@ -5,6 +5,7 @@
 
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>카페소개</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/style_hyem.css">
 <style>
@@ -15,11 +16,13 @@
 	position: relative;
 	width: 50%;
 	left: 50px;
+	border-radius: 20px;
+	border: 2px #000000 solid;
 }
 
 .slide-container {
 	position: relative;
-	width: 70%;
+	width: 100%;
 	margin: 0 auto;
 }
 
@@ -76,8 +79,14 @@
 }
 
 .page-content {
-	margin: 0 0 40px 0;
+	margin: 0 0 80px 0;
 } 
+.container-label{
+	margin: 0 0 60px 0;
+}
+.hr-bottom{
+	margin: 60px 0 60px 0;
+}
 </style>
 <body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp" />
@@ -116,7 +125,6 @@
 					</div>
 				</div>
 				<div class="caption-container">
-					<p id="caption"></p>
 				</div>
 				<div class="slide-container">
 					<div class="mySlides">
@@ -157,7 +165,6 @@
 				</div>
 			</div>
 
-			<br> <br>
 			<hr size="1" noshade="noshade" width="100%">
 			<br> <br>
 
@@ -183,7 +190,7 @@
 			</table>
 			<hr size="1" noshade="noshade" width="100%">
 			<br><br>
-
+			<hr class="hr-bottom" size="1" noshade="noshade" width="100%">
 			<h2>LOCATION</h2>
 			<br>
 			<div class="location">
@@ -249,9 +256,9 @@
 					captionText.innerHTML = dots[slideIndex - 1].alt;
 				}
 			</script>
-
 		</div>
 	</div>
+<jsp:include page="/WEB-INF/views/common/footer.jsp"/>	
 </body>
 </html>
 

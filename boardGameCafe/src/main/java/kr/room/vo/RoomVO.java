@@ -4,11 +4,19 @@ public class RoomVO {
 	private int room_num;
 	private int room_size;
 	private String room_detail;
+	private String room_detail2;
 	private String room_name;
 	private String photo1;
 	private String photo2;
 	private String photo3;
 	
+	
+	public String getRoom_detail2() {
+		return room_detail2;
+	}
+	public void setRoom_detail2(String room_detail2) {
+		this.room_detail2 = room_detail2;
+	}
 	
 	public int getRoom_num() {
 		return room_num;

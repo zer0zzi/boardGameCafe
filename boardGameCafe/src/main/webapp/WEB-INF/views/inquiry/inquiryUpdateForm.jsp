@@ -124,7 +124,7 @@
 						<div class="filebox">
 							<label for="inqu_file">파일선택</label>
 							<input type="file" name="inqu_file" id="inqu_file" accept="image/gif, image/png, image/jpeg">
-							<input class="inqu-filename" value="선택된 파일 없음">
+							<input class="inqu-filename" value="선택된 파일 없음" readonly>
 						</div>					
 					</c:if>
 					
@@ -133,11 +133,11 @@
 							<div class="filebox">
 								<label for="inqu_file">파일선택</label>
 								<input type="file" name="inqu_file" id="inqu_file" accept="image/gif, image/png, image/jpeg">
-								<input class="inqu-filename" value="선택된 파일 없음">
+								<input class="inqu-filename" value="선택된 파일 없음" readonly>
 							</div>					
 							<div id="file_detail">
 								<input type="button" class="btn" value="파일삭제" id="delete_btn" style="margin-left: 0;">
-								(${inquiry.inqu_file})파일이 등록되어 있습니다.
+								${inquiry.inqu_file} 파일이 등록되어 있습니다.
 							</div>						
 						</div>
 						<div id="modal" class="modal-overlay">
@@ -162,5 +162,6 @@
 		</form>
 	</div>
 </div>
+<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>

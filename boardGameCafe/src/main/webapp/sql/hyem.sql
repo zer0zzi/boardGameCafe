@@ -12,14 +12,14 @@ create sequence notice_seq;
 
 create table inquiry(
 	inqu_num number,
-	inqu_rpl number,
+	inqu_rpl number(5),
 	mem_num number not null,
 	inqu_cate varchar2(20) not null,
-	inqu_title varchar2(20) not null,
+	inqu_title varchar2(50) not null,
 	inqu_content clob not null,
 	inqu_file varchar2(50),
-	/* 0 : 공개, 1 : 비공개 */
 	inqu_hit number(5) default 0 not null,
+	/* 0 : 공개, 1 : 비공개 */
 	inqu_check number(1) default 0 not null,
 	inqu_reg_date date default sysdate not null,
 	constraint inquiry_pk primary key (inqu_num),
@@ -27,14 +27,3 @@ create table inquiry(
 );
 
 create sequence inquiry_seq;
-
-create table inquiry_rpl(
-	inqu_rpl_num number,
-	inqu_num number not null,
-	inqu_rpl_content clob not null,
-	inqu_rpl_reg_date date default sysdate not null,
-	constraint inqu_rpl_pk primary key (inqu_rpl_num),
-	constraint inqu_rpl_fk foreign key (inqu_num) references inquiry(inqu_num)
-);
-
-create sequence inqu_rpl_seq;
