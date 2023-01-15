@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>구매내역</title>
+<title>구매목록</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style_ddk.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 </head>
@@ -51,6 +51,5 @@
 	<div class="pagebottom"></div>
 	</c:if>
 	</div>
-<jsp:include page="/WEB-INF/views/common/footer.jsp"/>	
 </body>
 </html>

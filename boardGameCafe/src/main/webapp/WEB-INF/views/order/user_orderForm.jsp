@@ -276,7 +276,7 @@ $(document).ready(function(){
 			</script>
 			<!-- 우편번호 검색 끝 -->
 	</div>
+<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
-<jsp:include page="/WEB-INF/views/common/footerEX.jsp"/>
 </html>
 

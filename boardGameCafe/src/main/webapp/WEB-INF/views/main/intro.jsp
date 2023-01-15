@@ -258,7 +258,7 @@
 			</script>
 		</div>
 	</div>
+<jsp:include page="/WEB-INF/views/common/footer.jsp"/>	
 </body>
-<jsp:include page="/WEB-INF/views/common/footerEX.jsp"/>
 </html>
 
