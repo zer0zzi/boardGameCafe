@@ -156,5 +156,5 @@
 	</div><!--end of content main-->
 </div><!--end of page main-->
 </body>
-<jsp:include page="/WEB-INF/views/common/footerEX.jsp"/>
+<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </html>
