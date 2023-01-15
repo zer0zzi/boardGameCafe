@@ -9,7 +9,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 	$(function(){
-		$('#login_form').submit(function(){
+		$('#login-form').submit(function(){
 			if($('#mem_id').val().trim()==''){
 				alert('아이디를 입력하세요');
 				$('#mem_id').val('').focus();
@@ -20,10 +20,8 @@
 				$('#mem_pw').val('').focus();
 				return false;
 			}
-			
 		});
 	});
-	
 </script>
 </head>
 <body>
