@@ -55,10 +55,11 @@ $(function(){
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
+<div class="page-main">
 <div class="page-main1">
 	<h2>게임 등록</h2>
 	<form action="write.do" method="post" id="write_form" enctype="multipart/form-data">
-		<ul>
+		<ul class="form-admin">
 			<li>
 				<label>상품표시여부</label>
 				<input type="radio" name="pro_status" value="1"
@@ -101,8 +102,9 @@ $(function(){
 			<input type="button" value="목록으로" onclick="location.href='gameList.do'">
 		</div>
 	</form>
-
 </div>
+</div>
+<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>
 
