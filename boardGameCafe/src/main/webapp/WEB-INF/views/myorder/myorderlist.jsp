@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>구매목록</title>
+<title>구매내역</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style_ddk.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 </head>
