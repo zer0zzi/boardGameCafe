@@ -129,7 +129,7 @@
 				</li>
 				<li>
 					<div class="submit-reset-btn">	 
-					<input type="button" value="전송" id="photo_submit" class="bluebtn"> 
+					<input type="button" value="변경" id="photo_submit" class="bluebtn"> 
 					<input type="button" value="취소" id="photo_reset" class="redbtn">
 					</div>
 				</li>
