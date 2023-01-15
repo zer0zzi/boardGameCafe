@@ -9,6 +9,15 @@
 <title>메인</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style_hoon.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$(".btn_open").click(function(){
+			$(".containerr").css({
+				"height":"200vh"
+			});
+		});
+	});
+</script>
 </head>
 <body>
 	<div class="wrap" id="wrap">
@@ -19,8 +28,8 @@
 		</li>
 		</c:if>
 	
-		<div class="container" id="container">
-			<div class="container-lst">
+		<div class="containerr" id="container">
+			<div class="containerr-lst">
 				<div class="wrap_inn">
 					<div class="wrap_main_info">
 						<div class="section_visual section_visual_main">
@@ -123,5 +132,6 @@
 			</div>
 		</div><!-- end of container -->
 	</div><!-- end of wrap -->
+<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>

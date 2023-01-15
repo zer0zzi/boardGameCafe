@@ -19,10 +19,15 @@ body{
 	text-align:left;
 	zoom:1;
 }
-.container{
+.containerr{
 	width:990px;
 	margin:0 auto;
-	min-height:313px;
+	min-height: 60vh;
+}
+.containerrr{
+	width:990px;
+	margin:0 auto;
+	height: 130vh;
 }
 
 .wrap_inn{
@@ -55,7 +60,7 @@ body{
 	border-right:2px solid black;
 	border-bottom:2px solid black;
 }
-.container_visual{
+.containerr_visual{
 	position:relative;
 }
 .group_visual .visual_img{
