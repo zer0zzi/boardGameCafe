@@ -19,8 +19,8 @@
 		</li>
 		</c:if>
 	
-		<div class="container" id="container">
-			<div class="container-lst">
+		<div class="containerr" id="container">
+			<div class="containerr-lst">
 				<div class="wrap_inn">
 					<div class="wrap_main_info">
 						<div class="section_visual section_visual_main">
