@@ -2,15 +2,12 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>카페소개</title>
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/style_hyem.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style_hyem.css">
 <style>
-
-/* -------지도---------- */
+/* -------카카오 지도 api---------- */
 #map {
 	margin: 0 auto;
 	position: relative;
@@ -18,6 +15,7 @@
 	left: 50px;
 	border-radius: 20px;
 	border: 2px #000000 solid;
+	z-index: 2;
 }
 
 .slide-container {
@@ -26,7 +24,7 @@
 	margin: 0 auto;
 }
 
-/* ----------사진------------ */
+/* ----------w3h 이미지 슬라이드------------ */
 
 /* Hide the images by default */
 .mySlides {
@@ -78,6 +76,7 @@
 	top: 100px;
 }
 
+/* -----------페이지 마진-------------- */
 .page-content {
 	margin: 0 0 80px 0;
 } 
@@ -89,14 +88,12 @@
 }
 </style>
 <body>
-	<jsp:include page="/WEB-INF/views/common/header.jsp" />
+<jsp:include page="/WEB-INF/views/common/header.jsp" />
 	<div class="page-main">
-		<div class="content-main"></div>
 		<div class="page-content">
 			<div class="container-label">
 				<div class="content-label">
 					<h2>ROOM</h2>
-					<br>
 				</div>
 				<div class="row">
 					<div class="column">
@@ -124,8 +121,7 @@
 							style="width: 100%" onclick="currentSlide(6)" alt="12인 이상">
 					</div>
 				</div>
-				<div class="caption-container">
-				</div>
+				<div class="caption-container"></div>
 				<div class="slide-container">
 					<div class="mySlides">
 						<div class="numbertext">1 / 6</div>
@@ -165,11 +161,10 @@
 				</div>
 			</div>
 
-			<hr size="1" noshade="noshade" width="100%">
-			<br> <br>
+			<hr class="hr-bottom" size="1" noshade="noshade" width="100%">
 
 			<h2>NOTICE</h2>
-			<br>
+			
 			<hr size="1" noshade="noshade" width="100%">
 			<table>
 				<tr class="border-bot">
@@ -188,13 +183,11 @@
 					</tr>
 				</c:forEach>
 			</table>
-			<hr size="1" noshade="noshade" width="100%">
-			<br><br>
+			<hr size="1" noshade="noshade" width="100%"><br><br>
 			<hr class="hr-bottom" size="1" noshade="noshade" width="100%">
 			<h2>LOCATION</h2>
 			<br>
-			<div class="location">
-				<br>
+			<div class="location"><br>
 				<h3 style="text-align: center;">서울 강남구 테헤란로 132 한독약품빌딩 8층</h3>
 				<h3 style="text-align: center;">(우) 06235 (지번) 역삼동 735-1</h3>
 			</div>
