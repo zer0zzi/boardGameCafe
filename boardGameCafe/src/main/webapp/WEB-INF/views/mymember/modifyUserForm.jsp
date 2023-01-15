@@ -29,6 +29,10 @@
 		let photo_path = $('.my-photo').attr('src');
 		let my_photo;
 		$('#photo').change(function(){
+			//코드 추가
+			var fileName = $("#photo").val();
+			$(".filename").val(fileName);
+
 			my_photo = this.files[0];
 			if(!my_photo){
 				$('.my-photo').attr('src',photo_path);
@@ -77,6 +81,8 @@
 					    alert('프로필 사진이 수정되었습니다.');
 					    photo_path = $('.my-photo').attr('src');
 					    $('#photo').val('');
+					    //코드 추가'
+					    $('.filename').val('');
 					}else{
 						alert('파일 전송 오류 발생');
 					}
@@ -93,6 +99,9 @@
 			//초기 이미지 표시
 			$('.my-photo').attr('src',photo_path);
 			$('#photo').val('');
+			
+			//코드 추가
+			$('.filename').val('선택된 파일 없음');
 			
 		});//end of click (이미지 미리보기 취소)
 		
@@ -121,11 +130,17 @@
 		<div class="div02-modify">
 			<ul>
 				<li>
-					<div class="modify-profile">
-					<!-- <label for="modify_file">파일선택</label> -->
+<!-- 					<div class="modify-profile">
+					<label for="modify_file">파일선택</label>
 					<input type="file" name="modify_file" id="photo"
 					accept="image/gif,image/png,image/jpeg">
-					</div>
+					</div> -->
+					<!-- 파일선택 버튼 div -->
+					<div class="filebox">
+						<label for="photo">파일선택</label>
+						<input type="file" name="photo" id="photo" accept="image/gif, image/png, image/jpeg">
+						<input class="filename" value="선택된 파일 없음" readonly>
+					</div>	
 				</li>
 				<li>
 					<div class="submit-reset-btn">	 
