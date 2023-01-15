@@ -39,7 +39,7 @@
 	<c:if test="${inquiry.mem_num != user_num && user_auth != 9}">
 		<script>
 			alert('비밀글입니다');
-			location.href = 'inquiryList.do';
+			history.go(-1);
 		</script>
 	</c:if>
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>

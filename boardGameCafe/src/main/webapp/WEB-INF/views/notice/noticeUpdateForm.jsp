@@ -83,7 +83,7 @@
 <c:if test="${user_auth != 9}">
 	<script>
 		alert('관리자만 접근할 수 있습니다');
-		location.href = 'noticeList.do';
+		history.go(-1);
 	</script>
 </c:if>
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
