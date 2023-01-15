@@ -88,7 +88,7 @@ h5 {
                 font-size: 14pt;
                 margin-top:100px;
             }
-           #label1 {
+          #label1 {
     position: absolute;
     top: 20px;
     left: 240px;
@@ -97,6 +97,12 @@ h5 {
     position: absolute;
     top: 20px;
     left: 220px;
+}
+       #label3 {
+    position: absolute;
+    top: 20px;
+    left: 239px;
+	width:100%;
 }
 
 /* 페이지 레이아웃
