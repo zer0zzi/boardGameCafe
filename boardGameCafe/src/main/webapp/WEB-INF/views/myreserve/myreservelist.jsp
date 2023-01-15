@@ -31,11 +31,7 @@
 		<div class="todayreserve">
 				<div class="todayreserve-imgbox">
 					<img src="${pageContext.request.contextPath}/upload/${MyRe.photo1}"
-							width="280" height="280" class="">
-					<img src="${pageContext.request.contextPath}/upload/${MyRe.photo2}"
-							width="280" height="280" class="-">
-					<img src="${pageContext.request.contextPath}/upload/${MyRe.photo3}"
-							width="280" height="280" class="-">						
+							width="400" height="300">					
 				</div>			
 				<div class="todayreserve-detailbox">
 				<b>

@@ -122,7 +122,8 @@
 			<ul>
 				<li>
 					<div class="modify-profile">
-					<input type="file" id="photo"
+					<!-- <label for="modify_file">파일선택</label> -->
+					<input type="file" name="modify_file" id="photo"
 					accept="image/gif,image/png,image/jpeg">
 					</div>
 				</li>
@@ -137,7 +138,8 @@
 		<!-- 프로필 사진 옆 ID/버튼 끝 -->
 		</div>
 		<!--allbox1-modify끝-->
-		<div class="float-end"></div>	
+		<div class="float-end"></div>
+		<hr size="1" noshade="noshade" width="100%">	
 <div class="page-main">	
 		<!--수정 폼 시작  -->		
 		<form id="modify_form" action="modifyUser.do"
@@ -162,7 +164,7 @@
 					          value="${member.mem_zipcode}"
 					          id="zipcode" maxlength="5">
 					<input type="button" value="우편번호 찾기"
-					         onclick="execDaumPostcode()">          
+					         onclick="execDaumPostcode()" class="btn-zipcode">          
 				</li>
 				<li>
 					<label for="address1"><b>주소</b></label>
