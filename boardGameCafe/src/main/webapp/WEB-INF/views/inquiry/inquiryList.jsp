@@ -66,9 +66,11 @@
 		</table>
 	</c:if>
 	<hr size="1" noshade="noshade" width="100%">
-	<div class="align-center paging">
-		${pagingHtml}
-	</div>
+	<c:if test="${count > 0}">
+		<div class="align-center paging">
+			${pagingHtml}
+		</div>	
+	</c:if>
 	
 	<c:if test="${!empty user_num && user_auth == 2}">
 		<div class="align-right">
@@ -76,5 +78,6 @@
 		</div>
 	</c:if>
 </div>
+<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>

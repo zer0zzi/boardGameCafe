@@ -73,11 +73,12 @@
 				</li>
 			</ul>
 			<div class="align-center">
-				<input type="submit" value="등록">
-				<input type="button" value="목록" onclick="location.href='inquiryList.do'">
+				<input type="submit" class="btn" value="등록">
+				<input type="button" class="btn" value="목록" onclick="location.href='inquiryList.do'">
 			</div>
 		</form>
 	</div>
 </div>
+<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>

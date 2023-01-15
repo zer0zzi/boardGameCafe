@@ -229,3 +229,46 @@
 	transition: 0.5s;
 	cursor: pointer;
 }
+
+/* footer */
+.footer{
+    height: 210px;
+    position: absolute;
+    width: 100%;
+    background: linear-gradient(to bottom, rgb(255 255 255), rgb(214 244 255));
+    color: #585858;
+    margin-top: 80px;
+}
+
+.footer-content{
+	width: 1000px;
+	margin: 0 auto;
+	min-height: 110px;
+	display: flex;
+	align-items: center;
+	margin-top: 50px;
+}
+
+.footer-content1{
+	line-height: 25px;
+	flex: 2;
+	margin-left: 20px;
+}
+
+.footer-content2{
+	line-height: 25px;
+	flex: 1;
+	text-align: right;
+	margin-right: 20px;
+}
+
+.footer-content2 p{
+	font-style: italic;
+	font-size: 25px;
+}
+
+.footer-img{
+	background-image: url(../images/hyem/footerImg.png);
+	background-repeat: repeat-x;
+	height: 100px;
+}

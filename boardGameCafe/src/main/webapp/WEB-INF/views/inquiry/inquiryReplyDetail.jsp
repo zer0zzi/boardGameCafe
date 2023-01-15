@@ -14,7 +14,9 @@
 		
 		let delete_btn = document.getElementById("delete_btn");
 		delete_btn.addEventListener("click", e => {
-		    modal.style.display = "flex";
+	        $(".modal-overlay").css("display", "block");
+	        $(".modal-window").css("display", "block");
+	        $("body").css("overflow", "hidden");
 		});
 		
 		let del = document.getElementById("delete");
@@ -25,7 +27,9 @@
 		
 		let cancel = document.getElementById("cancel");
 		cancel.addEventListener("click", e => {
-		    modal.style.display = "none";
+            $(".modal-overlay").css("display", "none");
+            $(".modal-window").css("display", "none");
+            $("body").css("overflow", "auto");
 		});
 	});
 </script>
@@ -141,5 +145,6 @@
 		</div>
 	</div>
 </c:if>
+<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>
