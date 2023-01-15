@@ -20,15 +20,17 @@
 				$('#mem_pw').val('').focus();
 				return false;
 			}
+			
 		});
 	});
+	
 </script>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 <div class="page-main">
 	<div class="content-main">
-		<h2>LOGIN</h2>
+		<h2>LOGIN2</h2>
 		<form id="login-form" action="login.do" method="post">
 			<div class="input-box">
 		 			<label for="id">아이디</label>
@@ -39,11 +41,12 @@
 		 			<input type="password" name="mem_pw" id="mem_pw" placeholder="비밀번호" maxlength="12">
 		 	</div>
 		 	<div class="align-center">
-		 		<input id="pointer" type="submit" value="로그인">
+		 		<input id="pointer" type="submit"  onclick="location='/boardGameCafe/main/intro.do'" value="로그인" >
 		 		<input id="pointer1" type="button" onclick="location='/boardGameCafe/member/registerUserForm.do'" value="회원가입">
 		 	</div>
 		</form>
 	</div>
 </div>
+<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>

@@ -251,5 +251,6 @@
       <!--우편번호 검색 끝  -->
    </div>
 </div>
+<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>

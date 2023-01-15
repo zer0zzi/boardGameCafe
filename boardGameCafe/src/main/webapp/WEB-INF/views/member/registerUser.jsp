@@ -5,20 +5,24 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입 완료</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style_hapalpal.css">
 </head>
 <body>
-<div class="page-main">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+<div class="page-main">
 	<div class="content-main">
 		<h2>회원가입 완료</h2>
-		<div class="result-display">
-			<div class="align-center">
-				회원가입이 완료되었습니다. <p>
-				<input type="button" value="메인페이지로" onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
-			</div>
-		</div>
+		<form id="login-form1" action="login.do" method="post">
+			<div class="input-box">
+		 	</div>
+		 	<div class="input-box">	
+		 	</div>
+		 	<div class="align-center">
+		 		<input id="pointer1" type="button" onclick="location='/boardGameCafe/main/intro.do'" value="메인 화면으로">
+		 	</div>
+		</form>
 	</div>
 </div>
+<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>

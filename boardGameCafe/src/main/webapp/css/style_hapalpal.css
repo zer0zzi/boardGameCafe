@@ -22,11 +22,24 @@ h2{
 	font-size:30px; 
 	text-align:center;
     margin-block-start: 0.83em;
-    margin-block-end: 0.83em;
+    margin-block-end: 3.83em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     font-weight: bold;
 }
+h5 {
+    display: block;
+    font-size: 13px;
+    text-align: center;
+    margin-block-start: 11.83em;
+    margin-block-end: 5.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+
+
             .input-box{
                 position:relative;
                 margin:10px 0;
@@ -183,6 +196,9 @@ input{
 	margin-top:4px;
 	
 }
+form#login-form1 {
+    border: white;
+}
 input[id="pointer"]{
 	cursor:pointer;
 }
@@ -197,6 +213,18 @@ input[id="pointer1"]{
                 height:35px;
                 font-size: 14pt;
 }
+input[id="pointer11"]{
+    cursor: pointer;
+    margin: 7px 0px 0px 0px;
+    background-color: #8aa1a1;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    width: 30%;
+    height: 35px;
+    font-size: 14pt;
+}
+
 input[type="text"],input[type="password"],input[type="email"]{
 	width:310px;
 }

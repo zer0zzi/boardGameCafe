@@ -33,7 +33,7 @@ public class LoginAction implements Action{
 			session.setAttribute("user_auth", member.getMem_auth());
 			session.setAttribute("user_photo", member.getMem_photo());
 
-			return "redirect:/main/main.do";
+			return "redirect:/main/intro.do";
 		}
 		return "/WEB-INF/views/member/login.jsp";
 	}
