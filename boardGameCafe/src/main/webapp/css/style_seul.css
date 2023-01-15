@@ -22,7 +22,9 @@
 
 /* 게임 소개
 --------------------- */
-
+.page-main{
+	min-height: 50vh;
+}
 /* 검색 폼 */
 form#search_form{
 	border:none;
@@ -199,12 +201,15 @@ ul.search li{
 /* 리뷰 쓰기, 목록 */
 .review_div{
 	clear:both;
-    margin-left: 460px;
- 	margin-right: 300px;  
-    padding-top: 15px;
+    margin: 0 auto;
+    padding-top: 35px;
     padding-bottom: 30px;
+    
 /*     text-align:center;
 	margin: 0 auto; */
+}
+.test{
+	background-color:#E6E6E6;	
 }
 #re_form{
 	margin-top: 8px;
@@ -212,11 +217,10 @@ ul.search li{
 .review_div .re-title{
 	padding-bottom: 5px;
 }
-/* .review_div #rev_content{
-	margin-top: 10px;
-	margin: 10px auto;
-	width: 1000px
-} */
+#output{
+	
+}
+
 
 /* 게임등록
 -------------------- */

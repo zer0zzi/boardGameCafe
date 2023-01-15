@@ -58,6 +58,7 @@ $(function(){
 <body>
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 <h1 class="a">게임상세</h1>
+<div class="page-main">
 <div class="detailpage-main">
 	<div class="image-detail">
 			<img src="${pageContext.request.contextPath}/upload/${detail.pro_picture}">
@@ -97,6 +98,7 @@ $(function(){
 		
 		<!-- 평가 및 리뷰 시작 -->
 	<div class="review_div">
+		<div class="test">
 		<span class="re-title">리뷰 쓰기</span>
 		<form id="re_form">
 			<input type="hidden" name="pro_num" value="${detail.pro_num}" id="pro_num">
@@ -112,7 +114,7 @@ $(function(){
 			</div>
 			</c:if>
 		</form>
-	
+	 </div>
 	<!-- 리뷰 목록 출력 시작 -->
 		<div id="output">
 			<div class="paging-button" style="display:none;">
@@ -123,8 +125,9 @@ $(function(){
 			</div>
 		</div>
 	</div>
+</div>
 	<!-- 리뷰 목록 출력 끝 -->
 	<!-- 평가 및 리뷰 끝 -->
-
+<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>
