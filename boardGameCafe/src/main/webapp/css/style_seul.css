@@ -13,13 +13,6 @@
 	padding: 0px;
 }
 
-/* body{
-	width: 1000px;
-	margin: 0 auto;
-	background: #9673cd;
-	background: #fff;
-} */
-
 /* 게임 소개
 --------------------- */
 .page-main{
@@ -29,8 +22,9 @@
 
 form#search_form{
 	border:none;
-	margin-top: 10px;
+	margin-top: 18px;
     margin-bottom: 10px;
+    height: 30px;
 }
 ul.search{
 	width:50%;
@@ -49,10 +43,13 @@ ul.search li{
 	margin-top:5px;
 	padding:5px; 
 	box-shadow: 3px 3px 3px rgb(73 73 73);
-	position: fixed;
-    top: 120px;
-    left: 25px;;
+	position: relative;
+    top: 2px;
+    left: 825px;
+
+    
 }
+
 /* 게임목록 */
 .page-main{
 	margin: 0 auto;
@@ -72,7 +69,8 @@ ul.search li{
     width:215px;
     height:195px;
     margin-bottom: 5px;
-    box-shadow: 0 5px 5px grey;
+    /* box-shadow: 0 5px 5px grey; */
+    border: 1px;
 
 }
 .image-space .float-clear{
@@ -98,6 +96,12 @@ ul.search li{
 	text-align:center;
 	margin: 10px auto;
 }
+/* .pl #search_form{
+	float: left;
+} */
+/* .p1 .adminbtn{
+	float: left;
+} */
 
 /* 게임상세
 -------------------- */
@@ -131,6 +135,10 @@ ul.search li{
 	height:270px;
 	margin: 0 auto;
 	background:#E6E6E6;
+	
+}
+.detailpage-main .game-detail #pro_count{
+	white-space:pre-wrap;	
 }
 .game-detail #A{
 	margin: 5px 17px;	
@@ -173,6 +181,9 @@ ul.search li{
 .game-detail .small-footer{
 	margin: 5px 0px 5px 88px;
 	font-size: 15px;
+}
+.ex{
+	white-space:pre-wrap;
 }
 /* .small-footer #1{
 	float: right;

@@ -24,9 +24,9 @@ $(function(){
 			$('#pro_price').focus();
 			return false;
 		}
-		if($('#picture').val()==''){
+		if($('#pro_picture').val()==''){
 			alert('게임사진을 등록하세요');
-			$('#picture').focus();
+			$('#pro_picture').focus();
 			return false;
 		}
 		if($('#pro_level').val().trim()==''){
