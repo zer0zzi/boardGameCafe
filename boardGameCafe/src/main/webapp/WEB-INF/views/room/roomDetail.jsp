@@ -140,5 +140,6 @@
 		
 	</div><!-- end of wrap_inn -->
 </div><!-- end of container -->
+<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>

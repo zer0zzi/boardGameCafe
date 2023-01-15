@@ -123,5 +123,6 @@
 			</div>
 		</div><!-- end of container -->
 	</div><!-- end of wrap -->
+<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>
