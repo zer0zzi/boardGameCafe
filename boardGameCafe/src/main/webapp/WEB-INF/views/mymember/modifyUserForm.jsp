@@ -130,11 +130,6 @@
 		<div class="div02-modify">
 			<ul>
 				<li>
-<!-- 					<div class="modify-profile">
-					<label for="modify_file">파일선택</label>
-					<input type="file" name="modify_file" id="photo"
-					accept="image/gif,image/png,image/jpeg">
-					</div> -->
 					<!-- 파일선택 버튼 div -->
 					<div class="filebox">
 						<label for="photo">파일선택</label>
