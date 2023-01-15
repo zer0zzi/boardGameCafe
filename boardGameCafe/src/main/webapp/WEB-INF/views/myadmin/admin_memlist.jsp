@@ -48,7 +48,12 @@
 					<td>${member.rownum}</td>
 					<td><a id="a01" href="memdetail.do?mem_num=${member.mem_num}">${member.mem_id}</a></td>
 					<td>${member.mem_name}</td>
-					<td>${member.mem_auth}</td>
+					<td>
+						<c:if test="${member.mem_auth == 2}">일반회원</c:if>
+						<c:if test="${member.mem_auth == 0}">탈퇴회원</c:if>
+						<c:if test="${member.mem_auth == 1}">정지회원</c:if>
+						<c:if test="${member.mem_auth == 9}">관리자</c:if>
+					</td>
 					<td>${member.mem_reg}</td>
 				</tr>
 				</c:forEach>
