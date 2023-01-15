@@ -45,7 +45,7 @@
 		 		<input id="pointer1" type="button" onclick="location='/boardGameCafe/member/registerUserForm.do'" value="회원가입">
 		 	</div>
 		</form>
-	</div>
+	</div> 
 </div>
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
