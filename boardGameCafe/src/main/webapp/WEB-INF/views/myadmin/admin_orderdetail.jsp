@@ -61,60 +61,33 @@
 					<c:if test="${order.payment == 2}">카드결제</c:if>                        
 				</li>
 				<li>
-					<form action="modify.do" method="post" id="order_form">
-					<input type="hidden" name="order_main_num" value="${order.order_main_num}">
-						<label>배송상태</label>
-						<c:if test="${order.status !=5}">
-						<input type="radio" name="status" id="status1" value="1" 
-						   <c:if test="${order.status == 1}">checked</c:if>>결제완료
-						   
-						   <input type="radio" name="status" id="status2" value="2" 
-						   <c:if test="${order.status == 2}">checked</c:if>>배송준비중
-						   
-						   <input type="radio" name="status" id="status3" value="3" 
-						   <c:if test="${order.status == 3}">checked</c:if>>배송중
-						   
-						   <input type="radio" name="status" id="status4" value="4" 
-						   <c:if test="${order.status == 4}">checked</c:if>>배송완료
-						</c:if>
-						<input type="radio" name="status" id="status5" value="5"
-						   <c:if test="${order.status == 5}">checked</c:if>>환불
-					</form>
+					<form action="updateStatus.do" method="post" id="order_form">
+						<div id="upstatus_input">
+						<input type="hidden" name="order_main_num" value="${order.order_main_num}">
+							<label>배송상태</label>
+							<c:if test="${order.status !=5}">
+							<input type="radio" name="status" id="status" value=1 
+							   <c:if test="${order.status == 1}">checked</c:if>>결제완료
+							   
+							   <input type="radio" name="status" id="status" value=2 
+							   <c:if test="${order.status == 2}">checked</c:if>>배송준비중
+							   
+							   <input type="radio" name="status" id="status" value=3 
+							   <c:if test="${order.status == 3}">checked</c:if>>배송중
+							   
+							   <input type="radio" name="status" id="status" value=4 
+							   <c:if test="${order.status == 4}">checked</c:if>>배송완료
+							</c:if>
+							<input type="radio" name="status" id="status" value=5
+							   <c:if test="${order.status == 5}">checked</c:if>>환불
+						</div>
+						<div class="buttons01">
+							<c:if test="${order.status != 5}"><input type="submit" value="수정"></c:if>
+							<input type="button" value="취소" onclick="window.location.reload()">
+						</div>
+					 </form>
 				</li>
-				<%-- <li>
-					<form action="updateMemAuth.do" method="post">
-						<input type="hidden" id="num" name="mem_num" value="${detail.mem_num}"/>
-						<label for="auth">등급</label>
-						<c:if test="${detail.mem_auth == 2}">
-							ㅣ <input type="text" name="auth" id="auth" value="일반회원" readonly/>
-						</c:if>
-						<c:if test="${detail.mem_auth == 0}">
-							ㅣ <input type="text" name="auth" id="auth" value="탈퇴회원" readonly/>
-						</c:if>
-						<c:if test="${detail.mem_auth == 1}">
-							ㅣ <input type="text" name="auth" id="auth" value="정지회원" readonly/>
-						</c:if>
-						<c:if test="${detail.mem_auth == 9}">
-							ㅣ <input type="text" name="auth" id="auth" value="관리자" readonly/>
-						</c:if>
-						<select name="mem_auth" id="select_auth" style="display:none;">
-							<option value=2 <c:if test="${detail.mem_auth == 2}">selected</c:if>>일반회원</option>
-							<option value=0 <c:if test="${detail.mem_auth == 0}">selected</c:if>>탈퇴회원</option>
-							<option value=1 <c:if test="${detail.mem_auth == 1}">selected</c:if>>정지회원</option>
-							<option value=9 <c:if test="${detail.mem_auth == 9}">selected</c:if>>관리자</option>
-						</select>
-						<input type="button" id="update_auth" value="수정"/>
-						<input type="submit" id="submit_auth" style="display:none" value="완료"/>
-					</form>
-				</li> --%>
 			</ul>
-			<div class="align-center">
-				<c:if test="${order.status != 5}">
-				<input type="submit" value="주문수정">
-				</c:if>
-				<input type="button" value="주문목록"
-				 onclick="location.href='list.do'">
-			</div>
 		</div>
 		<p id="title2">주문 내역</p>
 		<hr size="1" noshade="noshade" width="100%">
@@ -149,13 +122,11 @@
 			<hr size="1" noshade="noshade" width="100%">
 			
 		  	
-			<div>
-				<input type="button" value="취소" onclick="window.location.reload()">
+			<div class="buttons01">
 				<input type="button" value="목록으로" onclick="location.href='orderList.do'">
 			</div>
 		</div>
 	</div>
 </body>
-
-</body>
+<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </html>

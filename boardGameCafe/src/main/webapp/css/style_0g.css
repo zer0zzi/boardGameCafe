@@ -104,27 +104,20 @@
 	justify-content:center;
 	margin-top:10px;
 }
-.buttons{
-	margin-top:40px;
-	margin-bottom:40px;
-	display:flex;
-	justify-content: center;
-}
-.buttons input[type="button"]{
-	width: 90px;
-    height: 25px;
-    border-radius: 0;
-    background: #fff;
-    border: 1px solid #000;
-    box-shadow: 3px 3px rgb(73, 73, 73);
-    font-size: 14px;
-    cursor: pointer;
-    margin-left:15px;
-    margin-right:10px;
-}
 #a01{
 	text-decoration: none;
 	color:black;
+}
+#paging a:link{
+	text-decoration: none;
+	color: black;
+}
+#paging a:hover{
+	text-decoration: none;
+}
+#paging a:visited{
+	text-decoration: none;
+	color: black;
 }
 /*admin_reslist.jsp*/
 ul{
@@ -205,6 +198,37 @@ select[name="mem_auth"]{
     font-size:16px;
     height:22px;
 }
+.buttons{
+	margin-top:40px;
+	margin-bottom:40px;
+	display:flex;
+	justify-content: center;
+}
+.buttons input[type="button"]{
+	width: 90px;
+    height: 25px;
+    border-radius: 0;
+    background: #fff;
+    border: 1px solid #000;
+    box-shadow: 3px 3px rgb(73, 73, 73);
+    font-size: 14px;
+    cursor: pointer;
+    margin-left:15px;
+    margin-right:10px;
+}
+.buttons input[type="submit"]{
+	width: 90px;
+    height: 25px;
+    border-radius: 0;
+    background: #fff;
+    border: 1px solid #000;
+    box-shadow: 3px 3px rgb(73, 73, 73);
+    font-size: 14px;
+    cursor: pointer;
+    margin-left:0px;
+    margin-right:10px;
+}
+
 /*admin_orderdetail.jsp*/
 .order_form{
 	border-top:solid 1px #000;
@@ -213,7 +237,7 @@ select[name="mem_auth"]{
     margin-right: 5px;
     padding-top: 60px;
     padding-left: 70px;
-    padding-bottom: 60px;
+    padding-bottom: 50px;
 }
 #total_td{
 	border-top: 1px solid #000;
@@ -221,13 +245,44 @@ select[name="mem_auth"]{
 #order_ul li label{
 	width:120px;
 }
-
 #order_ul li{
 	margin-bottom: 13px;
 }
-
 form[id="order_form"] input{
 	width:50px;
+}
+#upstatus_input{
+	display:flex;
+	align-items:center;
+}
+.buttons01{
+	margin-top:75px;
+	display:flex;
+	justify-content: center;
+}
+.buttons01 input[type="button"]{
+	width: 90px;
+    height: 25px;
+    border-radius: 0;
+    background: #fff;
+    border: 1px solid #000;
+    box-shadow: 3px 3px rgb(73, 73, 73);
+    font-size: 14px;
+    cursor: pointer;
+    margin-left:15px;
+    margin-right:10px;
+}
+.buttons01 input[type="submit"]{
+	width: 90px;
+    height: 25px;
+    border-radius: 0;
+    background: #fff;
+    border: 1px solid #000;
+    box-shadow: 3px 3px rgb(73, 73, 73);
+    font-size: 14px;
+    cursor: pointer;
+    margin-left:0px;
+    margin-right:10px;
 }
 /*테이블*/
 table{
@@ -235,7 +290,7 @@ table{
 	border-collapse: collapse;
 }
 table td{
-	padding: 10px 0;
+	padding: 13px 0;
 	text-align: center;
 	font-size: 15px;
 }

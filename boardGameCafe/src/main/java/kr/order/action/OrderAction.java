@@ -18,90 +18,90 @@ import kr.order.vo.OrderVO;
 
 public class OrderAction implements Action{
 
-	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		//·Î±×ÀÎ È®ÀÎ
-		HttpSession session = request.getSession();
-		Integer user_num = (Integer)session.getAttribute("user_num");
-		if(user_num == null) {//·Î±×ÀÎ µÇÁö ¾ÊÀº »óÅÂ
-			return "redirect:/member/loginForm.do";
-		}
-		
-		if(request.getMethod().toUpperCase().equals("GET")) {
-			return "redirect:/item/itemList.do";
-		}
-		
-		//Àü¼ÛµÈ µ¥ÀÌÅÍ ÀÎÄÚµù Ã³¸®
-		request.setCharacterEncoding("utf-8");
-		
-		CartDAO dao = CartDAO.getInstance();
-		int all_total = dao.getTotalByMem_num(user_num);
-		if(all_total<=0) {
-			request.setAttribute("notice_msg", "Á¤»óÀûÀÎ ÁÖ¹®ÀÌ ¾Æ´Ï°Å³ª »óÇ°ÀÇ ¼ö·®ÀÌ ºÎÁ·ÇÕ´Ï´Ù.");
-			request.setAttribute("notice_url", request.getContextPath()+"/item/itemList.do");
-			return "/WEB-INF/views/common/alert_singleView.jsp";
-		}
-		
-		
-		//Àå¹Ù±¸´Ï¿¡ ´ã°Ü ÀÖ´Â »óÇ° Á¤º¸ ¹İÈ¯
-		List<CartVO> cartList = dao.getListCart(user_num);
-		//ÁÖ¹® »óÇ°ÀÇ ´ëÇ¥ »óÇ°¸í »ı¼º
-		String item_name;
-		
-		if(cartList.size()==1) {
-			item_name = cartList.get(0).getListVo().getPro_name();
-		}else {
-			item_name = cartList.get(0).getListVo().getPro_name() + "¿Ü " + (cartList.size()-1) + "°Ç";
-		}
-		
-		
-		//°³º° »óÇ° Á¤º¸ ´ã±â
-		List<OrderDetailVO> orderDetailList = new ArrayList<OrderDetailVO>();
-		for(CartVO cart : cartList) {
-			ListDAO listDao = ListDAO.getInstance();
-			ListVO list = listDao.getList(cart.getPro_num());
-		
-			if(list.getPro_status() == 1) {//»óÇ° ¹ÌÇ¥½Ã
-				request.setAttribute("notice_msg", "[" + list.getPro_name() + "]»óÇ°ÆÇ¸Å ÁßÁö");
-				request.setAttribute("notice_url", request.getContextPath() + "/cart/list.do");
-				return "/WEB-INF/views/common/alert_singleView.jsp";
-			}
-			if(list.getPro_count() < cart.getCart_count()) {//»óÇ° Àç°í¼ö·® ºÎÁ·
-				request.setAttribute("notice_msg", "[" + list.getPro_name() + "]Àç°í¼ö·® ºÎÁ·");
-				request.setAttribute("notice_url", request.getContextPath() + "/cart/list.do");
-				return "/WEB-INF/views/common/alert_singleView.jsp";
-			}
-			OrderDetailVO orderDetail = new OrderDetailVO();
-			orderDetail.setPro_num(cart.getPro_num());
-			orderDetail.setPro_name(cart.getListVo().getPro_name());
-			orderDetail.setPro_price(cart.getListVo().getPro_price());
-			orderDetail.setOrder_main_count(cart.getCart_count());
-			orderDetail.setPro_total(cart.getSub_total());
-			
-			orderDetailList.add(orderDetail);
-		}
-		
-		//±¸¸Å Á¤º¸ ´ã±â
-		OrderVO order = new OrderVO();
-		order.setOrder_main_name(item_name);
-		order.setOrder_main_total(all_total);
-		order.setPayment(Integer.parseInt(request.getParameter("payment")));
-		order.setReceive_name(request.getParameter("receive_name"));
-		order.setReceive_zipcode(request.getParameter("receive_zipcode"));
-		order.setReceive_address1(request.getParameter("receive_address1"));
-		order.setReceive_address2(request.getParameter("receive_address2"));
-		order.setReceive_phone(request.getParameter("receive_phone"));
-		order.setNotice(request.getParameter("notice"));
-		order.setMem_num(user_num);
-		
-		OrderDAO orderDao = OrderDAO.getInstance();
-		orderDao.insertOrder(order, orderDetailList);
-		
-		request.setAttribute("notice_msg", "ÁÖ¹®ÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù.");
-		request.setAttribute("notice_url", request.getContextPath()+"/mymember/myOrderList.do");
+   @Override
+   public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+      //ë¡œê·¸ì¸ í™•ì¸
+      HttpSession session = request.getSession();
+      Integer user_num = (Integer)session.getAttribute("user_num");
+      if(user_num == null) {//ë¡œê·¸ì¸ ë˜ì§€ ì•Šì€ ìƒíƒœ
+         return "redirect:/member/loginForm.do";
+      }
+      
+      if(request.getMethod().toUpperCase().equals("GET")) {
+         return "redirect:/item/itemList.do";
+      }
+      
+      //ì „ì†¡ëœ ë°ì´í„° ì¸ì½”ë”© ì²˜ë¦¬
+      request.setCharacterEncoding("utf-8");
+      
+      CartDAO dao = CartDAO.getInstance();
+      int all_total = dao.getTotalByMem_num(user_num);
+      if(all_total<=0) {
+         request.setAttribute("notice_msg", "ì •ìƒì ì¸ ì£¼ë¬¸ì´ ì•„ë‹ˆê±°ë‚˜ ìƒí’ˆì˜ ìˆ˜ëŸ‰ì´ ë¶€ì¡±í•©ë‹ˆë‹¤.");
+         request.setAttribute("notice_url", request.getContextPath()+"/item/itemList.do");
+         return "/WEB-INF/views/common/alert_singleView.jsp";
+      }
+      
+      
+      //ì¥ë°”êµ¬ë‹ˆì— ë‹´ê²¨ ìˆëŠ” ìƒí’ˆ ì •ë³´ ë°˜í™˜
+      List<CartVO> cartList = dao.getListCart(user_num);
+      //ì£¼ë¬¸ ìƒí’ˆì˜ ëŒ€í‘œ ìƒí’ˆëª… ìƒì„±
+      String item_name;
+      
+      if(cartList.size()==1) {
+         item_name = cartList.get(0).getListVo().getPro_name();
+      }else {
+         item_name = cartList.get(0).getListVo().getPro_name() + "ì™¸ " + (cartList.size()-1) + "ê±´";
+      }
+      
+      
+      //ê°œë³„ ìƒí’ˆ ì •ë³´ ë‹´ê¸°
+      List<OrderDetailVO> orderDetailList = new ArrayList<OrderDetailVO>();
+      for(CartVO cart : cartList) {
+         ListDAO listDao = ListDAO.getInstance();
+         ListVO list = listDao.getList(cart.getPro_num());
+      
+         if(list.getPro_status() == 1) {//ìƒí’ˆ ë¯¸í‘œì‹œ
+            request.setAttribute("notice_msg", "[" + list.getPro_name() + "]ìƒí’ˆíŒë§¤ ì¤‘ì§€");
+            request.setAttribute("notice_url", request.getContextPath() + "/cart/list.do");
+            return "/WEB-INF/views/common/alert_singleView.jsp";
+         }
+         if(list.getPro_count() < cart.getCart_count()) {//ìƒí’ˆ ì¬ê³ ìˆ˜ëŸ‰ ë¶€ì¡±
+            request.setAttribute("notice_msg", "[" + list.getPro_name() + "]ì¬ê³ ìˆ˜ëŸ‰ ë¶€ì¡±");
+            request.setAttribute("notice_url", request.getContextPath() + "/cart/list.do");
+            return "/WEB-INF/views/common/alert_singleView.jsp";
+         }
+         OrderDetailVO orderDetail = new OrderDetailVO();
+         orderDetail.setPro_num(cart.getPro_num());
+         orderDetail.setPro_name(cart.getListVo().getPro_name());
+         orderDetail.setPro_price(cart.getListVo().getPro_price());
+         orderDetail.setOrder_main_count(cart.getCart_count());
+         orderDetail.setPro_total(cart.getSub_total());
+         
+         orderDetailList.add(orderDetail);
+      }
+      
+      //êµ¬ë§¤ ì •ë³´ ë‹´ê¸°
+      OrderVO order = new OrderVO();
+      order.setOrder_main_name(item_name);
+      order.setOrder_main_total(all_total);
+      order.setPayment(Integer.parseInt(request.getParameter("payment")));
+      order.setReceive_name(request.getParameter("receive_name"));
+      order.setReceive_zipcode(request.getParameter("receive_zipcode"));
+      order.setReceive_address1(request.getParameter("receive_address1"));
+      order.setReceive_address2(request.getParameter("receive_address2"));
+      order.setReceive_phone(request.getParameter("receive_phone"));
+      order.setNotice(request.getParameter("notice"));
+      order.setMem_num(user_num);
+      
+      OrderDAO orderDao = OrderDAO.getInstance();
+      orderDao.insertOrder(order, orderDetailList);
+      
+      request.setAttribute("notice_msg", "ì£¼ë¬¸ì´ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.");
+      request.setAttribute("notice_url", request.getContextPath()+"/mymember/myOrderList.do");
 
-		return "/WEB-INF/views/common/alert_singleView.jsp";
-		
-	}
+      return "/WEB-INF/views/common/alert_singleView.jsp";
+      
+   }
 
 }

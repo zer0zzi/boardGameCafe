@@ -174,32 +174,27 @@ public class adminOrderDAO {
 		
 		return order;
 	}
-//	//배송상태 수정
-//	public void updateAuth(int status, int order_main_num) throws Exception{
-//		Connection conn = null;
-//		PreparedStatement pstmt = null;
-//		String sql = null;
-//		
-//		try {
-//			//커넥션풀로부터 커넥션을 할당
-//			conn = DBUtil.getConnection();
-//			
-//			//SQL문 작성
-//			sql = "UPDATE member SET mem_auth=? WHERE mem_num=?";
-//			
-//			//PreparedStatement 객체 생성
-//			pstmt = conn.prepareStatement(sql);
-//			
-//			//?에 데이터를 바인딩
-//			pstmt.setInt(1, status);  //수정할 배송상태
-//			pstmt.setInt(2, order_main_num);  //회원번호
-//			
-//			//SQL문 실행
-//			pstmt.executeUpdate();
-//		}catch(Exception e) {
-//			throw new Exception(e);
-//		}finally {
-//			DBUtil.executeClose(null, pstmt, conn);
-//		}
-//	}
+	//배송상태 수정
+	public void updateStatus(int status, int order_main_num) throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = null;
+		
+		try {
+			conn = DBUtil.getConnection();
+			
+			sql = "UPDATE order_main SET status=? WHERE order_main_num=?";
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, status);  //수정할 배송상태
+			pstmt.setInt(2, order_main_num);  //회원번호
+			
+			pstmt.executeUpdate();
+		}catch(Exception e) {
+			throw new Exception(e);
+		}finally {
+			DBUtil.executeClose(null, pstmt, conn);
+		}
+	}
 }
