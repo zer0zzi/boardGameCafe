@@ -68,7 +68,7 @@
 					<div class="filebox">
 						<label for="inqu_file">파일선택</label>
 						<input type="file" name="inqu_file" id="inqu_file" accept="image/gif, image/png, image/jpeg">
-						<input class="inqu-filename" value="선택된 파일 없음">
+						<input class="inqu-filename" value="선택된 파일 없음" readonly>
 					</div>					
 				</li>
 			</ul>
