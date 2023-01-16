@@ -57,6 +57,7 @@ ins:hover{
 	width: 1000px;
 	margin: 0 auto;
 	margin-top: 50px;
+	min-height: 50vh;
 }
 
 .mypage-div {
