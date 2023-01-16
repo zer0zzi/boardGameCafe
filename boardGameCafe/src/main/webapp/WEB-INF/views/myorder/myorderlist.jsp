@@ -38,7 +38,7 @@
 			<c:if test="${myorder.status==2}"><td>배송준비중</td></c:if>
 			<c:if test="${myorder.status==3}"><td>배송중</td></c:if>
 			<c:if test="${myorder.status==4}"><td>배송완료</td></c:if>
-			<c:if test="${myorder.status==5}"><td>배송완료</td></c:if>
+			<c:if test="${myorder.status==5}"><td>주문취소</td></c:if>
 			<td>${myorder.order_main_name}</td>
 			<td><fmt:formatNumber value="${myorder.order_main_total}"/>원</td>
 			<td>${myorder.order_main_date}</td>

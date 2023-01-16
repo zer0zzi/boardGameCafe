@@ -12,7 +12,7 @@ $(function(){
 	$('#write_form').submit(function(){
 		/* if($('input[type=radio]:checked').length<1){
 			alert('상품표시여부를 지정하세요!');
-			return false;
+			return false;ㄴ
 		} */
 		if($('#pro_name').val().trim()==''){
 			alert('상품명을 입력하세요');
