@@ -18,6 +18,7 @@
 		 	<div class="input-box">	
 		 	</div>
 		 	<div class="align-center">
+		 		<input id="pointer1" type="button" onclick="location='/boardGameCafe/member/loginForm.do'" value="로그인하러 가기">
 		 		<input id="pointer1" type="button" onclick="location='/boardGameCafe/main/intro.do'" value="메인 화면으로">
 		 	</div>
 		</form>
