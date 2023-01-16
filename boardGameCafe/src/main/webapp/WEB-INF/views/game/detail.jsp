@@ -86,11 +86,11 @@ $(function(){
 			 <div class="ex">${detail.explanation}</div> 
 		</div>
 		<hr size="1" noshade="noshade">
-		<div class="small-footer">
-		<span id="1">난이도 : ${detail.pro_level}</span> &nbsp; &nbsp;| &nbsp; &nbsp; 
-		<span id="2">추천 인원 : ${detail.person}</span>   &nbsp; &nbsp;| &nbsp; &nbsp; 
-		<span id="3">재고 수량 : ${detail.pro_count}</span>   &nbsp; &nbsp; 
-		</div>
+		<ul class="small-footer">
+		<li id="1">난이도 : ${detail.pro_level}</li>
+		<li id="2">추천 인원 : ${detail.person}</li> 
+		<li id="3">재고 수량 : ${detail.pro_count}</li>
+		</ul>
 	</div>
 </div>
 		<br>

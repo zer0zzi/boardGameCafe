@@ -35,6 +35,15 @@ ul.search{
 	padding:0;
 	margin:0 auto;
 }
+li .searchbtn{
+	border-radius: 0;
+    background: #fff;
+    border: 1px solid #000;
+    box-shadow: 3px 3px rgb(73 73 73);
+    font-size: 15px;
+    cursor: pointer;	
+    width: 47px;
+}
 ul.search li{
 	display:inline;
 }
@@ -95,6 +104,7 @@ ul.search li{
 .gname{
 	font-size: 15;
 }
+
 /* 페이지 */
 .align-center{
 	text-align:center;
@@ -170,16 +180,31 @@ ul.search li{
 	margin: 5px 17px;
 }
 .game-detail .game-explanation .ex{
-	font-size: 13px;
+	font-size: 14px;
     line-height: 22px;
     overflow: auto;
     max-height: 176px;
     margin: 5px 2px;
 }
-.game-detail .small-footer{
-	margin: 5px 0px 5px 88px;
+
+.small-footer{	
+	/* font-size:0; */
 	font-size: 15px;
-	
+	/* margin-right: 30px; */
+	margin-top:5px;
+	margin-bottom:5px;
+	list-style-type: none;
+}
+.small-footer li{
+	/* float: left; */
+	margin-right: 20px;
+	display: inline-block;
+	text-align: center;
+	background-color: rgba(158, 158, 158, 0.74);
+	margin: 0px 15px 5px 35px;
+	height: 17px;
+    width: 150px;
+	border-radius:15px;
 }
 .ex{
 	white-space:pre-wrap;
@@ -231,31 +256,7 @@ ul.search li{
     left: 780px;
     top: -5px;
 }
-.game-detail .small-footer #1{
-	border-radius:15px;
-	background-color: rgba(158, 158, 158, 0.74);
-	
-}
-.game-detail .small-footer #2{
-	border-radius:15px;
-	background-color: rgba(158, 158, 158, 0.74);
-	
-}
-.game-detail .small-footer #3{
-	border-radius:15px;
-	background-color: rgba(158, 158, 158, 0.74);
-	
-}
-/* .small-footer #1{
-	float: right;
-}
-.small-footer #2{
-	float: center;
-}
-.small-footer #3{
-	float: right;
-}
- */
+
 /* 리뷰 쓰기, 목록 */
 .review_div{
 	clear:both;
@@ -280,10 +281,6 @@ ul.search li{
 /* 게임등록
 -------------------- */
 
-/* .page-main1{
-    margin-top: 15px;
-    margin-left: 720px;
-} */
 .page-main1 h2{
 	padding-left:35%;
 	margin-top:30px;

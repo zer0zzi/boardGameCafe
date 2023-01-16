@@ -39,7 +39,7 @@ $(function(){
                   <input type="search" size="40" height="24px" name="keyword" id="keyword" value="${param.keyword}">
                </li>
                <li>
-                  <input type="submit" value="검색" height="24px">
+                  <input type="submit" value="검색" height="24px" class="searchbtn">
                </li>
             </ul>
         <!-- 관리자 -> 게임관리 버튼 시작 -->
