@@ -124,7 +124,7 @@ ul.search li{
 	width:310px;
 	height:270px;
 	float:left;
-	box-shadow: 0 10px 10px grey;
+	/* box-shadow: 0 10px 10px grey; */
 	
 }
 .detailpage-main .game-detail{
@@ -174,14 +174,77 @@ ul.search li{
     line-height: 22px;
     overflow: auto;
     max-height: 176px;
-    margin: 5px 10px;
+    margin: 5px 2px;
 }
 .game-detail .small-footer{
 	margin: 5px 0px 5px 88px;
 	font-size: 15px;
+	
 }
 .ex{
 	white-space:pre-wrap;
+	background-color: rgba(158, 158, 158, 0.74);
+	width: 600px;
+	border-radius:15px;
+	padding-left: 10px;
+    padding-right: 10px;
+}
+.align-right{
+	position: relative;
+	width: 60px;
+    bottom: 5px;
+    position: relative;
+    left: 950px;
+    bottom: 6px;
+}
+#sbnt{
+    border-radius: 0;
+    background: #fff;
+    border: 1px solid #000;
+    box-shadow: 3px 3px rgb(73 73 73);
+    font-size: 15px;
+    cursor: pointer;
+    width: 42px;
+    height: 18px;	
+}
+.modify-btn{
+	border-radius: 0;
+    background: #fff;
+    border: 1px solid #000;
+    box-shadow: 3px 3px rgb(73 73 73);
+    font-size: 15px;
+    cursor: pointer;
+    position: relative;
+    left: 780px;
+    top: -5px;
+/*     width: 42px;
+    height: 18px; */
+}
+.delete-btn{
+	border-radius: 0;
+    background: #fff;
+    border: 1px solid #000;
+    box-shadow: 3px 3px rgb(73 73 73);
+    font-size: 15px;
+    cursor: pointer;
+    position: relative;
+    left: 780px;
+    top: -5px;
+}
+.game-detail .small-footer #1{
+	border-radius:15px;
+	background-color: rgba(158, 158, 158, 0.74);
+	
+}
+.game-detail .small-footer #2{
+	border-radius:15px;
+	background-color: rgba(158, 158, 158, 0.74);
+	
+}
+.game-detail .small-footer #3{
+	border-radius:15px;
+	background-color: rgba(158, 158, 158, 0.74);
+	
 }
 /* .small-footer #1{
 	float: right;
