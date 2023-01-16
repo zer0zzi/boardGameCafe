@@ -53,7 +53,7 @@ $(function(){
        <!-- 보드 게임 시작 -->
       <div class="image-space">
 
-         <c:forEach var="list" items="${list}">
+         <c:forEach var="list" items="${list}" varStatus="status">
          <div class="horizontal-area">
               <a href="${pageContext.request.contextPath}/game/gameDetail.do?pro_num=${list.pro_num}"> 
                   <img src="${pageContext.request.contextPath}/upload/${list.pro_picture}">
@@ -62,13 +62,13 @@ $(function(){
                   <span>추천 인원 : ${list.person}</span>
                   <br>
                   <b><fmt:formatNumber value="${list.pro_price}"/>원</b>
+                  </a>
                   <!-- 관리자가 로그인하면 삭제 가능 -->
                      <c:if test="${!empty user_num && user_auth == 9}">
-                     <input type="button" value="삭제" id="delete_btn">
+                     <input type="button" value="삭제" class="del-btn" id="delete_btn${status.index}">
                      <script type="text/javascript">
-                        let delete_btn = document.getElementById('delete_btn');
                         //이벤트 연결
-                        delete_btn.onclick=function(){
+                        document.getElementById('delete_btn${status.index}').onclick=function(){
                            let choice = confirm('삭제하시겠습니까?');
                            if(choice){
                               location.replace('gameDelete.do?pro_num=${list.pro_num}');
@@ -76,7 +76,6 @@ $(function(){
                         };
                      </script>
                      </c:if>
-               </a>
            </div>
          </c:forEach>
          </div>

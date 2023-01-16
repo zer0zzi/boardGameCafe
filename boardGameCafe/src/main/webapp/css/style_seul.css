@@ -92,7 +92,7 @@ ul.search li{
 	text-decoration:none;
 	color:black;
 }
-.image-space #delete_btn{
+.image-space .del-btn{
 	/* background:#8aa1a1; */
 	background: #bb2d3b;
 	color: white;
@@ -114,10 +114,17 @@ ul.search li{
 /* 게임상세
 -------------------- */
 .a{
-	margin-top: 5px;
+	/* margin-top: 5px;
     margin-bottom: 10px;
-    margin-left: 15px;
-    
+    margin-left: 15px; */
+    margin-top: 87px;
+    margin-bottom: 10px;
+    margin-left: 114px;
+}
+.page-main{
+	margin: 0 auto;
+	width:1000px;
+	margin-top:60px;
 }
 .detailpage-main{
  	width: 1000px; 
@@ -200,7 +207,7 @@ ul.search li{
 	margin-right: 20px;
 	display: inline-block;
 	text-align: center;
-	background-color: rgba(158, 158, 158, 0.74);
+	background-color: rgba(158, 158, 158, 0.29);
 	margin: 0px 15px 5px 35px;
 	height: 17px;
     width: 150px;
@@ -208,7 +215,7 @@ ul.search li{
 }
 .ex{
 	white-space:pre-wrap;
-	background-color: rgba(158, 158, 158, 0.74);
+	background-color: rgba(158, 158, 158, 0.29);
 	width: 600px;
 	border-radius:15px;
 	padding-left: 10px;
