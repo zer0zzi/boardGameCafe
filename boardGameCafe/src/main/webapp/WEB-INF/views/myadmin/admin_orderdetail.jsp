@@ -66,7 +66,7 @@
 						<input type="hidden" name="order_main_num" value="${order.order_main_num}">
 							<label>배송상태</label>
 							<c:if test="${order.status !=5}">
-							<input type="radio" name="status" id="status" value=1 
+							<input type="radio" name="status" id="status00" value=1 
 							   <c:if test="${order.status == 1}">checked</c:if>>결제완료
 							   
 							   <input type="radio" name="status" id="status" value=2 
