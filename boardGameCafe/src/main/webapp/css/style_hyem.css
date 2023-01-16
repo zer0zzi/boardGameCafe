@@ -213,8 +213,9 @@ form input[type="text"]{
 }
 
 .btn:hover{
-	color: #6c6c6c;
-	transition: 0.5s;
+	background: #8aa1a1;
+	color: #fff;
+	transition: 0.2s;
 }
 
 .filebox input[type="file"]{
@@ -238,6 +239,12 @@ form input[type="text"]{
 	cursor: pointer;
 	vertical-align: middle;
 	float:left;
+}
+
+.filebox label:hover{
+	background: #8aa1a1;
+	color: #fff;
+	transition: 0.2s;
 }
 
 .filebox .inqu-filename{
