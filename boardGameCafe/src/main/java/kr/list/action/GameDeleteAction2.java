@@ -24,7 +24,7 @@ public class GameDeleteAction2 implements Action{
 			return "/WEB-INF/views/common/notice.jsp"; //알려주는 페이지 
 		}
 		//관리자로 로그인 된 경우
-		
+		 
 		int pro_num = Integer.parseInt(request.getParameter("pro_num"));
 		ListDAO dao = ListDAO.getInstance();
 		ListVO db_game = dao.getList(pro_num);
