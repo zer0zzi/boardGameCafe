@@ -125,7 +125,7 @@
 							<input type="number" name="cart_count" min="1" max="${cart.listVo.pro_count}" 
 									value="${cart.cart_count }" class="count_width"style=" width:40px;">
 							<br>
-							<input type="button" value="변경" class="cart-modify"
+							<input type="button" value="변경" class="cart-modify btn"
 											data-cartnum="${cart.cart_num}" 
 											data-pronum="${cart.pro_num}">
 							</c:if>
@@ -147,8 +147,8 @@
 			<div class="price-total align-center"  style="height:50px;"><br><b>총구매금액:</b>
 					<fmt:formatNumber value="${all_total}"/>원
 					</div>				
-					<input type="submit" value="구매하기" style="height:25px;">
-					<input class="shopping"  type="button" value="쇼핑계속하기" onclick=
+					<input class="btn" type="submit" value="구매하기" style="height:25px;">
+					<input class="shopping btn"  type="button" value="쇼핑계속하기" onclick=
 						"location.href='${pageContext.request.contextPath}/game/gameList.do'" style="height:25px;">
 			</form>
 			</div>
