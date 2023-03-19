@@ -86,11 +86,11 @@ $(function(){
 			 <div class="ex">${detail.explanation}</div> 
 		</div>
 		<hr size="1" noshade="noshade">
-		<ul class="small-footer">
-		<li id="1">난이도 : ${detail.pro_level}</li>
-		<li id="2">추천 인원 : ${detail.person}</li> 
-		<li id="3">재고 수량 : ${detail.pro_count}</li>
-		</ul>
+		<div class="small-footer">
+		<span id="1">난이도 : ${detail.pro_level} &nbsp; &nbsp;| &nbsp; &nbsp;</span> 
+		<span id="2">추천 인원 : ${detail.person}  &nbsp; &nbsp;| &nbsp; &nbsp;</span>  
+		<span id="3">재고 수량 : ${detail.pro_count}  &nbsp; &nbsp;</span>  
+		</div>
 	</div>
 </div>
 		<br>
@@ -110,7 +110,7 @@ $(function(){
 				<!-- <span class="letter-count">500/500</span> -->
 			</div>
 			<div id="re_second" class="align-right">
-				<input type="submit" value="전송" id="sbnt">    <!-- 전송하면 어디로 담기는지...? -->
+				<input type="submit" value="전송">    <!-- 전송하면 어디로 담기는지...? -->
 			</div>
 			</c:if>
 		</form>
