@@ -16,4 +16,4 @@
 + 김영지
 
 ## 사용 언어
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=zer0zzi)](https://github.com/zer0zzi/soso/github-readme-stats)
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=zer0zzi)](https://github.com/zer0zzi/boardGameCafe/github-readme-stats)
